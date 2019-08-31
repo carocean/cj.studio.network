@@ -31,6 +31,7 @@ subprojects {
         compile group: 'io.netty', name: 'netty-all', version: '5.0.0.Alpha2'
         compile group: 'cj.studio.ecm', name: 'cj.ultimate', version: ref_cj_ultimate_version
         compile group: 'cj.studio.ecm', name: 'cj.studio.ecm.corelib', version: ref_cj_studio_ecm_corelib_version
+        compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
     }
 
     jar {

@@ -24,6 +24,14 @@ dependencies {
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.25'
     project ':cj.studio.network.corelib'
 }
+task copyReferences(type: Copy) {
+    from configurations.compileClasspath.files {
+        include 'snakeyaml-*.jar'
+    }
+    into 'src/cj/references'
+}
+build.dependsOn('copyReferences')
+
 task releaseToCmdline(type: Copy){
     dependsOn "build"
     from 'build/libs/'

@@ -4,4 +4,6 @@ import java.io.FileNotFoundException;
 
 public interface INetworkNodeConfig {
     void load(String home) throws FileNotFoundException;
+
+    ServerInfo getServerInfo();
 }

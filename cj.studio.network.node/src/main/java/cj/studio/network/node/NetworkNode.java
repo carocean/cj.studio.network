@@ -1,8 +1,10 @@
 package cj.studio.network.node;
 
+import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.ecm.annotation.CjService;
+import cj.studio.network.node.server.TcpNetworkNodeServer;
 
 import java.io.FileNotFoundException;
 
@@ -21,11 +23,20 @@ public class NetworkNode implements INetworkNode {
 
         networkNodeConfig.load(home);
 
-        nodeServer = new NetworkNodeServer(site);
+        nodeServer = createNetworkNodeServer(networkNodeConfig.getServerInfo());
         networkContainer = new NetworkContainer(site);
 
         networkContainer.refresh();
         nodeServer.start();
+    }
+
+    protected INetworkNodeServer createNetworkNodeServer(ServerInfo serverInfo) {
+        switch (serverInfo.getProtocol()) {
+            case "tcp":
+                return new TcpNetworkNodeServer(site);
+            default:
+                throw new EcmException(String.format("不支持的协议：%s", serverInfo.getProtocol()));
+        }
     }
 
     class NodeServiceProvider implements IServiceProvider {

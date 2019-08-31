@@ -2,3 +2,4 @@
 /.gradle/
 /cj.studio.network.node/build/
 /cj.studio.network.peer/build/
+/cj.studio.network.nodestart/build/

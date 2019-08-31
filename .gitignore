@@ -1,0 +1,4 @@
+/cj.studio.network.corelib/build/
+/.gradle/
+/cj.studio.network.node/build/
+/cj.studio.network.peer/build/

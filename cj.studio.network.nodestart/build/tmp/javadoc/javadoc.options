@@ -1,0 +1,9 @@
+-Xdoclint:none '-quiet'
+-charSet 'UTF-8'
+-classpath '/Users/cj/studio/cj.studio.network/cj.studio.network.nodestart/build/classes/java/main:/Users/cj/studio/cj.studio.network/cj.studio.network.nodestart/build/resources/main:/Users/cj/studio/cj.studio.network/cj.studio.network.corelib/build/libs/cj.studio.network.corelib-1.0.0.jar:/Users/cj/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/5.0.0.Alpha2/9870d1ff5e71352077776a255f9d1494486af16/netty-all-5.0.0.Alpha2.jar:/Users/cj/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.studio.ecm.corelib/1.0.0/273351ee2d8579a1730af2b5442d1b34357345c0/cj.studio.ecm.corelib-1.0.0.jar:/Users/cj/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.ultimate/1.0.0/384f23bfce0492c0fa7ba7bd2a72f130f2a488b/cj.ultimate-1.0.0.jar:/Users/cj/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar:/Users/cj/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.17/5af35056b4d257e4b64b9e8069c0746e8b08629f/log4j-1.2.17.jar'
+-d '/Users/cj/studio/cj.studio.network/cj.studio.network.nodestart/build/docs/javadoc'
+-doctitle 'cj.studio.network.nodestart 1.0.0 API'
+-encoding 'UTF-8'
+-quiet 
+-windowtitle 'cj.studio.network.nodestart 1.0.0 API'
+'/Users/cj/studio/cj.studio.network/cj.studio.network.nodestart/src/cj/studio/network/nodestart/Entrypoint.java'

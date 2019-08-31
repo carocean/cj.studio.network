@@ -1,0 +1,6 @@
+Manifest-Version: 1.0.0
+provider: cj crops
+Class-Path: .
+DynamicImport-Package: *
+Main-Class: cj.studio.network.nodestart.Entrypoint
+

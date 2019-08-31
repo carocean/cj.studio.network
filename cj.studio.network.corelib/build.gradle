@@ -1,0 +1,43 @@
+
+group 'cj.studio.network'
+version engineer_version
+
+sourceSets {
+    main {
+        java{
+            srcDir "$projectDir/src"
+        }
+        resources{
+            srcDir "$projectDir/src"
+        }
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+repositories {
+    flatDir(dirs: "$projectDir/global/lib")
+}
+
+dependencies {
+
+}
+task releaseToOutputs(type: Copy){
+    dependsOn "build"
+    from 'build/libs/'
+    into '../outputs'
+    include '**/*.jar'
+}
+task releaseToNode(type: Copy){
+    dependsOn "build"
+    from 'build/libs/'
+    into '../cj.studio.network.node/src/cj/references'
+    include '**/*.jar'
+    exclude '**/*-javadoc.jar','**/*-sources.jar'
+}
+task release(type: Copy){
+    dependsOn "releaseToNode","releaseToOutputs"
+}

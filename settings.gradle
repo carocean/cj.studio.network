@@ -1,0 +1,6 @@
+rootProject.name = 'cj.studio.network'
+include 'cj.studio.network.corelib'
+include 'cj.studio.network.peer'
+include 'cj.studio.network.node'
+include 'cj.studio.network.nodestart'
+

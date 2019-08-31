@@ -1,0 +1,36 @@
+{
+	entryPoint : {
+		plugins:[],
+		activators : [
+		              
+			]
+	},
+	assemblyInfo : {
+		assemblyTitle : "network-node",
+		assemblyResource:"/",
+		assemblyDescription : "网络节点",
+		assemblyConfiguration : "",
+		assemblyCompany : "开发者：cj;研发机构：cj studio",
+		assemblyProduct : "cj.studio.network.node",
+		assemblyCopyright : "Copyright   2011",
+		assemblyTrademark : "",
+		assemblyCulture : "",
+		guid : "72E91BEC-D2C3-4491-97E6-E218E8F87ECD",
+		assemblyVersion : "1.0.0.0",
+		assemblyFileVersion : "1.0.0.0",
+		assemblyIcon:"favicon.ico"
+	},
+	global:{
+		default:"zh_CN",
+		desc:"如果系统环境要求各芯片采用的语言本芯片没有，则芯片可采用默认语言"
+		},
+	serviceContainer : {
+		name : "netContainer",
+		scans : [{
+					package : "cj.studio.network.node",
+					extName : ".class|.json|.xml",
+					exoterical:"true"
+				}]
+
+	}
+}

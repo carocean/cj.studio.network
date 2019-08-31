@@ -1,0 +1,5 @@
+server:
+  host: tcp://localhost:6600
+  props:
+    key1: xxxx
+    key2: bbbb

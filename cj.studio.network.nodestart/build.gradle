@@ -1,0 +1,65 @@
+group 'cj.studio.network'
+version engineer_version
+apply plugin:'application'
+mainClassName = "cj.studio.network.nodestart.Entrypoint"
+sourceSets {
+    main {
+        java{
+            srcDir "$projectDir/src"
+        }
+        resources{
+            srcDir "$projectDir/src"
+        }
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+repositories {
+    mavenCentral();
+    flatDir(dirs: "$projectDir/global/lib")
+}
+jar {
+    manifest {
+        attributes 'Manifest-Version': version,
+                'Class-Path': '.',
+                'Main-Class':'cj.studio.network.nodestart.Entrypoint',
+                'DynamicImport-Package':'*'
+    }
+}
+
+dependencies {
+    compile('commons-cli:commons-cli:1.2')
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile project(':cj.studio.network.corelib');
+
+}
+task runnableJar(dependsOn:':cj.studio.network.node:release',type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'cj.studio.network.nodestart.Entrypoint'
+    }
+    baseName = 'nodestart'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task releaseNetworkStart(dependsOn: runnableJar,type: Copy) {
+    dependsOn "build"
+    from 'build/libs/'
+    into '../cmdtools/network'
+    include '**/*.jar'
+    exclude '**/*-javadoc.jar','**/*-sources.jar'
+}
+
+task release(type: Copy) {
+    dependsOn "releaseNetworkStart",":cj.studio.network.corelib:release",":cj.studio.network.node:release",":cj.studio.network.peer:release"
+    doLast {
+        println 'gateway 环境发布完毕!'
+    }
+}
+tasks.getByPath(':cj.studio.network.node:release').mustRunAfter tasks.getByPath(':cj.studio.network.corelib:release')
+tasks.getByPath(':cj.studio.network.peer:release').mustRunAfter tasks.getByPath(':cj.studio.network.corelib:release')

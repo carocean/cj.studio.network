@@ -1,0 +1,92 @@
+group 'cj.studio.network'
+version '1.0-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'maven'
+    version = engineer_version
+    sourceSets {
+        main {
+            java{
+                srcDir "$projectDir/src"
+            }
+            resources{
+                srcDir "$projectDir/src"
+            }
+        }
+    }
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven{
+            url engineer_nexus
+        }
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'io.netty', name: 'netty-all', version: '5.0.0.Alpha2'
+        compile group: 'cj.studio.ecm', name: 'cj.ultimate', version: ref_cj_ultimate_version
+        compile group: 'cj.studio.ecm', name: 'cj.studio.ecm.corelib', version: ref_cj_studio_ecm_corelib_version
+    }
+
+    jar {
+        manifest.attributes provider: 'cj crops'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+        options.addStringOption('charSet', 'UTF-8')
+    }
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+    artifacts {
+        archives jar
+        archives javadocJar
+        archives sourcesJar
+    }
+
+    uploadArchives {
+        repositories{
+            mavenDeployer {
+                repository(url: engineer_nexus){
+                    authentication(userName:"admin",password:"admin123")
+                }
+                pom.groupId = project.group
+                pom.version = project.version
+                pom.artifactId = project.name
+                pom.project{
+                    name project.name
+                    packaging 'jar'
+                    description ''
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution ''
+                        }
+                    }
+                    developers{
+                        developer {
+                            id 'cj'
+                            name 'Carocean Jofers'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

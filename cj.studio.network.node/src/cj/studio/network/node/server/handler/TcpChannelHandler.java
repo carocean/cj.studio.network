@@ -3,12 +3,12 @@ package cj.studio.network.node.server.handler;
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.logging.ILogging;
-import cj.studio.ecm.net.Circuit;
+import cj.studio.network.Frame;
+import cj.studio.network.PackFrame;
+import cj.studio.network.node.VerifyException;
 import cj.studio.network.node.INetworkContainer;
-import cj.studio.network.node.ServerInfo;
-import cj.studio.util.reactor.Event;
-import cj.studio.util.reactor.IReactor;
-import cj.studio.util.reactor.Reactor;
+import cj.studio.network.node.INetworkNodeApp;
+import cj.studio.util.reactor.*;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
@@ -21,10 +21,14 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     // 心跳丢失计数器
     private int counter;
     IReactor reactor;
+    INetworkContainer container;
+    INetworkNodeApp app;
 
     public TcpChannelHandler(IServiceProvider parent) {
         logger = CJSystem.logging();
-        reactor = Reactor.open();
+        reactor = (IReactor) parent.getService("$.reactor");
+        container = (INetworkContainer) parent.getService("$.network.container");
+        app = (INetworkNodeApp) parent.getService("$.network.app");
     }
 
     @Override
@@ -45,6 +49,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         //如果心跳则退出，如果是空消息则退出，如果不是frame格式则退出
+        //从container中找key，将消息放入reactor
         ByteBuf bb = (ByteBuf) msg;
         if (bb.readableBytes() == 0) {
             return;
@@ -52,17 +57,51 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         byte[] b = new byte[bb.readableBytes()];
         bb.readBytes(b);
         bb.release();
-
-        String key="";
-        String cmd="";
-        Event event = new Event(key,cmd);
+        if (b.length < 1) {
+            return;
+        }
+        PackFrame pack = new PackFrame(b);
+        if (pack.isInvalid()) {
+            return;
+        }
+        if (pack.isHeartbeat()) {
+            return;
+        }
+        Frame frame = pack.getFrame();
+        //这中间添加第三方验证frame的令牌的逻辑，如果需要的话。验证的逻辑从节点应用中调取
+        try {
+            app.verifyFrame(frame);
+        } catch (Throwable e) {//验证不通过将错误信息发给管理网络，并由管理网络决定是否关闭该channel，
+            String cmd = "doNotVerifyFrame";
+            String network = container.getManagerNetworkInfo().getName();
+            Event event = new Event(network, cmd);
+            event.getParameters().put("frame", frame);
+            event.getParameters().put("channel", ctx.channel());
+            reactor.input(event);
+            return;
+        }
+        String network = frame.rootName();
+        if (!container.existsNetwork(network)) {//如果不存在请求的网络则走管理网络，管理网络负责将这错误发给侦听的客户端
+            String cmd = "doNotExistsNetwork";
+            //发给管理网络
+            network = container.getManagerNetworkInfo().getName();
+            Event event = new Event(network, cmd);
+            event.getParameters().put("frame", frame);
+            event.getParameters().put("channel", ctx.channel());
+            reactor.input(event);
+            return;
+        }
+        //以下路由到所请求的通道
+        String cmd = frame.command();
+        Event event = new Event(network, cmd);
+        event.getParameters().put("frame", frame);
+        event.getParameters().put("channel", ctx.channel());
         reactor.input(event);
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
-
     }
 
     @Override

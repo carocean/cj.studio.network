@@ -11,4 +11,14 @@ public class NetworkContainer implements INetworkContainer {
     public NetworkContainer(IServiceProvider site) {
 
     }
+
+    @Override
+    public boolean existsNetwork(String network) {
+        return false;
+    }
+
+    @Override
+    public NetworkInfo getManagerNetworkInfo() {
+        return null;
+    }
 }

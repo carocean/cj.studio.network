@@ -11,7 +11,7 @@ public class ServerInfo {
     String protocol;
     String host;
     int port;
-    Map<String,String> props;
+    Map<String,Object> props;
 
     @Override
     public String toString() {
@@ -66,7 +66,7 @@ public class ServerInfo {
         return port;
     }
 
-    public Map<String, String> getProps() {
+    public Map<String, Object> getProps() {
         return props;
     }
 }

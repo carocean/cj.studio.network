@@ -17,6 +17,7 @@ public class TcpChannelInitializer extends ChannelInitializer<SocketChannel> {
     long heartbeat;
 
     public TcpChannelInitializer(IServiceProvider parent) {
+        this.parent=parent;
         this.heartbeat = (long) parent.getService("$.server.heartbeat");
     }
 

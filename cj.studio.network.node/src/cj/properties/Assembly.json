@@ -1,0 +1,39 @@
+{
+	entryPoint : {
+		plugins: [
+
+		],
+		activators: [
+		]
+	},
+	assemblyInfo : {
+		assemblyTitle : "network-node",
+		assemblyResource:"site=/site;http.root=$(site)/web;http.jss=$(site)/jss/http;ws.jss=$(site)/jss/ws",
+		assemblyDescription : "cj工作室出品，lns平台制造",
+		assemblyConfiguration : "",
+		assemblyCompany : "cj工作室",
+		assemblyProduct : "cj.studio.network.node",
+		assemblyCopyright : "Copyright   2011",
+		assemblyTrademark : "",
+		assemblyCulture : "",
+		guid : "270F023C-C1AA-42AF-8A3F-1647A6F1053E",
+		assemblyVersion : "1.0.0.0",
+		assemblyFileVersion : "1.0.0.0"
+	},
+	global:{
+		default:"zh_CN",
+		desc:"如果系统环境要求各芯片采用的语言本芯片没有，则芯片可采用默认语言"
+		},
+	serviceContainer : {
+		name : "netContainer",
+		switchFilter:"off",
+		monitor: "",
+		jss:[],
+		scans : [{
+					package : "cj.studio.network.node",
+					extName : ".class|.json|.xml",
+					exoterical:"true"
+				}]
+
+	}
+}

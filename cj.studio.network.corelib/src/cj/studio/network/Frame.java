@@ -171,7 +171,7 @@ public class Frame implements IPrinter, IDisposable {
     }
 
 
-    public synchronized byte[] toBytes() throws CircuitException {
+    public synchronized byte[] toBytes() {
         ByteBuf b = toByteBuf();
         byte[] newArr = new byte[b.readableBytes()];
         b.readBytes(newArr);
@@ -847,13 +847,13 @@ public class Frame implements IPrinter, IDisposable {
     }
 
     @Override
-    public void print(StringBuffer sb, String indent) throws CircuitException {
+    public void print(StringBuffer sb, String indent)  {
         if (sb == null)
             return;
         sb.append(new String(toBytes()));
     }
 
-    public ByteBuf toByteBuf() throws CircuitException {
+    public ByteBuf toByteBuf()  {
         ByteBuf b = Unpooled.buffer();
         byte[] crcf = null;
         try {

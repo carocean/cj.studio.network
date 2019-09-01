@@ -1,5 +1,18 @@
 server:
   host: tcp://localhost:6600
   props:
-    key1: xxxx
-    key2: bbbb
+    workThreadCount: 8
+    bossThreadCount: 1
+reactor:
+  workThreadCount: 10
+  queueCapacity: 10000
+managerNetwork:
+  name: manager.network
+  castmode: multicast
+generalNetworks:
+  -
+    name: network1
+    castmode: unicast
+  -
+    name: network2
+    castmode: multicast

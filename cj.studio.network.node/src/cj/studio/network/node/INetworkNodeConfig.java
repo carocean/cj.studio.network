@@ -6,4 +6,6 @@ public interface INetworkNodeConfig {
     void load(String home) throws FileNotFoundException;
 
     ServerInfo getServerInfo();
+
+    ReactorInfo getReactorInfo();
 }

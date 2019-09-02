@@ -50,45 +50,53 @@ public class Network implements INetwork {
         bb.writeBytes(box, 0, box.length);
         switch (info.getCastmode()) {
             case "unicast":
-                if (channels.isEmpty()) {
-                    return;
-                }
-                Channel one = null;
-                boolean found=false;
-                int hc=frame.hashCode();
-                for (int i = 0; i < channels.size(); i++) {
-                    one = channels.get((hc+i) % channels.size());
-                    if (one == null) {
-                        continue;
-                    }
-                    if (!one.isWritable()) {
-                        one.close();
-                        channels.remove(one);
-                        continue;
-                    }
-                    found=true;
-                    break;
-                }
-                if(!found||one==null){
-                    return;
-                }
-
-                one.writeAndFlush(bb);
+                unicast(frame, bb);
                 break;
             case "multicast":
-                for (Channel ch : channels) {
-                    if (ch == null) {
-                        continue;
-                    }
-                    if (!ch.isWritable()) {
-                        ch.close();
-                        channels.remove(ch);
-                    }
-                    ch.writeAndFlush(bb);
-                }
+                multicast(frame, bb);
                 break;
             default:
                 break;
         }
+    }
+
+    private void multicast(Frame frame, ByteBuf bb) {
+        for (Channel ch : channels) {
+            if (ch == null) {
+                continue;
+            }
+            if (!ch.isWritable()) {
+                ch.close();
+                channels.remove(ch);
+            }
+            ch.writeAndFlush(bb);
+        }
+    }
+
+    private void unicast(Frame frame, ByteBuf bb) {
+        if (channels.isEmpty()) {
+            return;
+        }
+        Channel one = null;
+        boolean found = false;
+        int hc = frame.hashCode();
+        for (int i = 0; i < channels.size(); i++) {
+            one = channels.get((hc + i) % channels.size());
+            if (one == null) {
+                continue;
+            }
+            if (!one.isWritable()) {
+                one.close();
+                channels.remove(one);
+                continue;
+            }
+            found = true;
+            break;
+        }
+        if (!found || one == null) {
+            return;
+        }
+
+        one.writeAndFlush(bb);
     }
 }

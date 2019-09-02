@@ -1,6 +1,6 @@
 package cj.studio.network.node;
 
-import cj.ultimate.util.StringUtil;
+import cj.studio.network.NetworkInfo;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -42,7 +42,8 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
             return;
         }
         for(Map<String, Object> obj:generalNetworks){
-            managerInfo=new NetworkInfo((String)obj.get("name"),(String)obj.get("castmode"));
+            NetworkInfo info=new NetworkInfo((String)obj.get("name"),(String)obj.get("castmode"));
+            this.generalNetworks.put(info.getName(),info);
         }
     }
 
@@ -53,6 +54,14 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
     private void parseServerInfo(Map<String, Object> node) {
         serverInfo=new ServerInfo();
         serverInfo.parse(node);
+    }
+    @Override
+    public Map<String, NetworkInfo> getGeneralNetworks() {
+        return generalNetworks;
+    }
+    @Override
+    public NetworkInfo getManagerNetwork() {
+        return managerNetwork;
     }
 
     @Override

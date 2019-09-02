@@ -72,9 +72,9 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
             throw new EcmException(String.format("服务器:%s已启动", serverInfo));
         }
         String strbossThreadCount = serverInfo.getProps().get("bossThreadCount") == null ? "" : serverInfo.getProps().get("bossThreadCount") + "";
-        this.bossThreadCount = StringUtil.isEmpty(strbossThreadCount)||"0".equals(strbossThreadCount) ? 1 : Integer.valueOf(strbossThreadCount);
+        this.bossThreadCount = StringUtil.isEmpty(strbossThreadCount) || "0".equals(strbossThreadCount) ? 1 : Integer.valueOf(strbossThreadCount);
         String strworkThreadCount = serverInfo.getProps().get("workThreadCount") == null ? "" : serverInfo.getProps().get("workThreadCount") + "";
-        this.workThreadCount = StringUtil.isEmpty(strworkThreadCount)||"0".equals(strworkThreadCount) ? Math.max(1, SystemPropertyUtil.getInt(
+        this.workThreadCount = StringUtil.isEmpty(strworkThreadCount) || "0".equals(strworkThreadCount) ? Math.max(1, SystemPropertyUtil.getInt(
                 "io.netty.eventLoopThreads", Runtime.getRuntime().availableProcessors() * 2)) : Integer.valueOf(strworkThreadCount);
 
         String interval = serverInfo.getProps().get("heartbeat") == null ? "" : serverInfo.getProps().get("heartbeat") + "";
@@ -112,11 +112,10 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         ReactorInfo reactorInfo = config.getReactorInfo();
         int workThreadCount = reactorInfo.workThreadCount();
         int capacity = reactorInfo.queueCapacity();
-        IPipelineCombination combination = new ReactorPipelineCombination();
+        IPipelineCombination combination = new ReactorPipelineCombination(site);
 
         reactor = Reactor.open(DefaultReactor.class, workThreadCount, capacity, combination, new ReactorServiceProvider(this));
     }
-
 
 
     class ReactorServiceProvider implements cj.studio.util.reactor.IServiceProvider {

@@ -1,16 +1,17 @@
 package cj.studio.network;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 
 class DefaultCircuitContent implements ICircuitContent {
      ByteBuf buf;
 
-    public DefaultCircuitContent(ByteBuf buf, int capacity) {
-        this.buf = buf;
+    public DefaultCircuitContent( int capacity) {
+        this(Unpooled.buffer(8192));// 默认8K
     }
 
     public DefaultCircuitContent(ByteBuf buf) {
-        this(buf, 8192);// 默认8K
+        this.buf = buf;
     }
 
 
@@ -19,6 +20,11 @@ class DefaultCircuitContent implements ICircuitContent {
         buf.readBytes(b, 0, b.length);
         buf.clear();
         return b;
+    }
+
+    @Override
+    public void writeBytes(ByteBuf buf) {
+        this.buf.writeBytes(buf);
     }
 
     @Override

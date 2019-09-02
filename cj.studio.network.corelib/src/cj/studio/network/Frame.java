@@ -36,7 +36,7 @@ public class Frame implements IPrinter, IDisposable {
     public void dispose() {
         headmap.clear();
         parametermap.clear();
-        ((FrameContent) content).buf.clear();
+        ((DefaultFrameContent) content).buf.release();
     }
 
     Frame() {
@@ -60,6 +60,14 @@ public class Frame implements IPrinter, IDisposable {
      * @param frame_line
      */
     public Frame(String frame_line, int capacity) {
+        this(frame_line, Unpooled.buffer(capacity));
+    }
+
+    public Frame(String frame_line, ByteBuf contentData) {
+        headmap = new HashMap<String, String>(8);
+        parametermap = new HashMap<String, String>(4);
+        content = new DefaultFrameContent(contentData);
+
         String[] arr = frame_line.split(" ");// 这种方法如果地址参数中含有空格，则会解析错误，因此将来应改为正则
         if (arr.length < 3)
             throw new RuntimeException("侦头行格式错");
@@ -76,12 +84,9 @@ public class Frame implements IPrinter, IDisposable {
         String uri = arr[1];
         head("url", uri);
         head("protocol", arr[2].toUpperCase());
-        ByteBuf buf = Unpooled.buffer(capacity);
-        init(buf);
     }
 
-
-    public Frame(byte[] frameRaw) throws CircuitException {
+    public Frame(byte[] frameRaw) {
         this(frameRaw, 8192);
     }
 
@@ -98,8 +103,15 @@ public class Frame implements IPrinter, IDisposable {
      *
      * @param frameRaw
      */
-    public Frame(byte[] frameRaw, int capacity) throws CircuitException {
-        ByteBuf buf = Unpooled.buffer(8192);
+    public Frame(byte[] frameRaw, int capacity) {
+        this(frameRaw, Unpooled.buffer(capacity));
+    }
+
+    public Frame(byte[] frameRaw, ByteBuf contentData) {
+        headmap = new HashMap<String, String>(8);
+        parametermap = new HashMap<String, String>(4);
+        content = new DefaultFrameContent(contentData);
+
         int up = 0;
         int down = 0;
         byte field = 0;// 0=heads;1=params;2=content
@@ -116,7 +128,7 @@ public class Frame implements IPrinter, IDisposable {
                 down = frameRaw.length;// 非常变态，bytebuf数组总是在结尾入多一个0，因此其长度总是比写入的长度多1个字节
                 byte[] b = new byte[down - up];
                 System.arraycopy(frameRaw, up, b, 0, b.length);
-                buf.writeBytes(b, 0, b.length);
+                contentData.writeBytes(b, 0, b.length);
                 break;
             }
             if (frameRaw[down] == '\r' && (down + 1 < frameRaw.length && frameRaw[down + 1] == '\n')) {// 跳行
@@ -161,13 +173,6 @@ public class Frame implements IPrinter, IDisposable {
             }
             down++;
         }
-        init(buf);
-    }
-
-    private void init(ByteBuf buf) {
-        headmap = new HashMap<String, String>(8);
-        parametermap = new HashMap<String, String>(4);
-        content = new FrameContent(buf);
     }
 
 
@@ -354,7 +359,7 @@ public class Frame implements IPrinter, IDisposable {
      * { "head":{"key1":"v1","key2":"v2"}, "para":{"key1":"v1","key2":"v2"},
      * "content":"" }
      */
-    public String toJson() throws CircuitException {
+    public String toJson() {
         StringBuffer sb = new StringBuffer();
         sb.append("{");
         if (headmap.isEmpty()) {
@@ -397,7 +402,7 @@ public class Frame implements IPrinter, IDisposable {
     }
 
 
-    public void fromJson(String text) throws CircuitException {
+    public void fromJson(String text) {
         Gson gson = new Gson();
         JsonElement e = gson.fromJson(text, JsonElement.class);
         JsonObject f = e.getAsJsonObject();
@@ -424,7 +429,7 @@ public class Frame implements IPrinter, IDisposable {
         JsonElement conte = f.get("content");
         if (conte != null) {
             byte[] b = conte.getAsString().getBytes();
-            FrameContent frameContent = (FrameContent) content;
+            DefaultFrameContent frameContent = (DefaultFrameContent) content;
             frameContent.buf.writeBytes(b, 0, b.length);
         }
     }
@@ -842,18 +847,20 @@ public class Frame implements IPrinter, IDisposable {
      *
      */
     @Override
-    public void print(StringBuffer sb) throws CircuitException {
+    public void print(StringBuffer sb) {
         print(sb, null);
     }
 
     @Override
-    public void print(StringBuffer sb, String indent)  {
+    public void print(StringBuffer sb, String indent) {
         if (sb == null)
             return;
+        sb.append(this);
+        sb.append("\r\n");
         sb.append(new String(toBytes()));
     }
 
-    public ByteBuf toByteBuf()  {
+    public ByteBuf toByteBuf() {
         ByteBuf b = Unpooled.buffer();
         byte[] crcf = null;
         try {
@@ -892,7 +899,7 @@ public class Frame implements IPrinter, IDisposable {
         }
         b.writeBytes(crcf);
         if (this.content.readableBytes() > 0) {
-            FrameContent cnt = (FrameContent) content;
+            DefaultFrameContent cnt = (DefaultFrameContent) content;
             byte[] data = cnt.readFully();
             b.writeBytes(data);
         }

@@ -28,6 +28,8 @@ public class Circuit implements IPrinter, IDisposable {
     }
 
     public Circuit(String frame_line, int capacity) {
+        headmap = new HashMap<>();
+        attributemap = new HashMap<>();
         String[] arr = frame_line.split(" ");
         if (arr.length > 0)
             head("protocol", arr[0].toUpperCase());
@@ -37,14 +39,76 @@ public class Circuit implements IPrinter, IDisposable {
             head("message", arr[2]);
         if (arr.length > 3)
             throw new RuntimeException("格式错误");
-        createContent(capacity);
+        content = new DefaultCircuitContent(capacity);
     }
 
-    protected ICircuitContent createContent(int capacity) {
-        ByteBuf buf = null;
-        buf = Unpooled./* directBuffer */buffer(capacity);
-        return new DefaultCircuitContent(buf, capacity);
+    public Circuit(byte[] frameRaw) {
+        headmap = new HashMap<String, String>(8);
+        content  = new DefaultCircuitContent(8192);
+
+        int up = 0;
+        int down = 0;
+        byte field = 0;// 0=heads;1=params;2=content
+
+        while (down < frameRaw.length) {
+            if (field < 2) {// 修改了当内容的头几行是连续空行的情况的bug因此使用了field<2
+                if (frameRaw[up] == '\r' && (up + 1 < frameRaw.length && frameRaw[up + 1] == '\n')) {// 跳域
+                    field++;
+                    up += 2;
+                    down += 2;
+                    continue;
+                }
+            } else {
+                down = frameRaw.length;// 非常变态，bytebuf数组总是在结尾入多一个0，因此其长度总是比写入的长度多1个字节
+                byte[] b = new byte[down - up];
+                System.arraycopy(frameRaw, up, b, 0, b.length);
+                content.writeBytes(b, 0, b.length);
+                break;
+            }
+            if (frameRaw[down] == '\r' && (down + 1 < frameRaw.length && frameRaw[down + 1] == '\n')) {// 跳行
+                byte[] b = new byte[down - up];
+                System.arraycopy(frameRaw, up, b, 0, b.length);
+                try {
+                    switch (field) {
+                        case 0:
+                            String kv = new String(b, CODE);
+                            int at = kv.indexOf("=");
+                            String k = kv.substring(0, at);
+                            String v = kv.substring(at + 1, kv.length());
+                            if ("protocol".equals(k)) {
+                                if (v != null)
+                                    v = v.toUpperCase();
+                            }
+                            headmap.put(k, v);
+                            // if ("url".equals(k)
+                            // && !StringUtil.isEmpty(queryString())) {
+                            // String[] pair = queryString().split("&");
+                            // for (String a : pair) {
+                            // String[] t = a.split("=");
+                            // String s = t.length > 1 ? t[1] : null;
+                            // parametermap.put(t[0], s);
+                            // }
+                            // }
+                            break;
+                        case 1://回路路是没有参数的，所以什么也不做
+                            kv = new String(b, CODE);
+                            at = kv.indexOf("=");
+                            k = kv.substring(0, at);
+                            v = kv.substring(at + 1, kv.length());
+//                            parametermap.put(k, "".equals(v) ? null : v);
+                            break;
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                down += 2;
+                up = down;
+                continue;
+            }
+            down++;
+        }
     }
+
 
     public boolean containAtrribute(String attr) {
         if (attributemap == null) {
@@ -58,7 +122,7 @@ public class Circuit implements IPrinter, IDisposable {
         headmap.clear();
         if (attributemap != null)
             attributemap.clear();
-        ((DefaultCircuitContent)content).buf.clear();
+        ((DefaultCircuitContent) content).buf.clear();
     }
 
 

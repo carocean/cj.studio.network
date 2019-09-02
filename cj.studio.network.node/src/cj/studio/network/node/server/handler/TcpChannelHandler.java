@@ -3,13 +3,15 @@ package cj.studio.network.node.server.handler;
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.logging.ILogging;
+import cj.studio.network.Circuit;
 import cj.studio.network.Frame;
 import cj.studio.network.PackFrame;
-import cj.studio.network.node.VerifyException;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.network.node.INetworkNodeApp;
 import cj.studio.util.reactor.*;
+import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -56,7 +58,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         }
         byte[] b = new byte[bb.readableBytes()];
         bb.readBytes(b);
-        bb.release();
+//        bb.release();//系统会释放
         if (b.length < 1) {
             return;
         }
@@ -68,25 +70,24 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
             return;
         }
         Frame frame = pack.getFrame();
-        //这中间添加第三方验证frame的令牌的逻辑，如果需要的话。验证的逻辑从节点应用中调取
-        try {
-            app.verifyFrame(frame);
-        } catch (Throwable e) {//验证不通过将错误信息发给管理网络，并由管理网络决定是否关闭该channel，
-            String cmd = "doNotVerifyFrame";
-            String network = container.getManagerNetworkInfo().getName();
-            Event event = new Event(network, cmd);
-            event.getParameters().put("frame", frame);
-            event.getParameters().put("channel", ctx.channel());
-            reactor.input(event);
+        if(frame==null){
             return;
         }
         String network = frame.rootName();
+        if (StringUtil.isEmpty(network)) {
+            return;
+        }
+
         if (!container.existsNetwork(network)) {//如果不存在请求的网络则走管理网络，管理网络负责将这错误发给侦听的客户端
-            String cmd = "doNotExistsNetwork";
             //发给管理网络
-            network = container.getManagerNetworkInfo().getName();
-            Event event = new Event(network, cmd);
-            event.getParameters().put("frame", frame);
+            String mwNetwork = container.getManagerNetworkInfo().getName();
+            ByteBuf data= Unpooled.buffer();
+            Frame f = new Frame(String.format("error /%s network/1.0", mwNetwork), data);
+            Circuit c=new Circuit(String.format("network/1.0 404 The Network %s is Not Exists.",network));
+            c.content().writeBytes(frame.toByteBuf());
+            data.writeBytes(c.toByteBuf());
+            Event event = new Event(mwNetwork, f.command());
+            event.getParameters().put("frame", f);
             event.getParameters().put("channel", ctx.channel());
             reactor.input(event);
             return;
@@ -107,12 +108,19 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         counter = 0;
+        container.onChannelInactive(ctx.channel());
         super.channelInactive(ctx);
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        // TODO Auto-generated method stub
-        super.exceptionCaught(ctx, cause);
+        cause.printStackTrace();
+        String network = container.getManagerNetworkInfo().getName();
+        Frame frame = new Frame(String.format("error /%s network/1.0", network));
+        Event event = new Event(network, frame.command());
+        event.getParameters().put("frame", frame);
+        event.getParameters().put("channel", ctx.channel());
+        reactor.input(event);
+
     }
 }

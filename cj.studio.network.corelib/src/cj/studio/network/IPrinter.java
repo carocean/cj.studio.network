@@ -7,9 +7,8 @@ public interface IPrinter {
      * 由于图可以动态构建，因此每次打印的图可能不同
      *
      * @return
-     * @throws CircuitException
      */
-    void print(StringBuffer sb) throws CircuitException;
+    void print(StringBuffer sb) ;
 
     /**
      * 将当前对象信息打印到sb中。<br>
@@ -21,5 +20,5 @@ public interface IPrinter {
      * @param indent TODO 缩进
      * @return
      */
-    void print(StringBuffer sb, String indent) throws CircuitException;
+    void print(StringBuffer sb, String indent);
 }

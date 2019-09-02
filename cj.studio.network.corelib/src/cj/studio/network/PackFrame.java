@@ -19,6 +19,7 @@ public class PackFrame {
         }
         byte[] frameRaw = new byte[pack.length - 1];
         System.arraycopy(pack, 1, frameRaw, 0, frameRaw.length);
+        frame=new Frame(frameRaw);
     }
 
     public byte[] toBytes() {

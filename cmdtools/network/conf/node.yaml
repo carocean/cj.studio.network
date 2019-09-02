@@ -7,12 +7,12 @@ reactor:
   workThreadCount: 10
   queueCapacity: 10000
 managerNetwork:
-  name: manager.network
+  name: manager-network
   castmode: multicast
 generalNetworks:
   -
-    name: network1
+    name: network-1
     castmode: unicast
   -
-    name: network2
+    name: network-2
     castmode: multicast

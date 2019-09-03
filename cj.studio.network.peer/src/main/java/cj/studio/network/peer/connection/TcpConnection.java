@@ -2,7 +2,7 @@ package cj.studio.network.peer.connection;
 
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.net.util.TcpFrameBox;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.peer.IConnection;
 import cj.ultimate.util.StringUtil;
@@ -48,7 +48,7 @@ public class TcpConnection implements IConnection {
     }
 
     @Override
-    public void send(Frame frame) {
+    public void send(NetworkFrame frame) {
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
         ByteBuf bb = Unpooled.buffer();

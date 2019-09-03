@@ -1,6 +1,6 @@
 package cj.studio.network.peer;
 
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ public interface IConnection {
 
     void close();
 
-    void send(Frame frame);
+    void send(NetworkFrame frame);
 
     boolean isConnected();
 

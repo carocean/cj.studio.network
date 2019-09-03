@@ -1,8 +1,8 @@
 package cj.studio.network.peer;
 
 import cj.studio.ecm.IServiceProvider;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 
 public interface IOnmessage {
-    void onmessage(Frame frame, IServiceProvider site);
+    void onmessage(NetworkFrame frame, IServiceProvider site);
 }

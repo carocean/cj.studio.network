@@ -3,7 +3,7 @@ package cj.studio.network.peer;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 
 class NetworkPeer implements INetworkPeer,IServiceProvider {
 
@@ -19,7 +19,7 @@ class NetworkPeer implements INetworkPeer,IServiceProvider {
     }
 
     @Override
-    public void send(Frame frame) {
+    public void send(NetworkFrame frame) {
         if (!connection.isConnected()) {
             throw new EcmException("连接未打开");
         }
@@ -29,7 +29,7 @@ class NetworkPeer implements INetworkPeer,IServiceProvider {
     }
 
     @Override
-    public void recieve(Frame frame) {
+    public void recieve(NetworkFrame frame) {
         if (onmessage != null) {
             onmessage.onmessage(frame,this);
         }

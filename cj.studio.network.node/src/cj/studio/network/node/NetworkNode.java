@@ -1,5 +1,6 @@
 package cj.studio.network.node;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
@@ -28,6 +29,7 @@ public class NetworkNode implements INetworkNode {
         networkContainer = new NetworkContainer(site);
 
         nodeServer.start();
+        CJSystem.logging().info(getClass(),String.format("服务地址:%s",networkNodeConfig.getServerInfo()));
     }
 
     protected INetworkNodeServer createNetworkNodeServer(ServerInfo serverInfo) {

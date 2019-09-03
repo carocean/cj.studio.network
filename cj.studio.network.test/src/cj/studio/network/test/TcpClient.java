@@ -1,7 +1,6 @@
 package cj.studio.network.test;
 
-import cj.studio.ecm.net.CircuitException;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -10,13 +9,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-import io.netty.handler.timeout.IdleStateHandler;
-
-import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class TcpClient {
     EventLoopGroup exepool;
@@ -72,7 +64,7 @@ public class TcpClient {
             if (pack.isHeartbeat()) {
                 return;
             }
-            Frame frame = pack.getFrame();
+            NetworkFrame frame = pack.getFrame();
             if(frame==null){
                 return;
             }

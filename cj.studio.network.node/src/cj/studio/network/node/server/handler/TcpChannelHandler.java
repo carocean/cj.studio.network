@@ -3,8 +3,8 @@ package cj.studio.network.node.server.handler;
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.logging.ILogging;
-import cj.studio.network.Circuit;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkCircuit;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.network.node.INetworkNodeApp;
@@ -69,7 +69,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         if (pack.isHeartbeat()) {
             return;
         }
-        Frame frame = pack.getFrame();
+        NetworkFrame frame = pack.getFrame();
         if(frame==null){
             return;
         }
@@ -82,8 +82,8 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
             //发给管理网络
             String mwNetwork = container.getManagerNetworkInfo().getName();
             ByteBuf data= Unpooled.buffer();
-            Frame f = new Frame(String.format("error /%s network/1.0", mwNetwork), data);
-            Circuit c=new Circuit(String.format("network/1.0 404 The Network %s is Not Exists.",network));
+            NetworkFrame f = new NetworkFrame(String.format("error /%s network/1.0", mwNetwork), data);
+            NetworkCircuit c=new NetworkCircuit(String.format("network/1.0 404 The Network %s is Not Exists.",network));
             c.content().writeBytes(frame.toByteBuf());
             data.writeBytes(c.toByteBuf());
             Event event = new Event(mwNetwork, f.command());
@@ -116,7 +116,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         String network = container.getManagerNetworkInfo().getName();
-        Frame frame = new Frame(String.format("error /%s network/1.0", network));
+        NetworkFrame frame = new NetworkFrame(String.format("error /%s network/1.0", network));
         Event event = new Event(network, frame.command());
         event.getParameters().put("frame", frame);
         event.getParameters().put("channel", ctx.channel());

@@ -16,28 +16,17 @@ import java.util.Map;
  * @author carocean
  */
 //https://www.cnblogs.com/ismallboy/p/6785328.html
-public class Circuit implements IPrinter, IDisposable {
+public class NetworkCircuit implements IPrinter, IDisposable {
     private Map<String, String> headmap;
     private Map<String, Object> attributemap;
     protected transient ICircuitContent content;
     static transient final String CODE = "utf-8";
 
-    public static void main(String...args){
-        Circuit circuit=new Circuit("s/1.0 200 ok");
-        circuit.head("xx","11");
-        circuit.head("22","ll");
-        circuit.content().writeBytes("xxxxxx".getBytes());
-        byte[] b=circuit.toBytes();
-        Circuit c=new Circuit(b);
-        StringBuffer sb=new StringBuffer();
-        c.print(sb);
-        System.out.println(sb);
-    }
-    public Circuit(String frame_line) {
+    public NetworkCircuit(String frame_line) {
         this(frame_line, 8192);
     }
 
-    public Circuit(String frame_line, int capacity) {
+    public NetworkCircuit(String frame_line, int capacity) {
         headmap = new HashMap<>();
         attributemap = new HashMap<>();
         String[] arr = frame_line.split(" ");
@@ -52,16 +41,20 @@ public class Circuit implements IPrinter, IDisposable {
         content = new DefaultCircuitContent(capacity);
     }
 
-    public Circuit(byte[] frameRaw) {
+    public NetworkCircuit(byte[] frameRaw) {
+        this(frameRaw, 8192);
+    }
+
+    public NetworkCircuit(byte[] frameRaw, int capacity) {
         headmap = new HashMap<String, String>(8);
-        content  = new DefaultCircuitContent(8192);
+        content = new DefaultCircuitContent(capacity);
 
         int up = 0;
         int down = 0;
         byte field = 0;// 0=heads;1=params;2=content
 
         while (down < frameRaw.length) {
-            if (field < 2) {// 修改了当内容的头几行是连续空行的情况的bug因此使用了field<2
+            if (field < 1) {// 修改了当内容的头几行是连续空行的情况的bug因此使用了field<2
                 if (frameRaw[up] == '\r' && (up + 1 < frameRaw.length && frameRaw[up + 1] == '\n')) {// 跳域
                     field++;
                     up += 2;
@@ -171,7 +164,7 @@ public class Circuit implements IPrinter, IDisposable {
      *
      * @param other
      */
-    public void fillFrom(Circuit other) {
+    public void fillFrom(NetworkCircuit other) {
         if (other.attributemap != null) {
             for (String name : other.attributemap.keySet()) {
                 attributemap.put(name, other.attribute(name));
@@ -367,7 +360,7 @@ public class Circuit implements IPrinter, IDisposable {
      *
      * @param by
      */
-    public void coverFrom(Circuit by) {
+    public void coverFrom(NetworkCircuit by) {
         this.attributemap = by.attributemap;
         this.content = by.content;
         this.headmap = by.headmap;

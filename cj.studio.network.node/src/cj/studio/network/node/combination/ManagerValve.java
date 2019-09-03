@@ -1,8 +1,8 @@
 package cj.studio.network.node.combination;
 
 import cj.studio.ecm.net.CircuitException;
-import cj.studio.network.Circuit;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkCircuit;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.node.INetwork;
 import cj.studio.network.node.NetworkInfo;
 import cj.studio.network.node.INetworkContainer;
@@ -17,7 +17,9 @@ import io.netty.channel.Channel;
 import io.netty.util.AttributeKey;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 处理管理网络逻辑
@@ -76,10 +78,10 @@ public class ManagerValve implements IValve {
     }
 
     private void authManagerNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
         String authUser = frame.head("Auth-User");
         if (StringUtil.isEmpty(authUser)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Auth-User Of Header is Null.")), this);
@@ -101,12 +103,12 @@ public class ManagerValve implements IValve {
             return;
         }
 
-        AttributeKey peerKey=AttributeKey.newInstance("Peer-Name");
+        AttributeKey peerKey=AttributeKey.valueOf("Peer-Name");
         channel.attr(peerKey).set(peerName);
 
         String access_token = auth(authMode, authUser, authToken);//认证
 
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("Access-Token",access_token);
         bb.writeBytes(c.toByteBuf());
         e.getParameters().put("frame", f);
@@ -118,17 +120,17 @@ public class ManagerValve implements IValve {
     }
 
     private void infoNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
         String networkName = frame.head("Network-Name");
         if (StringUtil.isEmpty(networkName)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Network-Name Of Header is Null.")), this);
             return;
         }
 
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         if (!container.existsNetwork(networkName)) {
             c.status("404");
             c.message(String.format("The Network %s is Not Exists.", networkName));
@@ -145,10 +147,10 @@ public class ManagerValve implements IValve {
     }
 
     private void changeCastmode(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
         String networkName = frame.head("Network-Name");
         if (StringUtil.isEmpty(networkName)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Network-Name Of Header is Null.")), this);
@@ -164,7 +166,7 @@ public class ManagerValve implements IValve {
             return;
         }
         container.changeNetworkCastmode(networkName, castmode);
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("status", "200");
         c.head("message", String.format("The Castmode Of Network %s was change.", networkName));
         c.head("Network-Name", networkName);
@@ -177,10 +179,10 @@ public class ManagerValve implements IValve {
     }
 
     private void renameNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
         String networkName = frame.head("Network-Name");
         if (StringUtil.isEmpty(networkName)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Network-Name Of Header is Null.")), this);
@@ -196,7 +198,7 @@ public class ManagerValve implements IValve {
             return;
         }
         container.renameNetwork(networkName, newnetworkName);
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("status", "200");
         c.head("message", String.format("The Network %s was renamed.", networkName));
         c.head("Old-Network-Name", networkName);
@@ -207,10 +209,10 @@ public class ManagerValve implements IValve {
     }
 
     private void removeNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
         String networkName = frame.head("Network-Name");
         if (StringUtil.isEmpty(networkName)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Network-Name Of Header is Null.")), this);
@@ -221,7 +223,7 @@ public class ManagerValve implements IValve {
             return;
         }
         container.removeNetwork(networkName);
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("status", "200");
         c.head("message", String.format("The Network %s was removed.", networkName));
         c.head("Network-Name", networkName);
@@ -231,21 +233,21 @@ public class ManagerValve implements IValve {
     }
 
     private void errorNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         pipeline.nextError(e, new CircuitException(frame.head("status"), frame.head("message")), this);
     }
 
     private void existsNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
         String networkName = frame.head("Network-Name");
         if (StringUtil.isEmpty(networkName)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Network-Name Of Header is Null.")), this);
             return;
         }
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         if (container.existsNetwork(networkName)) {
             c.head("status", "200");
             c.head("message", "exists");
@@ -260,19 +262,25 @@ public class ManagerValve implements IValve {
     }
 
     private void listNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         String[] names = container.enumNetworkName(true);
-        List<NetworkInfo> list = new ArrayList<>();
-        list.add(container.getManagerNetworkInfo());
+        List<Map<String,Object>> list = new ArrayList<>();
+        Map<String,Object> item=new HashMap<>();
+        item.put("networkInfo",container.getManagerNetworkInfo());
+        item.put("peerNames",container.getManagerNetwork().enumPeerName());
+        list.add(item);
         for (String key : names) {
             INetwork nw = container.getNetwork(key);
             if (nw == null || nw == container.getManagerNetwork()) continue;
-            list.add(nw.getInfo());
+            item=new HashMap<>();
+            item.put("networkInfo",nw.getInfo());
+            item.put("peerNames",nw.enumPeerName());
+            list.add(item);
         }
         ByteBuf bb = Unpooled.buffer();
-        Frame f = new Frame(frame.toString(), bb);
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.content().writeBytes(new Gson().toJson(list).getBytes());
         bb.writeBytes(c.toByteBuf());
         e.getParameters().put("frame", f);
@@ -280,7 +288,7 @@ public class ManagerValve implements IValve {
     }
 
     private void createNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         String name = frame.head("Network-Name");
 
@@ -301,8 +309,8 @@ public class ManagerValve implements IValve {
         INetwork network = container.createNetwork(name, castmode);
         network.addChannel(channel);
         ByteBuf bb = Unpooled.buffer();
-        Frame succeed = new Frame(frame.toString(), bb);
-        Circuit c = new Circuit("network/1.0 200 ok");
+        NetworkFrame succeed = new NetworkFrame(frame.toString(), bb);
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("Network-Name", name);
         c.head("status", "200");
         c.head("message", "The Network be Created.");

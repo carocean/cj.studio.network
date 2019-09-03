@@ -5,9 +5,9 @@ package cj.studio.network;
  */
 public class PackFrame {
     byte header;//头用一个字节表示包类型，0为无效，1为数据，2为心跳包
-    Frame frame;
+    NetworkFrame frame;
 
-    public PackFrame(byte header, Frame frame) {
+    public PackFrame(byte header, NetworkFrame frame) {
         this.header = header;
         this.frame = frame;
     }
@@ -19,7 +19,7 @@ public class PackFrame {
         }
         byte[] frameRaw = new byte[pack.length - 1];
         System.arraycopy(pack, 1, frameRaw, 0, frameRaw.length);
-        frame=new Frame(frameRaw);
+        frame=new NetworkFrame(frameRaw);
     }
 
     public byte[] toBytes() {
@@ -48,7 +48,7 @@ public class PackFrame {
         return header == 2;
     }
 
-    public Frame getFrame() {
+    public NetworkFrame getFrame() {
         return frame;
     }
 }

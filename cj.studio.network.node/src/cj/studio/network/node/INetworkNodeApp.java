@@ -1,6 +1,6 @@
 package cj.studio.network.node;
 
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 
 public interface INetworkNodeApp {
     /**
@@ -8,5 +8,5 @@ public interface INetworkNodeApp {
      * @param frame
      * @throws VerifyException
      */
-    void verifyFrame(Frame frame)throws VerifyException;
+    void verifyFrame(NetworkFrame frame)throws VerifyException;
 }

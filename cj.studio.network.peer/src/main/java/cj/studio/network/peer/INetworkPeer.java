@@ -1,11 +1,11 @@
 package cj.studio.network.peer;
 
 
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 
 public interface INetworkPeer {
-    void send(Frame frame);
+    void send(NetworkFrame frame);
 
-    void recieve(Frame frame);
+    void recieve(NetworkFrame frame);
 
 }

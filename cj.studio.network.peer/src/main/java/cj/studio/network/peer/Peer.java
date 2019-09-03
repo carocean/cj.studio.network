@@ -4,7 +4,7 @@ package cj.studio.network.peer;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.peer.connection.TcpConnection;
 import cj.ultimate.util.StringUtil;
 
@@ -71,7 +71,7 @@ public class Peer implements IPeer {
 
     private INetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName, IOnmessage onmessage) {
         INetworkPeer manager = listen(managerNetowrkName, onmessage);
-        Frame frame = new Frame(String.format("auth / network/1.0"));
+        NetworkFrame frame = new NetworkFrame(String.format("auth / network/1.0"));
         frame.head("Auth-User", user);
         frame.head("Auth-Mode", authmode);
         frame.head("Auth-Token", token);
@@ -125,7 +125,7 @@ public class Peer implements IPeer {
         }
 
         @Override
-        public void onmessage(Frame frame, IServiceProvider site) {
+        public void onmessage(NetworkFrame frame, IServiceProvider site) {
             if (userOnmessage != null) {
                 userOnmessage.onmessage(frame, site);
             }

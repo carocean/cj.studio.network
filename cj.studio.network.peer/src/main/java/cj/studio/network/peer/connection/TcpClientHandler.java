@@ -1,7 +1,7 @@
 package cj.studio.network.peer.connection;
 
 import cj.studio.ecm.IServiceProvider;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.peer.INetworkPeer;
 import cj.studio.network.peer.INetworkPeerContainer;
@@ -36,7 +36,7 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
         if (pack.isHeartbeat()) {
             return;
         }
-        Frame frame = pack.getFrame();
+        NetworkFrame frame = pack.getFrame();
         if (frame == null) {
             return;
         }
@@ -45,7 +45,7 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
         if (peer == null) {
             return;
         }
-        frame.url(frame.relativePath());
+        frame.url(frame.relativeUrl());
         peer.recieve(frame);
     }
 }

@@ -1,12 +1,15 @@
 package cj.studio.network.node;
 
 import cj.studio.ecm.net.util.TcpFrameBox;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
+import io.netty.util.Attribute;
+import io.netty.util.AttributeKey;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -17,6 +20,19 @@ public class Network implements INetwork {
     public Network(NetworkInfo info) {
         this.info = info;
         channels = new CopyOnWriteArrayList<>();
+    }
+
+    @Override
+    public String[] enumPeerName() {
+        List<String> list = new ArrayList<>();
+        for (Channel ch : channels) {
+            if (ch == null) continue;
+            Attribute<String> attr = ch.attr(AttributeKey.valueOf("Peer-Name"));
+            if (attr == null) continue;
+            String name = attr.get();
+            list.add(name);
+        }
+        return list.toArray(new String[0]);
     }
 
     @Override
@@ -41,7 +57,7 @@ public class Network implements INetwork {
     }
 
     @Override
-    public void cast(Channel source, Frame frame) {
+    public void cast(Channel source, NetworkFrame frame) {
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
         ByteBuf bb = Unpooled.buffer();
@@ -58,7 +74,7 @@ public class Network implements INetwork {
         }
     }
 
-    private void multicast(Frame frame, ByteBuf bb) {
+    private void multicast(NetworkFrame frame, ByteBuf bb) {
         for (Channel ch : channels) {
             if (ch == null) {
                 continue;
@@ -71,7 +87,7 @@ public class Network implements INetwork {
         }
     }
 
-    private void unicast(Frame frame, ByteBuf bb) {
+    private void unicast(NetworkFrame frame, ByteBuf bb) {
         if (channels.isEmpty()) {
             return;
         }

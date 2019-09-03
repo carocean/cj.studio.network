@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  *
  * @author carocean
  */
-public class Frame implements IPrinter, IDisposable {
+public class NetworkFrame implements IPrinter, IDisposable {
     protected Map<String, String> headmap;
     protected Map<String, String> parametermap;
     protected transient IFrameContent content;
@@ -39,11 +39,11 @@ public class Frame implements IPrinter, IDisposable {
         ((DefaultFrameContent) content).buf.release();
     }
 
-    Frame() {
+    NetworkFrame() {
 
     }
 
-    public Frame(String frame_line) {
+    public NetworkFrame(String frame_line) {
         this(frame_line, 8192);
     }
 
@@ -59,11 +59,11 @@ public class Frame implements IPrinter, IDisposable {
      *
      * @param frame_line
      */
-    public Frame(String frame_line, int capacity) {
+    public NetworkFrame(String frame_line, int capacity) {
         this(frame_line, Unpooled.buffer(capacity));
     }
 
-    public Frame(String frame_line, ByteBuf contentData) {
+    public NetworkFrame(String frame_line, ByteBuf contentData) {
         headmap = new HashMap<String, String>(8);
         parametermap = new HashMap<String, String>(4);
         content = new DefaultFrameContent(contentData);
@@ -86,7 +86,7 @@ public class Frame implements IPrinter, IDisposable {
         head("protocol", arr[2].toUpperCase());
     }
 
-    public Frame(byte[] frameRaw) {
+    public NetworkFrame(byte[] frameRaw) {
         this(frameRaw, 8192);
     }
 
@@ -103,11 +103,11 @@ public class Frame implements IPrinter, IDisposable {
      *
      * @param frameRaw
      */
-    public Frame(byte[] frameRaw, int capacity) {
+    public NetworkFrame(byte[] frameRaw, int capacity) {
         this(frameRaw, Unpooled.buffer(capacity));
     }
 
-    public Frame(byte[] frameRaw, ByteBuf contentData) {
+    public NetworkFrame(byte[] frameRaw, ByteBuf contentData) {
         headmap = new HashMap<String, String>(8);
         parametermap = new HashMap<String, String>(4);
         content = new DefaultFrameContent(contentData);

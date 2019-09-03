@@ -1,8 +1,8 @@
 package cj.studio.network.node.combination;
 
 import cj.studio.ecm.net.CircuitException;
-import cj.studio.network.Circuit;
-import cj.studio.network.Frame;
+import cj.studio.network.NetworkCircuit;
+import cj.studio.network.NetworkFrame;
 import cj.studio.network.node.INetwork;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;
@@ -20,7 +20,7 @@ public class CastValve implements IValve {
     @Override
     public void flow(Event e, IPipeline pipeline) throws CircuitException {
         INetwork network = (INetwork) pipeline.attachment();
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         network.cast(channel, frame);
     }
@@ -30,11 +30,11 @@ public class CastValve implements IValve {
         //如果出错则发送给管理网络
         INetworkContainer container = (INetworkContainer) pipeline.site().getService("$.network.container");
         INetwork manager = container.getNetwork(container.getManagerNetworkInfo().getName());
-        Frame frame = (Frame) e.getParameters().get("frame");
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb= Unpooled.buffer();
-        Frame f = new Frame(String.format("error /%s network/1.0",pipeline.key()), bb);
-        Circuit c=new Circuit("network/1.0 200 ok");
+        NetworkFrame f = new NetworkFrame(String.format("error /%s network/1.0",pipeline.key()), bb);
+        NetworkCircuit c=new NetworkCircuit("network/1.0 200 ok");
         String status = "";
         String message = "";
         CircuitException ce = CircuitException.search(error);

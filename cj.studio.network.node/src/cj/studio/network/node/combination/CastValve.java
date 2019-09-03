@@ -3,7 +3,7 @@ package cj.studio.network.node.combination;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.Circuit;
 import cj.studio.network.Frame;
-import cj.studio.network.INetwork;
+import cj.studio.network.node.INetwork;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;
 import cj.studio.util.reactor.IPipeline;

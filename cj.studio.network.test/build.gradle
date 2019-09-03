@@ -24,5 +24,6 @@ repositories {
 
 dependencies {
     compile project (':cj.studio.network.corelib')
+    compile project (':cj.studio.network.peer')
     compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
 }

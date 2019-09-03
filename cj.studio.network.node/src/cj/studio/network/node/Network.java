@@ -2,8 +2,6 @@ package cj.studio.network.node;
 
 import cj.studio.ecm.net.util.TcpFrameBox;
 import cj.studio.network.Frame;
-import cj.studio.network.INetwork;
-import cj.studio.network.NetworkInfo;
 import cj.studio.network.PackFrame;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

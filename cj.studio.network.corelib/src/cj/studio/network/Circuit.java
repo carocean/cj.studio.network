@@ -22,7 +22,17 @@ public class Circuit implements IPrinter, IDisposable {
     protected transient ICircuitContent content;
     static transient final String CODE = "utf-8";
 
-
+    public static void main(String...args){
+        Circuit circuit=new Circuit("s/1.0 200 ok");
+        circuit.head("xx","11");
+        circuit.head("22","ll");
+        circuit.content().writeBytes("xxxxxx".getBytes());
+        byte[] b=circuit.toBytes();
+        Circuit c=new Circuit(b);
+        StringBuffer sb=new StringBuffer();
+        c.print(sb);
+        System.out.println(sb);
+    }
     public Circuit(String frame_line) {
         this(frame_line, 8192);
     }
@@ -89,13 +99,6 @@ public class Circuit implements IPrinter, IDisposable {
                             // parametermap.put(t[0], s);
                             // }
                             // }
-                            break;
-                        case 1://回路路是没有参数的，所以什么也不做
-                            kv = new String(b, CODE);
-                            at = kv.indexOf("=");
-                            k = kv.substring(0, at);
-                            v = kv.substring(at + 1, kv.length());
-//                            parametermap.put(k, "".equals(v) ? null : v);
                             break;
                     }
                 } catch (Exception e) {

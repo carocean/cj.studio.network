@@ -1,0 +1,165 @@
+package cj.studio.network.peer;
+
+
+import cj.studio.ecm.EcmException;
+import cj.studio.ecm.IServiceProvider;
+import cj.studio.ecm.ServiceCollection;
+import cj.studio.network.Frame;
+import cj.studio.network.peer.connection.TcpConnection;
+import cj.ultimate.util.StringUtil;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Peer implements IPeer {
+    private String peerName;
+    IConnection connection;
+    INetworkPeerContainer container;
+    IServiceProvider site;
+
+    private Peer(String peerName, IServiceProvider parent) {
+        this.peerName = peerName;
+        site = new PeerServiceSite(parent);
+        container = new NetworkPeerContainer(site);
+    }
+
+    public static IPeer create(String peerName, IServiceProvider parent) {
+        Peer peer = new Peer(peerName, parent);
+
+        return peer;
+    }
+
+    @Override
+    public INetworkPeer connect(String networkNode, String authmode, String user, String token, String managerNetowrkName, IOnmessage onmessage) {
+        int pos = networkNode.indexOf("://");
+        if (pos < 0) {
+            throw new EcmException("地址格式错误:" + networkNode);
+        }
+        String protocol = networkNode.substring(0, pos);
+        String remain = networkNode.substring(pos + "://".length(), networkNode.length());
+        pos = remain.indexOf(":");
+        int port = 0;
+        String ip = "";
+        Map<String, String> props = new HashMap<>();
+        if (pos < 0) {
+            ip = remain;
+            port = 80;
+        } else {
+            ip = remain.substring(0, pos);
+            remain = remain.substring(pos + 1, remain.length());
+            pos = remain.indexOf("?");
+            if (pos < 0) {
+                String strPort = remain;
+                port = Integer.valueOf(strPort);
+            } else {
+                String strPort = remain.substring(0, pos);
+                port = Integer.valueOf(strPort);
+                remain = remain.substring(pos + 1, remain.length());
+                parseProps(remain, props);
+            }
+        }
+
+        switch (protocol) {
+            case "tcp":
+                doTcpConnection(protocol, ip, port, props);
+                break;
+            default:
+                throw new EcmException("不支持的连接协议:" + protocol);
+        }
+        return listenManagerNetwork(authmode, user, token, managerNetowrkName, onmessage);
+    }
+
+    private INetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName, IOnmessage onmessage) {
+        INetworkPeer manager = listen(managerNetowrkName, onmessage);
+        Frame frame = new Frame(String.format("auth / network/1.0"));
+        frame.head("Auth-User", user);
+        frame.head("Auth-Mode", authmode);
+        frame.head("Auth-Token", token);
+        frame.head("Peer-Name", peerName);
+        manager.send(frame);
+        return manager;
+    }
+
+    private void doTcpConnection(String protocol, String ip, int port, Map<String, String> props) {
+        connection = new TcpConnection(site);
+        connection.connect(protocol, ip, port, props);
+    }
+
+    private void parseProps(String queryString, Map<String, String> props) {
+        String[] arr = queryString.split("&");
+        for (String pair : arr) {
+            if (StringUtil.isEmpty(pair)) {
+                continue;
+            }
+            String[] e = pair.split("=");
+            String key = e[0];
+            String v = "";
+            if (e.length > 1) {
+                v = e[1];
+            }
+            props.put(key, v);
+        }
+    }
+
+
+    @Override
+    public INetworkPeer listen(String networkName, IOnmessage onmessage) {
+        if (container.exists(networkName)) {
+            throw new EcmException("已侦听网络：" + networkName);
+        }
+
+        return container.create(connection, networkName, onmessage);
+    }
+
+    @Override
+    public void close() {
+        container.dispose();
+        connection.close();
+    }
+
+    class DefaultManagerNetworkOnmessage implements IOnmessage {
+        IOnmessage userOnmessage;
+
+        public DefaultManagerNetworkOnmessage(IOnmessage userOnmessage) {
+            this.userOnmessage = userOnmessage;
+        }
+
+        @Override
+        public void onmessage(Frame frame, IServiceProvider site) {
+            if (userOnmessage != null) {
+                userOnmessage.onmessage(frame, site);
+            }
+        }
+    }
+
+    class PeerServiceSite implements IServiceProvider {
+        IServiceProvider parent;
+
+        public PeerServiceSite(IServiceProvider parent) {
+            this.parent = parent;
+        }
+
+        @Override
+        public <T> ServiceCollection<T> getServices(Class<T> serviceClazz) {
+
+            if (parent != null) {
+                return parent.getServices(serviceClazz);
+            }
+            return null;
+        }
+
+        @Override
+        public Object getService(String serviceId) {
+            if("$.peer".equals(serviceId)){
+                return Peer.this;
+            }
+            if ("$.peer.container".equals(serviceId)) {
+                return container;
+            }
+            if (parent != null) {
+                return parent.getService(serviceId);
+            }
+            return null;
+        }
+    }
+}

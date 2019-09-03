@@ -1,8 +1,6 @@
 package cj.studio.network.node;
 
 import cj.studio.ecm.IServiceProvider;
-import cj.studio.network.INetwork;
-import cj.studio.network.NetworkInfo;
 import io.netty.channel.Channel;
 
 import java.util.Arrays;

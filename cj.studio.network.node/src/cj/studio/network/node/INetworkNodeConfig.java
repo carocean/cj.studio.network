@@ -1,7 +1,5 @@
 package cj.studio.network.node;
 
-import cj.studio.network.NetworkInfo;
-
 import java.io.FileNotFoundException;
 import java.util.Map;
 

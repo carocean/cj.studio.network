@@ -1,14 +1,11 @@
 package cj.studio.network.node.combination;
 
 import cj.studio.ecm.IServiceProvider;
-import cj.studio.ecm.net.CircuitException;
-import cj.studio.network.Frame;
-import cj.studio.network.INetwork;
+import cj.studio.network.node.INetwork;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;
 import cj.studio.util.reactor.IPipeline;
 import cj.studio.util.reactor.IPipelineCombination;
-import cj.studio.util.reactor.IValve;
 import io.netty.channel.Channel;
 
 

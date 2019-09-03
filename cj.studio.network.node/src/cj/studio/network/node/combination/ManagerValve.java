@@ -3,8 +3,8 @@ package cj.studio.network.node.combination;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.Circuit;
 import cj.studio.network.Frame;
-import cj.studio.network.INetwork;
-import cj.studio.network.NetworkInfo;
+import cj.studio.network.node.INetwork;
+import cj.studio.network.node.NetworkInfo;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;
 import cj.studio.util.reactor.IPipeline;
@@ -14,6 +14,7 @@ import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
+import io.netty.util.AttributeKey;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,9 @@ public class ManagerValve implements IValve {
             case "error":
                 errorNetwork(e, pipeline, container);
                 break;
+            case "auth":
+                authManagerNetwork(e, pipeline, container);
+                break;
             case "infoNetwork":
                 infoNetwork(e, pipeline, container);
                 break;
@@ -69,6 +73,48 @@ public class ManagerValve implements IValve {
                 pipeline.nextError(e, new CircuitException("501", String.format("The Command %s is not Surported", e.getCmd())), this);
                 break;
         }
+    }
+
+    private void authManagerNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+        Frame frame = (Frame) e.getParameters().get("frame");
+        Channel channel = (Channel) e.getParameters().get("channel");
+        ByteBuf bb = Unpooled.buffer();
+        Frame f = new Frame(frame.toString(), bb);
+        String authUser = frame.head("Auth-User");
+        if (StringUtil.isEmpty(authUser)) {
+            pipeline.nextError(e, new CircuitException("404", String.format("The Auth-User Of Header is Null.")), this);
+            return;
+        }
+        String authMode = frame.head("Auth-Mode");
+        if (StringUtil.isEmpty(authMode)) {
+            pipeline.nextError(e, new CircuitException("404", String.format("The Auth-Mode Of Header is Null.")), this);
+            return;
+        }
+        String authToken = frame.head("Auth-Token");
+        if (StringUtil.isEmpty(authToken)) {
+            pipeline.nextError(e, new CircuitException("404", String.format("The Auth-Token Of Header is Null.")), this);
+            return;
+        }
+        String peerName = frame.head("Peer-Name");
+        if (StringUtil.isEmpty(peerName)) {
+            pipeline.nextError(e, new CircuitException("404", String.format("The Peer-Name Of Header is Null.")), this);
+            return;
+        }
+
+        AttributeKey peerKey=AttributeKey.newInstance("Peer-Name");
+        channel.attr(peerKey).set(peerName);
+
+        String access_token = auth(authMode, authUser, authToken);//认证
+
+        Circuit c = new Circuit("network/1.0 200 ok");
+        c.head("Access-Token",access_token);
+        bb.writeBytes(c.toByteBuf());
+        e.getParameters().put("frame", f);
+        pipeline.nextFlow(e, this);
+    }
+
+    private String auth(String authMode, String authUser, String authToken) {
+        return "xxxxx";
     }
 
     private void infoNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {

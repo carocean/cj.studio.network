@@ -1,6 +1,5 @@
 package cj.studio.network.node;
 
-import cj.studio.network.NetworkInfo;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;

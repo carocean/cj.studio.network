@@ -67,23 +67,39 @@ public class NetworkFrame implements IPrinter, IDisposable {
         headmap = new HashMap<String, String>(8);
         parametermap = new HashMap<String, String>(4);
         content = new DefaultFrameContent(contentData);
+        parseFrameLine(frame_line);
+    }
 
-        String[] arr = frame_line.split(" ");// 这种方法如果地址参数中含有空格，则会解析错误，因此将来应改为正则
-        if (arr.length < 3)
-            throw new RuntimeException("侦头行格式错");
-        String cmd = arr[0];
-        String pro = arr[arr.length - 1];
-        if (!pro.contains("/") || pro.indexOf("/") == pro.length() - 1) {
-            throw new RuntimeException("侦没指定协议");
+    private void parseFrameLine(String frame_line) {
+        String remain=frame_line;
+        while(remain.startsWith(" ")){
+            remain=remain.substring(1,remain.length());
         }
-        String mid = frame_line.substring(cmd.length(), frame_line.length() - pro.length()).trim();
-        if (StringUtil.isEmpty(mid))
-            throw new RuntimeException("侦路径错,如果没有路径，至少指定一个/号");
-        arr = new String[]{cmd, mid, pro};
-        head("command", arr[0]);
-        String uri = arr[1];
-        head("url", uri);
-        head("protocol", arr[2].toUpperCase());
+        int pos=remain.indexOf(" ");
+        if (pos < 1) {
+            throw new RuntimeException("格式错误");
+        }
+        String command=remain.substring(0,pos);
+        remain=remain.substring(pos+1,remain.length());
+        while(remain.startsWith(" ")){
+            remain=remain.substring(1,remain.length());
+        }
+        while (remain.endsWith(" ")){
+            remain=remain.substring(0,remain.length()-1);
+        }
+        pos=remain.lastIndexOf(" ");
+        if (pos < 1) {
+            throw new RuntimeException("格式错误");
+        }
+        String protocol=remain.substring(pos+1,remain.length());
+        remain=remain.substring(0,pos);
+        while (remain.endsWith(" ")){
+            remain=remain.substring(0,remain.length()-1);
+        }
+        String url=remain;
+        protocol(protocol);
+        url(url);
+        command(command);
     }
 
     public NetworkFrame(byte[] frameRaw) {

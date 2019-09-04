@@ -29,16 +29,44 @@ public class NetworkCircuit implements IPrinter, IDisposable {
     public NetworkCircuit(String frame_line, int capacity) {
         headmap = new HashMap<>();
         attributemap = new HashMap<>();
-        String[] arr = frame_line.split(" ");
-        if (arr.length > 0)
-            head("protocol", arr[0].toUpperCase());
-        if (arr.length > 1)
-            head("status", arr[1]);
-        if (arr.length > 2)
-            head("message", arr[2]);
-        if (arr.length > 3)
-            throw new RuntimeException("格式错误");
+        parseFrameLine(frame_line);
         content = new DefaultCircuitContent(capacity);
+    }
+
+    private void parseFrameLine(String frame_line) {
+        String remain = frame_line;
+        while (remain.startsWith(" ")) {
+            remain = remain.substring(1, remain.length());
+        }
+        int pos = remain.indexOf(" ");
+        if (pos < 1) {
+            throw new RuntimeException("格式错误");
+        }
+        String protocol = remain.substring(0, pos);
+        remain = remain.substring(pos + 1, remain.length());
+        while (remain.startsWith(" ")) {
+            remain = remain.substring(1, remain.length());
+        }
+        pos = remain.indexOf(" ");
+        if (pos < 1) {
+            throw new RuntimeException("格式错误");
+        }
+        String status = remain.substring(0, pos);
+        remain = remain.substring(pos + 1, remain.length());
+        if (StringUtil.isEmpty(remain)) {
+            throw new RuntimeException("格式错误");
+        }
+        while (remain.startsWith(" ")) {
+            remain = remain.substring(1, remain.length());
+        }
+        if (StringUtil.isEmpty(remain)) {
+            throw new RuntimeException("格式错误");
+        }
+        String message = remain;
+
+        head("protocol", protocol);
+        head("status", status);
+        head("message", message);
     }
 
     public NetworkCircuit(byte[] frameRaw) {

@@ -74,6 +74,11 @@ public class Network implements INetwork {
         }
     }
 
+    @Override
+    public boolean existsChannel(Channel channel) {
+        return this.channels.contains(channel);
+    }
+
     private void multicast(NetworkFrame frame, ByteBuf bb) {
         for (Channel ch : channels) {
             if (ch == null) {

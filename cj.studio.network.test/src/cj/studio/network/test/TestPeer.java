@@ -27,7 +27,7 @@ public class TestPeer {
             }
         });//
 
-        Thread.sleep(30000L);
+        Thread.sleep(30000000L);
     }
 
     private static void work(IServiceProvider site) {
@@ -51,6 +51,9 @@ public class TestPeer {
         NetworkFrame frame2 = new NetworkFrame("get /yy/?type=23 fx/1.0",bb);
         frame2.head("my","ss");
         np1.send(frame2);
+
+        //上面用了network-1，再查一下各网络中的peer如何
+        networkPeer.send(frame);
 //
 //        INetworkPeer np2 = peer.listen("network-2", new IOnmessage() {
 //            @Override

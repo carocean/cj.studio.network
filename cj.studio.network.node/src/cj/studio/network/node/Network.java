@@ -60,6 +60,7 @@ public class Network implements INetwork {
     public void cast(Channel source, NetworkFrame frame) {
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
+        pack.dispose();
         ByteBuf bb = Unpooled.buffer();
         bb.writeBytes(box, 0, box.length);
         switch (info.getCastmode()) {
@@ -88,8 +89,10 @@ public class Network implements INetwork {
                 ch.close();
                 channels.remove(ch);
             }
-            ch.writeAndFlush(bb);
+            ByteBuf copy=bb.copy();//多播必须使用拷贝
+            ch.writeAndFlush(copy);
         }
+        bb.release();//把源形释放，这个与单播不同，因为它有原型
     }
 
     private void unicast(NetworkFrame frame, ByteBuf bb) {

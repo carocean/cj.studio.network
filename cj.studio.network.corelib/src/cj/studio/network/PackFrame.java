@@ -1,15 +1,22 @@
 package cj.studio.network;
 
+import cj.ultimate.IDisposable;
+
 /**
  * 包装frame，以增加传输协议，如是心跳包吗？是数据包吗？即加上了一些类型
  */
-public class PackFrame {
+public class PackFrame implements IDisposable {
     byte header;//头用一个字节表示包类型，0为无效，1为数据，2为心跳包
     NetworkFrame frame;
 
     public PackFrame(byte header, NetworkFrame frame) {
         this.header = header;
         this.frame = frame;
+    }
+
+    @Override
+    public void dispose() {
+        frame.dispose();
     }
 
     public PackFrame(byte[] pack) {

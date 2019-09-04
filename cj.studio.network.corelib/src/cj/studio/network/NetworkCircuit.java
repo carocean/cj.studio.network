@@ -146,7 +146,7 @@ public class NetworkCircuit implements IPrinter, IDisposable {
         headmap.clear();
         if (attributemap != null)
             attributemap.clear();
-        ((DefaultCircuitContent) content).buf.clear();
+        ((DefaultCircuitContent) content).buf.release();
     }
 
 

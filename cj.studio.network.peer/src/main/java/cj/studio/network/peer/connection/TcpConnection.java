@@ -73,6 +73,7 @@ public class TcpConnection implements IConnection {
         frame.head("Peer-Name",peerName);
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
+        pack.dispose();
         ByteBuf bb = Unpooled.buffer();
         bb.writeBytes(box, 0, box.length);
         channel.writeAndFlush(bb);

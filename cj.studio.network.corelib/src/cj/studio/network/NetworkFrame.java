@@ -36,7 +36,7 @@ public class NetworkFrame implements IPrinter, IDisposable {
     public void dispose() {
         headmap.clear();
         parametermap.clear();
-        ((DefaultFrameContent) content).buf.clear();
+        ((DefaultFrameContent) content).buf.release();
     }
 
     NetworkFrame() {

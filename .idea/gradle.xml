@@ -10,11 +10,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/cj.studio.network.console" />
             <option value="$PROJECT_DIR$/cj.studio.network.corelib" />
             <option value="$PROJECT_DIR$/cj.studio.network.node" />
             <option value="$PROJECT_DIR$/cj.studio.network.nodestart" />
             <option value="$PROJECT_DIR$/cj.studio.network.peer" />
-            <option value="$PROJECT_DIR$/cj.studio.network.test" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

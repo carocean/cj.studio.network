@@ -29,6 +29,7 @@ public class ReactorPipelineCombination implements IPipelineCombination {
         }
         network.addChannel(ch);//将channel添加到network，这样network便有了输出能力
         pipeline.attachment(network);//将网络附到管道上供app中的valve使用
+        pipeline.append(new ListenValve());//peer端发来的网络侦听指令，拦截该指令然后丢弃。目的是客户端的访问会自动触发上面代码从而使得客户端加入网络
         pipeline.append(new ManagerValve(container.getManagerNetworkInfo().getName()));//管理网络的处理放在最上面
         pipeline.append(new CastValve());
     }

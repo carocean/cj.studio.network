@@ -22,13 +22,32 @@ public class TcpConnection implements IConnection {
     private Channel channel;
     IServiceProvider site;
     String peerName;
+    private String protocol;
+    private String host;
+    private int port;
+
     public TcpConnection(IServiceProvider site) {
         this.site=site;
         peerName=(String)site.getService("$.peer.name");
     }
+    @Override
+    public String getHost() {
+        return host;
+    }
+    @Override
+    public String getProtocol() {
+        return protocol;
+    }
+    @Override
+    public int getPort() {
+        return port;
+    }
 
     @Override
     public void connect(String protocol, String ip, int port, Map<String, String> props) {
+        this.protocol=protocol;
+        this.host = ip;
+        this.port = port;
         String workThreadCount = props
                 .get("workThreadCount");
         EventLoopGroup group = null;

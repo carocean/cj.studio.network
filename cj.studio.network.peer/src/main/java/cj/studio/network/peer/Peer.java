@@ -30,6 +30,21 @@ public class Peer implements IPeer {
     }
 
     @Override
+    public String getNodeHost() {
+        return connection.getHost();
+    }
+
+    @Override
+    public String getNodeProtocol() {
+        return connection.getProtocol();
+    }
+
+    @Override
+    public int getNodePort() {
+        return connection.getPort();
+    }
+
+    @Override
     public String peerName() {
         return peerName;
     }
@@ -113,7 +128,11 @@ public class Peer implements IPeer {
             throw new EcmException("已侦听网络：" + networkName);
         }
 
-        return container.create(connection, networkName, onmessage);
+        INetworkPeer networkPeer= container.create(connection, networkName, onmessage);
+        NetworkFrame frame=new NetworkFrame("listenNetwork / network/1.0");
+        frame.head("Peer-Name",peerName);
+        networkPeer.send(frame);
+        return networkPeer;
     }
 
     @Override

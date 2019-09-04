@@ -7,5 +7,10 @@ public interface IPeer {
 
     void close();
     String peerName();
+    String getNodeHost();
+
+    String getNodeProtocol();
+
+    int getNodePort();
 }
 

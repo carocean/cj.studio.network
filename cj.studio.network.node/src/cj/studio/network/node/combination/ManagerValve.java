@@ -314,7 +314,7 @@ public class ManagerValve implements IValve {
         }
 
         INetwork network = container.createNetwork(name, castmode);
-        network.addChannel(channel);
+//        network.addChannel(channel);//将来该peer在侦听该network时会加入该网络，虽然该网络是它创建的，但它不侦听这个新网络则不会被加入
         ByteBuf bb = Unpooled.buffer();
         NetworkFrame succeed = new NetworkFrame(frame.toString(), bb);
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");

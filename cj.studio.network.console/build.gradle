@@ -1,0 +1,64 @@
+group 'cj.studio.network'
+version '1.0.0'
+
+
+sourceSets {
+    main {
+        java{
+            srcDir "$projectDir/src"
+        }
+        resources{
+            srcDir "$projectDir/src"
+        }
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+jar {
+    manifest {
+        attributes 'Manifest-Version': version,
+                'Class-Path': '.',
+                'Main-Class':'cj.studio.network.nodestart.Entrypoint',
+                'DynamicImport-Package':'*'
+    }
+}
+repositories {
+    flatDir(dirs: "$projectDir/global/lib")
+}
+
+dependencies {
+    compile('commons-cli:commons-cli:1.2')
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile project (':cj.studio.network.corelib')
+    compile project (':cj.studio.network.peer')
+    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
+}
+
+task runnableJar(dependsOn:':cj.studio.network.peer:release',type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'cj.studio.network.console.PeerConsole'
+    }
+    baseName = 'peer'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+task releasePeerConsole(dependsOn: runnableJar,type: Copy) {
+    dependsOn "build"
+    from 'build/libs/'
+    into '../cmdtools/peer'
+    include '**/*.jar'
+    exclude '**/*-javadoc.jar','**/*-sources.jar'
+}
+
+task release(type: Copy) {
+    dependsOn "releasePeerConsole"
+    doLast {
+        println 'peer console 环境发布完毕!'
+    }
+}

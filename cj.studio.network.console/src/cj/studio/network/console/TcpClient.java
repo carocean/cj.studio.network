@@ -45,6 +45,7 @@ public class TcpClient {
     }
 
     class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
+
         @Override
         protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
             ByteBuf bb = (ByteBuf) msg;

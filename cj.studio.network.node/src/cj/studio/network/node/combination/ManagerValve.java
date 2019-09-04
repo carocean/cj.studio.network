@@ -39,6 +39,12 @@ public class ManagerValve implements IValve {
     @Override
     public void flow(Event e, IPipeline pipeline) throws CircuitException {
         if (!managerNetworkName.equals(pipeline.key())) {//不是管理网络则放过去
+            NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
+            if ("NETWORK/1.0".equals(frame.protocol()) && "listenNetwork".equals(frame.command())) {
+                INetworkContainer container = (INetworkContainer) pipeline.site().getService("$.network.container");
+                listenNetwork(e, pipeline, container);
+                return;//peer端发来的网络侦听指令，拦截该指令然后丢弃。目的是客户端的侦听会自动触发reactor从而使得客户端加入网络
+            }
             pipeline.nextFlow(e, this);
             return;
         }
@@ -49,6 +55,9 @@ public class ManagerValve implements IValve {
                 break;
             case "auth":
                 authManagerNetwork(e, pipeline, container);
+                break;
+            case "listenNetwork":
+                listenNetwork(e, pipeline, container);
                 break;
             case "infoNetwork":
                 infoNetwork(e, pipeline, container);
@@ -75,6 +84,18 @@ public class ManagerValve implements IValve {
                 pipeline.nextError(e, new CircuitException("501", String.format("The Command %s is not Surported", e.getCmd())), this);
                 break;
         }
+    }
+
+    private void listenNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
+        Channel channel = (Channel) e.getParameters().get("channel");
+        ByteBuf bb = Unpooled.buffer();
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
+
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
+        bb.writeBytes(c.toByteBuf());
+        e.getParameters().put("frame", f);
+        pipeline.nextFlow(e, this);
     }
 
     private void authManagerNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
@@ -118,6 +139,7 @@ public class ManagerValve implements IValve {
             channel.close();
             return;
         }
+
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("Access-Token", access_token);
         bb.writeBytes(c.toByteBuf());
@@ -314,7 +336,6 @@ public class ManagerValve implements IValve {
         }
 
         INetwork network = container.createNetwork(name, castmode);
-//        network.addChannel(channel);//将来该peer在侦听该network时会加入该网络，虽然该网络是它创建的，但它不侦听这个新网络则不会被加入
         ByteBuf bb = Unpooled.buffer();
         NetworkFrame succeed = new NetworkFrame(frame.toString(), bb);
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");

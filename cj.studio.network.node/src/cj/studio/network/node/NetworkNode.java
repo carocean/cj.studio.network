@@ -15,7 +15,7 @@ public class NetworkNode implements INetworkNode {
     INetworkNodeServer nodeServer;//一个节点有且仅有一个服务器
     INetworkContainer networkContainer;//网络容器
     INetworkNodeConfig networkNodeConfig;//节点配置
-    INetworkNodeApp app;//节点应用
+    INetworkNodeAppManager app;//节点应用管理器
     IServiceProvider site;
 
     @Override
@@ -24,6 +24,8 @@ public class NetworkNode implements INetworkNode {
         networkNodeConfig = new NetworkNodeConfig();
 
         networkNodeConfig.load(home);
+        app=new NetworkNodeAppManager();
+        app.load(home);
 
         nodeServer = createNetworkNodeServer(networkNodeConfig.getServerInfo());
         networkContainer = new NetworkContainer(site);
@@ -58,7 +60,7 @@ public class NetworkNode implements INetworkNode {
             if("$.network.config".equals(serviceId)){
                 return networkNodeConfig;
             }
-            if("$.network.app".equals(serviceId)){
+            if("$.network.app.manager".equals(serviceId)){
                 return app;
             }
             return null;

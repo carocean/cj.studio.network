@@ -4,7 +4,7 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.node.INetwork;
-import cj.studio.network.node.NetworkInfo;
+import cj.studio.network.node.INetworkNodeAppManager;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;
 import cj.studio.util.reactor.IPipeline;
@@ -85,39 +85,46 @@ public class ManagerValve implements IValve {
         String authUser = frame.head("Auth-User");
         if (StringUtil.isEmpty(authUser)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Auth-User Of Header is Null.")), this);
+            channel.close();
             return;
         }
         String authMode = frame.head("Auth-Mode");
         if (StringUtil.isEmpty(authMode)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Auth-Mode Of Header is Null.")), this);
+            channel.close();
             return;
         }
         String authToken = frame.head("Auth-Token");
         if (StringUtil.isEmpty(authToken)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Auth-Token Of Header is Null.")), this);
+            channel.close();
             return;
         }
         String peerName = frame.head("Peer-Name");
         if (StringUtil.isEmpty(peerName)) {
             pipeline.nextError(e, new CircuitException("404", String.format("The Peer-Name Of Header is Null.")), this);
+            channel.close();
             return;
         }
 
-        AttributeKey peerKey=AttributeKey.valueOf("Peer-Name");
+        AttributeKey peerKey = AttributeKey.valueOf("Peer-Name");
         channel.attr(peerKey).set(peerName);
-
-        String access_token = auth(authMode, authUser, authToken);//认证
-
+        String access_token = "";
+        INetworkNodeAppManager appManager = (INetworkNodeAppManager) pipeline.site().getService("$.network.app.manager");
+        try {
+            access_token = appManager.auth(authMode, authUser, authToken);//认证
+        } catch (Throwable throwable) {
+            pipeline.nextError(e, new CircuitException("801", String.format("Fail to Auth.The Peer was Closed.")), this);
+            channel.close();
+            return;
+        }
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
-        c.head("Access-Token",access_token);
+        c.head("Access-Token", access_token);
         bb.writeBytes(c.toByteBuf());
         e.getParameters().put("frame", f);
         pipeline.nextFlow(e, this);
     }
 
-    private String auth(String authMode, String authUser, String authToken) {
-        return "xxxxx";
-    }
 
     private void infoNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
@@ -265,17 +272,17 @@ public class ManagerValve implements IValve {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         String[] names = container.enumNetworkName(true);
-        List<Map<String,Object>> list = new ArrayList<>();
-        Map<String,Object> item=new HashMap<>();
-        item.put("networkInfo",container.getManagerNetworkInfo());
-        item.put("peerNames",container.getManagerNetwork().enumPeerName());
+        List<Map<String, Object>> list = new ArrayList<>();
+        Map<String, Object> item = new HashMap<>();
+        item.put("networkInfo", container.getManagerNetworkInfo());
+        item.put("peerNames", container.getManagerNetwork().enumPeerName());
         list.add(item);
         for (String key : names) {
             INetwork nw = container.getNetwork(key);
             if (nw == null || nw == container.getManagerNetwork()) continue;
-            item=new HashMap<>();
-            item.put("networkInfo",nw.getInfo());
-            item.put("peerNames",nw.enumPeerName());
+            item = new HashMap<>();
+            item.put("networkInfo", nw.getInfo());
+            item.put("peerNames", nw.enumPeerName());
             list.add(item);
         }
         ByteBuf bb = Unpooled.buffer();

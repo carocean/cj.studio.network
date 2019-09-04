@@ -7,7 +7,7 @@ import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.node.INetworkContainer;
-import cj.studio.network.node.INetworkNodeApp;
+import cj.studio.network.node.INetworkNodeAppManager;
 import cj.studio.util.reactor.*;
 import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
@@ -24,13 +24,13 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     private int counter;
     IReactor reactor;
     INetworkContainer container;
-    INetworkNodeApp app;
+    INetworkNodeAppManager appManager;
 
     public TcpChannelHandler(IServiceProvider parent) {
         logger = CJSystem.logging();
         reactor = (IReactor) parent.getService("$.reactor");
         container = (INetworkContainer) parent.getService("$.network.container");
-        app = (INetworkNodeApp) parent.getService("$.network.app");
+        appManager = (INetworkNodeAppManager) parent.getService("$.network.app.manager");
     }
 
     @Override

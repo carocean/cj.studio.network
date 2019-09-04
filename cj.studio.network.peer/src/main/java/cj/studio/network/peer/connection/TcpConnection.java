@@ -21,8 +21,10 @@ public class TcpConnection implements IConnection {
     EventLoopGroup exepool;
     private Channel channel;
     IServiceProvider site;
+    String peerName;
     public TcpConnection(IServiceProvider site) {
         this.site=site;
+        peerName=(String)site.getService("$.peer.name");
     }
 
     @Override
@@ -49,6 +51,7 @@ public class TcpConnection implements IConnection {
 
     @Override
     public void send(NetworkFrame frame) {
+        frame.head("Peer-Name",peerName);
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
         ByteBuf bb = Unpooled.buffer();

@@ -30,6 +30,11 @@ public class Peer implements IPeer {
     }
 
     @Override
+    public String peerName() {
+        return peerName;
+    }
+
+    @Override
     public INetworkPeer connect(String networkNode, String authmode, String user, String token, String managerNetowrkName, IOnmessage onmessage) {
         int pos = networkNode.indexOf("://");
         if (pos < 0) {
@@ -155,6 +160,9 @@ public class Peer implements IPeer {
             }
             if ("$.peer.container".equals(serviceId)) {
                 return container;
+            }
+            if("$.peer.name".equals(serviceId)){
+                return peerName;
             }
             if (parent != null) {
                 return parent.getService(serviceId);

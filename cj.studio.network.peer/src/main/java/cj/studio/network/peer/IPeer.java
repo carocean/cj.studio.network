@@ -6,6 +6,6 @@ public interface IPeer {
     INetworkPeer listen(String networkName, IOnmessage onmessage);
 
     void close();
-
+    String peerName();
 }
 

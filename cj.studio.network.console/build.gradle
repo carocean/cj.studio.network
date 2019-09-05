@@ -22,7 +22,7 @@ jar {
     manifest {
         attributes 'Manifest-Version': version,
                 'Class-Path': '.',
-                'Main-Class':'cj.studio.network.nodestart.Entrypoint',
+                'Main-Class':'cj.studio.network.console.PeerEntrypoint',
                 'DynamicImport-Package':'*'
     }
 }
@@ -42,7 +42,7 @@ task runnableJar(dependsOn:':cj.studio.network.peer:release',type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Gradle Jar File Example',
                 'Implementation-Version': version,
-                'Main-Class': 'cj.studio.network.console.PeerConsole'
+                'Main-Class': 'cj.studio.network.console.PeerEntrypoint'
     }
     baseName = 'peer'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }

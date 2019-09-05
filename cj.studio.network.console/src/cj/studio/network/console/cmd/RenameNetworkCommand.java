@@ -1,0 +1,63 @@
+package cj.studio.network.console.cmd;
+
+import cj.studio.network.NetworkFrame;
+import cj.studio.network.console.CmdLine;
+import cj.studio.network.console.Command;
+import cj.studio.network.peer.INetworkPeer;
+import cj.studio.network.peer.INetworkPeerContainer;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+
+import java.io.IOException;
+import java.util.List;
+
+public class RenameNetworkCommand extends Command {
+    @Override
+    public String cmd() {
+        return "rename";
+    }
+
+    @Override
+    public String cmdDesc() {
+        return "重命名网络。用法：rename networkName -n newName";
+    }
+
+    @Override
+    public Options options() {
+        Options options = new Options();
+        Option n = new Option("n", "name", true, "[必须]新网络名");
+        options.addOption(n);
+//        Option b = new Option("b", "backward", false, "仅列出backward连结点");
+//        options.addOption(b);
+//        Option s = new Option("s", "socket", false, "仅列出sockets");
+//        options.addOption(s);
+//        Option u = new Option("t", "tt", false, "开启即时监控");
+//        options.addOption(u);
+        // Option p = new Option("p", "password",true, "密码");
+        // options.addOption(p);
+        return options;
+    }
+
+    @Override
+    public boolean doCommand(CmdLine cl) throws IOException {
+        CommandLine line = cl.line();
+        List<String> args = line.getArgList();
+        if (args.isEmpty()) {
+            System.out.println(String.format("错误：未指定网络名"));
+            return true;
+        }
+        String name = args.get(0);
+        if(!line.hasOption("n")){
+            System.out.println(String.format("错误：缺少参数-n"));
+            return true;
+        }
+        INetworkPeerContainer container = (INetworkPeerContainer) cl.site().getService("$.peer.container");
+        INetworkPeer master = container.getMasterNetwork();
+        NetworkFrame frame = new NetworkFrame("renameNetwork / network/1.0");
+        frame.head("Network-Name", name);
+        frame.head("New-Network-Name", line.getOptionValue("n"));
+        master.send(frame);
+        return false;
+    }
+}

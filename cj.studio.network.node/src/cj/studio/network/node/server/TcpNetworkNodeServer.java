@@ -77,9 +77,10 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         this.workThreadCount = StringUtil.isEmpty(strworkThreadCount) || "0".equals(strworkThreadCount) ? Math.max(1, SystemPropertyUtil.getInt(
                 "io.netty.eventLoopThreads", Runtime.getRuntime().availableProcessors() * 2)) : Integer.valueOf(strworkThreadCount);
 
-        String interval = StringUtil.isEmpty((String) serverInfo.getProps().get("heartbeat")) ? "0" : serverInfo.getProps().get("heartbeat") + "";
-        this.heartbeat = Long.valueOf(interval);
-
+        this.heartbeat = 0;
+        if (serverInfo.getProps().get("heartbeat") != null) {
+            this.heartbeat = serverInfo.getProps().get("heartbeat") instanceof Integer ? (int) serverInfo.getProps().get("heartbeat") : (long) serverInfo.getProps().get("heartbeat");
+        }
         startRactor(config);
         bossGroup = new NioEventLoopGroup(bossThreadCount);
         workerGroup = new NioEventLoopGroup(workThreadCount);

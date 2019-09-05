@@ -16,7 +16,14 @@ public class NetworkPeerContainer implements INetworkPeerContainer {
         this.site = site;
         this.masterNetowrkName = masterNetowrkName;
     }
-
+    @Override
+    public String getMasterNetowrkName() {
+        return masterNetowrkName;
+    }
+    @Override
+    public INetworkPeer getMasterNetwork(){
+        return networkPeerMap.get(masterNetowrkName);
+    }
     @Override
     public boolean exists(String networkName) {
         return networkPeerMap.containsKey(networkName);

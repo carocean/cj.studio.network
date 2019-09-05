@@ -96,6 +96,7 @@ public class ManagerValve implements IValve {
         NetworkFrame f = new NetworkFrame(frame.toString(), bb);
 
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
+        c.head("Network-Name",frame.rootName());
         bb.writeBytes(c.toByteBuf());
         e.getParameters().put("frame", f);
         pipeline.nextFlow(e, this);
@@ -233,7 +234,7 @@ public class ManagerValve implements IValve {
         c.head("status", "200");
         c.head("message", String.format("The Network %s was renamed.", networkName));
         c.head("Old-Network-Name", networkName);
-        c.head("New-Network-Name", networkName);
+        c.head("New-Network-Name", newnetworkName);
         bb.writeBytes(c.toByteBuf());
         e.getParameters().put("frame", f);
         pipeline.nextFlow(e, this);

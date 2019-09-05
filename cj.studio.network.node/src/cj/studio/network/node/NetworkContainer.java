@@ -66,9 +66,10 @@ public class NetworkContainer implements INetworkContainer {
     public void renameNetwork(String networkName, String newNetworkName) {
         INetwork network = networks.get(networkName);
         if (network == null) return;
+        networks.remove(networkName);
         NetworkInfo info = network.getInfo();
         info.setName(newNetworkName);
-        networks.put(networkName,network);
+        networks.put(info.getName(),network);
     }
 
     @Override

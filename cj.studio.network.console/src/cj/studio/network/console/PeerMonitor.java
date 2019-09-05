@@ -1,29 +1,28 @@
 package cj.studio.network.console;
 
-import cj.studio.ecm.IServiceProvider;
-import cj.studio.network.peer.IPeer;
-import cj.ultimate.util.StringUtil;
+import cj.studio.network.console.cmd.*;
 
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
-public class PeerMonitor implements IPeerMonitor {
+public class PeerMonitor extends BaseMonitor {
     @Override
-    public void moniter(IServiceProvider site) {
-        Scanner sc = new Scanner(System.in);
-        IPeer peer=(IPeer) site.getService("$.peer");
-        String prefix=">";
-        System.out.print(prefix);
-        while (sc.hasNextLine()) {
-            String text = sc.nextLine();
-            if("bye".equals(text)||"exit".equals(text)){
-                break;
-            }
-            if(StringUtil.isEmpty(text)){
-                System.out.print(prefix);
-                continue;
-            }
-            System.out.println(text);
-            System.out.print(prefix);
-        }
+    protected Map<String, Command> getCommands() {
+        Map<String, Command> cmds = new HashMap<>();
+        Command ls = new ListNetworkCommand();
+        cmds.put(ls.cmd(), ls);
+        Command createNetworkCommand = new CreateNetworkCommand();
+        cmds.put(createNetworkCommand.cmd(), createNetworkCommand);
+        Command remove = new RemoveNetworkCommand();
+        cmds.put(remove.cmd(), remove);
+        Command exists = new ExistsNetworkCommand();
+        cmds.put(exists.cmd(), exists);
+        Command rename = new RenameNetworkCommand();
+        cmds.put(rename.cmd(), rename);
+        Command castmode = new CastmodeNetworkCommand();
+        cmds.put(castmode.cmd(), castmode);
+        Command listen = new ListenNetworkCommand();
+        cmds.put(listen.cmd(), listen);
+        return cmds;
     }
 }

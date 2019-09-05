@@ -17,7 +17,11 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
         container = (INetworkPeerContainer) site.getService("$.peer.container");
     }
 
-
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        container.onclose();
+        super.channelInactive(ctx);
+    }
 
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -48,6 +52,6 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
             return;
         }
         frame.url(frame.relativeUrl());
-        peer.recieve(frame);
+        peer.onrecieve(frame);
     }
 }

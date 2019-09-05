@@ -8,9 +8,8 @@ public interface INetworkNodeConfig {
 
     ServerInfo getServerInfo();
 
-    Map<String, NetworkInfo> getGeneralNetworks();
+    Map<String, NetworkInfo> getNetworks();
 
-    NetworkInfo getManagerNetwork();
-
+    String getMasterNetwork();
     ReactorInfo getReactorInfo();
 }

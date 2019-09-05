@@ -29,11 +29,11 @@ public class CastValve implements IValve {
     public void nextError(Event e, Throwable error, IPipeline pipeline) throws CircuitException {
         //如果出错则发送给管理网络
         INetworkContainer container = (INetworkContainer) pipeline.site().getService("$.network.container");
-        INetwork manager = container.getNetwork(container.getManagerNetworkInfo().getName());
+        INetwork manager = container.getNetwork(container.getMasterNetworkName());
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
-        ByteBuf bb= Unpooled.buffer();
-        NetworkFrame f = new NetworkFrame(String.format("error /%s network/1.0",pipeline.key()), bb);
+        ByteBuf bb=Unpooled.buffer();
+        NetworkFrame f = new NetworkFrame(String.format("error /%s network/1.0",pipeline.key()),bb);
         NetworkCircuit c=new NetworkCircuit("network/1.0 200 ok");
         String status = "";
         String message = "";
@@ -48,6 +48,8 @@ public class CastValve implements IValve {
         c.head("message", message);
         c.head("status", status);
         c.content().writeBytes(frame.toBytes());
+        bb.writeBytes(c.toBytes());
+        c.dispose();
         manager.cast(channel, f);
     }
 }

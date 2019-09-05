@@ -20,7 +20,7 @@ public class Peer implements IPeer {
     private Peer(String peerName, IServiceProvider parent) {
         this.peerName = peerName;
         site = new PeerServiceSite(parent);
-        container = new NetworkPeerContainer(site);
+
     }
 
     public static IPeer create(String peerName, IServiceProvider parent) {
@@ -50,7 +50,8 @@ public class Peer implements IPeer {
     }
 
     @Override
-    public INetworkPeer connect(String networkNode, String authmode, String user, String token, String managerNetowrkName, IOnmessage onmessage) {
+    public INetworkPeer connect(String networkNode, String authmode, String user, String token, String masterNetowrkName, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+        container = new NetworkPeerContainer(masterNetowrkName,site);
         int pos = networkNode.indexOf("://");
         if (pos < 0) {
             throw new EcmException("地址格式错误:" + networkNode);
@@ -86,11 +87,11 @@ public class Peer implements IPeer {
             default:
                 throw new EcmException("不支持的连接协议:" + protocol);
         }
-        return listenManagerNetwork(authmode, user, token, managerNetowrkName, onmessage);
+        return listenManagerNetwork(authmode, user, token, masterNetowrkName, onopen, onmessage, onclose);
     }
 
-    private INetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName, IOnmessage onmessage) {
-        INetworkPeer manager = listen(managerNetowrkName, onmessage);
+    private INetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+        INetworkPeer manager = listen(managerNetowrkName, onopen, onmessage, onclose);
         NetworkFrame frame = new NetworkFrame(String.format("auth / network/1.0"));
         frame.head("Auth-User", user);
         frame.head("Auth-Mode", authmode);
@@ -123,14 +124,14 @@ public class Peer implements IPeer {
 
 
     @Override
-    public INetworkPeer listen(String networkName, IOnmessage onmessage) {
+    public INetworkPeer listen(String networkName, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
         if (container.exists(networkName)) {
             throw new EcmException("已侦听网络：" + networkName);
         }
 
-        INetworkPeer networkPeer= container.create(connection, networkName, onmessage);
-        NetworkFrame frame=new NetworkFrame("listenNetwork / network/1.0");
-        frame.head("Peer-Name",peerName);
+        INetworkPeer networkPeer = container.create(connection, networkName, onopen, onmessage, onclose);
+        NetworkFrame frame = new NetworkFrame("listenNetwork / network/1.0");
+        frame.head("Peer-Name", peerName);
         networkPeer.send(frame);
         return networkPeer;
     }
@@ -139,6 +140,11 @@ public class Peer implements IPeer {
     public void close() {
         container.dispose();
         connection.close();
+    }
+
+    @Override
+    public IServiceProvider site() {
+        return site;
     }
 
     class DefaultManagerNetworkOnmessage implements IOnmessage {
@@ -174,15 +180,16 @@ public class Peer implements IPeer {
 
         @Override
         public Object getService(String serviceId) {
-            if("$.peer".equals(serviceId)){
+            if ("$.peer".equals(serviceId)) {
                 return Peer.this;
             }
             if ("$.peer.container".equals(serviceId)) {
                 return container;
             }
-            if("$.peer.name".equals(serviceId)){
+            if ("$.peer.name".equals(serviceId)) {
                 return peerName;
             }
+
             if (parent != null) {
                 return parent.getService(serviceId);
             }

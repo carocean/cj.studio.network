@@ -65,14 +65,21 @@ public class Network implements INetwork {
         bb.writeBytes(box, 0, box.length);
         switch (info.getCastmode()) {
             case "unicast":
-                unicast(frame, bb);
+                unicast(frame.hashCode(), bb);
                 break;
             case "multicast":
-                multicast(frame, bb);
+                multicast(bb);
+                break;
+            case "feedbackcast":
+                feedbackcast(source, bb);
                 break;
             default:
                 break;
         }
+    }
+
+    private void feedbackcast(Channel source, ByteBuf bb) {
+        source.writeAndFlush(bb);
     }
 
     @Override
@@ -80,7 +87,7 @@ public class Network implements INetwork {
         return this.channels.contains(channel);
     }
 
-    private void multicast(NetworkFrame frame, ByteBuf bb) {
+    private void multicast(ByteBuf bb) {
         for (Channel ch : channels) {
             if (ch == null) {
                 continue;
@@ -89,19 +96,18 @@ public class Network implements INetwork {
                 ch.close();
                 channels.remove(ch);
             }
-            ByteBuf copy=bb.copy();//多播必须使用拷贝
+            ByteBuf copy = bb.copy();//多播必须使用拷贝
             ch.writeAndFlush(copy);
         }
         bb.release();//把源形释放，这个与单播不同，因为它有原型
     }
 
-    private void unicast(NetworkFrame frame, ByteBuf bb) {
+    private void unicast(int hc, ByteBuf bb) {
         if (channels.isEmpty()) {
             return;
         }
         Channel one = null;
         boolean found = false;
-        int hc = frame.hashCode();
         for (int i = 0; i < channels.size(); i++) {
             one = channels.get((hc + i) % channels.size());
             if (one == null) {

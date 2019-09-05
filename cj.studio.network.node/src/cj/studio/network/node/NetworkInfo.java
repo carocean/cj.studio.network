@@ -2,7 +2,7 @@ package cj.studio.network.node;
 
 public class NetworkInfo {
     String name;
-    String castmode;
+    String castmode;//multicast,unicast,feedbackcast
 
     public NetworkInfo() {
     }

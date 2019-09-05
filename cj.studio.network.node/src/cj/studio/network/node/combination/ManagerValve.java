@@ -25,10 +25,10 @@ import java.util.Map;
  * 处理管理网络逻辑
  */
 public class ManagerValve implements IValve {
-    String managerNetworkName;
+    INetworkContainer container;
 
-    public ManagerValve(String name) {
-        managerNetworkName = name;
+    public ManagerValve(INetworkContainer container) {
+        this.container = container;
     }
 
     @Override
@@ -38,47 +38,46 @@ public class ManagerValve implements IValve {
 
     @Override
     public void flow(Event e, IPipeline pipeline) throws CircuitException {
-        if (!managerNetworkName.equals(pipeline.key())) {//不是管理网络则放过去
+        if (!container.getMasterNetworkName().equals(pipeline.key())) {//不是管理网络则放过去
             NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
-            if ("NETWORK/1.0".equals(frame.protocol()) && "listenNetwork".equals(frame.command())) {
-                INetworkContainer container = (INetworkContainer) pipeline.site().getService("$.network.container");
-                listenNetwork(e, pipeline, container);
-                return;//peer端发来的网络侦听指令，拦截该指令然后丢弃。目的是客户端的侦听会自动触发reactor从而使得客户端加入网络
+            Channel channel = (Channel) e.getParameters().get("channel");
+            if ("NETWORK/1.0".equals(frame.protocol()) && "listenNetwork".equals(frame.command())) {//侦听指令就是将当前channel 加入network
+                listenNetwork(e, pipeline);
+                return;
             }
             pipeline.nextFlow(e, this);
             return;
         }
-        INetworkContainer container = (INetworkContainer) pipeline.site().getService("$.network.container");
         switch (e.getCmd()) {
             case "error":
-                errorNetwork(e, pipeline, container);
-                break;
-            case "auth":
-                authManagerNetwork(e, pipeline, container);
+                errorNetwork(e, pipeline);
                 break;
             case "listenNetwork":
-                listenNetwork(e, pipeline, container);
+                listenNetwork(e, pipeline);
+                break;
+            case "auth":
+                authManagerNetwork(e, pipeline);
                 break;
             case "infoNetwork":
-                infoNetwork(e, pipeline, container);
+                infoNetwork(e, pipeline);
                 break;
             case "createNetwork":
-                createNetwork(e, pipeline, container);
+                createNetwork(e, pipeline);
                 break;
             case "listNetwork":
-                listNetwork(e, pipeline, container);
+                listNetwork(e, pipeline);
                 break;
             case "existsNetwork":
-                existsNetwork(e, pipeline, container);
+                existsNetwork(e, pipeline);
                 break;
             case "removeNetwork":
-                removeNetwork(e, pipeline, container);
+                removeNetwork(e, pipeline);
                 break;
             case "renameNetwork":
-                renameNetwork(e, pipeline, container);
+                renameNetwork(e, pipeline);
                 break;
             case "changeCastmode":
-                changeCastmode(e, pipeline, container);
+                changeCastmode(e, pipeline);
                 break;
             default:
                 pipeline.nextError(e, new CircuitException("501", String.format("The Command %s is not Surported", e.getCmd())), this);
@@ -86,9 +85,13 @@ public class ManagerValve implements IValve {
         }
     }
 
-    private void listenNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void listenNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
+        INetwork network = (INetwork) container.getNetwork(pipeline.key());
+        if (!network.existsChannel(channel)) {
+            network.addChannel(channel);
+        }
         ByteBuf bb = Unpooled.buffer();
         NetworkFrame f = new NetworkFrame(frame.toString(), bb);
 
@@ -97,8 +100,7 @@ public class ManagerValve implements IValve {
         e.getParameters().put("frame", f);
         pipeline.nextFlow(e, this);
     }
-
-    private void authManagerNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void authManagerNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
@@ -136,7 +138,7 @@ public class ManagerValve implements IValve {
             access_token = appManager.auth(authMode, authUser, authToken);//认证
         } catch (Throwable throwable) {
             pipeline.nextError(e, new CircuitException("801", String.format("Fail to Auth.The Peer was Closed.")), this);
-            channel.close();
+            channel.close();//认证不通过则关闭对端
             return;
         }
 
@@ -148,7 +150,7 @@ public class ManagerValve implements IValve {
     }
 
 
-    private void infoNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void infoNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
@@ -175,7 +177,7 @@ public class ManagerValve implements IValve {
         pipeline.nextFlow(e, this);
     }
 
-    private void changeCastmode(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void changeCastmode(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
@@ -207,7 +209,7 @@ public class ManagerValve implements IValve {
         pipeline.nextFlow(e, this);
     }
 
-    private void renameNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void renameNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
@@ -237,7 +239,7 @@ public class ManagerValve implements IValve {
         pipeline.nextFlow(e, this);
     }
 
-    private void removeNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void removeNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
@@ -261,12 +263,12 @@ public class ManagerValve implements IValve {
         pipeline.nextFlow(e, this);
     }
 
-    private void errorNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void errorNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         pipeline.nextError(e, new CircuitException(frame.head("status"), frame.head("message")), this);
     }
 
-    private void existsNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void existsNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         ByteBuf bb = Unpooled.buffer();
@@ -290,18 +292,19 @@ public class ManagerValve implements IValve {
         pipeline.nextFlow(e, this);
     }
 
-    private void listNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void listNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         String[] names = container.enumNetworkName(true);
         List<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> item = new HashMap<>();
-        item.put("networkInfo", container.getManagerNetworkInfo());
-        item.put("peerNames", container.getManagerNetwork().enumPeerName());
+        INetwork manager=container.getMasterNetwork();
+        item.put("networkInfo", manager.getInfo());
+        item.put("peerNames", manager.enumPeerName());
         list.add(item);
         for (String key : names) {
             INetwork nw = container.getNetwork(key);
-            if (nw == null || nw == container.getManagerNetwork()) continue;
+            if (nw == null || nw == container.getMasterNetwork()) continue;
             item = new HashMap<>();
             item.put("networkInfo", nw.getInfo());
             item.put("peerNames", nw.enumPeerName());
@@ -316,7 +319,7 @@ public class ManagerValve implements IValve {
         pipeline.nextFlow(e, this);
     }
 
-    private void createNetwork(Event e, IPipeline pipeline, INetworkContainer container) throws CircuitException {
+    private void createNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
         String name = frame.head("Network-Name");

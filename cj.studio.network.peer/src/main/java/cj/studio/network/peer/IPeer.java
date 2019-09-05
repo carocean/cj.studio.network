@@ -1,9 +1,11 @@
 package cj.studio.network.peer;
 
-public interface IPeer {
-    INetworkPeer connect(String networkNode,String authmode, String user, String token,String managerNetowrkName, IOnmessage onmessage);
+import cj.studio.ecm.IServiceProvider;
 
-    INetworkPeer listen(String networkName, IOnmessage onmessage);
+public interface IPeer {
+    INetworkPeer connect(String networkNode,String authmode, String user, String token,String masterNetowrkName,IOnopen onopen, IOnmessage onmessage,IOnclose onclose);
+
+    INetworkPeer listen(String networkName, IOnopen onopen, IOnmessage onmessage,IOnclose onclose);
 
     void close();
     String peerName();
@@ -12,5 +14,8 @@ public interface IPeer {
     String getNodeProtocol();
 
     int getNodePort();
+
+    IServiceProvider site();
+
 }
 

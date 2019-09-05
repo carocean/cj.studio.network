@@ -3,7 +3,7 @@ package cj.studio.network.node;
 import io.netty.channel.Channel;
 
 public interface INetworkContainer {
-
+    String getMasterNetworkName();
     /**
      * 是否存在网络
      * @param networkName
@@ -11,11 +11,6 @@ public interface INetworkContainer {
      */
     boolean existsNetwork(String networkName);
 
-    /**
-     * 获取用于管理方网络信息
-     * @return
-     */
-    NetworkInfo getManagerNetworkInfo();
 
     /**
      * 在channel失活时应从各个个network中移除该channel
@@ -24,7 +19,6 @@ public interface INetworkContainer {
     void onChannelInactive(Channel channel);
 
     INetwork getNetwork(String networkName);
-    INetwork getManagerNetwork();
     /**
      * 移除网络
      * @param networkName
@@ -44,5 +38,8 @@ public interface INetworkContainer {
     void renameNetwork(String networkName, String newNetworkName);
 
     void changeNetworkCastmode(String networkName, String castmode);
+
+
+    INetwork getMasterNetwork();
 
 }

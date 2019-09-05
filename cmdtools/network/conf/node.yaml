@@ -1,18 +1,17 @@
 server:
   host: tcp://localhost:6600
   props:
-    workThreadCount: 8
+    workThreadCount: 4
     bossThreadCount: 1
 reactor:
   workThreadCount: 10
   queueCapacity: 10000
-managerNetwork:
-  name: manager-network
-  castmode: multicast
-generalNetworks:
-  -
-    name: network-1
-    castmode: unicast
-  -
-    name: network-2
-    castmode: multicast
+networks:
+  master: master-network
+  works:
+   -
+     name: network-1
+     castmode: unicast
+   -
+     name: network-2
+     castmode: multicast

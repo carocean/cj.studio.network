@@ -10,7 +10,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class NetworkContainer implements INetworkContainer {
     IServiceProvider site;
     Map<String, INetwork> networks;
-    private NetworkInfo managerNetworkInfo;
+    private INetworkNodeConfig config;
+
 
     public NetworkContainer(IServiceProvider site) {
         this.site = site;
@@ -19,16 +20,28 @@ public class NetworkContainer implements INetworkContainer {
     }
 
     protected void init(INetworkNodeConfig config) {
+        this.config=config;
         networks = new ConcurrentHashMap<>();
-        this.managerNetworkInfo = config.getManagerNetwork();
         //建立主网络
-        INetwork managerNW = new Network(config.getManagerNetwork());
-        networks.put(managerNW.getInfo().getName(), managerNW);
-        for (Map.Entry<String, NetworkInfo> entry : config.getGeneralNetworks().entrySet()) {
+        NetworkInfo managerInfo=config.getNetworks().get(config.getMasterNetwork());
+        INetwork manager=new Network(managerInfo);
+        networks.put(managerInfo.getName(),manager);
+
+        for (Map.Entry<String, NetworkInfo> entry : config.getNetworks().entrySet()) {
             NetworkInfo info = entry.getValue();
             INetwork network = new Network(info);
             networks.put(info.getName(), network);
         }
+    }
+
+    @Override
+    public INetwork getMasterNetwork() {
+        return networks.get(config.getMasterNetwork());
+    }
+
+    @Override
+    public String getMasterNetworkName() {
+        return config.getMasterNetwork();
     }
 
     @Override
@@ -68,16 +81,6 @@ public class NetworkContainer implements INetworkContainer {
     @Override
     public boolean existsNetwork(String networkName) {
         return networks.containsKey(networkName);
-    }
-
-    @Override
-    public NetworkInfo getManagerNetworkInfo() {
-        return managerNetworkInfo;
-    }
-
-    @Override
-    public INetwork getManagerNetwork() {
-        return this.networks.get(this.managerNetworkInfo.getName());
     }
 
     @Override

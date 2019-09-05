@@ -25,7 +25,6 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     IReactor reactor;
     INetworkContainer container;
     INetworkNodeAppManager appManager;
-
     public TcpChannelHandler(IServiceProvider parent) {
         logger = CJSystem.logging();
         reactor = (IReactor) parent.getService("$.reactor");
@@ -79,14 +78,13 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         }
 
         if (!container.existsNetwork(network)) {//如果不存在请求的网络则走管理网络，管理网络负责将这错误发给侦听的客户端
-            //发给管理网络
-            String mwNetwork = container.getManagerNetworkInfo().getName();
+            //发给管理命令
             ByteBuf data= Unpooled.buffer();
-            NetworkFrame f = new NetworkFrame(String.format("error /%s network/1.0", mwNetwork), data);
+            NetworkFrame f = new NetworkFrame(String.format("error %s network/1.0",container.getMasterNetworkName()), data);
             NetworkCircuit c=new NetworkCircuit(String.format("network/1.0 404 The Network %s is Not Exists.",network));
             c.content().writeBytes(frame.toByteBuf());
             data.writeBytes(c.toByteBuf());
-            Event event = new Event(mwNetwork, f.command());
+            Event event = new Event(container.getMasterNetworkName(), f.command());
             event.getParameters().put("frame", f);
             event.getParameters().put("channel", ctx.channel());
             reactor.input(event);
@@ -115,8 +113,8 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
-        String network = container.getManagerNetworkInfo().getName();
-        NetworkFrame frame = new NetworkFrame(String.format("error /%s network/1.0", network));
+        String network = container.getMasterNetworkName();
+        NetworkFrame frame = new NetworkFrame(String.format("error %s network/1.0", network));
         Event event = new Event(network, frame.command());
         event.getParameters().put("frame", frame);
         event.getParameters().put("channel", ctx.channel());

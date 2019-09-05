@@ -926,4 +926,9 @@ public class NetworkFrame implements IPrinter, IDisposable {
         head("url", url);
     }
 
+    public void add(NetworkFrame frame) {
+        this.headmap.putAll(frame.headmap);
+        this.parametermap.putAll(frame.parametermap);
+        ((DefaultFrameContent)this.content).buf=((DefaultFrameContent)frame.content).buf.copy();
+    }
 }

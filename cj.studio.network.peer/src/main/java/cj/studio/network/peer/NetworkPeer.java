@@ -78,7 +78,7 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
 
     @Override
     public Object getService(String serviceId) {
-        if ("$.network".equals(serviceId)) {
+        if ("$.current".equals(serviceId)) {
             return this;
         }
         return site.getService(serviceId);

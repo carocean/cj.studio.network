@@ -3,7 +3,7 @@ server:
   props:
     workThreadCount: 4
     bossThreadCount: 1
-    #单位为秒
+    #单位为秒，如果开启心跳，而客户端未开启心跳的话，服务器将在重启10次后自动关闭客户端
     heartbeat: 10
 reactor:
   workThreadCount: 10

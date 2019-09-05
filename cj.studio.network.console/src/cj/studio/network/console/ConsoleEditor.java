@@ -87,6 +87,7 @@ public class ConsoleEditor {
 				
 				if (StringUtil.isEmpty(line)) {
 					System.out.print(String.format("%s$:", indent));
+					sb.append(String.format("%s",lineTerminus));
 					continue;
 				}
 				if (line.endsWith("!q")) {

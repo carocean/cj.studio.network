@@ -12,5 +12,6 @@ public interface INetworkPeer {
     void onrecieve(NetworkFrame frame);
 
     void onclose();
+
     IServiceProvider site();
 }

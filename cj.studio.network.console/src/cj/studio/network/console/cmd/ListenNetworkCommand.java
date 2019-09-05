@@ -5,14 +5,21 @@ import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.console.CmdLine;
 import cj.studio.network.console.Command;
+import cj.studio.network.console.IMonitor;
+import cj.studio.network.console.PeerMonitor;
+import cj.studio.network.console.nw.NetworkMonitor;
 import cj.studio.network.peer.*;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ListenNetworkCommand extends Command {
+    INetworkPeer networkPeer;
+
     @Override
     public String cmd() {
         return "listen";
@@ -26,16 +33,6 @@ public class ListenNetworkCommand extends Command {
     @Override
     public Options options() {
         Options options = new Options();
-//        Option f = new Option("f", "forward", false, "仅列出forward连结点");
-//        options.addOption(f);
-//        Option b = new Option("b", "backward", false, "仅列出backward连结点");
-//        options.addOption(b);
-//        Option s = new Option("s", "socket", false, "仅列出sockets");
-//        options.addOption(s);
-//        Option u = new Option("t", "tt", false, "开启即时监控");
-//        options.addOption(u);
-        // Option p = new Option("p", "password",true, "密码");
-        // options.addOption(p);
         return options;
     }
 
@@ -48,6 +45,8 @@ public class ListenNetworkCommand extends Command {
             return true;
         }
         String name = args.get(0);
+        ReentrantLock lock = new ReentrantLock();
+        Condition finished = lock.newCondition();
         IPeer peer = (IPeer) cl.site().getService("$.peer");
         INetworkPeer networkPeer = peer.listen(name, new IOnerror() {
             @Override
@@ -57,13 +56,20 @@ public class ListenNetworkCommand extends Command {
                 StringBuffer sb = new StringBuffer();
                 circuit.print(sb);
                 System.out.println(frame + "\r\n" + sb);
-                System.out.print(">");
+                System.out.print(String.format("\t%s>", networkPeer.getNetworkName()));
             }
         }, new IOnopen() {
             @Override
             public void onopen(NetworkFrame frame, INetworkPeer networkPeer) {
+                ListenNetworkCommand.this.networkPeer = networkPeer;
                 System.out.println("已侦听网络：" + networkPeer.getNetworkName());
-                System.out.print(">");
+                try {
+                    lock.lock();
+                    finished.signalAll();
+                } finally {
+                    lock.unlock();
+                }
+                System.out.print(String.format("\t%s>", networkPeer.getNetworkName()));
             }
         }, new IOnmessage() {
             @Override
@@ -72,16 +78,26 @@ public class ListenNetworkCommand extends Command {
                 frame.print(sb);
                 System.out.println("---network-1---");
                 System.out.println(sb);
-                System.out.print(">");
+                System.out.print(String.format("\t%s>", ((INetworkPeer) site.getService("$.current")).getNetworkName()));
 
             }
         }, new IOnclose() {
             @Override
             public void onclose(INetworkPeer networkPeer) {
                 System.out.println("已断开网络：" + networkPeer.getNetworkName());
-                System.out.print(">");
+                System.out.print(String.format("\t%s>", networkPeer.getNetworkName()));
             }
         });
+        try {
+            lock.lock();
+            finished.await();
+            IMonitor console = new NetworkMonitor();
+            console.moniter(networkPeer.site());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
         return false;
     }
 }

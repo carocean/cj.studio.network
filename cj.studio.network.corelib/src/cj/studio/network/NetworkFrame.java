@@ -40,7 +40,8 @@ public class NetworkFrame implements IPrinter, IDisposable {
     }
 
     NetworkFrame() {
-
+        headmap = new HashMap<>();
+        parametermap = new HashMap<>();
     }
 
     public NetworkFrame(String frame_line) {
@@ -71,32 +72,32 @@ public class NetworkFrame implements IPrinter, IDisposable {
     }
 
     private void parseFrameLine(String frame_line) {
-        String remain=frame_line;
-        while(remain.startsWith(" ")){
-            remain=remain.substring(1,remain.length());
+        String remain = frame_line;
+        while (remain.startsWith(" ")) {
+            remain = remain.substring(1, remain.length());
         }
-        int pos=remain.indexOf(" ");
+        int pos = remain.indexOf(" ");
         if (pos < 1) {
             throw new RuntimeException("格式错误");
         }
-        String command=remain.substring(0,pos);
-        remain=remain.substring(pos+1,remain.length());
-        while(remain.startsWith(" ")){
-            remain=remain.substring(1,remain.length());
+        String command = remain.substring(0, pos);
+        remain = remain.substring(pos + 1, remain.length());
+        while (remain.startsWith(" ")) {
+            remain = remain.substring(1, remain.length());
         }
-        while (remain.endsWith(" ")){
-            remain=remain.substring(0,remain.length()-1);
+        while (remain.endsWith(" ")) {
+            remain = remain.substring(0, remain.length() - 1);
         }
-        pos=remain.lastIndexOf(" ");
+        pos = remain.lastIndexOf(" ");
         if (pos < 1) {
             throw new RuntimeException("格式错误");
         }
-        String protocol=remain.substring(pos+1,remain.length());
-        remain=remain.substring(0,pos);
-        while (remain.endsWith(" ")){
-            remain=remain.substring(0,remain.length()-1);
+        String protocol = remain.substring(pos + 1, remain.length());
+        remain = remain.substring(0, pos);
+        while (remain.endsWith(" ")) {
+            remain = remain.substring(0, remain.length() - 1);
         }
-        String url=remain;
+        String url = remain;
         protocol(protocol);
         url(url);
         command(command);
@@ -929,6 +930,14 @@ public class NetworkFrame implements IPrinter, IDisposable {
     public void add(NetworkFrame frame) {
         this.headmap.putAll(frame.headmap);
         this.parametermap.putAll(frame.parametermap);
-        ((DefaultFrameContent)this.content).buf=((DefaultFrameContent)frame.content).buf.copy();
+        ((DefaultFrameContent) this.content).buf = ((DefaultFrameContent) frame.content).buf.copy();
+    }
+
+    public NetworkFrame copy() {
+        NetworkFrame f = new NetworkFrame();
+        f.headmap.putAll(this.headmap);
+        f.parametermap.putAll(this.parametermap);
+        f.content = new DefaultFrameContent(((DefaultFrameContent) this.content).buf.copy());
+        return f;
     }
 }

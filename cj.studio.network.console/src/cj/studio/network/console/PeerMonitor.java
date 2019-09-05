@@ -23,8 +23,6 @@ public class PeerMonitor extends BaseMonitor {
         cmds.put(castmode.cmd(), castmode);
         Command listen = new ListenNetworkCommand();
         cmds.put(listen.cmd(), listen);
-        Command send = new SendNetworkCommand();
-        cmds.put(send.cmd(), send);
         return cmds;
     }
 }

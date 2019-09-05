@@ -25,7 +25,7 @@ public class PeerConsole {
 
         Option n = new Option("n", "peername", true, "[可省略，默认以guid生成]本地peer名");
         options.addOption(n);
-        Option r = new Option("r", "url", true, "[必须]远程node的url地址，格式：protocol://host:port?workThreadCount=2&prop2=yy");
+        Option r = new Option("r", "url", true, "[必须]远程node的url地址，格式：'protocol://host:port?workThreadCount=2&prop2=yy'。注意：如果含有&符则必须加单引号将整个url包住");
         options.addOption(r);
         Option g = new Option("g", "mnn", true, "[必须]管理网络名字");
         options.addOption(g);
@@ -69,17 +69,25 @@ public class PeerConsole {
         String pwd = line.getOptionValue("p");
         String managerNetwork = line.getOptionValue("g");
 
-        File consoleFile = getHomeDir(fileName,line);
-        PropertyConfigurator.configure(String.format("%s%sconf%slog4j.properties",consoleFile.getParent(),File.separator,File.separator));
+        File consoleFile = getHomeDir(fileName, line);
+        PropertyConfigurator.configure(String.format("%s%sconf%slog4j.properties", consoleFile.getParent(), File.separator, File.separator));
 
         IPeer peer = Peer.create(peername, null);
         //"tcp://localhost:6600?workThreadCount=8"
         ReentrantLock lock = new ReentrantLock();
         Condition finished = lock.newCondition();
-        INetworkPeer manager = peer.connect(url, authmode, user, pwd, managerNetwork, new IOnopen() {
+        INetworkPeer manager = peer.connect(url, authmode, user, pwd, managerNetwork, new IOnerror() {
             @Override
-            public void onopen(INetworkPeer networkPeer) {
-                System.out.println(String.format("The Network %s was Opened." ,networkPeer.getNetworkName()));
+            public void onerror(NetworkFrame frame, INetworkPeer networkPeer) {
+                StringBuffer sb = new StringBuffer();
+                sb.append("错误：\r\n");
+                frame.print(sb);
+                sb.append(sb);
+            }
+        }, new IOnopen() {
+            @Override
+            public void onopen(NetworkFrame frame, INetworkPeer networkPeer) {
+                System.out.println(String.format("The Network %s was Opened.", networkPeer.getNetworkName()));
             }
         }, new IOnmessage() {
             @Override
@@ -106,7 +114,7 @@ public class PeerConsole {
         }, new IOnclose() {
             @Override
             public void onclose(INetworkPeer networkPeer) {
-                System.out.println(String.format("The Netowrk %s was Closed." , networkPeer.getNetworkName()));
+                System.out.println(String.format("The Netowrk %s was Closed.", networkPeer.getNetworkName()));
                 System.exit(0);
             }
         });//
@@ -170,9 +178,17 @@ public class PeerConsole {
         networkPeer.send(frame);
 //
         IPeer peer = (IPeer) site.getService("$.peer");
-        INetworkPeer np1 = peer.listen("network-1", new IOnopen() {
+        INetworkPeer np1 = peer.listen("network-1",new IOnerror() {
             @Override
-            public void onopen(INetworkPeer networkPeer) {
+            public void onerror(NetworkFrame frame, INetworkPeer networkPeer) {
+                StringBuffer sb = new StringBuffer();
+                sb.append("错误：\r\n");
+                frame.print(sb);
+                sb.append(sb);
+            }
+        }, new IOnopen() {
+            @Override
+            public void onopen(NetworkFrame frame, INetworkPeer networkPeer) {
                 System.out.println("打开网络：" + networkPeer.getNetworkName());
             }
         }, new IOnmessage() {

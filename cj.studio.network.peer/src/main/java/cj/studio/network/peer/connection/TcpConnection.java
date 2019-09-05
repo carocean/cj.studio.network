@@ -14,8 +14,10 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.timeout.IdleStateHandler;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class TcpConnection implements IConnection {
     EventLoopGroup exepool;
@@ -25,19 +27,23 @@ public class TcpConnection implements IConnection {
     private String protocol;
     private String host;
     private int port;
+    private long heartbeat;
 
     public TcpConnection(IServiceProvider site) {
-        this.site=site;
-        peerName=(String)site.getService("$.peer.name");
+        this.site = site;
+        peerName = (String) site.getService("$.peer.name");
     }
+
     @Override
     public String getHost() {
         return host;
     }
+
     @Override
     public String getProtocol() {
         return protocol;
     }
+
     @Override
     public int getPort() {
         return port;
@@ -45,9 +51,16 @@ public class TcpConnection implements IConnection {
 
     @Override
     public void connect(String protocol, String ip, int port, Map<String, String> props) {
-        this.protocol=protocol;
+        this.protocol = protocol;
         this.host = ip;
         this.port = port;
+        String strheartbeat = props
+                .get("heartbeat");
+        if (StringUtil.isEmpty(strheartbeat)) {
+            strheartbeat = "0";
+        }
+        this.heartbeat = Long.valueOf(strheartbeat);
+
         String workThreadCount = props
                 .get("workThreadCount");
         EventLoopGroup group = null;
@@ -70,7 +83,7 @@ public class TcpConnection implements IConnection {
 
     @Override
     public void send(NetworkFrame frame) {
-        frame.head("Peer-Name",peerName);
+        frame.head("Peer-Name", peerName);
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
         pack.dispose();
@@ -95,10 +108,10 @@ public class TcpConnection implements IConnection {
         protected void initChannel(SocketChannel ch) throws Exception {
             ChannelPipeline pipeline = ch.pipeline();
             pipeline.addLast(new LengthFieldBasedFrameDecoder(81920, 0, 4, 0, 4));
-//            long interval = (long) parent.getService("$.prop.heartbeat");
-//            if (interval > 0) {
-//                pipeline.addLast(new IdleStateHandler(0, 0, interval, TimeUnit.MILLISECONDS));
-//            }
+            long interval = heartbeat;
+            if (interval > 0) {
+                pipeline.addLast(new IdleStateHandler(0, 0, interval, TimeUnit.SECONDS));
+            }
             pipeline.addLast(new TcpClientHandler(site));
         }
 

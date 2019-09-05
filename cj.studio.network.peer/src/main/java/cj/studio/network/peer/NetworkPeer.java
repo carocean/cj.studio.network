@@ -12,16 +12,24 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
     IOnmessage onmessage;
     IOnopen onopen;
     IOnclose onclose;
+    IOnerror onerror;
     IServiceProvider site;
 
-    public NetworkPeer(IConnection connection, String networkName, IOnopen onopen, IOnmessage onmessage, IOnclose onclose, IServiceProvider site) {
+    public NetworkPeer(IConnection connection, String networkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose, IServiceProvider site) {
         this.connection = connection;
         this.networkName = networkName;
         this.onmessage = onmessage;
         this.onopen = onopen;
         this.onclose = onclose;
+        this.onerror=onerror;
         this.site = site;
     }
+
+    @Override
+    public IServiceProvider site() {
+        return this;
+    }
+
     @Override
     public String getNetworkName() {
         return networkName;
@@ -39,13 +47,20 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
 
     @Override
     public void onrecieve(NetworkFrame frame) {
-        if (onopen != null && "NETWORK/1.0".equals(frame.protocol()) && "listenNetwork".equals(frame.command())) {
-            onopen.onopen(this);
-            return;
+        if("NETWORK/1.0".equals(frame.protocol())){
+            if (onopen != null&&"listenNetwork".equals(frame.command()) ) {
+                onopen.onopen(frame,this);
+                return;
+            }
+            if (onerror != null&&"error".equals(frame.command()) ) {
+                onerror.onerror(frame,this);
+                return;
+            }
         }
         if (onmessage != null) {
             onmessage.onmessage(frame, this);
         }
+
     }
 
     @Override
@@ -55,12 +70,6 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
         }
     }
 
-    @Override
-    public void onopen() {
-        if (onopen != null) {
-            onopen.onopen(this);
-        }
-    }
 
     @Override
     public <T> ServiceCollection<T> getServices(Class<T> serviceClazz) {

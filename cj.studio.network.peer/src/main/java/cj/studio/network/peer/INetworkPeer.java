@@ -1,6 +1,7 @@
 package cj.studio.network.peer;
 
 
+import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.NetworkFrame;
 
 public interface INetworkPeer {
@@ -11,5 +12,5 @@ public interface INetworkPeer {
     void onrecieve(NetworkFrame frame);
 
     void onclose();
-    void onopen();
+    IServiceProvider site();
 }

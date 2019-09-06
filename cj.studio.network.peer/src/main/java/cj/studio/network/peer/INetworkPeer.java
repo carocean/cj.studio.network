@@ -7,6 +7,10 @@ import cj.studio.network.NetworkFrame;
 public interface INetworkPeer {
     String getNetworkName();
 
+    void info();
+
+    void bye();
+
     void send(NetworkFrame frame);
 
     void onrecieve(NetworkFrame frame);

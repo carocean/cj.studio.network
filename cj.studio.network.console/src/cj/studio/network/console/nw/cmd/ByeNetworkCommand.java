@@ -39,8 +39,7 @@ public class ByeNetworkCommand extends Command {
     @Override
     public boolean doCommand(CmdLine cl) throws IOException {
         INetworkPeer networkPeer=(INetworkPeer) cl.site().getService("$.current");
-        NetworkFrame frame=new NetworkFrame("byeNetwork / network/1.0");
-        networkPeer.send(frame);
+        networkPeer.bye();
         return false;
     }
 }

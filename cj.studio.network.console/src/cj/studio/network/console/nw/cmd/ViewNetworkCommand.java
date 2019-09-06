@@ -38,12 +38,8 @@ public class ViewNetworkCommand extends Command {
 
     @Override
     public boolean doCommand(CmdLine cl) throws IOException {
-        INetworkPeerContainer container=(INetworkPeerContainer)cl.site().getService("$.peer.container");
-        INetworkPeer masterNetwork=container.getMasterNetwork();
         INetworkPeer networkPeer=(INetworkPeer) cl.site().getService("$.current");
-        NetworkFrame frame=new NetworkFrame("infoNetwork / network/1.0");
-        frame.head("Network-Name",networkPeer.getNetworkName());
-        masterNetwork.send(frame);//查网络信息是主网络命令
+        networkPeer.info();
         return false;
     }
 }

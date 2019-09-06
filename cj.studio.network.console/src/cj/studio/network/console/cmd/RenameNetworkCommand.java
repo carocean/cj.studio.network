@@ -3,6 +3,7 @@ package cj.studio.network.console.cmd;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.console.CmdLine;
 import cj.studio.network.console.Command;
+import cj.studio.network.peer.IMasterNetworkPeer;
 import cj.studio.network.peer.INetworkPeer;
 import cj.studio.network.peer.INetworkPeerContainer;
 import org.apache.commons.cli.CommandLine;
@@ -53,11 +54,8 @@ public class RenameNetworkCommand extends Command {
             return true;
         }
         INetworkPeerContainer container = (INetworkPeerContainer) cl.site().getService("$.peer.container");
-        INetworkPeer master = container.getMasterNetwork();
-        NetworkFrame frame = new NetworkFrame("renameNetwork / network/1.0");
-        frame.head("Network-Name", name);
-        frame.head("New-Network-Name", line.getOptionValue("n"));
-        master.send(frame);
+        IMasterNetworkPeer master = (IMasterNetworkPeer)container.getMasterNetwork();
+        master.renameNetwork(name,line.getOptionValue("n"));
         return false;
     }
 }

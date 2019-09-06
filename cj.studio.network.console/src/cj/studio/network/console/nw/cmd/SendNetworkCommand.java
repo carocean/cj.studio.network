@@ -85,14 +85,15 @@ public class SendNetworkCommand extends Command {
             frame.add(frame2);
             frame2.dispose();
         }
-        long times=1;
-        if(line.hasOption("t")){
-            times=Long.valueOf(line.getOptionValue("t"));
+        long times = 1;
+        if (line.hasOption("t")) {
+            times = Long.valueOf(line.getOptionValue("t"));
         }
-        if(times<1){
-            times=1;
+        if (times < 1) {
+            times = 1;
         }
-        for(int i=0;i<times;i++) {
+        for (int i = 0; i < times; i++) {
+            frame.head("Test-Counter", i+"");
             networkPeer.send(frame.copy());
         }
         return false;

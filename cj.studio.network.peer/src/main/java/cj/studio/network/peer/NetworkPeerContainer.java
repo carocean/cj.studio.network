@@ -31,7 +31,12 @@ public class NetworkPeerContainer implements INetworkPeerContainer {
 
     @Override
     public INetworkPeer create(IConnection connection, String networkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
-        INetworkPeer networkPeer = new NetworkPeer(connection, networkName,onerror, onopen, onmessage, onclose, site);
+        INetworkPeer networkPeer = null;
+        if(masterNetowrkName.equals(networkName)){
+            networkPeer = new MasterNetworkPeer(connection, networkName,onerror, onopen, onmessage, onclose, site);
+        }else {
+            networkPeer = new NetworkPeer(connection, networkName,onerror, onopen, onmessage, onclose, site);
+        }
         networkPeerMap.put(networkName, networkPeer);
         return networkPeer;
     }

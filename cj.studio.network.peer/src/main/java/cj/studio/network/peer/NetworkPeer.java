@@ -36,6 +36,19 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
     }
 
     @Override
+    public void info() {
+        NetworkFrame frame=new NetworkFrame("infoNetwork / network/1.0");
+        frame.head("Network-Name",getNetworkName());
+        this.send(frame);//查网络信息是主网络命令
+    }
+
+    @Override
+    public void bye() {
+        NetworkFrame frame=new NetworkFrame("byeNetwork / network/1.0");
+        this.send(frame);
+    }
+
+    @Override
     public void send(NetworkFrame frame) {
         if (!connection.isConnected()) {
             throw new EcmException("连接未打开");

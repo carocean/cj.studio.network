@@ -3,6 +3,7 @@ package cj.studio.network.console.cmd;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.console.CmdLine;
 import cj.studio.network.console.Command;
+import cj.studio.network.peer.IMasterNetworkPeer;
 import cj.studio.network.peer.INetworkPeer;
 import cj.studio.network.peer.INetworkPeerContainer;
 import cj.ultimate.util.StringUtil;
@@ -54,11 +55,8 @@ public class CastmodeNetworkCommand extends Command {
             castmode = "multicast";
         }
         INetworkPeerContainer container = (INetworkPeerContainer) cl.site().getService("$.peer.container");
-        INetworkPeer master = container.getMasterNetwork();
-        NetworkFrame frame = new NetworkFrame("changeCastmode / network/1.0");
-        frame.head("Network-Name", name);
-        frame.head("Network-Castmode", castmode);
-        master.send(frame);
+        IMasterNetworkPeer master = (IMasterNetworkPeer)container.getMasterNetwork();
+        master.castmodeNetwork(name,castmode);
         return false;
     }
 }

@@ -50,6 +50,10 @@ public class ManagerValve implements IValve {
                     byeNetwork(e, pipeline);
                     return;
                 }
+                if ("infoNetwork".equals(frame.command())) {
+                    infoNetwork(e, pipeline);
+                    return;
+                }
             }
             pipeline.nextFlow(e, this);
             return;

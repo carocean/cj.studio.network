@@ -125,11 +125,11 @@ public class PeerEntrypoint {
                 StringBuffer sb = new StringBuffer();
                 circuit.print(sb);
                 System.out.println(frame + "\r\n" + sb);
-                if("infoNetwork".equals(frame.command())){//在子窗口中发向主网络回来的指令，其窗口前缀要在子窗口中
-                    System.out.print(String.format("%s>",circuit.head("Network-Name")));
-                }else {
-                    System.out.print(">");
-                }
+//                if("infoNetwork".equals(frame.command())){//在子窗口中发向主网络回来的指令，其窗口前缀要在子窗口中
+//                    System.out.print(String.format("%s>",circuit.head("Network-Name")));
+//                }else {
+//                    System.out.print(">");
+//                }
             }
         }, new IOnclose() {
             @Override

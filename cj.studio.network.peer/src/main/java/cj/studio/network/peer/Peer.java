@@ -52,7 +52,7 @@ public class Peer implements IPeer {
     }
 
     @Override
-    public INetworkPeer connect(String networkNode, String authmode, String user, String token, String masterNetowrkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+    public IMasterNetworkPeer connect(String networkNode, String authmode, String user, String token, String masterNetowrkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
         container = new NetworkPeerContainer(masterNetowrkName,site);
         int pos = networkNode.indexOf("://");
         if (pos < 0) {
@@ -92,8 +92,8 @@ public class Peer implements IPeer {
         return listenManagerNetwork(authmode, user, token, masterNetowrkName,onerror, onopen, onmessage, onclose);
     }
 
-    private INetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
-        INetworkPeer manager = listen(managerNetowrkName,onerror, onopen, onmessage, onclose);
+    private IMasterNetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+        IMasterNetworkPeer manager =(IMasterNetworkPeer) listen(managerNetowrkName,onerror, onopen, onmessage, onclose);
         NetworkFrame frame = new NetworkFrame(String.format("auth / network/1.0"));
         frame.head("Auth-User", user);
         frame.head("Auth-Mode", authmode);

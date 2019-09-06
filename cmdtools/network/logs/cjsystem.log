@@ -25,3 +25,190 @@
 2019年09月06日 03:32:06  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
 2019年09月06日 03:33:45  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
 2019年09月06日 03:43:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 12:51:25  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 13:51:33  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 13:53:57  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 14:17:36  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 14:19:45  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 14:22:47  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 14:28:23  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 14:56:29  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:19:27  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:19:30  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:19:30  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:19:32  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:19:38  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:19:55  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:19:55  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:20:08  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:24:06  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:24:13  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.isFlagRemove(Network.java:90)
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:24:13  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
+		at cj.studio.network.node.Network.isFlagRemove(Network.java:90)
+		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
+		at cj.studio.network.node.Network.cast(Network.java:73)
+		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
+		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
+		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
+		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:9)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+2019年09月06日 15:26:07  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:31:49  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:37:23  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:42:16  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:44:40  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:47:08  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 连续丢失10个心跳包 (断开连接)
+2019年09月06日 15:48:10  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 连续丢失10个心跳包 (断开连接)
+2019年09月06日 15:48:12  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 连续丢失10个心跳包 (断开连接)
+2019年09月06日 15:52:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 15:54:40  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：2b63ffe6-ff59-4025-8034-b3fb4f7494dd，连续丢失了10个心跳包 ,服务器主动断开与它的连接.
+2019年09月06日 15:54:49  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：d0592d14-899b-4098-9258-a45489a127e4，连续丢失了10个心跳包 ,服务器主动断开与它的连接.
+2019年09月06日 15:54:52  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：d273f9c6-40f9-44f8-87bf-004f827ee486，连续丢失了10个心跳包 ,服务器主动断开与它的连接.
+2019年09月06日 15:57:22  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：2b47defe-6916-4baa-b78f-27f060059885，连续丢失了10个心跳包 ,服务器主动断开与它的连接.
+2019年09月06日 16:07:51  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 16:07:56  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 16:16:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 16:50:34  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 17:05:57  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 18:50:11  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 18:57:53  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 19:08:21  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 19:25:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 19:38:57  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 19:41:05  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 20:51:57  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 20:59:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 21:05:34  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 21:13:56  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 21:22:25  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 21:33:38  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月06日 21:40:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600

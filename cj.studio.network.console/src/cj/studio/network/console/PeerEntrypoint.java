@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -76,11 +77,20 @@ public class PeerEntrypoint {
         //"tcp://localhost:6600?workThreadCount=8"
         ReentrantLock lock = new ReentrantLock();
         Condition finished = lock.newCondition();
+        ChildMonitorController childMonitorController=new ChildMonitorController();
         INetworkPeer manager = peer.connect(url, authmode, user, pwd, managerNetwork, new IOnerror() {
             @Override
             public void onerror(NetworkFrame frame, INetworkPeer networkPeer) {
                 byte[] b = frame.content().readFully();
                 NetworkCircuit circuit = new NetworkCircuit(b);
+                if("404".equals(circuit.status())){
+                    b=circuit.content().readFully();
+                    NetworkFrame f=new NetworkFrame(b);
+                    if("listenNetwork".equals(f.command())) {
+                        childMonitorController.singleAll(true);
+                    }
+                    circuit.content().writeBytes(b);//再写回去供后面打印
+                }
                 StringBuffer sb = new StringBuffer();
                 circuit.print(sb);
                 System.out.println(frame + "\r\n" + sb);
@@ -111,10 +121,15 @@ public class PeerEntrypoint {
                     }
                     return;
                 }
+
                 StringBuffer sb = new StringBuffer();
                 circuit.print(sb);
                 System.out.println(frame + "\r\n" + sb);
-                System.out.print(">");
+                if("infoNetwork".equals(frame.command())){//在子窗口中发向主网络回来的指令，其窗口前缀要在子窗口中
+                    System.out.print(String.format("%s>",circuit.head("Network-Name")));
+                }else {
+                    System.out.print(">");
+                }
             }
         }, new IOnclose() {
             @Override
@@ -126,7 +141,8 @@ public class PeerEntrypoint {
         try {
             lock.lock();
             finished.await();
-            moniter(peer.site());
+            IMonitor console = new PeerMonitor(childMonitorController);
+            console.moniter(peer.site());
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -172,10 +188,7 @@ public class PeerEntrypoint {
         return f;
     }
 
-    private static void moniter(IServiceProvider site) throws ParseException, IOException {
-        IMonitor console = new PeerMonitor();
-        console.moniter(site);
-    }
+
 
 
 }

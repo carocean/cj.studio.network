@@ -56,6 +56,12 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
                 onerror.onerror(frame,this);
                 return;
             }
+            if (onclose != null&&"byeNetwork".equals(frame.command()) ) {
+                INetworkPeerContainer container=(INetworkPeerContainer) site.getService("$.peer.container");
+                container.remove(this);
+                onclose.onclose(this);
+                return;
+            }
         }
         if (onmessage != null) {
             onmessage.onmessage(frame, this);

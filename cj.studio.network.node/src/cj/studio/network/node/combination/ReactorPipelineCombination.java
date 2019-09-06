@@ -2,7 +2,6 @@ package cj.studio.network.node.combination;
 
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
-import cj.studio.network.NetworkFrame;
 import cj.studio.network.node.INetwork;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;

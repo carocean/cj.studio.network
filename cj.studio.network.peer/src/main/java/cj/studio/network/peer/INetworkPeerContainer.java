@@ -18,4 +18,5 @@ public interface INetworkPeerContainer extends IDisposable {
 
     void onclose();
 
+    void remove(INetworkPeer networkPeer);
 }

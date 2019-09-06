@@ -49,6 +49,11 @@ public class NetworkPeerContainer implements INetworkPeerContainer {
     }
 
     @Override
+    public void remove(INetworkPeer networkPeer) {
+        networkPeerMap.remove(networkPeer.getNetworkName());
+    }
+
+    @Override
     public void dispose() {
         onclose();
     }

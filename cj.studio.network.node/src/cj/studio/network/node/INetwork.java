@@ -16,9 +16,11 @@ public interface INetwork extends IDisposable {
 
     void addChannel(Channel ch);
 
+    void removeChannel(Channel channel);
+
+
     void cast(Channel source, NetworkFrame frame);
 
-    void removeChannel(Channel channel);
 
     boolean existsChannel(Channel channel);
 

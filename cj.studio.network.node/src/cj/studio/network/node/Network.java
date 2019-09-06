@@ -27,9 +27,8 @@ public class Network implements INetwork {
         List<String> list = new ArrayList<>();
         for (Channel ch : channels) {
             if (ch == null) continue;
-            Attribute<String> attr = ch.attr(AttributeKey.valueOf("Peer-Name"));
-            if (attr == null) continue;
-            String name = attr.get();
+            AttributeKey<String> key=AttributeKey.valueOf("Peer-Name");
+            String name = ch.attr(key).get();
             list.add(name);
         }
         return list.toArray(new String[0]);
@@ -80,6 +79,7 @@ public class Network implements INetwork {
 
     private void feedbackcast(Channel source, ByteBuf bb) {
         source.writeAndFlush(bb);
+
     }
 
     @Override

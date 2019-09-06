@@ -41,9 +41,15 @@ public class ManagerValve implements IValve {
         if (!container.getMasterNetworkName().equals(pipeline.key())) {//不是管理网络则放过去
             NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
             Channel channel = (Channel) e.getParameters().get("channel");
-            if ("NETWORK/1.0".equals(frame.protocol()) && "listenNetwork".equals(frame.command())) {//侦听指令就是将当前channel 加入network
-                listenNetwork(e, pipeline);
-                return;
+            if ("NETWORK/1.0".equals(frame.protocol())) {//侦听指令就是将当前channel 加入network
+                if ("listenNetwork".equals(frame.command())) {
+                    listenNetwork(e, pipeline);
+                    return;
+                }
+                if ("byeNetwork".equals(frame.command())) {
+                    byeNetwork(e, pipeline);
+                    return;
+                }
             }
             pipeline.nextFlow(e, this);
             return;
@@ -85,6 +91,25 @@ public class ManagerValve implements IValve {
         }
     }
 
+    private void byeNetwork(Event e, IPipeline pipeline) throws CircuitException {
+        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
+        Channel channel = (Channel) e.getParameters().get("channel");
+
+        ByteBuf bb = Unpooled.buffer();
+        NetworkFrame f = new NetworkFrame(frame.toString(), bb);
+
+        NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
+        c.head("Network-Name", frame.rootName());
+        bb.writeBytes(c.toByteBuf());
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
+        if(!pipeline.key().equals(network.getInfo().getName())) {
+            network = container.getNetwork(pipeline.key());//直接移除
+            network.removeChannel(channel);
+        }
+    }
+
+
     private void listenNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
@@ -92,15 +117,17 @@ public class ManagerValve implements IValve {
         if (!network.existsChannel(channel)) {
             network.addChannel(channel);
         }
+
         ByteBuf bb = Unpooled.buffer();
         NetworkFrame f = new NetworkFrame(frame.toString(), bb);
 
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
-        c.head("Network-Name",frame.rootName());
+        c.head("Network-Name", frame.rootName());
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
+
     private void authManagerNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
         Channel channel = (Channel) e.getParameters().get("channel");
@@ -130,9 +157,8 @@ public class ManagerValve implements IValve {
             channel.close();
             return;
         }
-
-        AttributeKey peerKey = AttributeKey.valueOf("Peer-Name");
-        channel.attr(peerKey).set(peerName);
+        AttributeKey<String> peerNameKey = AttributeKey.valueOf("Peer-Name");
+        channel.attr(peerNameKey).set(peerName);
         String access_token = "";
         INetworkNodeAppManager appManager = (INetworkNodeAppManager) pipeline.site().getService("$.network.app.manager");
         try {
@@ -146,8 +172,8 @@ public class ManagerValve implements IValve {
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.head("Access-Token", access_token);
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
 
@@ -174,8 +200,8 @@ public class ManagerValve implements IValve {
         }
         c.head("Network-Name", networkName);
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
     private void changeCastmode(Event e, IPipeline pipeline) throws CircuitException {
@@ -206,8 +232,8 @@ public class ManagerValve implements IValve {
         c.head("New-Network-Castmode", networkName);
         bb.writeBytes(c.toByteBuf());
 
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
     private void renameNetwork(Event e, IPipeline pipeline) throws CircuitException {
@@ -236,8 +262,8 @@ public class ManagerValve implements IValve {
         c.head("Old-Network-Name", networkName);
         c.head("New-Network-Name", newnetworkName);
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
     private void removeNetwork(Event e, IPipeline pipeline) throws CircuitException {
@@ -260,13 +286,15 @@ public class ManagerValve implements IValve {
         c.head("message", String.format("The Network %s was removed.", networkName));
         c.head("Network-Name", networkName);
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
     private void errorNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
-        pipeline.nextError(e, new CircuitException(frame.head("status"), frame.head("message")), this);
+        Channel channel = (Channel) e.getParameters().get("channel");
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, frame);
     }
 
     private void existsNetwork(Event e, IPipeline pipeline) throws CircuitException {
@@ -289,8 +317,8 @@ public class ManagerValve implements IValve {
         }
         c.head("Network-Name", networkName);
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
     private void listNetwork(Event e, IPipeline pipeline) throws CircuitException {
@@ -299,7 +327,7 @@ public class ManagerValve implements IValve {
         String[] names = container.enumNetworkName(true);
         List<Map<String, Object>> list = new ArrayList<>();
         Map<String, Object> item = new HashMap<>();
-        INetwork manager=container.getMasterNetwork();
+        INetwork manager = container.getMasterNetwork();
         item.put("networkInfo", manager.getInfo());
         item.put("peerNames", manager.enumPeerName());
         list.add(item);
@@ -316,8 +344,8 @@ public class ManagerValve implements IValve {
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
         c.content().writeBytes(new Gson().toJson(list).getBytes());
         bb.writeBytes(c.toByteBuf());
-        e.getParameters().put("frame", f);
-        pipeline.nextFlow(e, this);
+        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, f);
     }
 
     private void createNetwork(Event e, IPipeline pipeline) throws CircuitException {
@@ -347,8 +375,8 @@ public class ManagerValve implements IValve {
         c.head("status", "200");
         c.head("message", "The Network be Created.");
         bb.writeBytes(c.toBytes());
-        e.getParameters().put("frame", succeed);
-        pipeline.nextFlow(e, this);//通知成功
+        network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
+        network.cast(channel, succeed);//通知成功
     }
 
 

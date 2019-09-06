@@ -1,6 +1,5 @@
 package cj.studio.network.console;
 
-import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.peer.IPeer;
 import cj.ultimate.util.StringUtil;
@@ -10,7 +9,6 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -18,17 +16,23 @@ import java.util.Set;
 public abstract class BaseMonitor implements IMonitor {
 
     protected abstract Map<String, Command> getCommands();
-
+    protected abstract Scanner getScanner();
     @Override
     public void moniter(IServiceProvider site) throws ParseException, IOException {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = getScanner();
+        if(sc==null){
+            sc=new Scanner(System.in);
+        }
         IPeer peer = (IPeer) site.getService("$.peer");
-        String prefix = ">";
+        String prefix = getPrefix();
+        if(StringUtil.isEmpty(prefix)){
+            prefix=">";
+        }
         System.out.print(prefix);
         Map<String, Command> commands = getCommands();
         while (sc.hasNextLine()) {
             String text = sc.nextLine();
-            if ("bye".equals(text) || "exit".equals(text)) {
+            if (isExit(text)) {
                 break;
             }
             if (StringUtil.isEmpty(text)) {
@@ -43,7 +47,7 @@ public abstract class BaseMonitor implements IMonitor {
             }
             Command cmd = commands.get(cmdName);
             if (cmd == null) {
-                System.out.println("不认识的命令：" + cmdName);
+                System.out.println(String.format("不认识的命令：%s", cmdName));
                 System.out.print(prefix);
                 continue;
             }
@@ -60,12 +64,18 @@ public abstract class BaseMonitor implements IMonitor {
                 if (isPrintPrefix) {
                     System.out.print(prefix);
                 }
-            }catch (Throwable throwable){
-                System.out.println("错误：" + throwable);
+            } catch (Throwable throwable) {
+                System.out.println(String.format("错误：%s", throwable));
                 System.out.print(prefix);
             }
         }
     }
+
+    protected abstract boolean isExit(String text);
+
+
+    protected abstract String getPrefix();
+
 
     private String parseCmd(String text) {
         while (text.startsWith(" ")) {
@@ -86,7 +96,7 @@ public abstract class BaseMonitor implements IMonitor {
             HelpFormatter formatter = new HelpFormatter();
             if (cmd.options() != null)
                 formatter.printHelp(600, cmd.cmd(), cmd.cmdDesc(), cmd.options(),
-                        "----------------", true);
+                        "----------------");
         }
 
     }

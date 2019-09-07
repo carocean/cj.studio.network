@@ -43,6 +43,7 @@ public class RenameNetworkCommand extends Command {
     @Override
     public boolean doCommand(CmdLine cl) throws IOException {
         CommandLine line = cl.line();
+        @SuppressWarnings("unchecked")
         List<String> args = line.getArgList();
         if (args.isEmpty()) {
             System.out.println(String.format("错误：未指定网络名"));

@@ -1,7 +1,6 @@
 package cj.studio.network.node.server;
 
 import cj.studio.ecm.EcmException;
-import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.network.node.INetworkNodeConfig;
 import cj.studio.network.node.INetworkNodeServer;

@@ -1,6 +1,6 @@
 package cj.studio.network.node;
 
-import cj.studio.ecm.IServiceProvider;
+import cj.studio.util.reactor.IServiceProvider;
 import io.netty.channel.Channel;
 
 import java.util.Arrays;
@@ -32,6 +32,11 @@ public class NetworkContainer implements INetworkContainer {
             INetwork network = new Network(info);
             networks.put(info.getName(), network);
         }
+    }
+
+    @Override
+    public boolean isAutoCreateNetwork() {
+        return config.isAutoCreate();
     }
 
     @Override

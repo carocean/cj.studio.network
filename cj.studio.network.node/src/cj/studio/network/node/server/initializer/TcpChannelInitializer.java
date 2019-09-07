@@ -1,8 +1,8 @@
 
 package cj.studio.network.node.server.initializer;
 
-import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.node.server.handler.TcpChannelHandler;
+import cj.studio.util.reactor.IServiceProvider;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

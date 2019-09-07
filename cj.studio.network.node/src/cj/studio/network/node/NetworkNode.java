@@ -2,10 +2,10 @@ package cj.studio.network.node;
 
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
-import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.network.node.server.TcpNetworkNodeServer;
+import cj.studio.util.reactor.IServiceProvider;
 
 import java.io.FileNotFoundException;
 
@@ -45,7 +45,7 @@ public class NetworkNode implements INetworkNode {
 
     class NodeServiceProvider implements IServiceProvider {
         @Override
-        public <T> ServiceCollection<T> getServices(Class<T> serviceClazz) {
+        public <T> ServiceCollection<T> getServices(Class<T> clazz) {
             return null;
         }
 

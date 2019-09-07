@@ -56,7 +56,7 @@ public class Network implements INetwork {
     }
 
     @Override
-    public void cast(Channel source, NetworkFrame frame) {
+    public void cast(Channel from, NetworkFrame frame) {
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
         pack.dispose();
@@ -64,13 +64,13 @@ public class Network implements INetwork {
         bb.writeBytes(box, 0, box.length);
         switch (info.getCastmode()) {
             case "unicast":
-                unicast(frame.hashCode(), bb);
+                unicast(from,frame.hashCode(), bb);
                 break;
             case "multicast":
-                multicast(bb);
+                multicast(from,bb);
                 break;
             case "feedbackcast":
-                feedbackcast(source, bb);
+                feedbackcast(from, bb);
                 break;
             default:
                 break;
@@ -87,9 +87,9 @@ public class Network implements INetwork {
         return this.channels.contains(channel);
     }
 
-    private void multicast(ByteBuf bb) {
+    private void multicast(Channel from,ByteBuf bb) {
         for (Channel ch : channels) {
-            if (ch == null) {
+            if (ch == null||from.equals(ch)) {//不发自身
                 continue;
             }
             if (!ch.isWritable()) {
@@ -102,7 +102,7 @@ public class Network implements INetwork {
         bb.release();//把源形释放，这个与单播不同，因为它有原型
     }
 
-    private void unicast(int hc, ByteBuf bb) {
+    private void unicast(Channel from,int hc, ByteBuf bb) {
         if (channels.isEmpty()) {
             return;
         }
@@ -110,7 +110,7 @@ public class Network implements INetwork {
         boolean found = false;
         for (int i = 0; i < channels.size(); i++) {
             one = channels.get((hc + i) % channels.size());
-            if (one == null) {
+            if (one == null||from.equals(one)) {//不发自身
                 continue;
             }
             if (!one.isWritable()) {

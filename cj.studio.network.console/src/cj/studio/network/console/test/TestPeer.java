@@ -11,9 +11,9 @@ public class TestPeer {
     public static void main(String... args) throws InterruptedException {
         peer = Peer.create("mypeer", null);
         OnMasterEvent onEvent = new OnMasterEvent();
-        INetworkPeer networkPeer= peer.connect("tcp://localhost:6600?workThreadCount=8&heartbeat=5000", "auth.password", "cj", "11", "master-network", onEvent, onEvent, onEvent, onEvent);
-
-        TestCreateGeneralNetworkByManagerNetwork();
+        peer.connect("tcp://localhost:6600?workThreadCount=8&heartbeat=5000", "master-network");
+        INetworkPeer networkPeer=peer.auth("cj", "11", "11", onEvent, onEvent, onEvent, onEvent);
+                TestCreateGeneralNetworkByManagerNetwork();
         Thread.sleep(Integer.MAX_VALUE);
     }
 

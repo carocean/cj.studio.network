@@ -9,6 +9,8 @@ reactor:
   workThreadCount: 10
   queueCapacity: 10000
 networks:
+  #是否按请求地址上下文自动创建网络
+  isAutoCreate: false
   master: master-network
   works:
    -

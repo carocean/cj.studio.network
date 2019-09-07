@@ -10,7 +10,7 @@ public interface INetworkContainer {
      * @return
      */
     boolean existsNetwork(String networkName);
-
+    boolean isAutoCreateNetwork();
 
     /**
      * 在channel失活时应从各个个network中移除该channel

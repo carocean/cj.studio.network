@@ -77,23 +77,19 @@ public class PeerEntrypoint {
         //"tcp://localhost:6600?workThreadCount=8"
         ReentrantLock lock = new ReentrantLock();
         Condition finished = lock.newCondition();
-        ChildMonitorController childMonitorController=new ChildMonitorController();
-        INetworkPeer manager = peer.connect(url, authmode, user, pwd, managerNetwork, new IOnerror() {
+        ChildMonitorController childMonitorController = new ChildMonitorController();
+        peer.connect(url, managerNetwork);
+        IMasterNetworkPeer manager = peer.auth(authmode, user, pwd, new IOnerror() {
             @Override
-            public void onerror(NetworkFrame frame, INetworkPeer networkPeer) {
-                byte[] b = frame.content().readFully();
-                NetworkCircuit circuit = new NetworkCircuit(b);
-                if("404".equals(circuit.status())){
-                    b=circuit.content().readFully();
-                    NetworkFrame f=new NetworkFrame(b);
-                    if("listenNetwork".equals(f.command())) {
-                        childMonitorController.singleAll(true);
-                    }
-                    circuit.content().writeBytes(b);//再写回去供后面打印
+            public void onerror(NetworkFrame frame, NetworkCircuit circuit, INetworkPeer networkPeer) {
+                if ("404".equals(circuit.status()) && "listenNetwork".equals(frame.command())) {
+                    childMonitorController.singleAll(true);
                 }
                 StringBuffer sb = new StringBuffer();
                 circuit.print(sb);
-                System.out.println(frame + "\r\n" + sb);
+                sb.append("\r\n");
+                frame.print(sb);
+                System.out.println(sb);
                 System.out.print(">");
             }
         }, new IOnopen() {
@@ -187,8 +183,6 @@ public class PeerEntrypoint {
         }
         return f;
     }
-
-
 
 
 }

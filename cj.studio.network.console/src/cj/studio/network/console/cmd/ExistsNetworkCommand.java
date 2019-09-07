@@ -42,7 +42,8 @@ public class ExistsNetworkCommand extends Command {
     @Override
     public boolean doCommand(CmdLine cl) throws IOException {
         CommandLine line = cl.line();
-        List<String> args = line.getArgList();
+        @SuppressWarnings("unchecked")
+        List<String> args =(List<String>) line.getArgList();
         if (args.isEmpty()) {
             System.out.println(String.format("错误：未指定网络名"));
             return true;

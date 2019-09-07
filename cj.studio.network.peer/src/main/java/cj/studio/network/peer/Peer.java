@@ -52,7 +52,7 @@ public class Peer implements IPeer {
     }
 
     @Override
-    public IMasterNetworkPeer connect(String networkNode, String authmode, String user, String token, String masterNetowrkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+    public void connect(String networkNode,  String masterNetowrkName) {
         container = new NetworkPeerContainer(masterNetowrkName,site);
         int pos = networkNode.indexOf("://");
         if (pos < 0) {
@@ -89,11 +89,10 @@ public class Peer implements IPeer {
             default:
                 throw new EcmException("不支持的连接协议:" + protocol);
         }
-        return listenManagerNetwork(authmode, user, token, masterNetowrkName,onerror, onopen, onmessage, onclose);
     }
-
-    private IMasterNetworkPeer listenManagerNetwork(String authmode, String user, String token, String managerNetowrkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
-        IMasterNetworkPeer manager =(IMasterNetworkPeer) listen(managerNetowrkName,onerror, onopen, onmessage, onclose);
+    @Override
+    public IMasterNetworkPeer auth(String authmode, String user, String token,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+        IMasterNetworkPeer manager =(IMasterNetworkPeer) listen(container.getMasterNetowrkName(),onerror, onopen, onmessage, onclose);
         NetworkFrame frame = new NetworkFrame(String.format("auth / network/1.0"));
         frame.head("Auth-User", user);
         frame.head("Auth-Mode", authmode);
@@ -102,7 +101,18 @@ public class Peer implements IPeer {
         manager.send(frame);
         return manager;
     }
+    @Override
+    public INetworkPeer listen(String networkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+        if (container.exists(networkName)) {
+            throw new EcmException("已侦听网络：" + networkName);
+        }
 
+        INetworkPeer networkPeer = container.create(connection, networkName,onerror, onopen, onmessage, onclose);
+        NetworkFrame frame = new NetworkFrame("listenNetwork / network/1.0");
+        frame.head("Peer-Name", peerName);
+        networkPeer.send(frame);
+        return networkPeer;
+    }
     private void doTcpConnection(String protocol, String ip, int port, Map<String, String> props) {
         connection = new TcpConnection(site);
         connection.connect(protocol, ip, port, props);
@@ -125,18 +135,7 @@ public class Peer implements IPeer {
     }
 
 
-    @Override
-    public INetworkPeer listen(String networkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
-        if (container.exists(networkName)) {
-            throw new EcmException("已侦听网络：" + networkName);
-        }
 
-        INetworkPeer networkPeer = container.create(connection, networkName,onerror, onopen, onmessage, onclose);
-        NetworkFrame frame = new NetworkFrame("listenNetwork / network/1.0");
-        frame.head("Peer-Name", peerName);
-        networkPeer.send(frame);
-        return networkPeer;
-    }
 
     @Override
     public void close() {

@@ -1,6 +1,7 @@
 package cj.studio.network.console.cmd;
 
 import cj.studio.ecm.IServiceProvider;
+import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.console.ChildMonitorController;
@@ -49,6 +50,7 @@ public class ListenNetworkCommand extends Command {
     @Override
     public boolean doCommand(CmdLine cl) throws IOException {
         CommandLine line = cl.line();
+        @SuppressWarnings("unchecked")
         List<String> args = line.getArgList();
         if (args.isEmpty()) {
             System.out.println(String.format("错误：未指定网络名"));
@@ -60,11 +62,9 @@ public class ListenNetworkCommand extends Command {
         Scanner scanner = new Scanner(System.in);
         INetworkPeer networkPeer = peer.listen(name, new IOnerror() {
             @Override
-            public void onerror(NetworkFrame frame, INetworkPeer networkPeer) {
-                byte[] b = frame.content().readFully();
-                NetworkCircuit circuit = new NetworkCircuit(b);
+            public void onerror(NetworkFrame frame, NetworkCircuit circuit, INetworkPeer networkPeer) {
                 StringBuffer sb = new StringBuffer();
-                circuit.print(sb);
+                frame.print(sb);
                 System.out.println(frame + "\r\n" + sb);
             }
         }, new IOnopen() {

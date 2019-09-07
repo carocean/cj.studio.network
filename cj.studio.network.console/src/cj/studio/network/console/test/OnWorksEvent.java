@@ -1,6 +1,7 @@
 package cj.studio.network.console.test;
 
 import cj.studio.ecm.IServiceProvider;
+import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.peer.*;
 
@@ -11,7 +12,7 @@ public class OnWorksEvent implements IOnopen, IOnerror, IOnclose, IOnmessage {
     }
 
     @Override
-    public void onerror(NetworkFrame frame, INetworkPeer networkPeer) {
+    public void onerror(NetworkFrame frame, NetworkCircuit circuit, INetworkPeer networkPeer) {
         System.out.println("----OnWorksEvent.onerror");
     }
 

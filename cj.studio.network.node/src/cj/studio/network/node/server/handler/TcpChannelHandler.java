@@ -1,18 +1,16 @@
 package cj.studio.network.node.server.handler;
 
 import cj.studio.ecm.CJSystem;
-import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.logging.ILogging;
-import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.network.node.INetworkNodeAppManager;
-import cj.studio.util.reactor.*;
+import cj.studio.util.reactor.Event;
+import cj.studio.util.reactor.IReactor;
+import cj.studio.util.reactor.IServiceProvider;
 import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -89,22 +87,10 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         }
         String network = frame.rootName();
         if (StringUtil.isEmpty(network)) {
+            CJSystem.logging().warn(getClass(),"忽略该上下文为/的请求侦");
             return;
         }
         counter=0;
-        if (!container.existsNetwork(network)) {//如果不存在请求的网络则走管理网络，管理网络负责将这错误发给侦听的客户端
-            //发给管理命令
-            ByteBuf data = Unpooled.buffer();
-            NetworkFrame f = new NetworkFrame(String.format("error /%s network/1.0", container.getMasterNetworkName()), data);
-            NetworkCircuit c = new NetworkCircuit(String.format("network/1.0 404 The Network %s is Not Exists.", network));
-            c.content().writeBytes(frame.toByteBuf());
-            data.writeBytes(c.toByteBuf());
-            Event event = new Event(container.getMasterNetworkName(), f.command());
-            event.getParameters().put("frame", f);
-            event.getParameters().put("channel", ctx.channel());
-            reactor.input(event);
-            return;
-        }
         //以下路由到所请求的通道
         String cmd = frame.command();
         Event event = new Event(network, cmd);

@@ -33,8 +33,8 @@ public class SendNetworkCommand extends Command {
         Options options = new Options();
         Option f = new Option("t", "times", true, "[可省略]发送次数,默认是1次");
         options.addOption(f);
-//        Option b = new Option("b", "backward", false, "仅列出backward连结点");
-//        options.addOption(b);
+        Option b = new Option("s", "sleep", true, "[可省略]每次发送时间间隔（毫秒");
+        options.addOption(b);
 //        Option s = new Option("s", "socket", false, "仅列出sockets");
 //        options.addOption(s);
 //        Option u = new Option("t", "tt", false, "开启即时监控");
@@ -48,6 +48,7 @@ public class SendNetworkCommand extends Command {
     public boolean doCommand(CmdLine cl) throws IOException {
 
         CommandLine line = cl.line();
+        @SuppressWarnings("unchecked")
         List<String> args = line.getArgList();
         INetworkPeer networkPeer = (INetworkPeer) cl.site().getService("$.current");
         StringBuffer sb = new StringBuffer();
@@ -92,9 +93,20 @@ public class SendNetworkCommand extends Command {
         if (times < 1) {
             times = 1;
         }
+        long s = 0;
+        if (line.hasOption("s")) {
+            s = Long.valueOf(line.getOptionValue("s"));
+        }
         for (int i = 0; i < times; i++) {
-            frame.head("Test-Counter", i+"");
+            System.out.println(String.format("sending %s",i));
+            frame.head("Test-Counter", i + "");
             networkPeer.send(frame.copy());
+            if(s>0) {
+                try {
+                    Thread.sleep(s);
+                } catch (InterruptedException e) {
+                }
+            }
         }
         return false;
     }

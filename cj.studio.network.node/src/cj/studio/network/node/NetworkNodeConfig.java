@@ -1,5 +1,6 @@
 package cj.studio.network.node;
 
+import cj.studio.ecm.EcmException;
 import cj.ultimate.util.StringUtil;
 import org.yaml.snakeyaml.Yaml;
 
@@ -16,6 +17,7 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
     ReactorInfo reactorInfo;
     Map<String, NetworkInfo> networks;
     private String masterNetwork;
+    private boolean isAutoCreate;
 
     @Override
     public void load(String home) throws FileNotFoundException {
@@ -35,12 +37,20 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         return masterNetwork;
     }
 
+    @Override
+    public boolean isAutoCreate() {
+        return isAutoCreate;
+    }
+
     private void parseNetworks(Map<String, Object> node) {
         networks = new HashMap<>();
         Map<String, Object> networksItem = (Map<String, Object>) node.get("networks");
-        if (networksItem != null) {
-            masterNetwork = (String) networksItem.get("master");
+        if (networksItem == null) {
+            throw new EcmException("缺少networks配置");
         }
+        Object auto = networksItem.get("isAutoCreate");
+        this.isAutoCreate = auto == null ? false : (boolean) auto;
+        masterNetwork = (String) networksItem.get("master");
         if (StringUtil.isEmpty(masterNetwork)) {
             masterNetwork = "master-network";
         }

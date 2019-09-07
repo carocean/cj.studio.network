@@ -12,4 +12,5 @@ public interface INetworkNodeConfig {
 
     String getMasterNetwork();
     ReactorInfo getReactorInfo();
+    boolean isAutoCreate();
 }

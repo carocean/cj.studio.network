@@ -41,7 +41,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -57,7 +57,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -73,7 +73,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -89,7 +89,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -105,7 +105,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -121,7 +121,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -137,7 +137,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -155,7 +155,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -172,7 +172,7 @@
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
 		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ListenValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -216,3 +216,24 @@
 2019年09月06日 21:58:22  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
 2019年09月06日 22:21:12  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
 2019年09月06日 22:28:31  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 12:25:51  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 12:35:09  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 13:31:11  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 13:46:47  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 14:28:07  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 15:16:31  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 15:44:23  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 16:01:34  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 16:03:32  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 16:07:56  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 16:23:47  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 16:23:52  警告: cj.studio.util.reactor.EventLooper - 未建立管道：fff
+2019年09月07日 16:24:01  警告: cj.studio.util.reactor.EventLooper - 未建立管道：fff
+2019年09月07日 16:24:07  警告: cj.studio.util.reactor.EventLooper - 未建立管道：sss
+2019年09月07日 16:24:11  警告: cj.studio.util.reactor.EventLooper - 未建立管道：sss
+2019年09月07日 16:30:30  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 17:04:06  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 17:07:03  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 17:07:12  警告: cj.studio.util.reactor.EventLooper - 未建立管道：fff
+2019年09月07日 17:07:18  警告: cj.studio.util.reactor.EventLooper - 未建立管道：fff
+2019年09月07日 17:10:36  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600

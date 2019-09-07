@@ -3,6 +3,7 @@ package cj.studio.network.peer;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
+import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 
 class NetworkPeer implements INetworkPeer, IServiceProvider {
@@ -15,13 +16,13 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
     IOnerror onerror;
     IServiceProvider site;
 
-    public NetworkPeer(IConnection connection, String networkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose, IServiceProvider site) {
+    public NetworkPeer(IConnection connection, String networkName, IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose, IServiceProvider site) {
         this.connection = connection;
         this.networkName = networkName;
         this.onmessage = onmessage;
         this.onopen = onopen;
         this.onclose = onclose;
-        this.onerror=onerror;
+        this.onerror = onerror;
         this.site = site;
     }
 
@@ -37,14 +38,14 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
 
     @Override
     public void info() {
-        NetworkFrame frame=new NetworkFrame("infoNetwork / network/1.0");
-        frame.head("Network-Name",getNetworkName());
+        NetworkFrame frame = new NetworkFrame("infoNetwork / network/1.0");
+        frame.head("Network-Name", getNetworkName());
         this.send(frame);//查网络信息是主网络命令
     }
 
     @Override
     public void bye() {
-        NetworkFrame frame=new NetworkFrame("byeNetwork / network/1.0");
+        NetworkFrame frame = new NetworkFrame("byeNetwork / network/1.0");
         this.send(frame);
     }
 
@@ -60,19 +61,46 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
 
     @Override
     public void onrecieve(NetworkFrame frame) {
-        if("NETWORK/1.0".equals(frame.protocol())){
-            if (onopen != null&&"listenNetwork".equals(frame.command()) ) {
-                onopen.onopen(frame,this);
+        if ("NETWORK/1.0".equals(frame.protocol())) {
+            if ("listenNetwork".equals(frame.command())) {
+                if (onopen != null) {
+                    onopen.onopen(frame, this);
+                }
                 return;
             }
-            if (onerror != null&&"error".equals(frame.command()) ) {
-                onerror.onerror(frame,this);
+            if ("error".equals(frame.command())) {
+                NetworkCircuit circuit = null;
+                NetworkFrame source = null;
+                if (frame.content().readableBytes() > 0) {
+                    byte[] b = frame.content().readFully();
+                    circuit = new NetworkCircuit(b);
+                    if (circuit.content().readableBytes() > 0) {
+                        b = circuit.content().readFully();
+                        source = new NetworkFrame(b);
+                    } else {
+                        source = frame;
+                    }
+                    if ("404".equals(circuit.status()) && "listenNetwork".equals(source.command())) {
+                        INetworkPeerContainer container = (INetworkPeerContainer) site.getService("$.peer.container");
+                        INetworkPeer find=container.get(source.rootName());
+                        if(find!=null) {
+                            container.remove(find);
+                        }
+                    }
+                } else {
+                    circuit = new NetworkCircuit(String.format("%s 200 ok", frame.protocol()));
+                }
+                if (onerror != null) {
+                    onerror.onerror(source,circuit, this);
+                }
                 return;
             }
-            if (onclose != null&&"byeNetwork".equals(frame.command()) ) {
-                INetworkPeerContainer container=(INetworkPeerContainer) site.getService("$.peer.container");
+            if ("byeNetwork".equals(frame.command())) {
+                INetworkPeerContainer container = (INetworkPeerContainer) site.getService("$.peer.container");
                 container.remove(this);
-                onclose.onclose(this);
+                if (onclose != null) {
+                    onclose.onclose(this);
+                }
                 return;
             }
         }

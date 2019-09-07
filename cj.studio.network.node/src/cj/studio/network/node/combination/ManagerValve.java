@@ -41,7 +41,7 @@ public class ManagerValve implements IValve {
         if (!container.getMasterNetworkName().equals(pipeline.key())) {//不是管理网络则放过去
             NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
             Channel channel = (Channel) e.getParameters().get("channel");
-            if ("NETWORK/1.0".equals(frame.protocol())) {//侦听指令就是将当前channel 加入network
+            if ("NETWORK/1.0".equals(frame.protocol())) {//属于系统指令，改道主网络处理，且不再经由后续的管道，即不对开发者呈现系统指令
                 if ("listenNetwork".equals(frame.command())) {
                     listenNetwork(e, pipeline);
                     return;
@@ -59,9 +59,6 @@ public class ManagerValve implements IValve {
             return;
         }
         switch (e.getCmd()) {
-            case "error":
-                errorNetwork(e, pipeline);
-                break;
             case "listenNetwork":
                 listenNetwork(e, pipeline);
                 break;
@@ -294,12 +291,6 @@ public class ManagerValve implements IValve {
         network.cast(channel, f);
     }
 
-    private void errorNetwork(Event e, IPipeline pipeline) throws CircuitException {
-        NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");
-        Channel channel = (Channel) e.getParameters().get("channel");
-        INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
-        network.cast(channel, frame);
-    }
 
     private void existsNetwork(Event e, IPipeline pipeline) throws CircuitException {
         NetworkFrame frame = (NetworkFrame) e.getParameters().get("frame");

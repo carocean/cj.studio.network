@@ -10,6 +10,8 @@ public interface INetworkNodeConfig {
 
     Map<String, NetworkInfo> getNetworks();
 
+    boolean isForceAccessToken();
+
     String getMasterNetwork();
     ReactorInfo getReactorInfo();
     boolean isAutoCreate();

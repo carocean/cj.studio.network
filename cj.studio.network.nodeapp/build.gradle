@@ -1,0 +1,49 @@
+group 'cj.studio.network'
+version engineer_version
+
+sourceSets {
+    main {
+        java{
+            srcDir "$projectDir/src"
+        }
+        resources{
+            srcDir "$projectDir/src"
+        }
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+repositories {
+    flatDir(dirs: "../global/runtime")
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.25'
+    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.impl', version: '1.0.0'
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: '1.0.0'
+    compile project (':cj.studio.network.corelib')
+}
+task copyReferences(type: Copy) {
+    from configurations.compileClasspath.files {
+        include 'snakeyaml-*.jar','cj.studio.util.reactor*.jar','cj.studio.ecm.net-*.jar'
+    }
+    into 'src/cj/references'
+}
+build.dependsOn('copyReferences')
+
+task releaseToCmdline(type: Copy){
+    dependsOn "build"
+    from 'build/libs/'
+    into '../cmdtools/network/app'
+    include '**/*.jar'
+    exclude '**/*-javadoc.jar','**/*-sources.jar'
+}
+
+task release(type:Copy){
+    dependsOn "releaseToCmdline"
+}

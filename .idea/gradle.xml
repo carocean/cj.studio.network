@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/cj.studio.network.console" />
             <option value="$PROJECT_DIR$/cj.studio.network.corelib" />
             <option value="$PROJECT_DIR$/cj.studio.network.node" />
+            <option value="$PROJECT_DIR$/cj.studio.network.nodeapp" />
             <option value="$PROJECT_DIR$/cj.studio.network.nodestart" />
             <option value="$PROJECT_DIR$/cj.studio.network.peer" />
           </set>

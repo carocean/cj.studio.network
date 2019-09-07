@@ -18,6 +18,8 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
     Map<String, NetworkInfo> networks;
     private String masterNetwork;
     private boolean isAutoCreate;
+    private boolean forceAccessToken;
+
 
     @Override
     public void load(String home) throws FileNotFoundException {
@@ -30,7 +32,10 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         parseNetworks(node);
 
     }
-
+    @Override
+    public boolean isForceAccessToken() {
+        return forceAccessToken;
+    }
 
     @Override
     public String getMasterNetwork() {
@@ -50,6 +55,10 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         }
         Object auto = networksItem.get("isAutoCreate");
         this.isAutoCreate = auto == null ? false : (boolean) auto;
+
+        Object accessToken = networksItem.get("isForceAccessToken");
+        this.forceAccessToken = accessToken == null ? false : (boolean) accessToken;
+
         masterNetwork = (String) networksItem.get("master");
         if (StringUtil.isEmpty(masterNetwork)) {
             masterNetwork = "master-network";

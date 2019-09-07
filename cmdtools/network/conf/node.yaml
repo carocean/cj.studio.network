@@ -1,4 +1,5 @@
 server:
+  #服务地址。目前支持的协议有：tcp,ws,http
   host: tcp://localhost:6600
   props:
     workThreadCount: 4
@@ -8,12 +9,18 @@ server:
     #检测到心跳包最大掉包次数，超过此数则主动关闭远程客户端，如果为0表示不会主动关闭
     overtimes: 10
 reactor:
+  #工作线程数，0为系统自动默认分配
   workThreadCount: 10
+  #队列大小
   queueCapacity: 10000
 networks:
+  #强制对工作网络进行访问控制验证,默认不验证
+  isForceAccessToken: true
   #是否按请求地址上下文自动创建网络
   isAutoCreate: false
+  #主网络，用于管理工作网络，主网络固定为feedbackcast模式
   master: master-network
+  #工作网络：传播模式有：feedbackcast,unicast,multicast
   works:
    -
      name: network-1

@@ -1,5 +1,5 @@
 group 'cj.studio.network'
-version '1.0.0'
+version engineer_version
 
 
 sourceSets {

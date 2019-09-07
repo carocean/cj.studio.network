@@ -1,0 +1,39 @@
+{
+	entryPoint : {
+		plugins: [
+
+		],
+		activators: [
+		]
+	},
+	assemblyInfo : {
+		assemblyTitle : "network-nodeapp",
+		assemblyResource:"site=/site;http.root=$(site)/web;http.jss=$(site)/jss/http;ws.jss=$(site)/jss/ws",
+		assemblyDescription : "默认的官方节点app。第三方可以开发自己的节点app。cj工作室出品，lns平台制造",
+		assemblyConfiguration : "",
+		assemblyCompany : "cj工作室",
+		assemblyProduct : "cj.studio.network.nodeapp",
+		assemblyCopyright : "Copyright   2011",
+		assemblyTrademark : "",
+		assemblyCulture : "",
+		guid : "C88C918A-4158-4655-80EF-D1088FBCB0BC",
+		assemblyVersion : "1.0.0.0",
+		assemblyFileVersion : "1.0.0.0"
+	},
+	global:{
+		default:"zh_CN",
+		desc:"如果系统环境要求各芯片采用的语言本芯片没有，则芯片可采用默认语言"
+		},
+	serviceContainer : {
+		name : "netContainer",
+		switchFilter:"off",
+		monitor: "",
+		jss:[],
+		scans : [{
+					package : "cj.studio.network.nodeapp",
+					extName : ".class|.json|.xml",
+					exoterical:"true"
+				}]
+
+	}
+}

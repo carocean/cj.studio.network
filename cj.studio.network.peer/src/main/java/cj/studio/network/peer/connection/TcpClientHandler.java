@@ -1,5 +1,6 @@
 package cj.studio.network.peer.connection;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
@@ -8,6 +9,7 @@ import cj.studio.ecm.net.io.SimpleInputChannel;
 import cj.studio.ecm.net.util.TcpFrameBox;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
+import cj.studio.network.peer.IConnection;
 import cj.studio.network.peer.INetworkPeer;
 import cj.studio.network.peer.INetworkPeerContainer;
 import io.netty.buffer.ByteBuf;
@@ -19,15 +21,42 @@ import io.netty.handler.timeout.IdleStateEvent;
 class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
 
     INetworkPeerContainer container;
+    IConnection connection;
 
     public TcpClientHandler(IServiceProvider site) {
         container = (INetworkPeerContainer) site.getService("$.peer.container");
+        connection = (IConnection) site.getService("$.connection");
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        container.onclose();
         super.channelInactive(ctx);
+        //断开重连
+        long heartbeat = (long) connection.getService("$.prop.heartbeat");
+        long reconnecttimes = (long) connection.getService("$.prop.reconnect_times");
+        long reconnectinterval = (long) connection.getService("$.prop.reconnect_interval");
+        if (heartbeat > 0) {
+            boolean succeed=false;
+            for (long i = 0; reconnecttimes > 0 ? (i < reconnecttimes) : true; i++) {//重试次数
+                try {
+                    connection.reconnect();
+                    CJSystem.logging().info(getClass(), "重新连接成功");
+                    succeed=true;
+                    break;
+                } catch (Throwable throwable) {
+                    CJSystem.logging().warn(getClass(), throwable.getMessage());
+                    if(reconnectinterval>0) {
+                        Thread.sleep(reconnectinterval);//隔多少秒后重连
+                    }
+                    continue;
+                }
+            }
+            if(!succeed) {
+                container.onclose();
+            }
+            return;
+        }
+        container.onclose();
     }
 
     @Override
@@ -46,9 +75,9 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
         byte[] box = TcpFrameBox.box(pack.toBytes());
         pack.dispose();
         ByteBuf bb = Unpooled.buffer();
-        bb.writeBytes(box);
-        ctx.writeAndFlush(bb);
-
+        bb.writeBytes(box,0,box.length);
+        ctx.channel().writeAndFlush(bb);
+//        CJSystem.logging().info(getClass(),"发送心跳包");
     }
 
     @Override

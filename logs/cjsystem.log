@@ -120,3 +120,97 @@
 2019年09月07日 15:37:09  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
 2019年09月07日 15:40:23  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
 2019年09月07日 16:08:58  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 19:15:12  警告: cj.studio.network.peer.connection.TcpClientHandler -  异常：java.lang.RuntimeException: java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+		at cj.studio.network.peer.connection.TcpConnection.connect(TcpConnection.java:119)
+		at cj.studio.network.peer.connection.TcpConnection.reconnect(TcpConnection.java:94)
+		at cj.studio.network.peer.connection.TcpClientHandler.channelInactive(TcpClientHandler.java:41)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelInactiveNow(ChannelHandlerInvokerUtil.java:56)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelInactive(DefaultChannelHandlerInvoker.java:92)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelInactive(PausableChannelEventExecutor.java:71)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:366)
+		at io.netty.channel.ChannelHandlerAdapter.channelInactive(ChannelHandlerAdapter.java:131)
+		at io.netty.handler.timeout.IdleStateHandler.channelInactive(IdleStateHandler.java:247)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelInactiveNow(ChannelHandlerInvokerUtil.java:56)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelInactive(DefaultChannelHandlerInvoker.java:92)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelInactive(PausableChannelEventExecutor.java:71)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:366)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:295)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelInactiveNow(ChannelHandlerInvokerUtil.java:56)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelInactive(DefaultChannelHandlerInvoker.java:92)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelInactive(PausableChannelEventExecutor.java:71)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:366)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:938)
+		at io.netty.channel.AbstractChannel$AbstractUnsafe$7.run(AbstractChannel.java:680)
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:328)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+	Cause by:
+		at sun.nio.ch.SocketChannelImpl.checkConnect(SocketChannelImpl.java:-2)
+		at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+		at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:223)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:276)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:531)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+2019年09月07日 19:15:37  信息: cj.studio.network.peer.connection.TcpClientHandler - 连接成功
+2019年09月07日 19:18:33  信息: cj.studio.network.peer.connection.TcpClientHandler - 连接成功
+2019年09月07日 19:25:54  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月07日 19:25:54  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 19:26:24  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：818c9041-73d5-46be-b560-1c1e18072f08，已丢失了1个心跳包.
+2019年09月07日 19:26:34  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：818c9041-73d5-46be-b560-1c1e18072f08，已丢失了2个心跳包.
+2019年09月07日 19:26:44  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：818c9041-73d5-46be-b560-1c1e18072f08，已丢失了3个心跳包.
+2019年09月07日 19:26:54  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：818c9041-73d5-46be-b560-1c1e18072f08，已丢失了4个心跳包.
+2019年09月07日 19:27:04  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：818c9041-73d5-46be-b560-1c1e18072f08，已丢失了5个心跳包.
+2019年09月07日 19:27:17  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：818c9041-73d5-46be-b560-1c1e18072f08，已丢失了1个心跳包.
+2019年09月07日 19:27:49  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月07日 19:30:44  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月07日 19:30:44  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 19:31:00  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了1个心跳包.
+2019年09月07日 19:31:10  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了2个心跳包.
+2019年09月07日 19:31:20  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了3个心跳包.
+2019年09月07日 19:31:30  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了4个心跳包.
+2019年09月07日 19:31:40  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了5个心跳包.
+2019年09月07日 19:31:50  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了6个心跳包.
+2019年09月07日 19:32:00  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了7个心跳包.
+2019年09月07日 19:32:10  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：3b564ef3-82c4-4fec-8ac7-e661a0d9526d，已丢失了8个心跳包.
+2019年09月07日 19:36:18  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月07日 19:36:18  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 19:36:29  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：/127.0.0.1:57742，已丢失了1个心跳包.
+2019年09月07日 19:36:39  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：/127.0.0.1:57742，已丢失了2个心跳包.
+2019年09月07日 19:36:49  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：/127.0.0.1:57742，已丢失了3个心跳包.
+2019年09月07日 19:37:06  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了1个心跳包.
+2019年09月07日 19:37:16  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了2个心跳包.
+2019年09月07日 19:37:26  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了3个心跳包.
+2019年09月07日 19:37:36  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了4个心跳包.
+2019年09月07日 19:37:46  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了5个心跳包.
+2019年09月07日 19:37:56  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了6个心跳包.
+2019年09月07日 19:38:06  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了7个心跳包.
+2019年09月07日 19:38:16  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了8个心跳包.
+2019年09月07日 19:38:26  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了9个心跳包.
+2019年09月07日 19:38:36  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，已丢失了10个心跳包.
+2019年09月07日 19:38:46  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：32a048f4-4295-48f3-86a1-02af64540efc，连续丢失了10个心跳包 ,服务器主动断开与它的连接.
+2019年09月07日 19:39:24  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月07日 19:39:24  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月07日 19:39:40  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：7e0233c1-b366-457e-9d51-82c8bfbd4766，已丢失了1个心跳包.
+2019年09月07日 19:39:50  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：7e0233c1-b366-457e-9d51-82c8bfbd4766，已丢失了2个心跳包.
+2019年09月07日 19:46:14  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月07日 19:49:55  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月07日 19:49:55  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月07日 19:50:14  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月07日 20:01:45  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月07日 20:02:05  信息: cj.studio.network.peer.connection.TcpClientHandler - 发送心跳包
+2019年09月07日 20:02:10  信息: cj.studio.network.peer.connection.TcpClientHandler - 发送心跳包

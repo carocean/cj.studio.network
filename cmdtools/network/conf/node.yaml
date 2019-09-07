@@ -3,8 +3,10 @@ server:
   props:
     workThreadCount: 4
     bossThreadCount: 1
-    #单位为秒，如果开启心跳，而客户端未开启心跳的话，服务器将在重启10次后自动关闭客户端
-    heartbeat: 0
+    #单位为秒，如果大于0为开启心跳，而客户端未开启心跳的话，服务器将在重启overtimes次后自动关闭客户端。一般服务器开10秒，客户端开5秒，如果服务端开客户端不开则客户端在被闲置时很快掉线
+    heartbeat: 10
+    #检测到心跳包最大掉包次数，超过此数则主动关闭远程客户端，如果为0表示不会主动关闭
+    overtimes: 10
 reactor:
   workThreadCount: 10
   queueCapacity: 10000

@@ -1,6 +1,8 @@
 package cj.studio.network.peer.connection;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.IServiceProvider;
+import cj.studio.ecm.ServiceCollection;
 import cj.studio.ecm.net.util.TcpFrameBox;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
@@ -16,10 +18,11 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class TcpConnection implements IConnection {
+public class TcpConnection implements IConnection, IServiceProvider {
     EventLoopGroup exepool;
     private Channel channel;
     IServiceProvider site;
@@ -28,6 +31,11 @@ public class TcpConnection implements IConnection {
     private String host;
     private int port;
     private long heartbeat;
+    private Map<String, String> props;
+    private long reconnect_times;
+    private long reconnect_interval;
+    private int workThreadCount;
+
 
     public TcpConnection(IServiceProvider site) {
         this.site = site;
@@ -50,24 +58,56 @@ public class TcpConnection implements IConnection {
     }
 
     @Override
+    public <T> ServiceCollection<T> getServices(Class<T> serviceClazz) {
+        return site != null ? site.getServices(serviceClazz) : null;
+    }
+
+    @Override
+    public Object getService(String serviceId) {
+        if ("$.prop.heartbeat".equals(serviceId)) {
+            return heartbeat;
+        }
+        if ("$.prop.reconnect_times".equals(serviceId)) {
+            return reconnect_times;
+        }
+        if ("$.prop.reconnect_interval".equals(serviceId)) {
+            return reconnect_interval;
+        }
+        if ("$.connection".equals(serviceId)) {
+            return this;
+        }
+        return site != null ? site.getService(serviceId) : null;
+    }
+
+    @Override
+    public void reconnect() {
+        if (exepool != null) {
+            if (!exepool.isShutdown() && !exepool.isTerminated()) {
+                exepool.shutdownGracefully();
+            }
+            exepool = null;
+        }
+        Map<String, String> map = new HashMap<>();
+        if (props != null) {
+            map.putAll(props);
+            props.clear();
+        }
+        connect(protocol, host, port, map);
+    }
+
+    @Override
     public void connect(String protocol, String ip, int port, Map<String, String> props) {
         this.protocol = protocol;
         this.host = ip;
         this.port = port;
-        String strheartbeat = props
-                .get("heartbeat");
-        if (StringUtil.isEmpty(strheartbeat)) {
-            strheartbeat = "0";
-        }
-        this.heartbeat = Long.valueOf(strheartbeat);
+        this.props = props;
+        parseProps(props);
 
-        String workThreadCount = props
-                .get("workThreadCount");
         EventLoopGroup group = null;
-        if (StringUtil.isEmpty(workThreadCount)) {
+        if (workThreadCount < 1) {
             group = new NioEventLoopGroup();
         } else {
-            group = new NioEventLoopGroup(Integer.valueOf(workThreadCount));
+            group = new NioEventLoopGroup(workThreadCount);
         }
 
         Bootstrap b = new Bootstrap();
@@ -79,6 +119,40 @@ public class TcpConnection implements IConnection {
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void parseProps(Map<String, String> props) {
+        String strheartbeat = props
+                .get("heartbeat");
+        if (StringUtil.isEmpty(strheartbeat)) {
+            strheartbeat = "0";
+        }
+        this.heartbeat = Long.valueOf(strheartbeat);
+
+        String strreconnect_times = props
+                .get("reconnect_times");
+        if (StringUtil.isEmpty(strreconnect_times)) {
+            strreconnect_times = "0";
+        }
+        this.reconnect_times = Long.valueOf(reconnect_times);
+
+        String strreconnect_interval = props
+                .get("reconnect_interval");
+        if (StringUtil.isEmpty(strreconnect_interval)) {
+            strreconnect_interval = "5000";
+        }
+        this.reconnect_interval = Long.valueOf(strreconnect_interval);
+
+        String workThreadCount = props
+                .get("workThreadCount");
+        if (StringUtil.isEmpty(workThreadCount)) {
+            workThreadCount = "0";
+        }
+        this.workThreadCount = Integer.valueOf(workThreadCount);
+
+        CJSystem.logging().info(getClass(), String.format("连接属性：workThreadCount=%s,heartbeat=%s,reconnect_times=%s,reconnect_interval=%s",
+                workThreadCount, heartbeat, reconnect_times, reconnect_interval));
+
     }
 
     @Override
@@ -108,11 +182,10 @@ public class TcpConnection implements IConnection {
         protected void initChannel(SocketChannel ch) throws Exception {
             ChannelPipeline pipeline = ch.pipeline();
             pipeline.addLast(new LengthFieldBasedFrameDecoder(81920, 0, 4, 0, 4));
-            long interval = heartbeat;
-            if (interval > 0) {
-                pipeline.addLast(new IdleStateHandler(0, 0, interval, TimeUnit.SECONDS));
+            if (heartbeat > 0) {
+                pipeline.addLast(new IdleStateHandler(0, heartbeat, 0, TimeUnit.SECONDS));//必须写空闲就发包，如果设为读写则在接收时便不发包了
             }
-            pipeline.addLast(new TcpClientHandler(site));
+            pipeline.addLast(new TcpClientHandler(TcpConnection.this));
         }
 
     }

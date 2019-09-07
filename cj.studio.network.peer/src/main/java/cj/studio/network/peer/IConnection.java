@@ -1,10 +1,11 @@
 package cj.studio.network.peer;
 
+import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.NetworkFrame;
 
 import java.util.Map;
 
-public interface IConnection {
+public interface IConnection extends IServiceProvider {
     String getHost();
 
     String getProtocol();
@@ -18,5 +19,6 @@ public interface IConnection {
     void send(NetworkFrame frame);
 
     boolean isConnected();
+    void reconnect();
 
 }

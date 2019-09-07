@@ -1,5 +1,6 @@
 package cj.studio.network.node.server;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.network.node.INetworkNodeConfig;
@@ -28,6 +29,7 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
     private ServerInfo serverInfo;
     private long heartbeat;
     private IReactor reactor;
+    private long overtimes;
 
     public TcpNetworkNodeServer(IServiceProvider site) {
         this.site = site;
@@ -51,7 +53,9 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         if ("$.server.heartbeat".equals(serviceId)) {
             return heartbeat;
         }
-
+        if ("$.server.overtimes".equals(serviceId)) {
+            return overtimes;
+        }
         return site.getService(serviceId);
     }
 
@@ -80,6 +84,14 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         if (serverInfo.getProps().get("heartbeat") != null) {
             this.heartbeat = serverInfo.getProps().get("heartbeat") instanceof Integer ? (int) serverInfo.getProps().get("heartbeat") : (long) serverInfo.getProps().get("heartbeat");
         }
+        this.overtimes = 0;
+        if (serverInfo.getProps().get("overtimes") != null) {
+            this.overtimes = serverInfo.getProps().get("overtimes") instanceof Integer ? (int) serverInfo.getProps().get("overtimes") : (long) serverInfo.getProps().get("overtimes");
+        }
+        if (this.heartbeat > 0) {
+            CJSystem.logging().info(getClass(), String.format("开启了心跳，策略：heartbeat=%s,overtimes=%s", heartbeat, overtimes));
+        }
+
         startRactor(config);
         bossGroup = new NioEventLoopGroup(bossThreadCount);
         workerGroup = new NioEventLoopGroup(workThreadCount);
@@ -98,6 +110,7 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
             }
             ch.closeFuture();// .sync();
             isStarted = true;
+
         } catch (InterruptedException e) {
             throw new EcmException(e);
         }

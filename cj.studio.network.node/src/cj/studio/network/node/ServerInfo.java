@@ -49,7 +49,7 @@ public class ServerInfo {
     }
 
     private void parseProps(Map<String, Object> server) {
-       Map<String,String> props= (Map<String, String>) server.get("props");
+       Map<String,Object> props= (Map<String, Object>) server.get("props");
        this.props.putAll(props);
        props.clear();
     }

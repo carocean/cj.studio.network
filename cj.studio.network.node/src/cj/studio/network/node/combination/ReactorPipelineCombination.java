@@ -6,6 +6,7 @@ import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.node.INetwork;
 import cj.studio.network.node.INetworkContainer;
+import cj.studio.network.node.INetworkNodeAppManager;
 import cj.studio.util.reactor.*;
 import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
@@ -15,9 +16,11 @@ import io.netty.channel.Channel;
 
 public class ReactorPipelineCombination implements IPipelineCombination {
     INetworkContainer container;
+    INetworkNodeAppManager appManager;
 
     public ReactorPipelineCombination(IServiceProvider parent) {
         container = (INetworkContainer) parent.getService("$.network.container");
+        appManager = (INetworkNodeAppManager) parent.getService("$.network.app.manager");
     }
 
     @Override

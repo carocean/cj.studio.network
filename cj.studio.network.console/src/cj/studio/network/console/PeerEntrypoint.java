@@ -137,15 +137,19 @@ public class PeerEntrypoint {
         try {
             lock.lock();
             finished.await();
-            IMonitor console = new PeerMonitor(childMonitorController);
-            console.moniter(peer.site());
         } catch (Exception e) {
             e.printStackTrace();
             return;
         } finally {
             lock.unlock();
         }
-
+        IMonitor console = new PeerMonitor(childMonitorController);
+        try {
+            console.moniter(peer.site());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
     }
 
     private static File getHomeDir(String fileName, CommandLine line) throws IOException {

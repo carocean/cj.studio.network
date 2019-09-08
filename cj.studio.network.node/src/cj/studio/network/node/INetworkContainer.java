@@ -1,5 +1,6 @@
 package cj.studio.network.node;
 
+import cj.studio.network.INetwork;
 import io.netty.channel.Channel;
 
 public interface INetworkContainer {

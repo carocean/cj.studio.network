@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.impl', version: '1.0.0'
 }
 task releaseToOutputs(type: Copy){
     dependsOn "build"

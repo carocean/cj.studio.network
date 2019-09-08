@@ -1,5 +1,7 @@
 package cj.studio.network.node;
 
+import cj.studio.network.INetwork;
+import cj.studio.network.NetworkInfo;
 import cj.studio.util.reactor.IServiceProvider;
 import io.netty.channel.Channel;
 

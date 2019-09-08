@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class TcpConnection implements IConnection, IServiceProvider {
+    private final IOnReconnectEvent onReconnectEvent;
     EventLoopGroup exepool;
     private Channel channel;
     IServiceProvider site;
@@ -35,9 +36,12 @@ public class TcpConnection implements IConnection, IServiceProvider {
     private long reconnect_times;
     private long reconnect_interval;
     private int workThreadCount;
+    private boolean forbiddenReconnect;
 
 
-    public TcpConnection(IServiceProvider site) {
+
+    public TcpConnection(IOnReconnectEvent onReconnectEvent, IServiceProvider site) {
+        this.onReconnectEvent=onReconnectEvent;
         this.site = site;
         peerName = (String) site.getService("$.peer.name");
     }
@@ -80,7 +84,20 @@ public class TcpConnection implements IConnection, IServiceProvider {
     }
 
     @Override
+    public void forbiddenReconnect() {
+        this.forbiddenReconnect=true;
+    }
+
+    @Override
+    public boolean isForbiddenReconnect() {
+        return forbiddenReconnect;
+    }
+
+    @Override
     public void reconnect() {
+        if(this.forbiddenReconnect){
+            return;
+        }
         if (exepool != null) {
             if (!exepool.isShutdown() && !exepool.isTerminated()) {
                 exepool.shutdownGracefully();
@@ -93,6 +110,9 @@ public class TcpConnection implements IConnection, IServiceProvider {
             props.clear();
         }
         connect(protocol, host, port, map);
+        if(onReconnectEvent!=null) {
+            onReconnectEvent.onreconnect();
+        }
     }
 
     @Override

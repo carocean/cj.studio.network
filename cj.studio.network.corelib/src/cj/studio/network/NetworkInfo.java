@@ -1,4 +1,4 @@
-package cj.studio.network.node;
+package cj.studio.network;
 
 public class NetworkInfo {
     String name;

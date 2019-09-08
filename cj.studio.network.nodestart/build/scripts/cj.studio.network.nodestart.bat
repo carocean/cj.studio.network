@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\cj.studio.network.nodestart-1.0.0.jar;%APP_HOME%\lib\cj.studio.network.corelib-1.0.0.jar;%APP_HOME%\lib\netty-all-5.0.0.Alpha2.jar;%APP_HOME%\lib\cj.studio.ecm.corelib-1.0.0.jar;%APP_HOME%\lib\cj.ultimate-1.0.0.jar;%APP_HOME%\lib\commons-cli-1.2.jar;%APP_HOME%\lib\log4j-1.2.17.jar
+set CLASSPATH=%APP_HOME%\lib\cj.studio.network.nodestart-1.0.0.jar;%APP_HOME%\lib\cj.studio.network.corelib-1.0.0.jar;%APP_HOME%\lib\netty-all-5.0.0.Alpha2.jar;%APP_HOME%\lib\cj.studio.util.reactor.impl-1.0.0.jar;%APP_HOME%\lib\cj.studio.util.reactor.ultimate-1.0.0.jar;%APP_HOME%\lib\cj.studio.gateway.socket-1.0.0.jar;%APP_HOME%\lib\cj.studio.ecm.net-1.0.0.jar;%APP_HOME%\lib\cj.lns.chip.sos.cube-1.0.0.jar;%APP_HOME%\lib\cj.studio.ecm.corelib-1.0.0.jar;%APP_HOME%\lib\cj.ultimate-1.0.0.jar;%APP_HOME%\lib\commons-cli-1.2.jar;%APP_HOME%\lib\log4j-1.2.17.jar;%APP_HOME%\lib\jsoup-1.8.1.jar;%APP_HOME%\lib\mongo-java-driver-3.2.0.jar
 
 @rem Execute cj.studio.network.nodestart
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %CJ_STUDIO_NETWORK_NODESTART_OPTS%  -classpath "%CLASSPATH%" cj.studio.network.nodestart.Entrypoint %CMD_LINE_ARGS%

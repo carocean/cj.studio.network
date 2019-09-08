@@ -5,6 +5,7 @@ import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.network.NetworkFrame;
+import cj.studio.network.peer.connection.IOnReconnectEvent;
 import cj.studio.network.peer.connection.TcpConnection;
 import cj.ultimate.util.StringUtil;
 
@@ -16,6 +17,7 @@ public class Peer implements IPeer {
     IConnection connection;
     INetworkPeerContainer container;
     IServiceProvider site;
+    IOnReconnectEvent onReconnectEvent;
 
     private Peer(String peerName, IServiceProvider parent) {
         this.peerName = peerName;
@@ -28,7 +30,6 @@ public class Peer implements IPeer {
 
         return peer;
     }
-
 
 
     @Override
@@ -52,8 +53,8 @@ public class Peer implements IPeer {
     }
 
     @Override
-    public void connect(String networkNode,  String masterNetowrkName) {
-        container = new NetworkPeerContainer(masterNetowrkName,site);
+    public void connect(String networkNode, String masterNetowrkName) {
+        container = new NetworkPeerContainer(masterNetowrkName, site);
         int pos = networkNode.indexOf("://");
         if (pos < 0) {
             throw new EcmException("地址格式错误:" + networkNode);
@@ -81,18 +82,21 @@ public class Peer implements IPeer {
                 parseProps(remain, props);
             }
         }
-
+        onReconnectEvent=new DefaultOnReconnectEvent();
         switch (protocol) {
             case "tcp":
-                doTcpConnection(protocol, ip, port, props);
+                connection = new TcpConnection(onReconnectEvent, site);
+                connection.connect(protocol, ip, port, props);
                 break;
             default:
                 throw new EcmException("不支持的连接协议:" + protocol);
         }
     }
+
     @Override
-    public IMasterNetworkPeer auth(String authmode, String user, String token,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
-        IMasterNetworkPeer manager =(IMasterNetworkPeer) listen(container.getMasterNetowrkName(),onerror, onopen, onmessage, onclose);
+    public IMasterNetworkPeer auth(String authmode, String user, String token, IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+        onReconnectEvent.init(authmode, user, token, onerror, onopen, onmessage, onclose);
+        IMasterNetworkPeer manager = (IMasterNetworkPeer) listen(container.getMasterNetowrkName(), onerror, onopen, onmessage, onclose);
         NetworkFrame frame = new NetworkFrame(String.format("auth / network/1.0"));
         frame.head("Auth-User", user);
         frame.head("Auth-Mode", authmode);
@@ -101,22 +105,20 @@ public class Peer implements IPeer {
         manager.send(frame);
         return manager;
     }
+
     @Override
-    public INetworkPeer listen(String networkName,IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+    public INetworkPeer listen(String networkName, IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
         if (container.exists(networkName)) {
             throw new EcmException("已侦听网络：" + networkName);
         }
 
-        INetworkPeer networkPeer = container.create(connection, networkName,onerror, onopen, onmessage, onclose);
+        INetworkPeer networkPeer = container.create(connection, networkName, onerror, onopen, onmessage, onclose);
         NetworkFrame frame = new NetworkFrame("listenNetwork / network/1.0");
         frame.head("Peer-Name", peerName);
         networkPeer.send(frame);
         return networkPeer;
     }
-    private void doTcpConnection(String protocol, String ip, int port, Map<String, String> props) {
-        connection = new TcpConnection(site);
-        connection.connect(protocol, ip, port, props);
-    }
+
 
     private void parseProps(String queryString, Map<String, String> props) {
         String[] arr = queryString.split("&");
@@ -133,8 +135,6 @@ public class Peer implements IPeer {
             props.put(key, v);
         }
     }
-
-
 
 
     @Override
@@ -197,4 +197,36 @@ public class Peer implements IPeer {
             return null;
         }
     }
+
+    class DefaultOnReconnectEvent implements IOnReconnectEvent {
+        String authmode;
+        String user;
+        String token;
+        IOnerror onerror;
+        IOnopen onopen;
+        IOnmessage onmessage;
+        IOnclose onclose;
+
+        public DefaultOnReconnectEvent() {
+        }
+
+        @Override
+        public void onreconnect() {
+            Peer peer=Peer.this;
+            peer.container.remove(peer.container.getMasterNetwork());//移除主网重新侦听
+            peer.auth(authmode, user, token, onerror, onopen, onmessage, onclose);
+        }
+
+        @Override
+        public void init(String authmode, String user, String token, IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
+            this.authmode=authmode;
+            this.user=user;
+            this.token=token;
+            this.onerror=onerror;
+            this.onopen=onopen;
+            this.onmessage=onmessage;
+            this.onclose=onclose;
+        }
+    }
+
 }

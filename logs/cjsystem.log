@@ -2,9 +2,9 @@
 		at java.util.Formatter.format(Formatter.java:2519)
 		at java.util.Formatter.format(Formatter.java:2455)
 		at java.lang.String.format(String.java:2940)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:32)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:32)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:75)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:75)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -214,3 +214,91 @@
 2019年09月07日 20:01:45  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
 2019年09月07日 20:02:05  信息: cj.studio.network.peer.connection.TcpClientHandler - 发送心跳包
 2019年09月07日 20:02:10  信息: cj.studio.network.peer.connection.TcpClientHandler - 发送心跳包
+2019年09月08日 21:48:26  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 21:48:26  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 21:48:40  信息: cj.studio.network.nodeapp.NodeApplication - onactivedNetwork
+2019年09月08日 21:48:40  信息: cj.studio.network.nodeapp.NodeApplication - createAuthenticateStrategy
+2019年09月08日 21:48:48  信息: cj.studio.network.nodeapp.NodeApplication - onactivedNetwork
+2019年09月08日 21:49:00  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：7ae058f6-b90c-48b6-a25b-d799c5702cb6，已丢失了1个心跳包.
+2019年09月08日 21:49:10  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：7ae058f6-b90c-48b6-a25b-d799c5702cb6，已丢失了2个心跳包.
+2019年09月08日 21:49:29  信息: cj.studio.network.nodeapp.NodeApplication - createAuthenticateStrategy
+2019年09月08日 22:51:45  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月08日 23:45:23  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 23:45:23  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 01:26:07  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:26:07  警告: cj.studio.network.nodeapp.Ace - Ace:administrators root.* allow配置权限配置不正确，已被忽略
+2019年09月09日 01:27:48  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:27:48  警告: cj.studio.network.nodeapp.Ace - Ace:administrators root.* allow配置权限配置不正确，已被忽略
+2019年09月09日 01:27:48  警告: cj.studio.network.nodeapp.Ace - Ace:developers !root.* allow配置权限配置不正确，已被忽略
+2019年09月09日 01:27:48  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 01:27:48  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 01:29:47  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:29:47  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 01:29:48  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 01:31:42  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:33:03  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:35:58  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:36:34  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:36:54  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:37:35  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:38:14  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:42:15  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:43:14  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:43:36  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:44:42  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 01:44:42  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 01:44:42  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:42:38  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 02:42:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:42:38  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:46:52  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 02:46:52  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:46:52  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:54:43  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:54:43  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:56:52  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:32:17  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:35:25  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:36:12  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:36:37  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月09日 03:38:05  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:38:19  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:38:25  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:38:25  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+2019年09月09日 03:38:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:38:53  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+2019年09月09日 03:38:58  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:38:58  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+2019年09月09日 03:39:03  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:39:03  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+2019年09月09日 03:39:08  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:39:08  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月09日 03:49:09  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:49:09  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:49:09  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:49:09  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:49:38  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:49:38  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:49:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:49:38  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:51:14  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：/127.0.0.1:55683，已丢失了1个心跳包.
+2019年09月09日 03:52:16  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：a1fdb74f-9630-41dd-aa7d-9dc4a1accb64，已丢失了1个心跳包.
+2019年09月09日 03:52:50  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:53:11  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:53:11  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+2019年09月09日 03:53:16  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:53:16  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月09日 03:54:15  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:54:28  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:54:34  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:54:34  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6600
+2019年09月09日 03:54:39  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=8,heartbeat=5,reconnect_times=0,reconnect_interval=5000
+2019年09月09日 03:54:39  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月09日 04:13:53  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:13:53  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:13:53  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:13:54  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:37:54  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:37:54  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:37:54  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:37:55  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600

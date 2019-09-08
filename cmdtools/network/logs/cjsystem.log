@@ -37,11 +37,11 @@
 2019年09月06日 15:19:30  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -53,11 +53,11 @@
 2019年09月06日 15:19:30  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -69,11 +69,11 @@
 2019年09月06日 15:19:32  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -85,11 +85,11 @@
 2019年09月06日 15:19:38  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -101,11 +101,11 @@
 2019年09月06日 15:19:55  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -117,11 +117,11 @@
 2019年09月06日 15:19:55  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -133,11 +133,11 @@
 2019年09月06日 15:20:08  错误: cj.studio.util.reactor.EventLooper -  异常：java.lang.NullPointerException
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -151,11 +151,11 @@
 		at cj.studio.network.node.Network.isFlagRemove(Network.java:90)
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -168,11 +168,11 @@
 		at cj.studio.network.node.Network.isFlagRemove(Network.java:90)
 		at cj.studio.network.node.Network.feedbackcast(Network.java:83)
 		at cj.studio.network.node.Network.cast(Network.java:73)
-		at cj.studio.network.node.combination.CastValve.nextError(CastValve.java:53)
+		at cj.studio.network.node.combination.valve.CastValve.nextError(CastValve.java:53)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.ManagerValve.nextError(ManagerValve.java:36)
+		at cj.studio.network.node.combination.valve.ManagerValve.nextError(ManagerValve.java:36)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:103)
-		at cj.studio.network.node.combination.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
+		at cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve.nextError(ListenValve.java:39)
 		at cj.studio.util.reactor.DefaultPipeline.nextError(DefaultPipeline.java:97)
 		at cj.studio.util.reactor.DefaultPipeline.error(DefaultPipeline.java:110)
 		at cj.studio.util.reactor.EventLooper.call(EventLooper.java:36)
@@ -1011,3 +1011,247 @@
 2019年09月07日 20:38:50  信息: cj.studio.network.node.server.handler.TcpChannelHandler - 收到心跳包
 2019年09月07日 20:39:14  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
 2019年09月07日 20:39:14  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 21:50:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 21:50:06  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 21:51:03  信息: cj.studio.network.nodeapp.NodeApplication - onactivedNetwork
+2019年09月08日 21:51:13  信息: cj.studio.network.nodeapp.NodeApplication - createAuthenticateStrategy
+2019年09月08日 21:51:39  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 21:51:40  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 21:51:50  信息: cj.studio.network.nodeapp.NodeApplication - createAccessControllerStrategy
+2019年09月08日 21:51:50  信息: cj.studio.network.nodeapp.NodeApplication - onactivedNetwork
+2019年09月08日 21:52:06  信息: cj.studio.network.nodeapp.NodeApplication - createAuthenticateStrategy
+2019年09月08日 21:52:37  信息: cj.studio.network.nodeapp.NodeApplication - createAccessControllerStrategy
+2019年09月08日 21:52:37  信息: cj.studio.network.nodeapp.NodeApplication - onactivedNetwork
+2019年09月08日 22:46:48  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 22:46:48  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 22:48:00  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 22:48:00  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 22:59:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 22:59:06  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 23:00:03  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 23:00:03  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 23:00:16  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 23:00:16  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 23:47:33  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 23:47:33  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 23:49:29  警告: cj.studio.util.reactor.EventLooper - 未建立管道：network-2-t 10 -s
+2019年09月08日 23:52:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月08日 23:52:38  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月08日 23:52:48  信息: cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy - -----tom listNetwork /master-network/ NETWORK/1.0
+2019年09月08日 23:53:05  信息: cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy - -----tom listenNetwork /network-2/ NETWORK/1.0
+2019年09月08日 23:53:20  信息: cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy - -----cj listNetwork /master-network/ NETWORK/1.0
+2019年09月09日 00:01:44  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 00:01:44  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 00:01:53  信息: cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy - -----cj in master-network listNetwork /master-network/ NETWORK/1.0 
+2019年09月09日 00:02:06  信息: cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy - -----cj in network-2 listenNetwork /network-2/ NETWORK/1.0 
+2019年09月09日 00:02:12  信息: cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy - -----cj in network-2 infoNetwork /network-2/ NETWORK/1.0 
+2019年09月09日 00:49:12  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 00:49:12  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 00:49:12  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:41:32  信息: cj.studio.network.nodeapp.RBACConfig - 用户的角色成员：groups 在角色列表中未被定义,已忽略
+2019年09月09日 02:41:32  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:41:32  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:49:40  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:49:40  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:52:08  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:52:09  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 02:55:50  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 02:55:50  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:04:23  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:04:23  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:18:10  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:18:10  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:18:27  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:18:27  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:23:13  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:23:13  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:23:27  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:23:27  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:26:56  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:26:56  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:27:08  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:27:08  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:27:19  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：a4c3e864-0380-4df6-9784-ef16f77bb8b1，已丢失了1个心跳包.
+2019年09月09日 03:27:29  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：a4c3e864-0380-4df6-9784-ef16f77bb8b1，已丢失了2个心跳包.
+2019年09月09日 03:27:39  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：a4c3e864-0380-4df6-9784-ef16f77bb8b1，已丢失了3个心跳包.
+2019年09月09日 03:27:45  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:27:45  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:29:28  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:29:29  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:29:40  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:29:40  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:29:54  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：12b5d14b-6715-4d01-8879-bd60b420b942，已丢失了1个心跳包.
+2019年09月09日 03:30:04  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：12b5d14b-6715-4d01-8879-bd60b420b942，已丢失了2个心跳包.
+2019年09月09日 03:30:14  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：12b5d14b-6715-4d01-8879-bd60b420b942，已丢失了3个心跳包.
+2019年09月09日 03:30:24  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：12b5d14b-6715-4d01-8879-bd60b420b942，已丢失了4个心跳包.
+2019年09月09日 03:30:42  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:30:42  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:30:55  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了1个心跳包.
+2019年09月09日 03:31:05  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了2个心跳包.
+2019年09月09日 03:31:15  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了3个心跳包.
+2019年09月09日 03:31:25  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了4个心跳包.
+2019年09月09日 03:31:35  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了5个心跳包.
+2019年09月09日 03:31:45  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了6个心跳包.
+2019年09月09日 03:31:55  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：eaf2d65a-20cd-4c37-8b7c-1a49f399a02a，已丢失了7个心跳包.
+2019年09月09日 03:32:27  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:32:27  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:35:47  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:35:48  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:36:47  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：e3c70a37-a0af-4933-9e50-14b533d484aa，已丢失了1个心跳包.
+2019年09月09日 03:37:04  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:37:04  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:38:11  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:38:11  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:39:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:39:06  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:39:18  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：bcfa4443-a8c1-4d87-ba7c-d4174312af34，已丢失了1个心跳包.
+2019年09月09日 03:39:28  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：bcfa4443-a8c1-4d87-ba7c-d4174312af34，已丢失了2个心跳包.
+2019年09月09日 03:39:38  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：bcfa4443-a8c1-4d87-ba7c-d4174312af34，已丢失了3个心跳包.
+2019年09月09日 03:39:48  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：bcfa4443-a8c1-4d87-ba7c-d4174312af34，已丢失了4个心跳包.
+2019年09月09日 03:39:58  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：bcfa4443-a8c1-4d87-ba7c-d4174312af34，已丢失了5个心跳包.
+2019年09月09日 03:40:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:40:38  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:40:45  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:40:45  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:41:04  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:41:04  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:41:46  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:41:46  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:41:59  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:41:59  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:45:44  信息 : isEnableRBAC=false
+2019年09月09日 03:45:44  信息 : 节点应用已启动。
+2019年09月09日 03:45:44  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:45:45  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:46:06  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=false
+2019年09月09日 03:46:06  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:46:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:46:07  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:46:50  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:46:50  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:46:50  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:46:50  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:47:07  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:47:07  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:47:07  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:47:07  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:52:35  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:52:35  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:52:35  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:52:35  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:53:15  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:53:15  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:53:15  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:53:15  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:53:26  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：8f88cf3b-42e4-47ba-bff1-951adf0af499，已丢失了1个心跳包.
+2019年09月09日 03:53:36  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：8f88cf3b-42e4-47ba-bff1-951adf0af499，已丢失了2个心跳包.
+2019年09月09日 03:53:46  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：8f88cf3b-42e4-47ba-bff1-951adf0af499，已丢失了3个心跳包.
+2019年09月09日 03:53:56  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：8f88cf3b-42e4-47ba-bff1-951adf0af499，已丢失了4个心跳包.
+2019年09月09日 03:54:19  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:54:19  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:54:19  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:54:19  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:54:37  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 03:54:37  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 03:54:37  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 03:54:37  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 03:54:49  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了1个心跳包.
+2019年09月09日 03:54:59  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了2个心跳包.
+2019年09月09日 03:55:09  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了3个心跳包.
+2019年09月09日 03:55:21  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了1个心跳包.
+2019年09月09日 03:55:31  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了2个心跳包.
+2019年09月09日 03:55:41  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了3个心跳包.
+2019年09月09日 03:55:51  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了4个心跳包.
+2019年09月09日 03:56:01  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了5个心跳包.
+2019年09月09日 03:56:11  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了6个心跳包.
+2019年09月09日 03:56:21  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了7个心跳包.
+2019年09月09日 03:56:31  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了8个心跳包.
+2019年09月09日 03:56:41  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了9个心跳包.
+2019年09月09日 03:56:51  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，已丢失了10个心跳包.
+2019年09月09日 03:57:01  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：b17c367b-f8ed-4e77-b9cf-4f4d7b4492ea，连续丢失了10个心跳包 ,服务器主动断开与它的连接.
+2019年09月09日 04:05:21  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:05:21  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:05:21  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:05:21  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:05:38  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:05:38  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:05:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:05:38  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:06:46  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:06:46  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:06:46  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:06:46  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:06:47  错误: cj.studio.network.node.server.handler.TcpChannelHandler -  异常：java.io.IOException: Connection reset by peer
+		at sun.nio.ch.FileDispatcherImpl.read0(FileDispatcherImpl.java:-2)
+		at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+		at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+		at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+		at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+		at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:311)
+		at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:853)
+		at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:240)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:115)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:514)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+2019年09月09日 04:07:04  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:07:04  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:07:04  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:07:04  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:10:01  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:10:01  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:10:01  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:10:01  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:24:00  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:24:00  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:24:00  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:24:01  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:24:03  错误: cj.studio.network.node.server.handler.TcpChannelHandler -  异常：java.io.IOException: Connection reset by peer
+		at sun.nio.ch.FileDispatcherImpl.read0(FileDispatcherImpl.java:-2)
+		at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+		at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+		at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+		at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+		at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:311)
+		at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:853)
+		at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:240)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:115)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:514)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+2019年09月09日 04:24:11  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:24:11  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:24:11  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:24:12  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:35:09  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:35:09  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:35:09  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:35:09  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:36:26  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:36:26  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:36:26  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:36:26  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:42:13  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:42:13  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:42:13  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:42:14  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:42:42  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:42:42  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:42:42  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:42:42  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600

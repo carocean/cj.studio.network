@@ -35,7 +35,7 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
         long heartbeat = (long) connection.getService("$.prop.heartbeat");
         long reconnecttimes = (long) connection.getService("$.prop.reconnect_times");
         long reconnectinterval = (long) connection.getService("$.prop.reconnect_interval");
-        if (heartbeat > 0) {
+        if (heartbeat > 0&&!connection.isForbiddenReconnect()) {
             boolean succeed=false;
             for (long i = 0; reconnecttimes > 0 ? (i < reconnecttimes) : true; i++) {//重试次数
                 try {

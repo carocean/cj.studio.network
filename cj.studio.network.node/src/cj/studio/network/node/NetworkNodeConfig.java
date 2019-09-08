@@ -1,13 +1,17 @@
 package cj.studio.network.node;
 
 import cj.studio.ecm.EcmException;
+import cj.studio.network.NetworkInfo;
+import cj.studio.network.UserPrincipal;
 import cj.ultimate.util.StringUtil;
+import javafx.beans.binding.StringBinding;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,11 +22,12 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
     Map<String, NetworkInfo> networks;
     private String masterNetwork;
     private boolean isAutoCreate;
-    private boolean forceAccessToken;
+    private String home;
 
 
     @Override
     public void load(String home) throws FileNotFoundException {
+        this.home = home;
         Yaml nodeyaml = new Yaml();
         String confNodeFile = String.format("%s%sconf%snode.yaml", home, File.separator, File.separator);
         Reader reader = new FileReader(confNodeFile);
@@ -30,17 +35,18 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         parseServerInfo(node);
         parseReactorInfo(node);
         parseNetworks(node);
-
     }
+
     @Override
-    public boolean isForceAccessToken() {
-        return forceAccessToken;
+    public String home() {
+        return home;
     }
 
     @Override
     public String getMasterNetwork() {
         return masterNetwork;
     }
+
 
     @Override
     public boolean isAutoCreate() {
@@ -55,9 +61,6 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         }
         Object auto = networksItem.get("isAutoCreate");
         this.isAutoCreate = auto == null ? false : (boolean) auto;
-
-        Object accessToken = networksItem.get("isForceAccessToken");
-        this.forceAccessToken = accessToken == null ? false : (boolean) accessToken;
 
         masterNetwork = (String) networksItem.get("master");
         if (StringUtil.isEmpty(masterNetwork)) {

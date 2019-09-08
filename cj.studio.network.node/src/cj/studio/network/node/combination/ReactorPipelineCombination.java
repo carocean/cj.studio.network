@@ -2,25 +2,37 @@ package cj.studio.network.node.combination;
 
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.net.CircuitException;
-import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
-import cj.studio.network.node.INetwork;
+import cj.studio.network.INetwork;
+import cj.studio.network.UserPrincipal;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.network.node.INetworkNodeAppManager;
+import cj.studio.network.node.INetworkNodeConfig;
+import cj.studio.network.node.combination.valve.CastValve;
+import cj.studio.network.node.combination.valve.CheckAutoCreateNetworkValve;
+import cj.studio.network.node.combination.valve.ManagerValve;
+import cj.studio.network.node.combination.valve.SecurityValve;
 import cj.studio.util.reactor.*;
 import cj.ultimate.util.StringUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
+import io.netty.util.Attribute;
+import io.netty.util.AttributeKey;
 
 
 public class ReactorPipelineCombination implements IPipelineCombination {
     INetworkContainer container;
     INetworkNodeAppManager appManager;
-
     public ReactorPipelineCombination(IServiceProvider parent) {
         container = (INetworkContainer) parent.getService("$.network.container");
         appManager = (INetworkNodeAppManager) parent.getService("$.network.app.manager");
+    }
+
+    @Override
+    public void demolish(IPipeline pipeline) {
+        INetwork network = container.getNetwork(pipeline.key());
+        appManager.oninactiveNetwork(network, pipeline);////留给app移除valves
+        container.removeNetwork(pipeline.key());
+        pipeline.attachment(null);
     }
 
     @Override
@@ -39,9 +51,19 @@ public class ReactorPipelineCombination implements IPipelineCombination {
         Channel ch = (Channel) event.getParameters().get("channel");//取出channel
         network.addChannel(ch);//将channel添加到network，这样network便有了输出能力
         pipeline.attachment(network);//将网络附到管道上供app中的valve使用
-        pipeline.append(new CheckAutoCreateNetworkValve(container));
+        if(appManager.isEnableRBAC()) {//如果开启了rbac的访问控制则添加安全保护
+            pipeline.append(new SecurityValve(container, appManager));//保护网络
+        }
+        pipeline.append(new CheckAutoCreateNetworkValve(container));//当开启自动创建网络模式时
         pipeline.append(new ManagerValve(container));//管理网络的处理放在最上面
+        Attribute<UserPrincipal> attribute=ch.attr(AttributeKey.valueOf("Peer-UserPrincipal"));
+        UserPrincipal userPrincipal=null;
+        if(attribute!=null){
+            userPrincipal=attribute.get();
+        }
+        appManager.onactivedNetwork(userPrincipal,network, pipeline);//留给app添加valves
         pipeline.append(new CastValve());
+
     }
 
     private INetwork autoCreateNetwork(Event event, IPipeline pipeline) {
@@ -68,9 +90,4 @@ public class ReactorPipelineCombination implements IPipelineCombination {
     }
 
 
-    @Override
-    public void demolish(IPipeline pipeline) {
-        container.removeNetwork(pipeline.key());
-        pipeline.attachment(null);
-    }
 }

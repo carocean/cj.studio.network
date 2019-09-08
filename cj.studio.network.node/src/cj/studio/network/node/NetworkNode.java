@@ -24,8 +24,8 @@ public class NetworkNode implements INetworkNode {
         networkNodeConfig = new NetworkNodeConfig();
 
         networkNodeConfig.load(home);
-        app=new NetworkNodeAppManager();
-        app.load(home);
+        app=new NetworkNodeAppManager(site);
+        app.load(networkNodeConfig);
 
         nodeServer = createNetworkNodeServer(networkNodeConfig.getServerInfo());
         networkContainer = new NetworkContainer(site);

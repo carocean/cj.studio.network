@@ -80,18 +80,27 @@ class NetworkPeer implements INetworkPeer, IServiceProvider {
                     } else {
                         source = frame;
                     }
-                    if ("404".equals(circuit.status()) && "listenNetwork".equals(source.command())) {
-                        INetworkPeerContainer container = (INetworkPeerContainer) site.getService("$.peer.container");
-                        INetworkPeer find=container.get(source.rootName());
-                        if(find!=null) {
-                            container.remove(find);
-                        }
+                    switch (circuit.status()) {
+                        case "801":
+                            //认证失败了，标记connection为认证失败，这样便不再重连
+                            connection.forbiddenReconnect();
+                            break;
+                        case "404":
+                            if ("listenNetwork".equals(source.command())) {
+                                INetworkPeerContainer container = (INetworkPeerContainer) site.getService("$.peer.container");
+                                INetworkPeer find = container.get(source.rootName());
+                                if (find != null) {
+                                    container.remove(find);
+                                }
+                            }
+                            break;
                     }
+
                 } else {
                     circuit = new NetworkCircuit(String.format("%s 200 ok", frame.protocol()));
                 }
                 if (onerror != null) {
-                    onerror.onerror(source,circuit, this);
+                    onerror.onerror(source, circuit, this);
                 }
                 return;
             }

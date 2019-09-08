@@ -14,8 +14,6 @@ reactor:
   #队列大小
   queueCapacity: 10000
 networks:
-  #强制对工作网络进行访问控制验证,默认不验证
-  isForceAccessToken: true
   #是否按请求地址上下文自动创建网络
   isAutoCreate: false
   #主网络，用于管理工作网络，主网络固定为feedbackcast模式

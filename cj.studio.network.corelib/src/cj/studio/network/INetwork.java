@@ -1,4 +1,4 @@
-package cj.studio.network.node;
+package cj.studio.network;
 
 
 import cj.studio.network.NetworkFrame;

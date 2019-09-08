@@ -64,8 +64,11 @@ public class ListenNetworkCommand extends Command {
             @Override
             public void onerror(NetworkFrame frame, NetworkCircuit circuit, INetworkPeer networkPeer) {
                 StringBuffer sb = new StringBuffer();
+                circuit.print(sb);
+                sb.append("\r\n");
                 frame.print(sb);
-                System.out.println(frame + "\r\n" + sb);
+                System.out.println(sb);
+                System.out.print(name+">");
             }
         }, new IOnopen() {
             @Override

@@ -1,9 +1,9 @@
-package cj.studio.network.node.combination;
+package cj.studio.network.node.combination.valve;
 
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
-import cj.studio.network.node.INetwork;
+import cj.studio.network.INetwork;
 import cj.studio.network.node.INetworkContainer;
 import cj.studio.util.reactor.Event;
 import cj.studio.util.reactor.IPipeline;

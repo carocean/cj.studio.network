@@ -21,4 +21,11 @@ public interface IConnection extends IServiceProvider {
     boolean isConnected();
     void reconnect();
 
+    /**
+     * 禁止重连。原因或许是peer认证失败了
+     */
+    void forbiddenReconnect();
+
+    boolean isForbiddenReconnect();
+
 }

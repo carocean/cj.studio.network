@@ -1,11 +1,14 @@
-package cj.studio.network.node.combination;
+package cj.studio.network.node.combination.valve;
 
 import cj.studio.ecm.net.CircuitException;
+import cj.studio.network.IAuthenticateStrategy;
+import cj.studio.network.UserPrincipal;
 import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
-import cj.studio.network.node.INetwork;
+import cj.studio.network.INetwork;
 import cj.studio.network.node.INetworkNodeAppManager;
 import cj.studio.network.node.INetworkContainer;
+import cj.studio.network.node.INetworkNodeConfig;
 import cj.studio.util.reactor.Event;
 import cj.studio.util.reactor.IPipeline;
 import cj.studio.util.reactor.IValve;
@@ -87,7 +90,7 @@ public class ManagerValve implements IValve {
                 changeCastmode(e, pipeline);
                 break;
             default:
-                pipeline.nextError(e, new CircuitException("501", String.format("The Command %s is not Surported", e.getCmd())), this);
+                pipeline.nextError(e, new CircuitException("501", String.format("The Command %s is not supported", e.getCmd())), this);
                 break;
         }
     }
@@ -104,7 +107,7 @@ public class ManagerValve implements IValve {
         bb.writeBytes(c.toByteBuf());
         INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
         network.cast(channel, f);
-        if(!pipeline.key().equals(network.getInfo().getName())) {
+        if (!pipeline.key().equals(network.getInfo().getName())) {
             network = container.getNetwork(pipeline.key());//直接移除
             network.removeChannel(channel);
         }
@@ -160,18 +163,39 @@ public class ManagerValve implements IValve {
         }
         AttributeKey<String> peerNameKey = AttributeKey.valueOf("Peer-Name");
         channel.attr(peerNameKey).set(peerName);
-        String access_token = "";
-        INetworkNodeAppManager appManager = (INetworkNodeAppManager) pipeline.site().getService("$.network.app.manager");
-        try {
-            access_token = appManager.auth(authMode, authUser, authToken);//认证
-        } catch (Throwable throwable) {
-            pipeline.nextError(e, new CircuitException("801", String.format("Fail to Auth.The Peer was Closed.")), this);
-            channel.close();//认证不通过则关闭对端
-            return;
-        }
 
+        INetworkNodeAppManager appManager = (INetworkNodeAppManager) pipeline.site().getService("$.network.app.manager");
+
+        UserPrincipal userPrincipal = null;
+        if (appManager.isEnableRBAC()) {
+            INetwork network=container.getNetwork(pipeline.key());
+            try {
+                IAuthenticateStrategy authenticateStrategy = appManager.createAuthenticateStrategy(authMode,network);//创建认证策略
+                if (authenticateStrategy == null) {
+                    throw new CircuitException("801", "认证失败，缺少对应的认证策略：" + authMode);
+                }
+                userPrincipal = authenticateStrategy.authenticate(authUser, authToken);//认证
+                if (userPrincipal == null) {
+                    throw new CircuitException("801", "认证失败，返回的userPrincipal为空");
+                }
+            } catch (Throwable throwable) {
+                CircuitException ce = CircuitException.search(throwable);
+                if (ce != null) {
+                    pipeline.nextError(e, ce, this);
+                } else {
+                    pipeline.nextError(e, new CircuitException("801", String.format("Fail to Auth.The Peer was Closed. Cause by %s", throwable.getMessage())), this);
+                }
+                channel.close();//认证不通过则关闭对端
+                return;
+            }
+            AttributeKey<UserPrincipal> userPrincipalAttributeKey = AttributeKey.valueOf("Peer-UserPrincipal");
+            channel.attr(userPrincipalAttributeKey).set(userPrincipal);
+        }
+        //认证通过返回会话，会话包将用户及角色，并将会话赋予channel,之后将验证channel是否有会话，无会话则关闭channel
         NetworkCircuit c = new NetworkCircuit("network/1.0 200 ok");
-        c.head("Access-Token", access_token);
+        if (userPrincipal != null) {
+            c.content().writeBytes(new Gson().toJson(userPrincipal).getBytes());
+        }
         bb.writeBytes(c.toByteBuf());
         INetwork network = (INetwork) container.getMasterNetwork();//改道主网络发送,因为系统消息不需要广播
         network.cast(channel, f);

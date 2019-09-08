@@ -1,0 +1,26 @@
+#是否开启rbac安全控制，默认为false
+enable: true
+roles:
+  - administrators
+  - developers
+  - tests
+users:
+  -
+    name: cj
+    pwd: 11
+    roles:
+      - administrators
+  -
+    name: tom
+    pwd: 22
+    roles:
+      - developers
+acl:
+#格式：角色名 网络名.请求指令 权限 除非 网络名.请求指令；网络名.请求指令；网络名.请求指令；
+#其中$root代表主网络名,!root代表所有工作网络，请求指令可以使用通配符*表示所有网络，权限为deny或allow
+#在没有显式配置时默认权限为全部资源deny，除非显式指定为allow，但在显式的配置中deny优先级最高
+#网络名支持通配符*，关键字：$root是主网，!root是所有工作网
+#请求指令支持通配符*
+#注意：由于$root和!root表示的资源具有逻辑非关系，因此对于同一角色不可用之配多行ACE，因此对于同一个资源必须授权一行给一个角色，且仅写一行（可使用except关键字来排除），而同一资源可授权给不同角色
+  - administrators *.* allow
+  - developers $root.* deny except $root.listenNetwork;$root.auth;$root.listNetwork;!root.*

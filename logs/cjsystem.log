@@ -302,3 +302,11 @@
 2019年09月09日 04:37:54  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
 2019年09月09日 04:37:54  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
 2019年09月09日 04:37:55  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:49:21  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:49:21  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:49:21  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:49:21  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600
+2019年09月09日 04:52:21  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月09日 04:52:21  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月09日 04:52:21  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=10
+2019年09月09日 04:52:21  信息: cj.studio.network.node.NetworkNode - 服务地址:tcp://localhost:6600

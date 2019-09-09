@@ -43,6 +43,11 @@ public class NetworkPeerContainer implements INetworkPeerContainer {
     }
 
     @Override
+    public String[] enumNetworkName() {
+        return this.networkPeerMap.keySet().toArray( new String[0]);
+    }
+
+    @Override
     public void onclose() {
         for (Map.Entry<String, INetworkPeer> entry : networkPeerMap.entrySet()) {
             if (entry.getKey().equals(this.masterNetowrkName)) {

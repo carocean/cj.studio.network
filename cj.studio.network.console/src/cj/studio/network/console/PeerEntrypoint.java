@@ -1,12 +1,9 @@
 package cj.studio.network.console;
 
-import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.peer.*;
 import cj.ultimate.util.StringUtil;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import org.apache.commons.cli.*;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -14,7 +11,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -99,7 +95,7 @@ public class PeerEntrypoint {
             }
         }, new IOnmessage() {
             @Override
-            public void onmessage(NetworkFrame frame, IServiceProvider site) {
+            public void onmessage(NetworkFrame frame, INetworkPeer networkPeer) {
                 byte[] b = frame.content().readFully();
                 NetworkCircuit circuit = new NetworkCircuit(b);
                 if ("auth".equals(frame.command()) && circuit.status().equals("200")) {

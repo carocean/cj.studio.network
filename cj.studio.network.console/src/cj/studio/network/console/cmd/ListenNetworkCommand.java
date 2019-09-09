@@ -1,7 +1,5 @@
 package cj.studio.network.console.cmd;
 
-import cj.studio.ecm.IServiceProvider;
-import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.NetworkCircuit;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.console.ChildMonitorController;
@@ -15,12 +13,9 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class ListenNetworkCommand extends Command {
     private ChildMonitorController childMonitorController;
@@ -79,7 +74,7 @@ public class ListenNetworkCommand extends Command {
             }
         }, new IOnmessage() {
             @Override
-            public void onmessage(NetworkFrame frame, IServiceProvider site) {
+            public void onmessage(NetworkFrame frame, INetworkPeer networkPeer) {
                 StringBuffer sb = new StringBuffer();
                 frame.print(sb);
                 System.out.println(sb);

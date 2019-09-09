@@ -27,10 +27,11 @@ dependencies {
     compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.impl', version: '1.0.0'
     compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: '1.0.0'
     compile project (':cj.studio.network.corelib')
+    compile project (':cj.studio.network.peer')
 }
 task copyReferences(type: Copy) {
     from configurations.compileClasspath.files {
-        include 'snakeyaml-*.jar','cj.studio.util.reactor*.jar','cj.studio.ecm.net-*.jar'
+        include 'snakeyaml-*.jar','cj.studio.util.reactor*.jar','cj.studio.ecm.net-*.jar','cj.studio.network.peer-*.jar'
     }
     into 'src/cj/references'
 }

@@ -21,4 +21,6 @@ public interface INetworkPeerContainer extends IDisposable {
     void remove(INetworkPeer networkPeer);
 
 
+    String[] enumNetworkName();
+
 }

@@ -49,7 +49,9 @@ public class ReactorPipelineCombination implements IPipelineCombination {
             network = autoCreateNetwork(event, pipeline);
         }
         Channel ch = (Channel) event.getParameters().get("channel");//取出channel
-        network.addChannel(ch);//将channel添加到network，这样network便有了输出能力
+        if(!network.existsChannel(ch)) {
+            network.addChannel(ch);//将channel添加到network，这样network便有了输出能力
+        }
         pipeline.attachment(network);//将网络附到管道上供app中的valve使用
         if(appManager.isEnableRBAC()) {//如果开启了rbac的访问控制则添加安全保护
             pipeline.append(new SecurityValve(container, appManager));//保护网络

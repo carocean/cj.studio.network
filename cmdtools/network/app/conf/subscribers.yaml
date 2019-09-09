@@ -1,0 +1,24 @@
+#多节点订阅
+-
+  enable: true
+  #端点名，注意在互联的订阅网络节点中不要重名
+  peername: node-1
+  #对端主网络名
+  masterNetworkName: master-network
+  #用户名
+  user: cj
+  #认证方式
+  authmode: auth.password
+  #根据对端节点的认证模式输入相应令牌
+  token: 11
+  #负载的地址
+  nodeAddress: tcp://localhost:6601?heartbeat=2
+  #订阅的网络列表
+  subscribeNetworks:
+    -
+      network: network-2
+      #将收到的远程订阅消息分发到本节点的哪些网络
+      castToLocals:
+        - network-2
+        - network-1
+

@@ -24,4 +24,6 @@ public interface INetwork extends IDisposable {
 
     boolean existsChannel(Channel channel);
 
+    INetwork createReference();
+
 }

@@ -24,6 +24,13 @@ public class Network implements INetwork {
     }
 
     @Override
+    public INetwork createReference() {
+        Network network=new Network(info);
+        network.channels=channels;
+        return network;
+    }
+
+    @Override
     public String[] enumPeerName() {
         List<String> list = new ArrayList<>();
         for (Channel ch : channels) {
@@ -57,7 +64,7 @@ public class Network implements INetwork {
     }
 
     @Override
-    public void cast(Channel from, NetworkFrame frame) {
+    public  void cast(Channel from, NetworkFrame frame) {
         PackFrame pack = new PackFrame((byte) 1, frame);
         byte[] box = TcpFrameBox.box(pack.toBytes());
         pack.dispose();

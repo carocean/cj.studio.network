@@ -22,16 +22,17 @@ public class NetworkNode implements INetworkNode {
     public void entrypoint(String home) throws FileNotFoundException {
         site = new NodeServiceProvider();
         networkNodeConfig = new NetworkNodeConfig();
-
         networkNodeConfig.load(home);
-        app=new NetworkNodeAppManager(site);
-        app.load(networkNodeConfig);
+
+        app = new NetworkNodeAppManager(site);
 
         nodeServer = createNetworkNodeServer(networkNodeConfig.getServerInfo());
         networkContainer = new NetworkContainer(site);
-
         nodeServer.start();
-        CJSystem.logging().info(getClass(),String.format("服务地址:%s",networkNodeConfig.getServerInfo()));
+
+        app.load(networkNodeConfig);
+
+        CJSystem.logging().info(getClass(), String.format("服务地址:%s", networkNodeConfig.getServerInfo()));
     }
 
     protected INetworkNodeServer createNetworkNodeServer(ServerInfo serverInfo) {
@@ -57,11 +58,14 @@ public class NetworkNode implements INetworkNode {
             if ("$.network.server".equals(serviceId)) {
                 return nodeServer;
             }
-            if("$.network.config".equals(serviceId)){
+            if ("$.network.config".equals(serviceId)) {
                 return networkNodeConfig;
             }
-            if("$.network.app.manager".equals(serviceId)){
+            if ("$.network.app.manager".equals(serviceId)) {
                 return app;
+            }
+            if ("$.reactor".equals(serviceId)) {
+                return ((IServiceProvider) nodeServer).getService("$.reactor");
             }
             return null;
         }

@@ -53,14 +53,14 @@ public class Peer implements IPeer {
     }
 
     @Override
-    public void connect(String networkNode, String masterNetowrkName) {
+    public void connect(String networkNodeAddress, String masterNetowrkName, IOnReconnectEvent reconnectEvent) {
         container = new NetworkPeerContainer(masterNetowrkName, site);
-        int pos = networkNode.indexOf("://");
+        int pos = networkNodeAddress.indexOf("://");
         if (pos < 0) {
-            throw new EcmException("地址格式错误:" + networkNode);
+            throw new EcmException("地址格式错误:" + networkNodeAddress);
         }
-        String protocol = networkNode.substring(0, pos);
-        String remain = networkNode.substring(pos + "://".length(), networkNode.length());
+        String protocol = networkNodeAddress.substring(0, pos);
+        String remain = networkNodeAddress.substring(pos + "://".length(), networkNodeAddress.length());
         pos = remain.indexOf(":");
         int port = 0;
         String ip = "";
@@ -82,7 +82,7 @@ public class Peer implements IPeer {
                 parseProps(remain, props);
             }
         }
-        onReconnectEvent=new DefaultOnReconnectEvent();
+        this.onReconnectEvent = new DefaultOnReconnectEvent(reconnectEvent);
         switch (protocol) {
             case "tcp":
                 connection = new TcpConnection(onReconnectEvent, site);
@@ -91,6 +91,11 @@ public class Peer implements IPeer {
             default:
                 throw new EcmException("不支持的连接协议:" + protocol);
         }
+    }
+
+    @Override
+    public void connect(String networkNodeAddress, String masterNetowrkName) {
+        connect(networkNodeAddress, masterNetowrkName, null);
     }
 
     @Override
@@ -148,20 +153,6 @@ public class Peer implements IPeer {
         return site;
     }
 
-    class DefaultManagerNetworkOnmessage implements IOnmessage {
-        IOnmessage userOnmessage;
-
-        public DefaultManagerNetworkOnmessage(IOnmessage userOnmessage) {
-            this.userOnmessage = userOnmessage;
-        }
-
-        @Override
-        public void onmessage(NetworkFrame frame, IServiceProvider site) {
-            if (userOnmessage != null) {
-                userOnmessage.onmessage(frame, site);
-            }
-        }
-    }
 
     class PeerServiceSite implements IServiceProvider {
         IServiceProvider parent;
@@ -190,7 +181,9 @@ public class Peer implements IPeer {
             if ("$.peer.name".equals(serviceId)) {
                 return peerName;
             }
-
+            if ("$.peer.channel".equals(serviceId)) {
+                return connection.getService("$.channel");
+            }
             if (parent != null) {
                 return parent.getService(serviceId);
             }
@@ -206,26 +199,49 @@ public class Peer implements IPeer {
         IOnopen onopen;
         IOnmessage onmessage;
         IOnclose onclose;
+        IOnReconnectEvent onReconnectEvent;
 
         public DefaultOnReconnectEvent() {
         }
 
+        public DefaultOnReconnectEvent(IOnReconnectEvent onReconnectEvent) {
+            this.onReconnectEvent = onReconnectEvent;
+        }
+
         @Override
         public void onreconnect() {
-            Peer peer=Peer.this;
+            Peer peer = Peer.this;
             peer.container.remove(peer.container.getMasterNetwork());//移除主网重新侦听
             peer.auth(authmode, user, token, onerror, onopen, onmessage, onclose);
+            //将已有的网络重新恢复立侦听
+            relistenNetwork(container);
+            if (onReconnectEvent != null) {
+                onReconnectEvent.onreconnect();
+            }
+        }
+
+        private void relistenNetwork(INetworkPeerContainer container) {
+            String[] names = container.enumNetworkName();
+            for (String name : names) {
+                INetworkPeer networkPeer = container.get(name);
+                NetworkFrame frame = new NetworkFrame("listenNetwork / network/1.0");
+                frame.head("Peer-Name", peerName);
+                networkPeer.send(frame);
+            }
         }
 
         @Override
         public void init(String authmode, String user, String token, IOnerror onerror, IOnopen onopen, IOnmessage onmessage, IOnclose onclose) {
-            this.authmode=authmode;
-            this.user=user;
-            this.token=token;
-            this.onerror=onerror;
-            this.onopen=onopen;
-            this.onmessage=onmessage;
-            this.onclose=onclose;
+            this.authmode = authmode;
+            this.user = user;
+            this.token = token;
+            this.onerror = onerror;
+            this.onopen = onopen;
+            this.onmessage = onmessage;
+            this.onclose = onclose;
+            if (onReconnectEvent != null) {
+                onReconnectEvent.init(authmode, user, token, onerror, onopen, onmessage, onclose);
+            }
         }
     }
 

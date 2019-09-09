@@ -108,6 +108,7 @@ public class SendNetworkCommand extends Command {
                 }
             }
         }
+        frame.dispose();
         return false;
     }
 }

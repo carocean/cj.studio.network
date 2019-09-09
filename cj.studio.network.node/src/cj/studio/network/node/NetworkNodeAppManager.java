@@ -3,6 +3,7 @@ package cj.studio.network.node;
 import cj.studio.ecm.*;
 import cj.studio.network.*;
 import cj.studio.util.reactor.IPipeline;
+import cj.studio.util.reactor.IReactor;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -10,12 +11,14 @@ import java.io.FilenameFilter;
 public class NetworkNodeAppManager implements INetworkNodeAppManager {
     private final cj.studio.util.reactor.IServiceProvider parent;
     INodeApplication nodeApp;
+    INetworkContainer container;
     public NetworkNodeAppManager(cj.studio.util.reactor.IServiceProvider parent) {
         this.parent = parent;
     }
 
     @Override
     public void load(INetworkNodeConfig config) {
+        container=parent.getService("$.network.container");
         scanAssemblyAndLoad(config);
     }
 
@@ -47,9 +50,9 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
             throw new EcmException("程序集验证失败，原因：未发现INodeApplication 的派生实现,请检查入口服务名：$.cj.studio.node.app");
         }
         IServiceProvider site = new NodeAppServiceSite(parent);
-        this.nodeApp.onstart(appDir,config.getMasterNetwork(), site);
-        CJSystem.logging().info(getClass(),String.format("isEnableRBAC=%s",isEnableRBAC()));
-        CJSystem.logging().info(getClass(),String.format("节点应用已启动。"));
+        this.nodeApp.onstart(appDir, config.getMasterNetwork(), site);
+        CJSystem.logging().info(getClass(), String.format("isEnableRBAC=%s", isEnableRBAC()));
+        CJSystem.logging().info(getClass(), String.format("节点应用已启动。"));
     }
 
     @Override
@@ -64,7 +67,7 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
 
     @Override
     public IAuthenticateStrategy createAuthenticateStrategy(String authMode, INetwork network) {
-        return nodeApp.createAuthenticateStrategy(authMode,network);
+        return nodeApp.createAuthenticateStrategy(authMode, network);
     }
 
     @Override
@@ -78,10 +81,11 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
     }
 
     private class NodeAppServiceSite implements IServiceProvider {
-        cj.studio.util.reactor.IServiceProvider parent;//用parent向app开放有限系统服务
-
+        private  IReactor reactor;
+        //用parent向app开放有限系统服务
+        cj.studio.util.reactor.IServiceProvider parent;
         public NodeAppServiceSite(cj.studio.util.reactor.IServiceProvider parent) {
-            this.parent = parent;
+            this.parent=parent;
         }
 
         @Override
@@ -92,7 +96,11 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
 
         @Override
         public Object getService(String serviceId) {
-
+            int pos=serviceId.indexOf("$.network.name.");
+            if(pos==0){
+                String networkName=serviceId.substring("$.network.name.".length(),serviceId.length());
+                return container.getNetwork(networkName);
+            }
             return null;
         }
     }

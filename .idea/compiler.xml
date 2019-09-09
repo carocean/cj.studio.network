@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="cj.studio.network.cj.studio.network.corelib.test" target="1.8" />
       <module name="cj.studio.network.cj.studio.network.test.main" target="1.8" />
       <module name="cj.studio.network.cj.studio.network.test.test" target="1.8" />
     </bytecodeTargetLevel>

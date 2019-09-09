@@ -80,6 +80,9 @@ public class TcpConnection implements IConnection, IServiceProvider {
         if ("$.connection".equals(serviceId)) {
             return this;
         }
+        if("$.channel".equals(serviceId)){
+            return channel;
+        }
         return site != null ? site.getService(serviceId) : null;
     }
 

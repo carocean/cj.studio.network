@@ -1,9 +1,0 @@
-#节点负载
--
-  #负载的地址
-  address: tcp://localhost:9090
-  #支持单播和多播，分别是:unicast,multicast
-  castmode: multicast
-  #按peer名排除掉来源的侦再发给该来源，以避免节点互相发送导致消息死循环。
-  #如节点A和B相互连接，B的消息广播给A,A再广播时本来也会广播给B ，就会导致消息无限发送，此时在A和B均应排除对方节点消息再发对方
-  except: peer-node-2

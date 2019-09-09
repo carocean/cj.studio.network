@@ -2,6 +2,7 @@ package cj.studio.network;
 
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.util.reactor.IPipeline;
+import cj.studio.util.reactor.IReactor;
 
 /**
  * 节点应用程序<br>
@@ -50,7 +51,7 @@ public interface INodeApplication {
      * @param masterNetworkName 主网络名
      * @param site 服务站点
      */
-    void onstart(String home, String masterNetworkName, IServiceProvider site);
+    void onstart(String home, String masterNetworkName,  IServiceProvider site);
 
     /**
      * 是否激活基于角色的访问控制

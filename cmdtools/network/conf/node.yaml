@@ -1,5 +1,5 @@
 server:
-  #服务地址。目前支持的协议有：tcp,ws,http
+  #服务地址。目前支持的协议有：tcp,ws,wss
   host: tcp://localhost:6600
   props:
     workThreadCount: 4
@@ -13,6 +13,8 @@ reactor:
   workThreadCount: 10
   #队列大小
   queueCapacity: 10000
+
+#网络有个特点：除主网络外，发送给工作网络的侦默认不会被返回自身，除非指定网络类型为feedbackcast类型
 networks:
   #是否按请求地址上下文自动创建网络
   isAutoCreate: false

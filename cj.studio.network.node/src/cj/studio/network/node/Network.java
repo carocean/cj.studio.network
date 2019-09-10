@@ -1,17 +1,20 @@
 package cj.studio.network.node;
 
+import cj.studio.ecm.EcmException;
 import cj.studio.ecm.net.util.TcpFrameBox;
-import cj.studio.network.INetwork;
-import cj.studio.network.NetworkFrame;
-import cj.studio.network.NetworkInfo;
-import cj.studio.network.PackFrame;
+import cj.studio.network.*;
+import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
+import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
+import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Network implements INetwork {
@@ -25,8 +28,8 @@ public class Network implements INetwork {
 
     @Override
     public INetwork createReference() {
-        Network network=new Network(info);
-        network.channels=channels;
+        Network network = new Network(info);
+        network.channels = channels;
         return network;
     }
 
@@ -35,7 +38,7 @@ public class Network implements INetwork {
         List<String> list = new ArrayList<>();
         for (Channel ch : channels) {
             if (ch == null) continue;
-            AttributeKey<String> key=AttributeKey.valueOf("Peer-Name");
+            AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
             String name = ch.attr(key).get();
             list.add(name);
         }
@@ -55,39 +58,90 @@ public class Network implements INetwork {
 
     @Override
     public void addChannel(Channel ch) {
-        channels.add(ch);
+        AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
+        synchronized (this) {
+            String name = ch.attr(key).get();
+            if (!StringUtil.isEmpty(name)) {
+                checkChannelsHasPeerNameAndRemoveOld(name);
+            }
+            channels.add(ch);
+        }
+    }
+
+    private void checkChannelsHasPeerNameAndRemoveOld(String newchname) {
+        for (Channel ch : channels) {
+            if (ch == null) continue;
+            AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
+            String name = ch.attr(key).get();
+            if (newchname.equals(name)) {
+                channels.remove(ch);
+            }
+        }
     }
 
     @Override
-    public void removeChannel(Channel channel) {
-        channels.remove(channel);
+    public void removeChannel(Channel ch) {
+        channels.remove(ch);
     }
 
     @Override
-    public  void cast(Channel from, NetworkFrame frame) {
-        PackFrame pack = new PackFrame((byte) 1, frame);
-        byte[] box = TcpFrameBox.box(pack.toBytes());
-        pack.dispose();
-        ByteBuf bb = Unpooled.buffer();
-        bb.writeBytes(box, 0, box.length);
+    public void cast(Channel from, NetworkFrame frame) {
         switch (info.getCastmode()) {
             case "unicast":
-                unicast(from,frame.hashCode(), bb);
+                unicast(from, frame.hashCode(), frame);
                 break;
             case "multicast":
-                multicast(from,bb);
+                multicast(from, frame);
                 break;
             case "feedbackcast":
-                feedbackcast(from, bb);
+                feedbackcast(from, frame);
                 break;
             default:
                 break;
         }
     }
 
-    private void feedbackcast(Channel source, ByteBuf bb) {
-        source.writeAndFlush(bb);
+    private void feedbackcast(Channel source, NetworkFrame frame) {
+        String netprotcol = getNetProtocol(source);
+        Object msg = packFrame(netprotcol, frame);
+        source.writeAndFlush(msg);
 
+    }
+
+    private ByteBuf boxFrameForTcp(NetworkFrame frame) {
+        PackFrame pack = new PackFrame((byte) 1, frame);
+        byte[] box = TcpFrameBox.box(pack.toBytes());
+        pack.dispose();
+        ByteBuf bb = Unpooled.buffer();
+        bb.writeBytes(box, 0, box.length);
+        return bb;
+    }
+
+    private BinaryWebSocketFrame boxFrameForWebsocket(NetworkFrame frame) {
+        ByteBuf bb = Unpooled.buffer();
+        byte[] b = frame.toBytes();
+        frame.dispose();
+        bb.writeBytes(b, 0, b.length);
+        return new BinaryWebSocketFrame(bb);
+    }
+
+    private Object packFrame(String netprotcol, NetworkFrame frame) {
+        Object msg = null;
+        switch (netprotcol) {
+            case "tcp":
+                return boxFrameForTcp(frame);
+            case "websocket":
+                return boxFrameForWebsocket(frame);
+            default:
+                throw new EcmException("不支持的网络协议：" + netprotcol);
+        }
+    }
+
+
+    private String getNetProtocol(Channel ch) {
+        Attribute<String> attribute = ch.attr(AttributeKey.valueOf("Net-Protocol"));
+        if (attribute == null) return "";
+        return attribute.get();
     }
 
     @Override
@@ -95,22 +149,23 @@ public class Network implements INetwork {
         return this.channels.contains(channel);
     }
 
-    private void multicast(Channel from,ByteBuf bb) {
+    private void multicast(Channel from, NetworkFrame frame) {
         for (Channel ch : channels) {
-            if (ch == null||from.equals(ch)) {//不发自身
+            if (ch == null || from.equals(ch)) {//不发自身
                 continue;
             }
             if (!ch.isWritable()) {
                 ch.close();
                 channels.remove(ch);
             }
-            ByteBuf copy = bb.copy();//多播必须使用拷贝
-            ch.writeAndFlush(copy);
+            String netprotcol = getNetProtocol(ch);
+            Object msg = packFrame(netprotcol, frame.copy());
+            ch.writeAndFlush(msg);
         }
-        bb.release();//把源形释放，这个与单播不同，因为它有原型
+        frame.dispose();//把源形释放，这个与单播不同，因为它有原型
     }
 
-    private void unicast(Channel from,int hc, ByteBuf bb) {
+    private void unicast(Channel from, int hc, NetworkFrame frame) {
         if (channels.isEmpty()) {
             return;
         }
@@ -118,7 +173,7 @@ public class Network implements INetwork {
         boolean found = false;
         for (int i = 0; i < channels.size(); i++) {
             one = channels.get((hc + i) % channels.size());
-            if (one == null||from.equals(one)) {//不发自身
+            if (one == null || from.equals(one)) {//不发自身
                 continue;
             }
             if (!one.isWritable()) {
@@ -132,7 +187,8 @@ public class Network implements INetwork {
         if (!found || one == null) {
             return;
         }
-
-        one.writeAndFlush(bb);
+        String netprotcol = getNetProtocol(one);
+        Object msg = packFrame(netprotcol, frame);
+        one.writeAndFlush(msg);
     }
 }

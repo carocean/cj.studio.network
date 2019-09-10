@@ -24,7 +24,7 @@ public class NodeApplication implements INodeApplication {
     String masterNetworkName;
     List<IValve> valves;
     ISubscriberContainer subscriberContainer;
-    IRemoteServiceNodeRouter remoteServiceNodeRouter;
+    INodeRemoteServiceNodeRouter remoteServiceNodeRouter;
     @Override
     public void onstart(String home, String masterNetworkName,IServiceProvider site) {
         this.masterNetworkName = masterNetworkName;

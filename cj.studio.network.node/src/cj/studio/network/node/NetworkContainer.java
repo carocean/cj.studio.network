@@ -22,12 +22,12 @@ public class NetworkContainer implements INetworkContainer {
     }
 
     protected void init(INetworkNodeConfig config) {
-        this.config=config;
+        this.config = config;
         networks = new ConcurrentHashMap<>();
         //建立主网络
-        NetworkInfo managerInfo=config.getNetworks().get(config.getMasterNetwork());
-        INetwork manager=new Network(managerInfo);
-        networks.put(managerInfo.getName(),manager);
+        NetworkInfo managerInfo = config.getNetworks().get(config.getMasterNetwork());
+        INetwork manager = new Network(managerInfo);
+        networks.put(managerInfo.getName(), manager);
 
         for (Map.Entry<String, NetworkInfo> entry : config.getNetworks().entrySet()) {
             NetworkInfo info = entry.getValue();
@@ -76,7 +76,7 @@ public class NetworkContainer implements INetworkContainer {
         networks.remove(networkName);
         NetworkInfo info = network.getInfo();
         info.setName(newNetworkName);
-        networks.put(info.getName(),network);
+        networks.put(info.getName(), network);
     }
 
     @Override
@@ -94,13 +94,16 @@ public class NetworkContainer implements INetworkContainer {
     @Override
     public void onChannelInactive(Channel channel) {
         //如果频繁关闭会占用服务器工作线程较长时间，是否放到专属线程清理之后再说吧
-        for (Map.Entry<String, INetwork> entry : networks.entrySet()) {
-            INetwork network = entry.getValue();
-            if (network == null) {
-                continue;
+        synchronized (this) {
+            INetwork[] arr = networks.values().toArray(new INetwork[0]);
+            for (INetwork network : arr) {
+                if (network == null) {
+                    continue;
+                }
+                network.removeChannel(channel);
             }
-            network.removeChannel(channel);
         }
+
     }
 
     @Override

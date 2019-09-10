@@ -942,4 +942,8 @@ public class NetworkFrame implements IPrinter, IDisposable {
         f.content = new DefaultFrameContent(((DefaultFrameContent) this.content).buf.copy());
         return f;
     }
+
+    public boolean isInvalid() {
+        return StringUtil.isEmpty(protocol()) || StringUtil.isEmpty(command()) || StringUtil.isEmpty(url());
+    }
 }

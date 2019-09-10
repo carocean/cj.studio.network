@@ -7,6 +7,7 @@ import cj.studio.ecm.ServiceCollection;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.peer.connection.IOnReconnectEvent;
 import cj.studio.network.peer.connection.TcpConnection;
+import cj.studio.network.peer.connection.WSConnection;
 import cj.ultimate.util.StringUtil;
 
 import java.util.HashMap;
@@ -86,6 +87,11 @@ public class Peer implements IPeer {
         switch (protocol) {
             case "tcp":
                 connection = new TcpConnection(onReconnectEvent, site);
+                connection.connect(protocol, ip, port, props);
+                break;
+            case "ws":
+            case "wss":
+                connection = new WSConnection(onReconnectEvent, site);
                 connection.connect(protocol, ip, port, props);
                 break;
             default:

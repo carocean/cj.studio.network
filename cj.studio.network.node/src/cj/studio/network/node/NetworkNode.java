@@ -5,7 +5,7 @@ import cj.studio.ecm.EcmException;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.network.node.server.TcpNetworkNodeServer;
-import cj.studio.network.node.server.WebsocketNetworkNodeServer;
+import cj.studio.network.node.server.WSNetworkNodeServer;
 import cj.studio.util.reactor.IServiceProvider;
 
 import java.io.FileNotFoundException;
@@ -33,7 +33,7 @@ public class NetworkNode implements INetworkNode {
 
         app.load(networkNodeConfig);
 
-        CJSystem.logging().info(getClass(), String.format("服务地址:%s", networkNodeConfig.getServerInfo()));
+//        CJSystem.logging().info(getClass(), String.format("服务地址:%s", networkNodeConfig.getServerInfo()));
     }
 
     protected INetworkNodeServer createNetworkNodeServer(ServerInfo serverInfo) {
@@ -42,7 +42,7 @@ public class NetworkNode implements INetworkNode {
                 return new TcpNetworkNodeServer(site);
             case "ws":
             case "wss":
-                return new WebsocketNetworkNodeServer(site);
+                return new WSNetworkNodeServer(site);
             default:
                 throw new EcmException(String.format("不支持的协议：%s", serverInfo.getProtocol()));
         }

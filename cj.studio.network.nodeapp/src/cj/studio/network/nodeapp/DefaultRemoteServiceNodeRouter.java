@@ -4,15 +4,32 @@ import cj.studio.util.reactor.IRemoteServiceNodeRouter;
 import cj.studio.util.reactor.RemoteServiceNode;
 import consistenthash.ConsistentHashRouter;
 
-class DefaultRemoteServiceNodeRouter implements IRemoteServiceNodeRouter {
+import java.rmi.Remote;
+
+class DefaultRemoteServiceNodeRouter implements INodeRemoteServiceNodeRouter {
+    ConsistentHashRouter<RemoteServiceNode> invalids;//无效节点，当被自动恢复时再次启用
     ConsistentHashRouter<RemoteServiceNode> router;
     boolean isInit;
     int vNodeCount;
+    private boolean available;
+
+
     @Override
     public void init(int vNodeCount) {
         this.vNodeCount=vNodeCount;
         router = new ConsistentHashRouter<RemoteServiceNode>(null, vNodeCount);
+        invalids = new ConsistentHashRouter<RemoteServiceNode>(null, vNodeCount);
         isInit=true;
+    }
+
+    @Override
+    public void available(boolean b) {
+        this.available=b;
+    }
+
+    @Override
+    public boolean available() {
+        return available;
     }
 
     @Override
@@ -27,7 +44,16 @@ class DefaultRemoteServiceNodeRouter implements IRemoteServiceNodeRouter {
     public void addNode(RemoteServiceNode remoteServiceNode){
         router.addNode(remoteServiceNode,vNodeCount);
     }
-
+    @Override
+    public void invalidNode(RemoteServiceNode remoteServiceNode){
+        router.removeNode(remoteServiceNode);
+        invalids.addNode(remoteServiceNode,vNodeCount);
+    }
+    @Override
+    public void validNode(RemoteServiceNode remoteServiceNode){
+        invalids.removeNode(remoteServiceNode);
+        router.addNode(remoteServiceNode,vNodeCount);
+    }
     @Override
     public boolean isInit() {
         return isInit;

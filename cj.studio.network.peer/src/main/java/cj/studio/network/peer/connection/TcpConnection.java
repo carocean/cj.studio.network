@@ -7,6 +7,7 @@ import cj.studio.ecm.net.util.TcpFrameBox;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.peer.IConnection;
+import cj.studio.network.util.PropUtil;
 import cj.ultimate.util.StringUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -145,29 +146,29 @@ public class TcpConnection implements IConnection, IServiceProvider {
     }
 
     private void parseProps(Map<String, String> props) {
-        String strheartbeat = props
-                .get("heartbeat");
+        String strheartbeat = PropUtil.getValue(props
+                .get("heartbeat"));
         if (StringUtil.isEmpty(strheartbeat)) {
             strheartbeat = "0";
         }
         this.heartbeat = Long.valueOf(strheartbeat);
 
-        String strreconnect_times = props
-                .get("reconnect_times");
+        String strreconnect_times = PropUtil.getValue(props
+                .get("reconnect_times"));
         if (StringUtil.isEmpty(strreconnect_times)) {
             strreconnect_times = "0";
         }
         this.reconnect_times = Long.valueOf(reconnect_times);
 
-        String strreconnect_interval = props
-                .get("reconnect_interval");
+        String strreconnect_interval = PropUtil.getValue(props
+                .get("reconnect_interval"));
         if (StringUtil.isEmpty(strreconnect_interval)) {
             strreconnect_interval = "5000";
         }
         this.reconnect_interval = Long.valueOf(strreconnect_interval);
 
-        String workThreadCount = props
-                .get("workThreadCount");
+        String workThreadCount = PropUtil.getValue(props
+                .get("workThreadCount"));
         if (StringUtil.isEmpty(workThreadCount)) {
             workThreadCount = "0";
         }
@@ -206,7 +207,7 @@ public class TcpConnection implements IConnection, IServiceProvider {
             ChannelPipeline pipeline = ch.pipeline();
             pipeline.addLast(new LengthFieldBasedFrameDecoder(81920, 0, 4, 0, 4));
             if (heartbeat > 0) {
-                pipeline.addLast(new IdleStateHandler(0, heartbeat, 0, TimeUnit.SECONDS));//必须写空闲就发包，如果设为读写则在接收时便不发包了
+                pipeline.addLast(new IdleStateHandler(0, 0, heartbeat, TimeUnit.SECONDS));
             }
             pipeline.addLast(new TcpClientHandler(TcpConnection.this));
         }

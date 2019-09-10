@@ -9,6 +9,7 @@ import cj.studio.network.node.ReactorInfo;
 import cj.studio.network.node.ServerInfo;
 import cj.studio.network.node.combination.ReactorPipelineCombination;
 import cj.studio.network.node.server.initializer.TcpChannelInitializer;
+import cj.studio.network.util.PropUtil;
 import cj.studio.util.reactor.*;
 import cj.ultimate.util.StringUtil;
 import io.netty.bootstrap.ServerBootstrap;
@@ -18,6 +19,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.internal.SystemPropertyUtil;
+
+import java.util.Map;
 
 public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvider {
     IServiceProvider site;
@@ -74,23 +77,8 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         if (isStarted) {
             throw new EcmException(String.format("服务器:%s已启动", serverInfo));
         }
-        String strbossThreadCount = serverInfo.getProps().get("bossThreadCount") == null ? "" : serverInfo.getProps().get("bossThreadCount") + "";
-        this.bossThreadCount = StringUtil.isEmpty(strbossThreadCount) || "0".equals(strbossThreadCount) ? 1 : Integer.valueOf(strbossThreadCount);
-        String strworkThreadCount = serverInfo.getProps().get("workThreadCount") == null ? "" : serverInfo.getProps().get("workThreadCount") + "";
-        this.workThreadCount = StringUtil.isEmpty(strworkThreadCount) || "0".equals(strworkThreadCount) ? Math.max(1, SystemPropertyUtil.getInt(
-                "io.netty.eventLoopThreads", Runtime.getRuntime().availableProcessors() * 2)) : Integer.valueOf(strworkThreadCount);
+        parseProps(serverInfo.getProps());
 
-        this.heartbeat = 0;
-        if (serverInfo.getProps().get("heartbeat") != null) {
-            this.heartbeat = serverInfo.getProps().get("heartbeat") instanceof Integer ? (int) serverInfo.getProps().get("heartbeat") : (long) serverInfo.getProps().get("heartbeat");
-        }
-        this.overtimes = 0;
-        if (serverInfo.getProps().get("overtimes") != null) {
-            this.overtimes = serverInfo.getProps().get("overtimes") instanceof Integer ? (int) serverInfo.getProps().get("overtimes") : (long) serverInfo.getProps().get("overtimes");
-        }
-        if (this.heartbeat > 0) {
-            CJSystem.logging().info(getClass(), String.format("开启了心跳，策略：heartbeat=%s,overtimes=%s", heartbeat, overtimes));
-        }
 
         startRactor(config);
         bossGroup = new NioEventLoopGroup(bossThreadCount);
@@ -110,10 +98,40 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
             }
             ch.closeFuture();// .sync();
             isStarted = true;
-
+            CJSystem.logging().info(getClass(), String.format("服务已启动，地址:%s",serverInfo.toString()));
         } catch (InterruptedException e) {
             throw new EcmException(e);
         }
+    }
+
+    private void parseProps(Map<String, Object> props) {
+        this.bossThreadCount = 1;
+        String strbossThreadCount = PropUtil.getValue(props.get("bossThreadCount"));
+        if (!StringUtil.isEmpty(strbossThreadCount)) {
+            this.bossThreadCount = Integer.valueOf(strbossThreadCount);
+        }
+        this.workThreadCount = 0;
+        String strworkThreadCount = PropUtil.getValue(props.get("workThreadCount") );
+        if (!StringUtil.isEmpty(strworkThreadCount)) {
+            this.workThreadCount = Integer.valueOf(strworkThreadCount);
+        } else {
+            this.workThreadCount = Math.max(1, SystemPropertyUtil.getInt(
+                    "io.netty.eventLoopThreads", Runtime.getRuntime().availableProcessors() * 2));
+        }
+        this.heartbeat = 0;
+        String ht = PropUtil.getValue(props.get("heartbeat"));
+        if (!StringUtil.isEmpty(ht)) {
+            this.heartbeat = Long.valueOf(ht);
+        }
+        if (this.heartbeat > 0) {
+            CJSystem.logging().info(getClass(), String.format("开启了心跳，策略：heartbeat=%s,overtimes=%s", heartbeat, overtimes));
+        }
+        this.overtimes = 0;
+        String ot = PropUtil.getValue(props.get("overtimes"));
+        if (!StringUtil.isEmpty(ot)) {
+            this.overtimes = Long.valueOf(ot);
+        }
+
     }
 
     protected void startRactor(INetworkNodeConfig config) {

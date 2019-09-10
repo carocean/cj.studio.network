@@ -2,6 +2,7 @@ package cj.studio.network.node.server.handler;
 
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.logging.ILogging;
+import cj.studio.ecm.net.util.TcpFrameBox;
 import cj.studio.network.NetworkFrame;
 import cj.studio.network.PackFrame;
 import cj.studio.network.node.INetworkContainer;
@@ -11,6 +12,7 @@ import cj.studio.util.reactor.IReactor;
 import cj.studio.util.reactor.IServiceProvider;
 import cj.ultimate.util.StringUtil;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -40,6 +42,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         if (!(evt instanceof IdleStateEvent)) {
             super.userEventTriggered(ctx, evt);
+            return;
         }
         String client = "";
         AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
@@ -81,6 +84,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         }
         if (pack.isHeartbeat()) {
             counter = 0;
+            feedbackHeartbeat(ctx);
 //            CJSystem.logging().info(getClass(),"收到心跳包");
             return;
         }
@@ -102,8 +106,19 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         reactor.input(event);
     }
 
+    private void feedbackHeartbeat(ChannelHandlerContext ctx) {
+        NetworkFrame f = new NetworkFrame("heartbeat / network/1.0");
+        PackFrame pack = new PackFrame((byte) 2, f);
+        byte[] box = TcpFrameBox.box(pack.toBytes());
+        pack.dispose();
+        ByteBuf bb = Unpooled.buffer();
+        bb.writeBytes(box,0,box.length);
+        ctx.channel().writeAndFlush(bb);
+    }
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.channel().attr(AttributeKey.valueOf("Net-Protocol")).set("tcp");
         super.channelActive(ctx);
     }
 
@@ -116,7 +131,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        CJSystem.logging().error(getClass(),cause);
+        CJSystem.logging().error(getClass(), cause);
     }
 
 

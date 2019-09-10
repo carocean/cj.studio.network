@@ -23,7 +23,7 @@ class WSClientHandler extends SimpleChannelInboundHandler<Object> {
     INetworkPeerContainer container;
     IConnection connection;
     WebSocketClientHandshaker handshaker;
-    ChannelPromise handshakeFuture;
+    private ChannelPromise handshakeFuture;
 
     public WSClientHandler(WebSocketClientHandshaker handshaker, IServiceProvider site) {
         this.handshaker = handshaker;
@@ -43,16 +43,16 @@ class WSClientHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
         if (!handshakeFuture.isDone()) {
             handshakeFuture.setFailure(cause);
         }
-        super.exceptionCaught(ctx, cause);
+        ctx.close();
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         handshaker.handshake(ctx.channel());
-        super.channelActive(ctx);
     }
 
     @Override
@@ -97,9 +97,9 @@ class WSClientHandler extends SimpleChannelInboundHandler<Object> {
     }
 
     private void sendHeartbeatPacket(ChannelHandlerContext ctx) throws CircuitException {
-        PingWebSocketFrame frame = new PingWebSocketFrame();
+        WebSocketFrame frame = new PingWebSocketFrame(Unpooled.wrappedBuffer(new byte[] { 8, 1, 8, 1 }));
         ctx.channel().writeAndFlush(frame);
-//        CJSystem.logging().info(getClass(),"发送心跳包");
+//        CJSystem.logging().debug(getClass(),"发送心跳包");
     }
 
     @Override
@@ -107,14 +107,13 @@ class WSClientHandler extends SimpleChannelInboundHandler<Object> {
         Channel ch = ctx.channel();
         if (!handshaker.isHandshakeComplete()) {
             handshaker.finishHandshake(ch, (FullHttpResponse) msg);
+            System.out.println("WebSocket Client connected!");
             handshakeFuture.setSuccess();
             return;
         }
 
         if (msg instanceof PongWebSocketFrame) {
-            return;
-        }
-        if (msg instanceof PingWebSocketFrame) {
+//            CJSystem.logging().debug(getClass(),"收到心跳包");
             return;
         }
         if (msg instanceof CloseWebSocketFrame) {

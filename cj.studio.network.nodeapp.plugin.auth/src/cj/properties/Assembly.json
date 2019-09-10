@@ -1,0 +1,39 @@
+{
+	entryPoint : {
+		plugins: [
+
+		],
+		activators: [
+		]
+	},
+	assemblyInfo : {
+		assemblyTitle : "auth",
+		assemblyResource:"site=/site;http.root=$(site)/web;http.jss=$(site)/jss/http;ws.jss=$(site)/jss/ws",
+		assemblyDescription : "认证插件示例",
+		assemblyConfiguration : "",
+		assemblyCompany : "cj工作室",
+		assemblyProduct : "cj.studio.network.nodeapp.plugin.auth",
+		assemblyCopyright : "Copyright   2011",
+		assemblyTrademark : "",
+		assemblyCulture : "",
+		guid : "35EDF5AE-C5F6-468E-95F5-185CB7642343",
+		assemblyVersion : "1.0.0.0",
+		assemblyFileVersion : "1.0.0.0"
+	},
+	global:{
+		default:"zh_CN",
+		desc:"如果系统环境要求各芯片采用的语言本芯片没有，则芯片可采用默认语言"
+		},
+	serviceContainer : {
+		name : "netContainer",
+		switchFilter:"off",
+		monitor: "",
+		jss:[],
+		scans : [{
+					package : "cj.studio.network.nodeapp.plugin.auth",
+					extName : ".class|.json|.xml",
+					exoterical:"true"
+				}]
+
+	}
+}

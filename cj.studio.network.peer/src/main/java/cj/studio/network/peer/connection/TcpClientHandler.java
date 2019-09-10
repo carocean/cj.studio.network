@@ -46,7 +46,7 @@ class TcpClientHandler extends SimpleChannelInboundHandler<Object> {
                 } catch (Throwable throwable) {
                     CJSystem.logging().warn(getClass(), throwable.getMessage());
                     if(reconnectinterval>0) {
-                        Thread.sleep(reconnectinterval);//隔多少秒后重连
+                        Thread.sleep(reconnectinterval);//隔多少毫秒后重连
                     }
                     continue;
                 }

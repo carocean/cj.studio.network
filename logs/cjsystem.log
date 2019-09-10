@@ -3540,3 +3540,1141 @@ status=802
 2019年09月10日 21:26:51  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
 2019年09月10日 21:26:51  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
 2019年09月10日 21:26:51  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月10日 23:47:12  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月10日 23:47:12  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月10日 23:47:12  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.NodeApplication - 发现认证插件:auth
+2019年09月10日 23:47:12  信息: cj.studio.network.nodeapp.NodeApplication - 发现应用插件:example
+2019年09月10日 23:50:51  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月10日 23:50:52  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月10日 23:50:52  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.NodeApplication - 发现认证插件:auth
+2019年09月10日 23:50:52  信息: cj.studio.network.nodeapp.NodeApplication - 发现应用插件:example
+2019年09月10日 23:51:14  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月10日 23:51:15  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月10日 23:51:15  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.NodeApplication - 发现认证插件:auth
+2019年09月10日 23:51:15  信息: cj.studio.network.nodeapp.NodeApplication - 发现应用插件:example
+2019年09月10日 23:58:35  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月10日 23:58:35  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月10日 23:58:35  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月10日 23:58:35  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月10日 23:58:35  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月10日 23:58:35  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月10日 23:59:03  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月10日 23:59:03  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月10日 23:59:03  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：/127.0.0.1:50812，已丢失了1个心跳包.
+2019年09月10日 23:59:21  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月10日 23:59:21  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月10日 23:59:22  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月10日 23:59:22  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月10日 23:59:22  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月10日 23:59:22  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月10日 23:59:41  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月10日 23:59:41  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月10日 23:59:41  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月10日 23:59:51  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：/127.0.0.1:50831，已丢失了1个心跳包.
+2019年09月11日 00:00:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:00:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:00:06  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:00:06  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:00:06  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:00:06  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:01:54  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:01:55  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:01:55  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:01:55  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:01:55  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:01:55  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:01:56  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月11日 00:01:56  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月11日 00:01:56  警告: cj.studio.util.reactor.EventLooper - Conversion = '@'
+2019年09月11日 00:02:23  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:02:23  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:02:23  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:02:23  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:02:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:02:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:02:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月11日 00:02:24  信息: cj.studio.network.nodeapp.NodeApplication - 使用系统的访问控制策略
+2019年09月11日 00:02:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:02:32  信息: cj.studio.network.nodeapp.NodeApplication - 使用系统的认证策略
+2019年09月11日 00:03:01  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月11日 00:03:01  信息: cj.studio.network.nodeapp.NodeApplication - 使用系统的访问控制策略
+2019年09月11日 00:03:01  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月11日 00:05:59  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:05:59  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:05:59  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:05:59  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:05:59  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:05:59  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 访问控制策略为空，使用系统的访问控制策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 访问控制策略为空，使用系统的访问控制策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:00  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:26  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:06:26  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:06:26  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:06:26  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:26  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:06:26  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 访问控制策略为空，使用系统的访问控制策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 访问控制策略为空，使用系统的访问控制策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:30  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:31  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:32  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月11日 00:06:33  信息: cj.studio.network.nodeapp.NodeApplication - 认证策略为空，使用系统的认证策略
+2019年09月11日 00:06:45  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:06:45  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:06:46  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:06:46  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:06:46  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:06:46  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:06:59  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:06:59  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:06:59  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:06:59  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:06:59  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:06:59  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:07:18  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月11日 00:07:18  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月11日 00:07:18  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月11日 00:07:18  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:07:18  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月11日 00:07:18  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月11日 00:07:18  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月11日 00:07:18  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月11日 00:07:36  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:07:36  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:10  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:10  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:15  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:15  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:20  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:20  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:25  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:25  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:30  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:35  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:35  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:40  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:40  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:45  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:45  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:50  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:50  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:09:55  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:09:55  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:10:00  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:10:00  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月11日 00:10:05  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月11日 00:10:05  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601

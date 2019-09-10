@@ -45,16 +45,16 @@ public class SubscriberContainer implements ISubscriberContainer {
                 IPeer peer = Peer.create(info.getPeerName(), site);
                 RemoteServiceNode remoteServiceNode = new RemoteServiceNode(peer.peerName(), info.getNodeAddress());
                 peer.connect(info.getNodeAddress(), info.getMasterNetworkName(), new MonitorOnReconnectEvent(remoteServiceNodeRouter, remoteServiceNode));
-                ISubscriberEvent masterEvent = new MasterEvent();
+                ISubscriberEvent masterEvent = new MasterEvent(peer, info, remoteServiceNode);
                 peer.auth(info.getAuthMode(), info.getUser(), info.getToken(), masterEvent, masterEvent, masterEvent, masterEvent);
                 CJSystem.logging().info(getClass(), String.format("以Peer:%s 已连接到节点：%s, 主网是：%s", info.getPeerName(), info.getNodeAddress(), info.getMasterNetworkName()));
-                for (SubscribeNetwork subscribeNetwork : info.getSubscribeNetworks()) {
-                    ISubscriberEvent workEvent = new WorkEvent(info);
-                    peer.listen(subscribeNetwork.network, workEvent, workEvent, workEvent, workEvent);
-                    CJSystem.logging().info(getClass(), String.format("----已订阅网络：%s, 分发给本地网络：%s", subscribeNetwork.network, new Gson().toJson(subscribeNetwork.castToLocals)));
-                }
-                remoteServiceNode.setExtra(new Object[]{peer, info});
-                remoteServiceNodeRouter.addNode(remoteServiceNode);//添加负载节点
+//                for (SubscribeNetwork subscribeNetwork : info.getSubscribeNetworks()) {
+//                    ISubscriberEvent workEvent = new WorkEvent(info);
+//                    peer.listen(subscribeNetwork.network, workEvent, workEvent, workEvent, workEvent);
+//                    CJSystem.logging().info(getClass(), String.format("----已订阅网络：%s, 分发给本地网络：%s", subscribeNetwork.network, new Gson().toJson(subscribeNetwork.castToLocals)));
+//                }
+//                remoteServiceNode.setExtra(new Object[]{peer, info});
+//                remoteServiceNodeRouter.addNode(remoteServiceNode);//添加负载节点
             } catch (Throwable throwable) {
                 CJSystem.logging().error(getClass(), throwable.getMessage());
                 continue;
@@ -63,7 +63,30 @@ public class SubscriberContainer implements ISubscriberContainer {
     }
 
     private class MasterEvent implements ISubscriberEvent {
+        IPeer peer;
+        SubscriberInfo info;
+        RemoteServiceNode remoteServiceNode;
 
+        public MasterEvent(IPeer peer, SubscriberInfo info, RemoteServiceNode remoteServiceNode) {
+            this.peer = peer;
+            this.info = info;
+            this.remoteServiceNode = remoteServiceNode;
+        }
+
+        @Override
+        public void onopen(NetworkFrame frame, INetworkPeer networkPeer) {
+            for (SubscribeNetwork subscribeNetwork : info.getSubscribeNetworks()) {
+                ISubscriberEvent workEvent = new WorkEvent(info);
+                peer.listen(subscribeNetwork.network, workEvent, workEvent, workEvent, workEvent);
+                CJSystem.logging().info(getClass(), String.format("----已订阅网络：%s, 分发给本地网络：%s", subscribeNetwork.network, new Gson().toJson(subscribeNetwork.castToLocals)));
+            }
+            remoteServiceNode.setExtra(new Object[]{peer, info});
+            remoteServiceNodeRouter.addNode(remoteServiceNode);//添加负载节点
+
+            StringBuffer sb = new StringBuffer();
+            sb.append(String.format("网络：%s 已打开", networkPeer.getNetworkName()));
+            CJSystem.logging().info(getClass(), sb);
+        }
 
         @Override
         public void onclose(INetworkPeer networkPeer) {
@@ -93,13 +116,6 @@ public class SubscriberContainer implements ISubscriberContainer {
             }
             StringBuffer sb = new StringBuffer();
             circuit.print(sb);
-            CJSystem.logging().info(getClass(), sb);
-        }
-
-        @Override
-        public void onopen(NetworkFrame frame, INetworkPeer networkPeer) {
-            StringBuffer sb = new StringBuffer();
-            sb.append(String.format("网络：%s 已打开", networkPeer.getNetworkName()));
             CJSystem.logging().info(getClass(), sb);
         }
 
@@ -147,7 +163,7 @@ public class SubscriberContainer implements ISubscriberContainer {
                     network = network.createReference();
                     refNetworks.put(sn, network);
                 }
-                NetworkFrame copy=frame.copy();
+                NetworkFrame copy = frame.copy();
                 copy.url(String.format("/%s%s", network.getInfo().getName(), url));
                 network.cast(channel, copy);
             }

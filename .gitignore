@@ -4,3 +4,6 @@
 /cj.studio.network.peer/build/
 /cj.studio.network.nodestart/build/
 /cmdtools/network/logs/
+/cmdtools/network/logs/
+/cmdtools/peer/logs/
+/logs/

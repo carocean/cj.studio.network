@@ -74,7 +74,7 @@ public class TcpChannelHandler extends ChannelHandlerAdapter {
         }
         byte[] b = new byte[bb.readableBytes()];
         bb.readBytes(b);
-//        bb.release();//系统会释放
+        bb.release();//系统会释放
         if (b.length < 1) {
             return;
         }

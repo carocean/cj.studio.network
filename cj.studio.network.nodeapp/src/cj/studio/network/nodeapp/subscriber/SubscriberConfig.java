@@ -14,6 +14,8 @@ public class SubscriberConfig implements ISubscriberConfig {
     Map<String, SubscriberInfo> subscribers;
     private String balance;
     private String home;
+    private int vNodeCount;
+
 
     @Override
     public String home() {
@@ -22,17 +24,22 @@ public class SubscriberConfig implements ISubscriberConfig {
 
     @Override
     public void load(String home) throws FileNotFoundException {
-        this.home=home;
+        this.home = home;
         subscribers = new HashMap<>();
         Yaml nodeyaml = new Yaml();
         String confFile = String.format("%s%sconf%ssubscribers.yaml", home, File.separator, File.separator);
         Reader reader = new FileReader(confFile);
         Map<String, Object> cluster = nodeyaml.load(reader);
-        String balance = (String) cluster.get("balance");
-        if (StringUtil.isEmpty(balance)) {
-            balance = "unorientor";
+
+        Object vNodeCount = cluster.get("vNodeCount");
+        String strvNodeCount = vNodeCount == null ? "10" : vNodeCount + "";
+        this.vNodeCount = Integer.valueOf(strvNodeCount);
+        Object balance = cluster.get("balance");
+        String strbalance = balance == null ? "unorientor" : balance + "";
+        if (StringUtil.isEmpty(strbalance)) {
+            strbalance = "unorientor";
         }
-        this.balance = balance;
+        this.balance = strbalance;
         List<Map<String, Object>> list = (List<Map<String, Object>>) cluster.get("nodes");
         if (list != null) {
             for (Map<String, Object> one : list) {
@@ -54,6 +61,12 @@ public class SubscriberConfig implements ISubscriberConfig {
             }
         }
     }
+
+    @Override
+    public int getVNodeCount() {
+        return vNodeCount;
+    }
+
     @Override
     public String getBalance() {
         return balance;

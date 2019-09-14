@@ -14,4 +14,5 @@ public interface ISubscriberConfig {
 
     String home();
 
+    int getVNodeCount();
 }

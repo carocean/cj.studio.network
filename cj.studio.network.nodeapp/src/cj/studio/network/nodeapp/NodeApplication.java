@@ -4,11 +4,9 @@ import cj.studio.ecm.*;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.network.*;
-import cj.studio.network.nodeapp.subscriber.ClusterValve;
+import cj.studio.network.nodeapp.subscriber.*;
 import cj.studio.network.nodeapp.strategy.PasswordAuthenticateStrategy;
 import cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy;
-import cj.studio.network.nodeapp.subscriber.ISubscriberContainer;
-import cj.studio.network.nodeapp.subscriber.SubscriberContainer;
 import cj.studio.util.reactor.*;
 
 import java.io.File;
@@ -24,11 +22,10 @@ public class NodeApplication implements INodeApplication {
     String masterNetworkName;
     List<IValve> valves;
     ISubscriberContainer subscriberContainer;
-    INodeRemoteServiceNodeRouter remoteServiceNodeRouter;
     INodeApplicationAuthPlugin authPlugin;
     List<INodeApplicationPlugin> plugins;
     IServiceProvider pluginSite;
-
+    ICluster cluster;
     @Override
     public void onstart(String home, String masterNetworkName, IServiceProvider site) {
         pluginSite = new PluginSite(site);
@@ -41,9 +38,8 @@ public class NodeApplication implements INodeApplication {
             throw new EcmException(e);
         }
 
-        this.remoteServiceNodeRouter = new DefaultRemoteServiceNodeRouter();
-        remoteServiceNodeRouter.init(10);
-        subscriberContainer = new SubscriberContainer(remoteServiceNodeRouter);
+        cluster=new DefaultCluster();
+        subscriberContainer = new SubscriberContainer(cluster);
         subscriberContainer.start(home, site);
 
         pluginSite = new PluginSite(site);
@@ -208,14 +204,15 @@ public class NodeApplication implements INodeApplication {
             }
         }
 
-        IValve cluster = new ClusterValve(remoteServiceNodeRouter, subscriberContainer.getSubscriberConfig().getBalance(),subscriberContainer.getSubscriberConfig().home());
-        this.valves.add(cluster);
-        pipeline.append(cluster);
+        IValve clusterValve = new ClusterValve(this.cluster);
+        this.valves.add(clusterValve);
+        pipeline.append(clusterValve);
     }
 
     private class PluginSite implements IServiceProvider {
+        IServiceProvider site;
         public PluginSite(IServiceProvider site) {
-
+            this.site=site;
         }
 
         @Override

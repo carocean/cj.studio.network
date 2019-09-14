@@ -1,4 +1,4 @@
-#是否开启rbac安全控制，默认为false
+#是否开启rbac安全控制，默认为false。注：自定义认证插件也使用此开关，如果为false认证插件不可用
 enable: true
 roles:
   - administrators

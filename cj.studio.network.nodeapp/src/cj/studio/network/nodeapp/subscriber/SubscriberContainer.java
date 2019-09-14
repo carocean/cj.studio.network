@@ -20,11 +20,12 @@ import java.util.Map;
 public class SubscriberContainer implements ISubscriberContainer {
     ISubscriberConfig subscriberConfig;
     IServiceProvider site;
-    INodeRemoteServiceNodeRouter remoteServiceNodeRouter;
+    ICluster cluster;
 
-    public SubscriberContainer(INodeRemoteServiceNodeRouter remoteServiceNodeRouter) {
-        this.remoteServiceNodeRouter = remoteServiceNodeRouter;
+    public SubscriberContainer(ICluster cluster) {
+        this.cluster = cluster;
     }
+
     @Override
     public ISubscriberConfig getSubscriberConfig() {
         return subscriberConfig;
@@ -39,7 +40,7 @@ public class SubscriberContainer implements ISubscriberContainer {
         } catch (FileNotFoundException e) {
             throw new EcmException(e);
         }
-        remoteServiceNodeRouter.available(!"none".equals(subscriberConfig.getBalance())&&!subscriberConfig.getSubscribers().isEmpty());
+        cluster.init(subscriberConfig);
         subscribe();
     }
 
@@ -47,18 +48,10 @@ public class SubscriberContainer implements ISubscriberContainer {
         for (SubscriberInfo info : subscriberConfig.getSubscribers()) {
             try {
                 IPeer peer = Peer.create(info.getPeerName(), site);
-                RemoteServiceNode remoteServiceNode = new RemoteServiceNode(peer.peerName(), info.getNodeAddress());
-                peer.connect(info.getNodeAddress(), info.getMasterNetworkName(), new MonitorOnReconnectEvent(remoteServiceNodeRouter, remoteServiceNode));
-                ISubscriberEvent masterEvent = new MasterEvent(peer, info, remoteServiceNode);
+                peer.connect(info.getNodeAddress(), info.getMasterNetworkName(), new MonitorOnReconnectEvent(cluster, info.getPeerName()));
+                ISubscriberEvent masterEvent = new MasterEvent(cluster, peer, info);
                 peer.auth(info.getAuthMode(), info.getUser(), info.getToken(), masterEvent, masterEvent, masterEvent, masterEvent);
                 CJSystem.logging().info(getClass(), String.format("以Peer:%s 已连接到节点：%s, 主网是：%s", info.getPeerName(), info.getNodeAddress(), info.getMasterNetworkName()));
-//                for (SubscribeNetwork subscribeNetwork : info.getSubscribeNetworks()) {
-//                    ISubscriberEvent workEvent = new WorkEvent(info);
-//                    peer.listen(subscribeNetwork.network, workEvent, workEvent, workEvent, workEvent);
-//                    CJSystem.logging().info(getClass(), String.format("----已订阅网络：%s, 分发给本地网络：%s", subscribeNetwork.network, new Gson().toJson(subscribeNetwork.castToLocals)));
-//                }
-//                remoteServiceNode.setExtra(new Object[]{peer, info});
-//                remoteServiceNodeRouter.addNode(remoteServiceNode);//添加负载节点
             } catch (Throwable throwable) {
                 CJSystem.logging().error(getClass(), throwable.getMessage());
                 continue;
@@ -69,12 +62,12 @@ public class SubscriberContainer implements ISubscriberContainer {
     private class MasterEvent implements ISubscriberEvent {
         IPeer peer;
         SubscriberInfo info;
-        RemoteServiceNode remoteServiceNode;
+        ICluster cluster;
 
-        public MasterEvent(IPeer peer, SubscriberInfo info, RemoteServiceNode remoteServiceNode) {
+        public MasterEvent(ICluster cluster, IPeer peer, SubscriberInfo info) {
             this.peer = peer;
             this.info = info;
-            this.remoteServiceNode = remoteServiceNode;
+            this.cluster=cluster;
         }
 
         @Override
@@ -84,8 +77,7 @@ public class SubscriberContainer implements ISubscriberContainer {
                 peer.listen(subscribeNetwork.network, workEvent, workEvent, workEvent, workEvent);
                 CJSystem.logging().info(getClass(), String.format("----已订阅网络：%s, 分发给本地网络：%s", subscribeNetwork.network, new Gson().toJson(subscribeNetwork.castToLocals)));
             }
-            remoteServiceNode.setExtra(new Object[]{peer, info});
-            remoteServiceNodeRouter.addNode(remoteServiceNode);//添加负载节点
+            cluster.addNode(peer, info);
 
             StringBuffer sb = new StringBuffer();
             sb.append(String.format("网络：%s 已打开", networkPeer.getNetworkName()));
@@ -183,17 +175,17 @@ public class SubscriberContainer implements ISubscriberContainer {
     }
 
     private class MonitorOnReconnectEvent implements IOnReconnectEvent {
-        INodeRemoteServiceNodeRouter remoteServiceNodeRouter;
-        RemoteServiceNode remoteServiceNode;
+        String nodeName;
+        ICluster cluster;
 
-        public MonitorOnReconnectEvent(INodeRemoteServiceNodeRouter remoteServiceNodeRouter, RemoteServiceNode remoteServiceNode) {
-            this.remoteServiceNodeRouter = remoteServiceNodeRouter;
-            this.remoteServiceNode = remoteServiceNode;
+        public MonitorOnReconnectEvent(ICluster cluster, String nodeName) {
+            this.nodeName = nodeName;
+            this.cluster = cluster;
         }
 
         @Override
         public void onreconnect() {
-            remoteServiceNodeRouter.validNode(remoteServiceNode);
+            cluster.validNode(nodeName);
         }
 
         @Override

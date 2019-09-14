@@ -6,7 +6,7 @@ import consistenthash.ConsistentHashRouter;
 
 import java.rmi.Remote;
 
-class DefaultRemoteServiceNodeRouter implements INodeRemoteServiceNodeRouter {
+public class DefaultRemoteServiceNodeRouter implements INodeRemoteServiceNodeRouter {
     ConsistentHashRouter<RemoteServiceNode> invalids;//无效节点，当被自动恢复时再次启用
     ConsistentHashRouter<RemoteServiceNode> router;
     boolean isInit;

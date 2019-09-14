@@ -3434,3 +3434,973 @@
 2019年09月14日 21:31:55  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：354377d7-91e0-43c7-aade-afc54c879715，已丢失了1个心跳包.
 2019年09月14日 21:32:01  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：7aabdeeb-2696-489c-bb67-a17d9030da6a，已丢失了1个心跳包.
 2019年09月14日 21:32:57  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：354377d7-91e0-43c7-aade-afc54c879715，已丢失了1个心跳包.
+2019年09月15日 02:23:47  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 02:23:47  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 02:23:47  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:23:47  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:23:48  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 02:23:48  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 02:23:48  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 02:23:48  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 02:28:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:28:14  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:28:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:28:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:28:18  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:28:18  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:28:18  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:29:09  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：2c459bfe-9dbc-46dc-813c-227b7f1cf3d1，已丢失了1个心跳包.
+2019年09月15日 02:30:50  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:30:50  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:30:55  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:30:55  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:30:55  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:33:12  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 02:33:13  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 02:33:13  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 02:33:13  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 02:33:13  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 02:33:13  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:33:14  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:34:06  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:06  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:34:11  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:11  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:34:16  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:16  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:34:21  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:21  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:34:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:32  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:34:32  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:45  警告: cj.studio.network.peer.connection.TcpClientHandler - 2
+2019年09月15日 02:34:45  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：f534975e-5b98-40db-b9ed-a39171d7c095，已丢失了1个心跳包.
+2019年09月15日 02:34:47  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：2c459bfe-9dbc-46dc-813c-227b7f1cf3d1，已丢失了1个心跳包.
+2019年09月15日 02:34:47  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:34:47  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:34:47  警告: cj.studio.network.peer.connection.TcpClientHandler - 2
+2019年09月15日 02:36:13  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 02:36:14  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 02:36:14  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 02:36:14  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 02:36:14  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 02:36:14  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:36:15  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:36:21  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:36:21  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:36:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:36:26  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:36:31  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:36:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:36:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:36:46  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:36:46  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：f534975e-5b98-40db-b9ed-a39171d7c095，已丢失了1个心跳包.
+2019年09月15日 02:37:30  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：2c459bfe-9dbc-46dc-813c-227b7f1cf3d1，已丢失了1个心跳包.
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:37:30  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:37:30  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:38:21  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:38:21  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:38:27  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:38:28  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:39:28  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：f534975e-5b98-40db-b9ed-a39171d7c095，已丢失了1个心跳包.
+2019年09月15日 02:39:28  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:39:28  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:39:33  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:39:33  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:39:38  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:39:40  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:39:40  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:39:49  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:49:29  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 02:49:29  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 02:49:29  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:49:29  警告: cj.studio.util.reactor.EventLooper - null
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 02:49:29  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 02:49:29  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:49:29  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:49:46  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:49:46  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:49:51  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:49:51  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:49:56  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:49:56  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:01  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:01  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:06  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:06  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:11  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:11  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:16  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:16  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:21  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:21  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:50:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:50:43  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:50:50  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:50  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:50:55  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:50:55  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:00  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:00  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:05  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:05  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:10  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:10  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:15  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:15  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:20  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:20  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:25  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:25  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:30  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:30  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:31  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 02:51:31  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 02:51:31  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 02:51:36  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:36  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:45  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:45  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:50  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:50  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:51:55  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:51:55  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:52:00  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:16  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：2c459bfe-9dbc-46dc-813c-227b7f1cf3d1，已丢失了1个心跳包.
+2019年09月15日 02:53:16  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：f534975e-5b98-40db-b9ed-a39171d7c095，已丢失了1个心跳包.
+2019年09月15日 02:53:16  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:53:16  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:53:16  错误: cj.studio.network.node.server.handler.TcpChannelHandler -  异常：java.io.IOException: Connection reset by peer
+		at sun.nio.ch.FileDispatcherImpl.read0(FileDispatcherImpl.java:-2)
+		at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+		at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+		at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+		at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+		at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:311)
+		at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:853)
+		at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:240)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:115)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:514)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+2019年09月15日 02:53:16  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 02:53:16  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 02:53:16  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:53:16  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:16  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:21  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:21  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:53:21  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:53:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:53:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:23  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:53:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:24  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 02:53:24  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:53:24  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 02:53:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 02:53:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 02:54:04  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:04  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:09  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:09  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:14  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:14  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:19  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:19  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:24  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:24  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:29  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:29  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:34  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:34  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:39  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:39  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:44  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:44  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:49  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:49  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:54:59  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:54:59  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 02:55:05  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 02:55:05  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:22:03  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:22:03  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:22:03  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 03:22:03  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 03:22:03  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:22:03  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:22:03  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:22:03  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:22:03  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:22:03  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:22:05  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:24  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:26:24  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 03:26:24  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:26:24  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:26:24  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:26:24  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:28  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:26:29  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:26:33  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:33  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:26:38  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:38  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:26:43  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:43  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:26:48  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:53  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 03:26:53  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:53  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:26:58  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 03:26:58  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:58  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:26:58  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 03:26:58  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:58  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:26:58  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - protocol=NETWORK/1.0
+message=没有登录，服务器拒绝服务。
+Content-Length=0
+status=802
+
+
+2019年09月15日 03:26:58  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:26:58  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:26:58  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:27:05  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:27:05  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:27:05  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:29:24  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:29:24  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:29:29  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:29:33  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:29:40  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:29:41  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:29:51  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:29:51  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:29:56  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:29:56  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:30:01  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:30:01  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:30:06  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:30:06  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:38:10  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:38:10  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:38:10  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 03:38:10  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 03:38:10  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:38:11  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:38:11  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:38:11  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:38:11  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:38:11  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:13  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:38:38  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 03:38:38  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:38:38  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:38:38  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:38:38  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:38:42  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:39:03  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:39:03  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:39:08  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:39:08  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:39:14  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:39:16  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:39:21  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:39:21  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:39:26  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:39:26  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:39:31  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:39:34  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:39:34  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:39:45  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:39:45  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：4f1afd4d-02de-40da-96f2-fc120309393d，已丢失了1个心跳包.
+2019年09月15日 03:52:45  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:52:45  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：orientor
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - 定向器的数据目录：/Users/caroceanjofers/studio/github/cj.studio.network/cmdtools/network/app/orientor/orient
+2019年09月15日 03:52:46  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:52:46  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:52:46  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:52:46  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:53:07  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:53:07  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:53:07  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:53:07  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:53:13  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:53:13  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:53:13  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:53:35  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:53:35  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:53:43  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:53:43  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:53:48  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:53:48  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:53:53  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:53:53  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:53:58  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:54:01  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:54:01  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:54:22  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:55:06  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:55:06  警告: cj.studio.network.peer.connection.TcpClientHandler - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2019年09月15日 03:55:11  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:55:11  信息: cj.studio.network.peer.connection.TcpClientHandler - 重新连接成功
+2019年09月15日 03:55:12  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:56:04  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:56:04  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:56:09  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:56:09  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:56:09  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:57:22  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:57:23  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：none
+2019年09月15日 03:57:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:57:23  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:57:23  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:57:23  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:57:24  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:36  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 03:58:36  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：unorientor
+2019年09月15日 03:58:36  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 03:58:36  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 03:58:36  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 03:58:36  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:38  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 03:58:39  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:53  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2019年09月15日 04:02:54  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：unorientor
+2019年09月15日 04:02:54  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer - 以Peer:node-1 已连接到节点：tcp://localhost:6601?heartbeat=2, 主网是：master-network
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - ----已订阅网络：network-2, 分发给本地网络：["network-2","network-1"]
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - 网络：master-network 已打开
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$MasterEvent - Peer:master-network 成功认证
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.subscriber.SubscriberContainer$WorkEvent - 网络：network-2 已打开
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2019年09月15日 04:02:54  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2019年09月15日 04:02:54  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2019年09月15日 04:02:54  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAccessControllerStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 应用插件的访问控制策略为空，已使用系统的访问控制策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - example----onactivedNetwork
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:57  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - auth----createAuthenticateStrategy
+2019年09月15日 04:02:58  信息: cj.studio.network.nodeapp.NodeApplication - 认证插件的认证策略为空，已使用系统的认证策略

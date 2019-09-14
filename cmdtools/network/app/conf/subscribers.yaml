@@ -1,25 +1,27 @@
 #多节点订阅
-#本节点向其它节点发送时采用一致性哈希算法，一次发送仅落在一个节点上，如果节点发送失败，将被放到无效列表而选用其它可用节点
--
-  enable: true
-  #端点名，注意在互联的订阅网络节点中不要重名
-  peername: node-1
-  #对端主网络名
-  masterNetworkName: master-network
-  #用户名
-  user: cj
-  #认证方式
-  authmode: auth.password
-  #根据对端节点的认证模式输入相应令牌
-  token: 11
-  #负载的地址
-  nodeAddress: tcp://localhost:6601?heartbeat=2
-  #订阅的网络列表
-  subscribeNetworks:
-    -
-      network: network-2
-      #将收到的远程订阅消息分发到本节点的哪些网络
-      castToLocals:
-        - network-2
-        - network-1
+#如果向列表中节点发送消息所使用的负载均衡器，cluster的值有：none,unorientor,orientor。none表示不向列表中节点发送消息，但列表中的订阅有效。默认为unorientor表示使用一致性哈希算法
+balance: orientor
+nodes:
+ -
+   enable: true
+   #端点名，注意在互联的订阅网络节点中不要重名
+   peername: node-1
+   #对端主网络名
+   masterNetworkName: master-network
+   #用户名
+   user: cj
+   #认证方式
+   authmode: auth.password
+   #根据对端节点的认证模式输入相应令牌
+   token: 11
+   #负载的地址
+   nodeAddress: tcp://localhost:6601?heartbeat=2
+   #订阅的网络列表
+   subscribeNetworks:
+     -
+       network: network-2
+       #将收到的远程订阅消息分发到本节点的哪些网络
+       castToLocals:
+         - network-2
+         - network-1
 

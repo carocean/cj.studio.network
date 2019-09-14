@@ -2,12 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="cj.studio.network.cj.studio.network.node.test" target="1.8" />
-      <module name="cj.studio.network.cj.studio.network.nodeapp.plugin.auth.test" target="1.8" />
-      <module name="cj.studio.network.cj.studio.network.nodeapp.plugin.example.test" target="1.8" />
-      <module name="cj.studio.network.cj.studio.network.nodeapp.test" target="1.8" />
-      <module name="cj.studio.network.cj.studio.network.nodestart.test" target="1.8" />
-      <module name="cj.studio.network.cj.studio.network.peer.test" target="1.8" />
       <module name="cj.studio.network.cj.studio.network.test.main" target="1.8" />
       <module name="cj.studio.network.cj.studio.network.test.test" target="1.8" />
     </bytecodeTargetLevel>

@@ -5,7 +5,6 @@ import java.util.Map;
 public class ReactorInfo {
     int workThreadCount;
     int queueCapacity;
-
     public ReactorInfo(int workThreadCount, int queueCapacity) {
         this.workThreadCount = workThreadCount;
         this.queueCapacity = queueCapacity;
@@ -27,4 +26,5 @@ public class ReactorInfo {
     public int queueCapacity() {
         return queueCapacity;
     }
+
 }

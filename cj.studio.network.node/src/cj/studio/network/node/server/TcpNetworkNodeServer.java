@@ -59,6 +59,7 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         if ("$.server.overtimes".equals(serviceId)) {
             return overtimes;
         }
+
         return site.getService(serviceId);
     }
 
@@ -98,7 +99,7 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
             }
             ch.closeFuture();// .sync();
             isStarted = true;
-            CJSystem.logging().info(getClass(), String.format("服务已启动，地址:%s",serverInfo.toString()));
+            CJSystem.logging().info(getClass(), String.format("服务已启动，地址:%s", serverInfo.toString()));
         } catch (InterruptedException e) {
             throw new EcmException(e);
         }
@@ -111,7 +112,7 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
             this.bossThreadCount = Integer.valueOf(strbossThreadCount);
         }
         this.workThreadCount = 0;
-        String strworkThreadCount = PropUtil.getValue(props.get("workThreadCount") );
+        String strworkThreadCount = PropUtil.getValue(props.get("workThreadCount"));
         if (!StringUtil.isEmpty(strworkThreadCount)) {
             this.workThreadCount = Integer.valueOf(strworkThreadCount);
         } else {
@@ -138,27 +139,11 @@ public class TcpNetworkNodeServer implements INetworkNodeServer, IServiceProvide
         ReactorInfo reactorInfo = config.getReactorInfo();
         int workThreadCount = reactorInfo.workThreadCount();
         int capacity = reactorInfo.queueCapacity();
+        IServiceProvider provider = new ReactorServiceProvider( this);
         IPipelineCombination combination = new ReactorPipelineCombination(site);
-
-        reactor = Reactor.open(DefaultReactor.class, workThreadCount, capacity, combination, new ReactorServiceProvider(this));
+        reactor = Reactor.open(DefaultReactor.class, workThreadCount, capacity, combination, provider);
     }
 
 
-    class ReactorServiceProvider implements cj.studio.util.reactor.IServiceProvider {
-        private final IServiceProvider parent;
 
-        public ReactorServiceProvider(IServiceProvider parent) {
-            this.parent = parent;
-        }
-
-        @Override
-        public <T> T getService(String name) {
-            return (T) parent.getService(name);
-        }
-
-        @Override
-        public <T> ServiceCollection<T> getServices(Class<T> clazz) {
-            return parent.getServices(clazz);
-        }
-    }
 }

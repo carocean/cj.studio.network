@@ -1,6 +1,7 @@
 package cj.studio.network.nodeapp;
 
 import cj.studio.ecm.*;
+import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.network.*;
 import cj.studio.network.nodeapp.subscriber.ClusterValve;
@@ -8,10 +9,7 @@ import cj.studio.network.nodeapp.strategy.PasswordAuthenticateStrategy;
 import cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy;
 import cj.studio.network.nodeapp.subscriber.ISubscriberContainer;
 import cj.studio.network.nodeapp.subscriber.SubscriberContainer;
-import cj.studio.util.reactor.IPipeline;
-import cj.studio.util.reactor.IReactor;
-import cj.studio.util.reactor.IRemoteServiceNodeRouter;
-import cj.studio.util.reactor.IValve;
+import cj.studio.util.reactor.*;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -48,7 +46,7 @@ public class NodeApplication implements INodeApplication {
         subscriberContainer = new SubscriberContainer(remoteServiceNodeRouter);
         subscriberContainer.start(home, site);
 
-        pluginSite=new PluginSite(site);
+        pluginSite = new PluginSite(site);
         scanPluginsAndLoad(home);
     }
 
@@ -132,7 +130,7 @@ public class NodeApplication implements INodeApplication {
         authAbly.start();
         this.authPlugin = (INodeApplicationAuthPlugin) authAbly.workbin().part("$.cj.studio.node.app.plugin");
         if (this.authPlugin == null) {
-            CJSystem.logging().error(getClass(),"程序集验证失败，原因：未发现INodeApplicationAuthPlugin 的派生实现,请检查入口服务名：$.cj.studio.node.app.plugin");
+            CJSystem.logging().error(getClass(), "程序集验证失败，原因：未发现INodeApplicationAuthPlugin 的派生实现,请检查入口服务名：$.cj.studio.node.app.plugin");
         } else {
             try {
                 authPlugin.onstart(masterNetworkName, pluginSite);
@@ -142,8 +140,6 @@ public class NodeApplication implements INodeApplication {
         }
 
     }
-
-
 
 
     @Override
@@ -211,7 +207,8 @@ public class NodeApplication implements INodeApplication {
                 continue;
             }
         }
-        IValve cluster = new ClusterValve(remoteServiceNodeRouter);
+
+        IValve cluster = new ClusterValve(remoteServiceNodeRouter, subscriberContainer.getSubscriberConfig().getBalance(),subscriberContainer.getSubscriberConfig().home());
         this.valves.add(cluster);
         pipeline.append(cluster);
     }

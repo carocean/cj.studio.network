@@ -25,6 +25,7 @@ dependencies {
     compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
     compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.impl', version: '1.0.0'
     compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: '1.0.0'
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.disk', version: '1.0.0'
     compile project (':cj.studio.network.corelib')
 }
 task copyReferences(type: Copy) {

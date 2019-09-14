@@ -8,5 +8,10 @@ import java.util.Set;
 public interface ISubscriberConfig {
     void load(String home) throws FileNotFoundException;
 
+    String getBalance();
+
     Collection<SubscriberInfo> getSubscribers();
+
+    String home();
+
 }

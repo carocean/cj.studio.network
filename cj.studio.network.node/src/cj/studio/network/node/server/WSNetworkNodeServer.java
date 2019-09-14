@@ -36,7 +36,6 @@ public class WSNetworkNodeServer implements INetworkNodeServer, IServiceProvider
     private String wspath;
 
 
-
     public WSNetworkNodeServer(IServiceProvider site) {
         this.site = site;
 
@@ -95,7 +94,7 @@ public class WSNetworkNodeServer implements INetworkNodeServer, IServiceProvider
         ServerBootstrap b = new ServerBootstrap();
         try {
             b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
-                    .childHandler(new WSChannelInitializer("wss".equals(serverInfo.getProtocol()),this));
+                    .childHandler(new WSChannelInitializer("wss".equals(serverInfo.getProtocol()), this));
 
             // Bind and start to accept incoming connections.
             Channel ch = null;
@@ -106,7 +105,7 @@ public class WSNetworkNodeServer implements INetworkNodeServer, IServiceProvider
             }
             ch.closeFuture();// .sync();
             isStarted = true;
-            CJSystem.logging().info(getClass(), String.format("服务已启动，地址:%s%s",serverInfo.toString(),wspath));
+            CJSystem.logging().info(getClass(), String.format("服务已启动，地址:%s%s", serverInfo.toString(), wspath));
         } catch (Exception e) {
             throw new EcmException(e);
         }
@@ -120,7 +119,7 @@ public class WSNetworkNodeServer implements INetworkNodeServer, IServiceProvider
         }
 
         this.workThreadCount = 0;
-        String strworkThreadCount = PropUtil.getValue(props.get("workThreadCount") );
+        String strworkThreadCount = PropUtil.getValue(props.get("workThreadCount"));
         if (!StringUtil.isEmpty(strworkThreadCount)) {
             this.workThreadCount = Integer.valueOf(strworkThreadCount);
         } else {
@@ -138,14 +137,14 @@ public class WSNetworkNodeServer implements INetworkNodeServer, IServiceProvider
         }
 
         this.maxContentLength = 0;
-        String maxcl = PropUtil.getValue(props.get("maxContentLength") );
+        String maxcl = PropUtil.getValue(props.get("maxContentLength"));
         if (!StringUtil.isEmpty(maxcl)) {
             this.maxContentLength = Integer.valueOf(maxcl);
         }
         if (maxContentLength < 1) {
             maxContentLength = 2097152;
         }
-        wspath = PropUtil.getValue( props.get("wspath"));
+        wspath = PropUtil.getValue(props.get("wspath"));
         if (StringUtil.isEmpty(wspath)) {
             wspath = "/websocket";
         }
@@ -161,27 +160,10 @@ public class WSNetworkNodeServer implements INetworkNodeServer, IServiceProvider
         ReactorInfo reactorInfo = config.getReactorInfo();
         int workThreadCount = reactorInfo.workThreadCount();
         int capacity = reactorInfo.queueCapacity();
+        IServiceProvider provider = new ReactorServiceProvider(this);
         IPipelineCombination combination = new ReactorPipelineCombination(site);
-
-        reactor = Reactor.open(DefaultReactor.class, workThreadCount, capacity, combination, new ReactorServiceProvider(this));
+        reactor = Reactor.open(DefaultReactor.class, workThreadCount, capacity, combination, provider);
     }
 
 
-    class ReactorServiceProvider implements IServiceProvider {
-        private final IServiceProvider parent;
-
-        public ReactorServiceProvider(IServiceProvider parent) {
-            this.parent = parent;
-        }
-
-        @Override
-        public <T> T getService(String name) {
-            return (T) parent.getService(name);
-        }
-
-        @Override
-        public <T> ServiceCollection<T> getServices(Class<T> clazz) {
-            return parent.getServices(clazz);
-        }
-    }
 }

@@ -25,6 +25,10 @@ public class SubscriberContainer implements ISubscriberContainer {
     public SubscriberContainer(INodeRemoteServiceNodeRouter remoteServiceNodeRouter) {
         this.remoteServiceNodeRouter = remoteServiceNodeRouter;
     }
+    @Override
+    public ISubscriberConfig getSubscriberConfig() {
+        return subscriberConfig;
+    }
 
     @Override
     public void start(String home, IServiceProvider site) {
@@ -35,7 +39,7 @@ public class SubscriberContainer implements ISubscriberContainer {
         } catch (FileNotFoundException e) {
             throw new EcmException(e);
         }
-        remoteServiceNodeRouter.available(!subscriberConfig.getSubscribers().isEmpty());
+        remoteServiceNodeRouter.available(!"none".equals(subscriberConfig.getBalance())&&!subscriberConfig.getSubscribers().isEmpty());
         subscribe();
     }
 

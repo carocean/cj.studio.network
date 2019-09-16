@@ -13,11 +13,11 @@
 用法：
 第一步是先会使用工具；第二步是如何使用network开发应用插件。
 - 在cmdtools中有两个命令行工具
-* network是节点服务器
-* peer是客户端管理工具
+** network是节点服务器
+** peer是客户端管理工具
 -- network
-* 启动network.sh
-* 配置，conf/node.yaml
+** 启动network.sh
+** 配置，conf/node.yaml
 ```yaml
 server:
   #服务地址。目前支持的协议有：tcp,ws,wss
@@ -131,5 +131,37 @@ usage: network node
  -u,--user <arg>       [必须]用户名
 ```
 - 插件开发
-* 有两类插件：一类是auth插件，用于自定义network的认证逻辑；二是业务插件：拦截network请求，进行业务处理。
-* 可参见plugin.auth项目和plugin.example项目。
+** 有两类插件：一类是auth插件，用于自定义network的认证逻辑；二是业务插件：拦截network请求，进行业务处理。
+** 可参见plugin.auth项目和plugin.example项目。
+- 使用peer连接node
+```java
+package cj.studio.network.console.test;
+
+import cj.studio.network.NetworkFrame;
+import cj.studio.network.peer.INetworkPeer;
+import cj.studio.network.peer.IPeer;
+import cj.studio.network.peer.Peer;
+
+public class TestPeer {
+    static IPeer peer;
+
+    public static void main(String... args) throws InterruptedException {
+        peer = Peer.create("mypeer", null);
+        OnMasterEvent onEvent = new OnMasterEvent();
+        peer.connect("tcp://localhost:6600?workThreadCount=8&heartbeat=5000", "master-network");
+        INetworkPeer networkPeer=peer.auth("cj", "11", "11", onEvent, onEvent, onEvent, onEvent);
+                TestCreateGeneralNetworkByManagerNetwork();
+        Thread.sleep(Integer.MAX_VALUE);
+    }
+
+    public static void TestCreateGeneralNetworkByManagerNetwork() throws InterruptedException {
+        OnWorksEvent onWorksEvent = new OnWorksEvent();
+        INetworkPeer networkPeer=peer.listen("network-2", onWorksEvent, onWorksEvent, onWorksEvent, onWorksEvent);
+        for(int i=0;i<Integer.MAX_VALUE;i++) {
+            networkPeer.send(new NetworkFrame(String.format("get /xxx-%s xx/1.0",i)));
+            Thread.sleep(1000L);
+        }
+    }
+
+}
+```

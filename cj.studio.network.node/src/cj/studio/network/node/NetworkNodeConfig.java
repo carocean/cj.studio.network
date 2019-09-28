@@ -1,5 +1,6 @@
 package cj.studio.network.node;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
 import cj.studio.network.NetworkInfo;
 import cj.studio.network.UserPrincipal;
@@ -70,6 +71,7 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         managerInfo.setCastmode("feedbackcast");
         managerInfo.setName(masterNetwork);
         this.networks.put(masterNetwork, managerInfo);
+        CJSystem.logging().info(getClass(),String.format("配置的主网络名是：%s",masterNetwork));
         if (networksItem == null) return;
         List<Map<String, Object>> works = (List<Map<String, Object>>) networksItem.get("works");
         if (works == null) return;

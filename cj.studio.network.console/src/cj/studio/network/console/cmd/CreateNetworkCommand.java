@@ -28,7 +28,7 @@ public class CreateNetworkCommand extends Command {
     @Override
     public Options options() {
         Options options = new Options();
-        Option m = new Option("m", "castmode", true, "[可省略]网络分发类型，有：unicast,multicast,feebackcast,默认为multicast");
+        Option m = new Option("m", "castmode", true, "[可省略]网络分发类型，有：unicast,multicast,feebackcast,selectcast.默认为multicast");
         options.addOption(m);
 //        Option b = new Option("b", "backward", false, "仅列出backward连结点");
 //        options.addOption(b);

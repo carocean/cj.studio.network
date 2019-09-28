@@ -61,13 +61,14 @@ public class SendNetworkCommand extends Command {
         System.out.println(String.format("\t- 以!q号结输输入:"));
         //
         ConsoleEditor.readConsole("\t", "\r\n", ConsoleEditor.newReader(), sb);
-        String text = sb.toString().trim();
+        String text = sb.toString();
         if (StringUtil.isEmpty(text)) {
             return true;
         }
         while (text.startsWith("\r\n")) {
             text = text.substring(2, text.length());
         }
+
         int pos = text.indexOf("\r\n");
         String frameline = "";
         String frameText = "";
@@ -98,10 +99,10 @@ public class SendNetworkCommand extends Command {
             s = Long.valueOf(line.getOptionValue("s"));
         }
         for (int i = 0; i < times; i++) {
-            System.out.println(String.format("sending %s",i));
+            System.out.println(String.format("sending %s", i));
             frame.head("Test-Counter", i + "");
             networkPeer.send(frame.copy());
-            if(s>0) {
+            if (s > 0) {
                 try {
                     Thread.sleep(s);
                 } catch (InterruptedException e) {

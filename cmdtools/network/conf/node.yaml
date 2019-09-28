@@ -31,4 +31,5 @@ networks:
      castmode: multicast
    -
      name: network-3
+     #该分发模式检查请求头中是否含有To-Peer或者To-User，将请求分发到该目标。如果同时均有则均发送
      castmode: selectcast

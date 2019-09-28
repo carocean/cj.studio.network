@@ -8,6 +8,7 @@ import cj.studio.network.nodeapp.subscriber.*;
 import cj.studio.network.nodeapp.strategy.PasswordAuthenticateStrategy;
 import cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy;
 import cj.studio.util.reactor.*;
+import io.netty.channel.Channel;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -173,6 +174,30 @@ public class NodeApplication implements INodeApplication {
             CJSystem.logging().info(getClass(), String.format("应用插件的访问控制策略为空，已使用系统的访问控制策略"));
         }
         return new SystemAccessControllerStrategy(rbacconfig);
+    }
+
+    @Override
+    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+        for (INodeApplicationPlugin plugin : this.plugins) {
+            try {
+                plugin.onlinePeer(peerName, userPrincipal,ch);
+            } catch (Exception e) {
+                CJSystem.logging().error(this.getClass(), e);
+                continue;
+            }
+        }
+    }
+
+    @Override
+    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+        for (INodeApplicationPlugin plugin : this.plugins) {
+            try {
+                plugin.offlinePeer(peerName, userPrincipal,ch);
+            } catch (Exception e) {
+                CJSystem.logging().error(this.getClass(), e);
+                continue;
+            }
+        }
     }
 
     @Override

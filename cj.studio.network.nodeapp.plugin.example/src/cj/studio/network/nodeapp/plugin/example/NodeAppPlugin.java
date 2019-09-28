@@ -9,6 +9,7 @@ import cj.studio.network.INetwork;
 import cj.studio.network.INodeApplicationPlugin;
 import cj.studio.network.UserPrincipal;
 import cj.studio.util.reactor.IPipeline;
+import io.netty.channel.Channel;
 
 @CjService(name = "$.cj.studio.node.app.plugin", isExoteric = true)
 public class NodeAppPlugin implements INodeApplicationPlugin {
@@ -17,19 +18,29 @@ public class NodeAppPlugin implements INodeApplicationPlugin {
 
     @Override
     public void oninactiveNetwork(INetwork network, IPipeline pipeline) {
-        IChip chip = (IChip)this. site.getService(IChip.class.getName());
-        CJSystem.logging().info(getClass(), String.format("%s----oninactiveNetwork",chip.info().getName()));
+        IChip chip = (IChip) this.site.getService(IChip.class.getName());
+        CJSystem.logging().info(getClass(), String.format("%s----oninactiveNetwork", chip.info().getName()));
     }
 
     @Override
     public void onactivedNetwork(UserPrincipal userPrincipal, INetwork network, IPipeline pipeline) {
         IChip chip = (IChip) this.site.getService(IChip.class.getName());
-        CJSystem.logging().info(getClass(), String.format("%s----onactivedNetwork",chip.info().getName()));
+        CJSystem.logging().info(getClass(), String.format("%s----onactivedNetwork", chip.info().getName()));
     }
 
     @Override
     public void onstart(String masterNetworkName, IServiceProvider site) {
         IChip chip = (IChip) this.site.getService(IChip.class.getName());
         CJSystem.logging().info(getClass(), String.format("应用插件示例程序:%s 已启动", chip.info().getName()));
+    }
+
+    @Override
+    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+        CJSystem.logging().info(getClass(), String.format("应用插件示例程序，侦听到peer上线事件：peer:%s, user:%s", peerName, userPrincipal==null?"":userPrincipal.getName()));
+    }
+
+    @Override
+    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+        CJSystem.logging().info(getClass(), String.format("应用插件示例程序，侦听到peer下线事件：peer:%s, user:%s", peerName, userPrincipal==null?"":userPrincipal.getName()));
     }
 }

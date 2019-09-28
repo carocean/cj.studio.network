@@ -20,7 +20,7 @@ public class PeerEntrypoint {
         String fileName = "cj.studio.network.console";
         Options options = new Options();
 
-        Option n = new Option("n", "peername", true, "[可省略，默认以guid生成]本地peer名");
+        Option n = new Option("n", "name", true, "[可省略]本地peer名，默认以guid生成");
         options.addOption(n);
         Option r = new Option("r", "url", true, "[必须]远程node的url地址，格式：'protocol://host:port?workThreadCount=2&prop2=yy'。注意：如果含有&符则必须加单引号将整个url包住");
         options.addOption(r);
@@ -37,11 +37,8 @@ public class PeerEntrypoint {
         options.addOption(m);
         Option debug = new Option("d", "debug", true, "调试命令行程序集时使用，需指定以下jar包所在目录\r\n" + fileName);
         options.addOption(debug);
-        // GnuParser
-        // BasicParser
-        // PosixParser
-        GnuParser parser = new GnuParser();
-        CommandLine line = parser.parse(options, args);
+
+        CommandLine line = new DefaultParser().parse(options, args);
 
         if (line.hasOption("m")) {
             HelpFormatter formatter = new HelpFormatter();

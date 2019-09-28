@@ -3,10 +3,7 @@ package cj.studio.network.console;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.peer.IPeer;
 import cj.ultimate.util.StringUtil;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.GnuParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.*;
 
 import java.io.IOException;
 import java.util.Map;
@@ -56,8 +53,7 @@ public abstract class BaseMonitor implements IMonitor {
             if (arr.length > 1) {
                 System.arraycopy(arr, 1, args, 0, arr.length - 1);
             }
-            GnuParser parser = new GnuParser();
-            CommandLine the = parser.parse(cmd.options(), args);
+            CommandLine the = new DefaultParser().parse(cmd.options(), args);
             CmdLine cl = new CmdLine(cmdName, the, site);
             try {
                 boolean isPrintPrefix = cmd.doCommand(cl);

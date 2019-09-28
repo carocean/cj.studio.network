@@ -1,6 +1,6 @@
 #多节点订阅
 #如果向列表中节点发送消息所使用的负载均衡器，cluster的值有：none,unorientor,orientor。none表示不向列表中节点发送消息，但列表中的订阅有效。默认为unorientor表示使用一致性哈希算法
-balance: orientor
+balance: none
 #如果balance不是none则可以指定一致性哈希的虚拟节点数
 vNodeCount: 10
 nodes:

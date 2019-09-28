@@ -26,8 +26,7 @@ public class Entrypoint {
 		// GnuParser
 		// BasicParser
 		// PosixParser
-		GnuParser parser = new GnuParser();
-		CommandLine line = parser.parse(options, args);
+		CommandLine line = new DefaultParser().parse(options, args);
 		if (line.hasOption("m")) {
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.printHelp("network node", options);

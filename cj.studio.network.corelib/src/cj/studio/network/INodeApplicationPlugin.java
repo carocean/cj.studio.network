@@ -2,6 +2,7 @@ package cj.studio.network;
 
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.util.reactor.IPipeline;
+import io.netty.channel.Channel;
 
 /**
  * 开放插件供第三方开发者使用,该插件仅供拦截请求侦并处理转换侦<br>
@@ -31,5 +32,21 @@ public interface INodeApplicationPlugin {
      * @param site 服务站点
      */
     void onstart(String masterNetworkName,  IServiceProvider site);
+
+    /**
+     * peer上线
+     * @param peerName
+     * @param userPrincipal
+     * @param ch
+     */
+    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+
+    /**
+     * peer下线
+     * @param peerName
+     * @param userPrincipal
+     * @param ch
+     */
+    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
 
 }

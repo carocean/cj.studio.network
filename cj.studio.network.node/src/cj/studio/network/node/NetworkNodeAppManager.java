@@ -4,6 +4,7 @@ import cj.studio.ecm.*;
 import cj.studio.network.*;
 import cj.studio.util.reactor.IPipeline;
 import cj.studio.util.reactor.IReactor;
+import io.netty.channel.Channel;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -53,6 +54,16 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
         this.nodeApp.onstart(appDir, config.getMasterNetwork(), site);
         CJSystem.logging().info(getClass(), String.format("isEnableRBAC=%s", isEnableRBAC()));
         CJSystem.logging().info(getClass(), String.format("节点应用已启动。"));
+    }
+
+    @Override
+    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+        nodeApp.onlinePeer(peerName,userPrincipal,ch);
+    }
+
+    @Override
+    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+        nodeApp.offlinePeer(peerName,userPrincipal,ch);
     }
 
     @Override

@@ -5,6 +5,7 @@ import cj.studio.network.IAuthenticateStrategy;
 import cj.studio.network.INetwork;
 import cj.studio.network.UserPrincipal;
 import cj.studio.util.reactor.IPipeline;
+import io.netty.channel.Channel;
 
 public interface INetworkNodeAppManager {
     void load(INetworkNodeConfig config);
@@ -18,5 +19,9 @@ public interface INetworkNodeAppManager {
     IAccessControllerStrategy createAccessControllerStrategy();
 
     boolean isEnableRBAC();
+
+    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+
+    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
 
 }

@@ -13,10 +13,11 @@ public class NetworkContainer implements INetworkContainer {
     IServiceProvider site;
     Map<String, INetwork> networks;
     private INetworkNodeConfig config;
+    IPeerEvent peerEvent;
 
-
-    public NetworkContainer(IServiceProvider site) {
+    public NetworkContainer(IServiceProvider site,IPeerEvent peerEvent) {
         this.site = site;
+        this.peerEvent=peerEvent;
         INetworkNodeConfig config = (INetworkNodeConfig) site.getService("$.network.config");
         init(config);
     }
@@ -26,12 +27,12 @@ public class NetworkContainer implements INetworkContainer {
         networks = new ConcurrentHashMap<>();
         //建立主网络
         NetworkInfo managerInfo = config.getNetworks().get(config.getMasterNetwork());
-        INetwork manager = new Network(managerInfo);
+        INetwork manager = new Network(managerInfo,null);//不侦听主网络的peer事件
         networks.put(managerInfo.getName(), manager);
 
         for (Map.Entry<String, NetworkInfo> entry : config.getNetworks().entrySet()) {
             NetworkInfo info = entry.getValue();
-            INetwork network = new Network(info);
+            INetwork network = new Network(info,peerEvent);
             networks.put(info.getName(), network);
         }
     }
@@ -64,7 +65,7 @@ public class NetworkContainer implements INetworkContainer {
     @Override
     public INetwork createNetwork(String name, String castmode) {
         NetworkInfo info = new NetworkInfo(name, castmode);
-        INetwork managerNW = new Network(info);
+        INetwork managerNW = new Network(info,peerEvent);
         networks.put(managerNW.getInfo().getName(), managerNW);
         return managerNW;
     }

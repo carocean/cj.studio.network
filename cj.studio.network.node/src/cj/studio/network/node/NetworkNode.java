@@ -18,17 +18,19 @@ public class NetworkNode implements INetworkNode {
     INetworkNodeConfig networkNodeConfig;//节点配置
     INetworkNodeAppManager app;//节点应用管理器
     IServiceProvider site;
-
+    IPeerEvent peerEvent;
     @Override
     public void entrypoint(String home) throws FileNotFoundException {
         site = new NodeServiceProvider();
+
         networkNodeConfig = new NetworkNodeConfig();
         networkNodeConfig.load(home);
 
         app = new NetworkNodeAppManager(site);
 
         nodeServer = createNetworkNodeServer(networkNodeConfig.getServerInfo());
-        networkContainer = new NetworkContainer(site);
+        peerEvent=new DefaultPeerEvent(site);
+        networkContainer = new NetworkContainer(site,peerEvent);
         nodeServer.start();
 
         app.load(networkNodeConfig);

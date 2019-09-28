@@ -12,7 +12,17 @@ users:
       - administrators
   -
     name: tom
-    pwd: 22
+    pwd: 11
+    roles:
+      - developers
+  -
+    name: bill
+    pwd: 11
+    roles:
+      - developers
+  -
+    name: jack
+    pwd: 11
     roles:
       - developers
 acl:

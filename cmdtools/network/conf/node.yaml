@@ -20,7 +20,8 @@ networks:
   isAutoCreate: false
   #主网络，用于管理工作网络，主网络固定为feedbackcast模式
   master: master-network
-  #工作网络：传播模式有：feedbackcast,unicast,multicast
+  #工作网络,下面列出的是固定网络
+  #传播模式有：feedbackcast,unicast,multicast,selectcast，其中selectcast是选择一个peer或用户发送，如果未选中则不发
   works:
    -
      name: network-1
@@ -28,3 +29,6 @@ networks:
    -
      name: network-2
      castmode: multicast
+   -
+     name: network-3
+     castmode: selectcast

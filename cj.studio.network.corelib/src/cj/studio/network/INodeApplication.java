@@ -3,6 +3,7 @@ package cj.studio.network;
 import cj.studio.ecm.IServiceProvider;
 import cj.studio.util.reactor.IPipeline;
 import cj.studio.util.reactor.IReactor;
+import io.netty.channel.Channel;
 
 /**
  * 节点应用程序<br>
@@ -58,5 +59,21 @@ public interface INodeApplication {
      * @return
      */
     boolean isEnableRBAC();
+
+    /**
+     * peer上线
+     * @param peerName
+     * @param userPrincipal
+     * @param ch
+     */
+    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+
+    /**
+     * peer下线
+     * @param peerName
+     * @param userPrincipal
+     * @param ch
+     */
+    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
 
 }

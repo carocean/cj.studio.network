@@ -15,28 +15,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Network implements INetwork {
-    List<Channel> channels;
+    //    List<Channel> channels;
+    Map<String, Channel> channels;//key:peer
+    Map<String, String> userIndex;//key:user,value:peer
     NetworkInfo info;
+    IPeerEvent peerEvent;
 
-    public Network(NetworkInfo info) {
+    public Network(NetworkInfo info, IPeerEvent peerEvent) {
         this.info = info;
-        channels = new CopyOnWriteArrayList<>();
+        this.peerEvent = peerEvent;
+//        channels = new CopyOnWriteArrayList<>();
+        channels = new ConcurrentHashMap<>();
+        userIndex = new ConcurrentHashMap<>();
     }
 
     @Override
     public INetwork createReference() {
-        Network network = new Network(info);
+        Network network = new Network(info, peerEvent);
         network.channels = channels;
+        network.userIndex = userIndex;
         return network;
     }
 
     @Override
     public String[] enumPeerName() {
         List<String> list = new ArrayList<>();
-        for (Channel ch : channels) {
+        for (Channel ch : channels.values()) {
             if (ch == null) continue;
             AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
             String name = ch.attr(key).get();
@@ -58,30 +64,65 @@ public class Network implements INetwork {
 
     @Override
     public void addChannel(Channel ch) {
-        AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
-        synchronized (this) {
-            String name = ch.attr(key).get();
-            if (!StringUtil.isEmpty(name)) {
-                checkChannelsHasPeerNameAndRemoveOld(name);
-            }
-            channels.add(ch);
-        }
-    }
+        AttributeKey<String> pnkey = AttributeKey.valueOf("Peer-Name");
 
-    private void checkChannelsHasPeerNameAndRemoveOld(String newchname) {
-        for (Channel ch : channels) {
-            if (ch == null) continue;
-            AttributeKey<String> key = AttributeKey.valueOf("Peer-Name");
-            String name = ch.attr(key).get();
-            if (newchname.equals(name)) {
-                channels.remove(ch);
+        Attribute<String> pnattribute = ch.attr(pnkey);
+        if (pnattribute == null) {
+            return;
+        }
+        String peerName = pnattribute.get();
+        if (StringUtil.isEmpty(peerName)) {
+            return;
+        }
+        synchronized (peerName) {
+            if (channels.containsKey(peerName)) {
+                return;
+            }
+            channels.put(peerName, ch);
+            AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
+            UserPrincipal userPrincipal = ch.attr(upKey).get();
+            if (userPrincipal != null) {
+                userIndex.put(userPrincipal.getName(), peerName);
+            }
+            if (peerEvent != null) {
+                try {
+                    peerEvent.online(peerName, userPrincipal, ch, this.info);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
     @Override
     public void removeChannel(Channel ch) {
-        channels.remove(ch);
+        AttributeKey<String> pnkey = AttributeKey.valueOf("Peer-Name");
+        Attribute<String> pnattribute = ch.attr(pnkey);
+        if (pnattribute == null) {
+            return;
+        }
+        String peerName = pnattribute.get();
+        if (StringUtil.isEmpty(peerName)) {
+            return;
+        }
+        synchronized (peerName) {
+            if (!channels.containsKey(peerName)) {
+                return;
+            }
+            AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
+            UserPrincipal userPrincipal = ch.attr(upKey).get();
+            if (userPrincipal != null) {
+                userIndex.remove(userPrincipal.getName());
+            }
+            if (peerEvent != null) {
+                try {
+                    peerEvent.offline(peerName, userPrincipal, ch, this.info);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+            channels.remove(peerName);
+        }
     }
 
     @Override
@@ -96,10 +137,14 @@ public class Network implements INetwork {
             case "feedbackcast":
                 feedbackcast(from, frame);
                 break;
+            case "selectcast":
+                selectcast(from, frame);
+                break;
             default:
                 break;
         }
     }
+
 
     private void feedbackcast(Channel source, NetworkFrame frame) {
         String netprotcol = getNetProtocol(source);
@@ -146,23 +191,67 @@ public class Network implements INetwork {
 
     @Override
     public boolean existsChannel(Channel channel) {
-        return this.channels.contains(channel);
+        return this.channels.values().contains(channel);
     }
 
     private void multicast(Channel from, NetworkFrame frame) {
-        for (Channel ch : channels) {
+        for (Channel ch : channels.values()) {
             if (ch == null || from.equals(ch)) {//不发自身
                 continue;
             }
             if (!ch.isWritable()) {
                 ch.close();
-                channels.remove(ch);
+                removeChannel(ch);
             }
             String netprotcol = getNetProtocol(ch);
             Object msg = packFrame(netprotcol, frame.copy());
             ch.writeAndFlush(msg);
         }
         frame.dispose();//把源形释放，这个与单播不同，因为它有原型
+    }
+
+    //frame.head("To-Peer"),frame.head("To-User")
+    private void selectcast(Channel from, NetworkFrame frame) {
+        String peer = frame.head("To-Peer");
+        if (!StringUtil.isEmpty(peer)) {
+            castToPeer(peer, from, frame);
+        }
+        String user = frame.head("To-User");
+        if (!StringUtil.isEmpty(user)) {
+            castToUser(user, from, frame);
+        }
+        frame.dispose();
+    }
+
+    private void castToUser(String user, Channel from, NetworkFrame frame) {
+        String peer = userIndex.get(user);
+        if (StringUtil.isEmpty(peer)) {
+            return;
+        }
+        Channel ch = channels.get(peer);
+        if (ch == null) return;
+        if (!ch.isWritable()) {
+            ch.close();
+            removeChannel(ch);
+            return;
+        }
+        String netprotcol = getNetProtocol(ch);
+        Object msg = packFrame(netprotcol, frame.copy());
+        ch.writeAndFlush(msg);
+    }
+
+
+    private void castToPeer(String peer, Channel from, NetworkFrame frame) {
+        Channel ch = channels.get(peer);
+        if (ch == null) return;
+        if (!ch.isWritable()) {
+            ch.close();
+            removeChannel(ch);
+            return;
+        }
+        String netprotcol = getNetProtocol(ch);
+        Object msg = packFrame(netprotcol, frame.copy());
+        ch.writeAndFlush(msg);
     }
 
     private void unicast(Channel from, int hc, NetworkFrame frame) {
@@ -178,7 +267,7 @@ public class Network implements INetwork {
             }
             if (!one.isWritable()) {
                 one.close();
-                channels.remove(one);
+                removeChannel(one);
                 continue;
             }
             found = true;

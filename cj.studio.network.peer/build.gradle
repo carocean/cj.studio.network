@@ -23,7 +23,7 @@ repositories {
 
 dependencies {
     compile project (':cj.studio.network.corelib')
-    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
+    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
 }
 task releaseToOutputs(type: Copy){
     dependsOn "build"

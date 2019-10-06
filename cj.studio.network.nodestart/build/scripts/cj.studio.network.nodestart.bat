@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\cj.studio.network.nodestart-1.0.0.jar;%APP_HOME%\lib\cj.studio.network.corelib-1.0.0.jar;%APP_HOME%\lib\netty-all-5.0.0.Alpha2.jar;%APP_HOME%\lib\cj.studio.util.reactor.impl-1.0.0.jar;%APP_HOME%\lib\cj.studio.util.reactor.disk-1.0.0.jar;%APP_HOME%\lib\cj.studio.util.reactor.ultimate-1.0.0.jar;%APP_HOME%\lib\cj.studio.gateway.socket-1.0.0.jar;%APP_HOME%\lib\cj.studio.ecm.net-1.0.0.jar;%APP_HOME%\lib\cj.lns.chip.sos.cube-1.0.0.jar;%APP_HOME%\lib\cj.studio.ecm.corelib-1.0.0.jar;%APP_HOME%\lib\cj.ultimate-1.0.0.jar;%APP_HOME%\lib\commons-cli-1.4.jar;%APP_HOME%\lib\log4j-1.2.17.jar;%APP_HOME%\lib\jsoup-1.8.1.jar;%APP_HOME%\lib\mongo-java-driver-3.2.0.jar
+set CLASSPATH=%APP_HOME%\lib\cj.studio.network.nodestart-1.0.6.jar;%APP_HOME%\lib\cj.studio.network.corelib-1.0.6.jar;%APP_HOME%\lib\cj.studio.util.reactor.impl-1.0.5.jar;%APP_HOME%\lib\cj.studio.util.reactor.disk-1.0.5.jar;%APP_HOME%\lib\cj.studio.util.reactor.ultimate-1.0.5.jar;%APP_HOME%\lib\cj.studio.gateway.socket-2.3.7.jar;%APP_HOME%\lib\cj.studio.ecm.net-2.3.7.jar;%APP_HOME%\lib\netty-all-5.0.0.Alpha2.jar;%APP_HOME%\lib\cj.lns.chip.sos.cube-2.1.0.jar;%APP_HOME%\lib\cj.studio.ecm.corelib-2.3.6.jar;%APP_HOME%\lib\cj.ultimate-2.3.6.jar;%APP_HOME%\lib\commons-cli-1.4.jar;%APP_HOME%\lib\log4j-1.2.17.jar;%APP_HOME%\lib\slf4j-api-1.7.28.jar;%APP_HOME%\lib\jsoup-1.8.1.jar;%APP_HOME%\lib\barchart-http-server-1.1.6.jar;%APP_HOME%\lib\barchart-udt-bundle-2.3.0.jar;%APP_HOME%\lib\mongo-java-driver-3.2.0.jar
 
 @rem Execute cj.studio.network.nodestart
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %CJ_STUDIO_NETWORK_NODESTART_OPTS%  -classpath "%CLASSPATH%" cj.studio.network.nodestart.Entrypoint %CMD_LINE_ARGS%

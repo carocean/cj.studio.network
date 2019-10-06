@@ -36,7 +36,7 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile project (':cj.studio.network.corelib')
     compile project (':cj.studio.network.peer')
-    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
+    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
 }
 
 task runnableJar(dependsOn:':cj.studio.network.peer:release',type: Jar) {

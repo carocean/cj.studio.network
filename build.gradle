@@ -67,7 +67,7 @@ subprojects {
         repositories{
             mavenDeployer {
                 repository(url: engineer_nexus){
-                    authentication(userName:"admin",password:"admin123")
+                    authentication(userName:"deployment",password:"deployment123")
                 }
                 pom.groupId = project.group
                 pom.version = project.version

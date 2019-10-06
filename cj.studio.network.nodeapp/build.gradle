@@ -23,10 +23,10 @@ repositories {
 dependencies {
     // https://mvnrepository.com/artifact/org.yaml/snakeyaml
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.25'
-    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: '1.0.0'
-    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.impl', version: '1.0.0'
-    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: '1.0.0'
-    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.disk', version: '1.0.0'
+    compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.impl', version: cj_studio_util_reactor_impl_version
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: cj_studio_util_reactor_ultimate_version
+    compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.disk', version: cj_studio_util_reactor_disk_version
     compile project (':cj.studio.network.corelib')
     compile project (':cj.studio.network.peer')
 }

@@ -19,7 +19,6 @@ tasks.withType(JavaCompile) {
 }
 repositories {
     mavenCentral();
-    flatDir(dirs: "$projectDir/global/lib")
 }
 jar {
     manifest {

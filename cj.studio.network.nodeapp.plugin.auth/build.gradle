@@ -17,11 +17,10 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 repositories {
-    flatDir(dirs: "../global/runtime")
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.2.2'
     compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
     compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: cj_studio_util_reactor_ultimate_version
     compile project (':cj.studio.network.corelib')
@@ -29,7 +28,7 @@ dependencies {
 }
 task copyReferences(type: Copy) {
     from configurations.compileClasspath.files {
-        include 'cj.studio.util.reactor*.jar','cj.studio.ecm.net-*.jar','cj.studio.network.peer-*.jar'
+        include 'cj.studio.util.reactor*.jar','cj.studio.ecm.net-*.jar','cj.studio.network.peer-*.jar','okhttp-*.jar','kotlin-*.jar','okio-*.jar'
     }
     into 'src/cj/references'
 }

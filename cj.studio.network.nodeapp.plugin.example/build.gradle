@@ -17,11 +17,9 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 repositories {
-    flatDir(dirs: "../global/runtime")
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
     compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
     compile group: 'cj.studio.util.reactor', name: 'cj.studio.util.reactor.ultimate', version: cj_studio_util_reactor_ultimate_version
     compile project (':cj.studio.network.corelib')

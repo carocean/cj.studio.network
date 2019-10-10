@@ -19,7 +19,6 @@ tasks.withType(JavaCompile) {
     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
 repositories {
-    flatDir(dirs: "$projectDir/global/lib")
 }
 
 dependencies {

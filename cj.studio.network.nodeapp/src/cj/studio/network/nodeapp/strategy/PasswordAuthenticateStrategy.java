@@ -15,7 +15,7 @@ public class PasswordAuthenticateStrategy implements IAuthenticateStrategy {
     }
 
     @Override
-    public UserPrincipal authenticate(String authUser, String authToken) throws AuthenticationException {
+    public synchronized UserPrincipal authenticate(String authUser, String authToken) throws AuthenticationException {
         UserInfo info = config.getUserInfo(authUser);
         if (info == null) {
             throw new AuthenticationException(String.format("用户不存在：%s",authUser));

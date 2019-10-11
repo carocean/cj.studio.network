@@ -1,5 +1,6 @@
 package cj.studio.network.node.combination.valve;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.network.IAuthenticateStrategy;
 import cj.studio.network.UserPrincipal;
@@ -179,6 +180,7 @@ public class ManagerValve implements IValve {
                     throw new CircuitException("801", "认证失败，返回的userPrincipal为空");
                 }
             } catch (Throwable throwable) {
+                CJSystem.logging().error(getClass(),throwable);
                 CircuitException ce = CircuitException.search(throwable);
                 if (ce != null) {
                     pipeline.nextError(e, ce, this);

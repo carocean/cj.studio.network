@@ -34,7 +34,7 @@ public class NodeApplication implements INodeApplication {
     ICluster cluster;
     IRemoteNodeBalancer remoteNodeBalancer;
     @Override
-    public void onstart(String home, String masterNetworkName, IServiceProvider site) {
+    public synchronized void onstart(String home, String masterNetworkName, IServiceProvider site) {
         pluginSite = new PluginSite(site);
         this.masterNetworkName = masterNetworkName;
         this.valves = new ArrayList<>();
@@ -162,7 +162,7 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public IAuthenticateStrategy createAuthenticateStrategy(String authMode, INetwork network) {
+    public synchronized IAuthenticateStrategy createAuthenticateStrategy(String authMode, INetwork network) {
         if (this.authPlugin != null && !this.pluginConfig.isDisableAuth()) {
             IAuthenticateStrategy authenticateStrategy = this.authPlugin.createAuthenticateStrategy(authMode, network);
             if (authenticateStrategy != null) {
@@ -181,7 +181,7 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public IAccessControllerStrategy createAccessControllerStrategy() {
+    public synchronized IAccessControllerStrategy createAccessControllerStrategy() {
         if (this.authPlugin != null && !this.pluginConfig.isDisableAuth()) {
             IAccessControllerStrategy accessControllerStrategy = this.authPlugin.createAccessControllerStrategy();
             if (accessControllerStrategy != null) {
@@ -194,9 +194,10 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
+    public synchronized void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
         for (Map.Entry<String, INodeApplicationPlugin> entry : this.plugins.entrySet()) {
             INodeApplicationPlugin plugin = entry.getValue();
+            if(plugin==null)continue;
             if (this.pluginConfig.containsDisableOthers(entry.getKey())) {
                 continue;
             }
@@ -210,9 +211,10 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
+    public synchronized void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
         for (Map.Entry<String, INodeApplicationPlugin> entry : this.plugins.entrySet()) {
             INodeApplicationPlugin plugin = entry.getValue();
+            if(plugin==null)continue;
             if (this.pluginConfig.containsDisableOthers(entry.getKey())) {
                 continue;
             }
@@ -226,9 +228,10 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public void oninactiveNetwork(INetwork network, IPipeline pipeline) {
+    public synchronized void oninactiveNetwork(INetwork network, IPipeline pipeline) {
         for (Map.Entry<String, INodeApplicationPlugin> entry : this.plugins.entrySet()) {
             INodeApplicationPlugin plugin = entry.getValue();
+            if(plugin==null)continue;
             if (this.pluginConfig.containsDisableOthers(entry.getKey())) {
                 continue;
             }
@@ -245,12 +248,13 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public void onactivedNetwork(UserPrincipal userPrincipal, INetwork network, IPipeline pipeline) {
+    public synchronized void onactivedNetwork(UserPrincipal userPrincipal, INetwork network, IPipeline pipeline) {
         if (masterNetworkName.equals(network.getInfo().getName())) {
             return;
         }
         for (Map.Entry<String, INodeApplicationPlugin> entry : this.plugins.entrySet()) {
             INodeApplicationPlugin plugin = entry.getValue();
+            if(plugin==null)continue;
             if (this.pluginConfig.containsDisableOthers(entry.getKey())) {
                 continue;
             }

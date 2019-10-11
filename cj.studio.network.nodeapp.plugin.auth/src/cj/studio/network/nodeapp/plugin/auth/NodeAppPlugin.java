@@ -20,7 +20,7 @@ public class NodeAppPlugin implements INodeApplicationAuthPlugin {
     private String appid;
     String ucAuthUrl;
     @Override
-    public void onstart(String masterNetworkName, IServiceProvider site) {
+    public synchronized void onstart(String masterNetworkName, IServiceProvider site) {
         IChip chip = (IChip) this.site.getService(IChip.class.getName());
         this.appid = chip.site().getProperty("uc.appid");
         this. ucAuthUrl=chip.site().getProperty("uc.auth.url");

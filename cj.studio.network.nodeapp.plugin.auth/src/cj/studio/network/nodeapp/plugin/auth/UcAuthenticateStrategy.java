@@ -35,7 +35,7 @@ public class UcAuthenticateStrategy implements IAuthenticateStrategy {
 
     //用okhttp访问用户中心
     @Override
-    public UserPrincipal authenticate(String authUser, String authToken) throws AuthenticationException {
+    public synchronized UserPrincipal authenticate(String authUser, String authToken) throws AuthenticationException {
         String url = String.format("%s?appid=%s&accountName=%s&password=%s",ucAuthUrl,appid, authUser, authToken);
         Request request = new Request.Builder()
                 .url(url)

@@ -71,7 +71,7 @@ public class WSChannelHandler extends SimpleChannelInboundHandler<Object> {
         if (msg instanceof PingWebSocketFrame) {
             ((WebSocketFrame)msg).content().retain();
             ctx.channel().writeAndFlush(new PongWebSocketFrame(((WebSocketFrame)msg).content()));
-            CJSystem.logging().debug(getClass(),"发送心跳包");
+//            CJSystem.logging().debug(getClass(),"发送心跳包");
             return;
         }
         if (msg instanceof PongWebSocketFrame) {

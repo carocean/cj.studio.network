@@ -19,7 +19,7 @@ public class NodeAppPlugin implements INodeApplicationPlugin {
     String networkGberaEvent;
 
     @Override
-    public void onstart(String masterNetworkName, IServiceProvider site) {
+    public synchronized void onstart(String masterNetworkName, IServiceProvider site) {
         IChip chip = (IChip) this.site.getService(IChip.class.getName());
         networkGberaEvent = chip.site().getProperty("gbera.event.network");
         CJSystem.logging().info(getClass(), String.format("应用插件示例程序:%s 已启动", chip.info().getName()));

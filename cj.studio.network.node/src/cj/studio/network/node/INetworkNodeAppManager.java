@@ -20,8 +20,8 @@ public interface INetworkNodeAppManager {
 
     boolean isEnableRBAC();
 
-    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network);
 
-    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network);
 
 }

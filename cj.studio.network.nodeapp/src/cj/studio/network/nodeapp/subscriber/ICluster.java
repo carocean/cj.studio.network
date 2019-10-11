@@ -1,7 +1,6 @@
 package cj.studio.network.nodeapp.subscriber;
 
 import cj.studio.network.peer.IPeer;
-import cj.studio.util.reactor.RemoteServiceNode;
 
 public interface ICluster {
     boolean available();

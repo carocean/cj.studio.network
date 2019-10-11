@@ -17,10 +17,12 @@ public class NodeAppPlugin implements INodeApplicationAuthPlugin {
     @CjServiceSite
     IServiceProvider site;
     OkHttpClient okHttpClient;
+    private String appid;
 
     @Override
     public void onstart(String masterNetworkName, IServiceProvider site) {
         IChip chip = (IChip) this.site.getService(IChip.class.getName());
+        this.appid = chip.site().getProperty("uc.appid");
         String maxIdleConnections = chip.site().getProperty("okhttp.pool.maxIdleConnections");
         String keepAliveDuration = chip.site().getProperty("okhttp.pool.keepAliveDuration");
         String readTimeout = chip.site().getProperty("okhttp.readTimeout");
@@ -42,7 +44,7 @@ public class NodeAppPlugin implements INodeApplicationAuthPlugin {
 
     @Override
     public IAuthenticateStrategy createAuthenticateStrategy(String authMode, INetwork network) {
-        return new UcAuthenticateStrategy(okHttpClient, authMode, network, site);
+        return new UcAuthenticateStrategy(okHttpClient, authMode, network, appid);
     }
 
 

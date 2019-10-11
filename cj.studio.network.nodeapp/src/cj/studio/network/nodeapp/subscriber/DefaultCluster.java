@@ -9,7 +9,6 @@ import cj.ultimate.util.StringUtil;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DefaultCluster implements ICluster {
@@ -48,7 +47,7 @@ public class DefaultCluster implements ICluster {
 
 
     @Override
-    public void validNode(String nodeName) {
+    public synchronized void validNode(String nodeName) {
         //如果没有调用过使无效的方法可能在有效列表中存在
         if (this.connectedNodes.containsKey(nodeName)) return;
 
@@ -66,7 +65,7 @@ public class DefaultCluster implements ICluster {
     }
 
     @Override
-    public void invalidNode(String nodeName) {
+    public synchronized void invalidNode(String nodeName) {
         Object[] objs = connectedNodes.get(nodeName);
         if (objs == null) return;
         invalidConnectedNodes.put(nodeName, objs);
@@ -86,7 +85,7 @@ public class DefaultCluster implements ICluster {
     }
 
     @Override
-    public Object[] getNode(String objkey) {
+    public synchronized Object[] getNode(String objkey) {
         Object[] ret = null;
         switch (this.balanceMode) {
             case "orientor":
@@ -109,7 +108,7 @@ public class DefaultCluster implements ICluster {
     }
 
     @Override
-    public void addNode(IPeer peer, SubscriberInfo info) {
+    public synchronized void addNode(IPeer peer, SubscriberInfo info) {
         RemoteServiceNode remoteServiceNode = new RemoteServiceNode(peer.peerName(), info.getNodeAddress());
         remoteServiceNodeRouter.addNode(remoteServiceNode);//添加负载节点
         connectedNodes.put(peer.peerName(), new Object[]{peer, info});

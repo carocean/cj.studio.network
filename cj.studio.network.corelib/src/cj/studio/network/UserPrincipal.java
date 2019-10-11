@@ -31,6 +31,16 @@ public final class UserPrincipal {
         }
         return userPrincipalAttribute.get();
     }
+    public String toRoles(){
+        String text="";
+        for(String r:roles){
+            text=text+r+";";
+        }
+        while (text.endsWith(";")){
+            text=text.substring(0,text.length()-1);
+        }
+        return text;
+    }
     public void addRole(String role){
         roles.add(role);
     }

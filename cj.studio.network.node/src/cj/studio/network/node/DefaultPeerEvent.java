@@ -1,5 +1,6 @@
 package cj.studio.network.node;
 
+import cj.studio.network.INetwork;
 import cj.studio.network.NetworkInfo;
 import cj.studio.network.UserPrincipal;
 import cj.studio.util.reactor.IServiceProvider;
@@ -11,13 +12,13 @@ class DefaultPeerEvent implements IPeerEvent {
         this.app=site.getService("$.network.app.manager");
     }
     @Override
-    public void online(String peerName, UserPrincipal userPrincipal, Channel ch, NetworkInfo info) {
-        app.onlinePeer(peerName,userPrincipal,ch);
+    public void online(String peerName, UserPrincipal userPrincipal, Channel ch, INetwork network) {
+        app.onlinePeer(peerName,userPrincipal,ch,network);
     }
 
     @Override
-    public void offline(String peerName, UserPrincipal userPrincipal, Channel ch, NetworkInfo info) {
-        app.offlinePeer(peerName,userPrincipal,ch);
+    public void offline(String peerName, UserPrincipal userPrincipal, Channel ch, INetwork network) {
+        app.offlinePeer(peerName,userPrincipal,ch,network);
     }
 
 

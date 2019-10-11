@@ -1,6 +1,5 @@
 package cj.studio.network.nodeapp.plugin.auth;
 
-import cj.studio.ecm.IServiceProvider;
 import cj.studio.network.AuthenticationException;
 import cj.studio.network.IAuthenticateStrategy;
 import cj.studio.network.INetwork;
@@ -16,7 +15,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 与用户中心对接
@@ -24,19 +22,19 @@ import java.util.concurrent.TimeUnit;
 public class UcAuthenticateStrategy implements IAuthenticateStrategy {
     String authModel;
     INetwork network;
-    IServiceProvider site;
     OkHttpClient okHttpClient;
-    public UcAuthenticateStrategy(OkHttpClient okHttpClient ,String authMode, INetwork network, IServiceProvider site) {
+    String appid;
+    public UcAuthenticateStrategy(OkHttpClient okHttpClient ,String authMode, INetwork network,String appid) {
         this.authModel = authMode;
         this.network = network;
-        this.site = site;
         this.okHttpClient=okHttpClient;
+        this.appid=appid;
     }
 
     //用okhttp访问用户中心
     @Override
     public UserPrincipal authenticate(String authUser, String authToken) throws AuthenticationException {
-        String url = String.format("http://47.105.165.186/uc/auth?appid=gbera&accountName=%s&password=%s", authUser, authToken);
+        String url = String.format("http://47.105.165.186/uc/auth?appid=%s&accountName=%s&password=%s",appid, authUser, authToken);
         Request request = new Request.Builder()
                 .url(url)
                 .addHeader("Rest-Command", "auth")
@@ -62,7 +60,7 @@ public class UcAuthenticateStrategy implements IAuthenticateStrategy {
             List<Map<String, Object>> roles = (List<Map<String, Object>>) result.get("appRoles");
             for (Map<String, Object> objRole : roles) {
                 String appid=(String) objRole.get("appId");
-                if(!"gbera".equals(appid)){
+                if(!this.appid.equals(appid)){
                     continue;
                 }
                 String roleid=(String) objRole.get("roleId");

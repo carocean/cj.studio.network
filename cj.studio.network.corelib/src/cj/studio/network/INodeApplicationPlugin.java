@@ -14,16 +14,18 @@ public interface INodeApplicationPlugin {
      * 触发失活网络,
      * @param network
      * @param pipeline
+     * @param remoteNodeBalancer
      */
-    void oninactiveNetwork(INetwork network, IPipeline pipeline);
+    void oninactiveNetwork(INetwork network, IPipeline pipeline, IRemoteNodeBalancer remoteNodeBalancer);
 
     /**
      * 触发激动网络，即第一次有请求使用网络时触发
      * @param userPrincipal
      * @param network
      * @param pipeline
+     * @param remoteNodeBalancer
      */
-    void onactivedNetwork(UserPrincipal userPrincipal, INetwork network, IPipeline pipeline);
+    void onactivedNetwork(UserPrincipal userPrincipal, INetwork network, IPipeline pipeline, IRemoteNodeBalancer remoteNodeBalancer);
 
 
     /**
@@ -35,18 +37,22 @@ public interface INodeApplicationPlugin {
 
     /**
      * peer上线
-     * @param peerName
-     * @param userPrincipal
-     * @param ch
+     * @param peerName 客户端端名
+     * @param userPrincipal 用户信息
+     * @param source 事件源，即在哪个管道上发生的事件
+     * @param network 事件发生的网络
+     * @param remoteNodeBalancer 远程节点均衡器
      */
-    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source, INetwork network, IRemoteNodeBalancer remoteNodeBalancer);
 
     /**
      * peer下线
-     * @param peerName
-     * @param userPrincipal
-     * @param ch
+     * @param peerName 客户端端名
+     * @param userPrincipal 用户信息
+     * @param source 事件源，即在哪个管道上发生的事件
+     * @param network 事件发生的网络
+     * @param remoteNodeBalancer 远程节点均衡器
      */
-    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source, INetwork network, IRemoteNodeBalancer remoteNodeBalancer);
 
 }

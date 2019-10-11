@@ -64,16 +64,16 @@ public interface INodeApplication {
      * peer上线
      * @param peerName
      * @param userPrincipal
-     * @param ch
+     * @param source
      */
-    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+    void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network);
 
     /**
      * peer下线
      * @param peerName
      * @param userPrincipal
-     * @param ch
+     * @param source
      */
-    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch);
+    void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network);
 
 }

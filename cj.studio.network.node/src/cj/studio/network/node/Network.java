@@ -86,7 +86,7 @@ public class Network implements INetwork {
             }
             if (peerEvent != null) {
                 try {
-                    peerEvent.online(peerName, userPrincipal, ch, this.info);
+                    peerEvent.online(peerName, userPrincipal, ch, this);
                 } catch (Throwable e) {
                     e.printStackTrace();
                 }
@@ -116,7 +116,7 @@ public class Network implements INetwork {
             }
             if (peerEvent != null) {
                 try {
-                    peerEvent.offline(peerName, userPrincipal, ch, this.info);
+                    peerEvent.offline(peerName, userPrincipal, ch, this);
                 } catch (Throwable e) {
                     e.printStackTrace();
                 }

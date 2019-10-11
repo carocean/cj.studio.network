@@ -57,13 +57,13 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
     }
 
     @Override
-    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
-        nodeApp.onlinePeer(peerName,userPrincipal,ch);
+    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
+        nodeApp.onlinePeer(peerName,userPrincipal,source,network);
     }
 
     @Override
-    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
-        nodeApp.offlinePeer(peerName,userPrincipal,ch);
+    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
+        nodeApp.offlinePeer(peerName,userPrincipal,source,network);
     }
 
     @Override

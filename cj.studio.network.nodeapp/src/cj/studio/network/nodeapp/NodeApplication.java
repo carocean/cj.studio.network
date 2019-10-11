@@ -7,6 +7,8 @@ import cj.studio.network.*;
 import cj.studio.network.nodeapp.subscriber.*;
 import cj.studio.network.nodeapp.strategy.PasswordAuthenticateStrategy;
 import cj.studio.network.nodeapp.strategy.SystemAccessControllerStrategy;
+import cj.studio.network.INodeApplicationPlugin;
+import cj.studio.network.nodeapp.subscriber.ICluster;
 import cj.studio.util.reactor.*;
 import io.netty.channel.Channel;
 
@@ -30,7 +32,7 @@ public class NodeApplication implements INodeApplication {
     Map<String, INodeApplicationPlugin> plugins;//key是插件的uuid
     IServiceProvider pluginSite;
     ICluster cluster;
-
+    IRemoteNodeBalancer remoteNodeBalancer;
     @Override
     public void onstart(String home, String masterNetworkName, IServiceProvider site) {
         pluginSite = new PluginSite(site);
@@ -49,6 +51,7 @@ public class NodeApplication implements INodeApplication {
             throw new EcmException(e);
         }
         cluster = new DefaultCluster();
+        remoteNodeBalancer =new DefaultRemoteNodeBalancer(cluster);
         subscriberContainer = new SubscriberContainer(cluster);
         subscriberContainer.start(home, site);
 
@@ -71,7 +74,7 @@ public class NodeApplication implements INodeApplication {
     private void scanOtherPluginsAndLoad(String othersDir) {
         File dir = new File(othersDir);
         if (!dir.exists()) {
-            throw new EcmException("程序集目录不存在:" + dir);
+            return;
         }
         File[] assemblies = dir.listFiles(new FileFilter() {
             @Override
@@ -120,7 +123,7 @@ public class NodeApplication implements INodeApplication {
     private void scanAuthPluginAndLoad(String authDir) {
         File dir = new File(authDir);
         if (!dir.exists()) {
-            throw new EcmException("程序集目录不存在:" + dir);
+           return;
         }
         File[] assemblies = dir.listFiles(new FilenameFilter() {
 
@@ -191,14 +194,14 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+    public void onlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
         for (Map.Entry<String, INodeApplicationPlugin> entry : this.plugins.entrySet()) {
             INodeApplicationPlugin plugin = entry.getValue();
             if (this.pluginConfig.containsDisableOthers(entry.getKey())) {
                 continue;
             }
             try {
-                plugin.onlinePeer(peerName, userPrincipal, ch);
+                plugin.onlinePeer(peerName, userPrincipal, source,network,this.remoteNodeBalancer);
             } catch (Exception e) {
                 CJSystem.logging().error(this.getClass(), e);
                 continue;
@@ -207,14 +210,14 @@ public class NodeApplication implements INodeApplication {
     }
 
     @Override
-    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel ch) {
+    public void offlinePeer(String peerName, UserPrincipal userPrincipal, Channel source,INetwork network) {
         for (Map.Entry<String, INodeApplicationPlugin> entry : this.plugins.entrySet()) {
             INodeApplicationPlugin plugin = entry.getValue();
             if (this.pluginConfig.containsDisableOthers(entry.getKey())) {
                 continue;
             }
             try {
-                plugin.offlinePeer(peerName, userPrincipal, ch);
+                plugin.offlinePeer(peerName, userPrincipal, source,network,this.remoteNodeBalancer);
             } catch (Exception e) {
                 CJSystem.logging().error(this.getClass(), e);
                 continue;
@@ -230,7 +233,7 @@ public class NodeApplication implements INodeApplication {
                 continue;
             }
             try {
-                plugin.oninactiveNetwork(network, pipeline);
+                plugin.oninactiveNetwork(network, pipeline,this.remoteNodeBalancer);
             } catch (Exception e) {
                 CJSystem.logging().error(this.getClass(), e);
                 continue;
@@ -252,7 +255,7 @@ public class NodeApplication implements INodeApplication {
                 continue;
             }
             try {
-                plugin.onactivedNetwork(userPrincipal, network, pipeline);
+                plugin.onactivedNetwork(userPrincipal, network, pipeline,this.remoteNodeBalancer);
             } catch (Exception e) {
                 CJSystem.logging().error(this.getClass(), e);
                 continue;

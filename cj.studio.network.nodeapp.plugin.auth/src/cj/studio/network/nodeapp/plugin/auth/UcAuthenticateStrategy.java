@@ -24,17 +24,19 @@ public class UcAuthenticateStrategy implements IAuthenticateStrategy {
     INetwork network;
     OkHttpClient okHttpClient;
     String appid;
-    public UcAuthenticateStrategy(OkHttpClient okHttpClient ,String authMode, INetwork network,String appid) {
+    String ucAuthUrl;
+    public UcAuthenticateStrategy(OkHttpClient okHttpClient ,String authMode, INetwork network,String appid,String ucAuthUrl) {
         this.authModel = authMode;
         this.network = network;
         this.okHttpClient=okHttpClient;
         this.appid=appid;
+        this.ucAuthUrl=ucAuthUrl;
     }
 
     //用okhttp访问用户中心
     @Override
     public UserPrincipal authenticate(String authUser, String authToken) throws AuthenticationException {
-        String url = String.format("http://47.105.165.186/uc/auth?appid=%s&accountName=%s&password=%s",appid, authUser, authToken);
+        String url = String.format("%s?appid=%s&accountName=%s&password=%s",ucAuthUrl,appid, authUser, authToken);
         Request request = new Request.Builder()
                 .url(url)
                 .addHeader("Rest-Command", "auth")

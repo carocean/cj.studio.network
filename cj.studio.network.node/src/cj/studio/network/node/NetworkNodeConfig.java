@@ -2,17 +2,14 @@ package cj.studio.network.node;
 
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
-import cj.studio.network.NetworkInfo;
-import cj.studio.network.UserPrincipal;
+import cj.studio.network.NetworkConfig;
 import cj.ultimate.util.StringUtil;
-import javafx.beans.binding.StringBinding;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +17,7 @@ import java.util.Map;
 public class NetworkNodeConfig implements INetworkNodeConfig {
     ServerInfo serverInfo;
     ReactorInfo reactorInfo;
-    Map<String, NetworkInfo> networks;
+    Map<String, NetworkConfig> networks;
     private String masterNetwork;
     private boolean isAutoCreate;
     private String home;
@@ -67,7 +64,7 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         if (StringUtil.isEmpty(masterNetwork)) {
             masterNetwork = "master-network";
         }
-        NetworkInfo managerInfo = new NetworkInfo();
+        NetworkConfig managerInfo = new NetworkConfig();
         managerInfo.setCastmode("feedbackcast");
         managerInfo.setName(masterNetwork);
         this.networks.put(masterNetwork, managerInfo);
@@ -76,7 +73,7 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
         List<Map<String, Object>> works = (List<Map<String, Object>>) networksItem.get("works");
         if (works == null) return;
         for (Map<String, Object> obj : works) {
-            NetworkInfo info = new NetworkInfo((String) obj.get("name"), (String) obj.get("castmode"));
+            NetworkConfig info = new NetworkConfig((String) obj.get("name"), (String) obj.get("castmode"));
             this.networks.put(info.getName(), info);
         }
     }
@@ -91,7 +88,7 @@ public class NetworkNodeConfig implements INetworkNodeConfig {
     }
 
     @Override
-    public Map<String, NetworkInfo> getNetworks() {
+    public Map<String, NetworkConfig> getNetworks() {
         return networks;
     }
 

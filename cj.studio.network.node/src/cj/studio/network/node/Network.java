@@ -20,11 +20,11 @@ public class Network implements INetwork {
     //    List<Channel> channels;
     Map<String, Channel> channels;//key:peer
     Map<String, String> userIndex;//key:user,value:peer
-    NetworkInfo info;
     IPeerEvent peerEvent;
+    NetworkConfig config;
 
-    public Network(NetworkInfo info, IPeerEvent peerEvent) {
-        this.info = info;
+    public Network(NetworkConfig config, IPeerEvent peerEvent) {
+        this.config = config;
         this.peerEvent = peerEvent;
 //        channels = new CopyOnWriteArrayList<>();
         channels = new ConcurrentHashMap<>();
@@ -33,10 +33,20 @@ public class Network implements INetwork {
 
     @Override
     public INetwork createReference() {
-        Network network = new Network(info, peerEvent);
+        Network network = new Network(config, peerEvent);
         network.channels = channels;
         network.userIndex = userIndex;
         return network;
+    }
+
+    @Override
+    public void rename(String newNetworkName) {
+        config.setName(newNetworkName);
+    }
+
+    @Override
+    public void changeCastmode(String castmode) {
+        config.setCastmode(castmode);
     }
 
     @Override
@@ -54,12 +64,11 @@ public class Network implements INetwork {
     @Override
     public void dispose() {
         channels.clear();
-        info = null;
     }
 
     @Override
     public NetworkInfo getInfo() {
-        return info;
+        return NetworkInfo.parse(config, channels);
     }
 
     @Override
@@ -127,7 +136,7 @@ public class Network implements INetwork {
 
     @Override
     public void cast(Channel from, NetworkFrame frame) {
-        switch (info.getCastmode()) {
+        switch (config.getCastmode()) {
             case "unicast":
                 unicast(from, frame.hashCode(), frame);
                 break;

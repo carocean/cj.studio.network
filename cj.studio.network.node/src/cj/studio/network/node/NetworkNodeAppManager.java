@@ -18,7 +18,7 @@ public class NetworkNodeAppManager implements INetworkNodeAppManager {
     }
 
     @Override
-    public void load(INetworkNodeConfig config) {
+    public synchronized void load(INetworkNodeConfig config) {
         container=parent.getService("$.network.container");
         scanAssemblyAndLoad(config);
     }

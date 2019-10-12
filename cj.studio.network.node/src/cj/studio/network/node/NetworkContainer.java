@@ -1,6 +1,7 @@
 package cj.studio.network.node;
 
 import cj.studio.network.INetwork;
+import cj.studio.network.NetworkConfig;
 import cj.studio.network.NetworkInfo;
 import cj.studio.util.reactor.IServiceProvider;
 import io.netty.channel.Channel;
@@ -26,14 +27,14 @@ public class NetworkContainer implements INetworkContainer {
         this.config = config;
         networks = new ConcurrentHashMap<>();
         //建立主网络
-        NetworkInfo managerInfo = config.getNetworks().get(config.getMasterNetwork());
-        INetwork manager = new Network(managerInfo,null);//不侦听主网络的peer事件
-        networks.put(managerInfo.getName(), manager);
+        NetworkConfig managerConfig = config.getNetworks().get(config.getMasterNetwork());
+        INetwork manager = new Network(managerConfig,null);//不侦听主网络的peer事件
+        networks.put(managerConfig.getName(), manager);
 
-        for (Map.Entry<String, NetworkInfo> entry : config.getNetworks().entrySet()) {
-            NetworkInfo info = entry.getValue();
-            INetwork network = new Network(info,peerEvent);
-            networks.put(info.getName(), network);
+        for (Map.Entry<String, NetworkConfig> entry : config.getNetworks().entrySet()) {
+            NetworkConfig conf = entry.getValue();
+            INetwork network = new Network(conf,peerEvent);
+            networks.put(conf.getName(), network);
         }
     }
 
@@ -64,8 +65,8 @@ public class NetworkContainer implements INetworkContainer {
 
     @Override
     public INetwork createNetwork(String name, String castmode) {
-        NetworkInfo info = new NetworkInfo(name, castmode);
-        INetwork managerNW = new Network(info,peerEvent);
+        NetworkConfig config = new NetworkConfig(name, castmode);
+        INetwork managerNW = new Network(config,peerEvent);
         networks.put(managerNW.getInfo().getName(), managerNW);
         return managerNW;
     }
@@ -75,16 +76,15 @@ public class NetworkContainer implements INetworkContainer {
         INetwork network = networks.get(networkName);
         if (network == null) return;
         networks.remove(networkName);
-        NetworkInfo info = network.getInfo();
-        info.setName(newNetworkName);
-        networks.put(info.getName(), network);
+        network.rename(newNetworkName);
+        networks.put(newNetworkName, network);
     }
 
     @Override
     public void changeNetworkCastmode(String networkName, String castmode) {
         INetwork network = networks.get(networkName);
         if (network == null) return;
-        network.getInfo().setCastmode(castmode);
+        network.changeCastmode(castmode);
     }
 
     @Override

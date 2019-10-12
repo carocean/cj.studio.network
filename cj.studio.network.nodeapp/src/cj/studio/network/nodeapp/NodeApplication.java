@@ -34,7 +34,7 @@ public class NodeApplication implements INodeApplication {
     ICluster cluster;
     IRemoteNodeBalancer remoteNodeBalancer;
     @Override
-    public synchronized void onstart(String home, String masterNetworkName, IServiceProvider site) {
+    public  void onstart(String home, String masterNetworkName, IServiceProvider site) {
         pluginSite = new PluginSite(site);
         this.masterNetworkName = masterNetworkName;
         this.valves = new ArrayList<>();

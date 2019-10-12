@@ -1,7 +1,6 @@
 package cj.studio.network.node;
 
-import cj.studio.network.NetworkInfo;
-import cj.studio.network.UserPrincipal;
+import cj.studio.network.NetworkConfig;
 
 import java.io.FileNotFoundException;
 import java.util.Map;
@@ -11,7 +10,7 @@ public interface INetworkNodeConfig {
     String home();
     ServerInfo getServerInfo();
 
-    Map<String, NetworkInfo> getNetworks();
+    Map<String, NetworkConfig> getNetworks();
 
 
     String getMasterNetwork();

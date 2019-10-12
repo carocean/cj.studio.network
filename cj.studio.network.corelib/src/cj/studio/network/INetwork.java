@@ -1,7 +1,6 @@
 package cj.studio.network;
 
 
-import cj.studio.network.NetworkFrame;
 import cj.ultimate.IDisposable;
 import io.netty.channel.Channel;
 
@@ -25,5 +24,9 @@ public interface INetwork extends IDisposable {
     boolean existsChannel(Channel channel);
 
     INetwork createReference();
+
+    void rename(String newNetworkName);
+
+    void changeCastmode(String castmode);
 
 }

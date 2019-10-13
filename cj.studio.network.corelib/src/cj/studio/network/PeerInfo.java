@@ -6,10 +6,19 @@ import java.util.List;
 public class PeerInfo {
     String peer;
     String user;
+    String onlineTime;
     List<String> roles;
 
     public PeerInfo() {
         this.roles = new ArrayList<>();
+    }
+
+    public String getOnlineTime() {
+        return onlineTime;
+    }
+
+    public void setOnlineTime(String onlineTime) {
+        this.onlineTime = onlineTime;
     }
 
     public String getPeer() {

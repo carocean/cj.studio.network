@@ -40,15 +40,16 @@ public class ReactorPipelineCombination implements IPipelineCombination {
         //此处增加规则是：一个pipeline对应一个network，因为reactor的key就是network
         Event event = (Event) pipeline.attachment();
         INetwork network = container.getNetwork(pipeline.key());
+        Channel ch = (Channel) event.getParameters().get("channel");//取出channel
         if (network == null) {//如果没有该网络则检查创建策略
             if (!container.isAutoCreateNetwork()) {
-                notExistsNetworkError(event, pipeline.key(), pipeline.site());
+                notExistsNetworkError(event, pipeline.key(), pipeline.site(),ch);
                 throw new CombineException(String.format("未建立管道：%s", pipeline.key()));
             }
             //下面是自动创建，但要检查是否有网络名和传播类型的参数，如果没有报异常
             network = autoCreateNetwork(event, pipeline);
         }
-        Channel ch = (Channel) event.getParameters().get("channel");//取出channel
+
         if(!network.existsChannel(ch)) {
             network.addChannel(ch);//将channel添加到network，这样network便有了输出能力
         }
@@ -79,9 +80,15 @@ public class ReactorPipelineCombination implements IPipelineCombination {
     }
 
     //因为此时新的pipeline还未添加Valve，只能找到主管道向后发送错误
-    private void notExistsNetworkError(Event e, String notExistsNeworkName, IServiceProvider site) {
+    private void notExistsNetworkError(Event e, String notExistsNeworkName, IServiceProvider site,Channel ch) {
         //发给管理命令
-        ISelectionKey key = (ISelectionKey) site.getService(String.format("$.key.%s", container.getMasterNetworkName()));
+        String serviceid=String.format("$.key.%s", container.getMasterNetworkName());
+        ISelectionKey key = (ISelectionKey) site.getService(serviceid);
+        if(key==null){//不存在主网络则说明主网络还未建立，那只能关闭
+            CJSystem.logging().error(getClass(),String.format("主网络名输入错误，连接关闭：%s",notExistsNeworkName));
+            ch.close();
+            return;
+        }
         IPipeline masterPipeline = key.pipeline();
         try {
             masterPipeline.error(e, new CircuitException("404", String.format("The Network %s is Not Exists.", notExistsNeworkName)));

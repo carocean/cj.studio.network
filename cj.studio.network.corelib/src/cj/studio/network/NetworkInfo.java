@@ -4,7 +4,9 @@ import io.netty.channel.Channel;
 import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -25,9 +27,12 @@ public class NetworkInfo {
             AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
             UserPrincipal userPrincipal = ch.attr(upKey).get();
             if (userPrincipal == null) continue;
+            AttributeKey<Long> otimekey = AttributeKey.valueOf("Online-Time");
+            long otime = ch.attr(otimekey) == null ? 0 : ch.attr(otimekey).get();
             PeerInfo pi = new PeerInfo();
             pi.setPeer(peerName);
             pi.setUser(userPrincipal.getName());
+            pi.setOnlineTime(new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(otime)));
             pi.setRoles(userPrincipal.roles);
             info.peerInfos.add(pi);
         }

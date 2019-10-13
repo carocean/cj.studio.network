@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Network implements INetwork {
     //    List<Channel> channels;
     Map<String, Channel> channels;//key:peer
-    Map<String, String> userIndex;//key:user,value:peer
+    Map<String, List<String>> userIndex;//key:user,value:peer
     IPeerEvent peerEvent;
     NetworkConfig config;
 
@@ -88,10 +88,16 @@ public class Network implements INetwork {
                 return;
             }
             channels.put(peerName, ch);
+            ch.attr(AttributeKey.valueOf("Online-Time")).set(System.currentTimeMillis());//上线时间
             AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
             UserPrincipal userPrincipal = ch.attr(upKey).get();
             if (userPrincipal != null) {
-                userIndex.put(userPrincipal.getName(), peerName);
+                List<String>peers=userIndex.get(userPrincipal.getName());
+                if(peers==null){
+                    peers=new ArrayList<>();
+                    userIndex.put(userPrincipal.getName(),peers);
+                }
+                peers.add(peerName);
             }
             if (peerEvent != null) {
                 try {
@@ -121,7 +127,13 @@ public class Network implements INetwork {
             AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
             UserPrincipal userPrincipal = ch.attr(upKey).get();
             if (userPrincipal != null) {
-                userIndex.remove(userPrincipal.getName());
+                List<String> peers=userIndex.get(userPrincipal.getName());
+                if(peers!=null){
+                    peers.remove(pnkey.name());
+                }
+                if(peers.isEmpty()) {
+                    userIndex.remove(userPrincipal.getName());
+                }
             }
             if (peerEvent != null) {
                 try {
@@ -233,20 +245,22 @@ public class Network implements INetwork {
     }
 
     private void castToUser(String user, Channel from, NetworkFrame frame) {
-        String peer = userIndex.get(user);
-        if (StringUtil.isEmpty(peer)) {
+        List<String> peers = userIndex.get(user);
+        if (peers==null) {
             return;
         }
-        Channel ch = channels.get(peer);
-        if (ch == null) return;
-        if (!ch.isWritable()) {
-            ch.close();
-            removeChannel(ch);
-            return;
+        for(String peer:peers) {
+            Channel ch = channels.get(peer);
+            if (ch == null) return;
+            if (!ch.isWritable()) {
+                ch.close();
+                removeChannel(ch);
+                return;
+            }
+            String netprotcol = getNetProtocol(ch);
+            Object msg = packFrame(netprotcol, frame.copy());
+            ch.writeAndFlush(msg);
         }
-        String netprotcol = getNetProtocol(ch);
-        Object msg = packFrame(netprotcol, frame.copy());
-        ch.writeAndFlush(msg);
     }
 
 

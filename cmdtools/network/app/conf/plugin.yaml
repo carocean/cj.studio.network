@@ -1,5 +1,5 @@
 #插件开关
-disable-auth: false
+disable-auth: true
 disable-others:
 #将失活的插件名列出下面。插件名指在插件的assembly.json中配置的assemblyTitle
-#  - example
+  - example

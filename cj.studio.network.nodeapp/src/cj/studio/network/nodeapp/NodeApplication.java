@@ -146,7 +146,7 @@ public class NodeApplication implements INodeApplication {
             CJSystem.logging().error(getClass(), "程序集验证失败，原因：未发现INodeApplicationAuthPlugin 的派生实现,请检查入口服务名：$.cj.studio.node.app.plugin");
         } else {
             try {
-                authPlugin.onstart(masterNetworkName, pluginSite);
+                authPlugin.onstart(authDir,masterNetworkName, pluginSite);
                 CJSystem.logging().info(getClass(), String.format("成功装载Auth插件。是否已配置为失活：%s",pluginConfig.isDisableAuth()));
             } catch (Exception e) {
                 CJSystem.logging().error(getClass(), e);

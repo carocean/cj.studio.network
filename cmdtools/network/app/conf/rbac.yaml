@@ -1,5 +1,5 @@
 #是否开启rbac安全控制，默认为false。
-enable: true
+enable: false
 roles:
   - administrators
   - developers

@@ -11,10 +11,11 @@ public interface INodeApplicationAuthPlugin {
     /**
      * 节点应用启动时触发
      *
+     * @param authHomeDir
      * @param masterNetworkName 主网络名
      * @param site              服务站点
      */
-    void onstart(String masterNetworkName, IServiceProvider site);
+    void onstart(String authHomeDir, String masterNetworkName, IServiceProvider site);
 
     /**
      * 根据认证模式创建认证策略，每次请求认证时触发<br>

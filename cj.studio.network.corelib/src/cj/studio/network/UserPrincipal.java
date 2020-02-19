@@ -11,11 +11,11 @@ import java.util.List;
  * 用户主体信息
  */
 public final class UserPrincipal {
-    String name;//用户名
+    String principal;//用户名
     List<String> roles;
 
-    public UserPrincipal(String name) {
-        this.name = name;
+    public UserPrincipal(String principal) {
+        this.principal = principal;
         this.roles = new ArrayList<>();
     }
 
@@ -57,7 +57,7 @@ public final class UserPrincipal {
      * 用户名
      * @return
      */
-    public String getName() {
-        return name;
+    public String principal() {
+        return principal;
     }
 }

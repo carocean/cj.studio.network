@@ -1,7 +1,6 @@
 package cj.studio.network;
 
 import io.netty.channel.Channel;
-import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 
 import java.text.SimpleDateFormat;
@@ -31,7 +30,7 @@ public class NetworkInfo {
             long otime = ch.attr(otimekey) == null ? 0 : ch.attr(otimekey).get();
             PeerInfo pi = new PeerInfo();
             pi.setPeer(peerName);
-            pi.setUser(userPrincipal.getName());
+            pi.setUser(userPrincipal.principal());
             pi.setOnlineTime(new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(otime)));
             pi.setRoles(userPrincipal.roles);
             info.peerInfos.add(pi);

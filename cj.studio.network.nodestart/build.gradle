@@ -50,7 +50,7 @@ task releaseNetworkStart(dependsOn: runnableJar,type: Copy) {
     dependsOn "build"
     from 'build/libs/'
     into '../cmdtools/network'
-    include '**/*.jar'
+    include '**/nodestart-*.jar'
     exclude '**/*-javadoc.jar','**/*-sources.jar'
 }
 

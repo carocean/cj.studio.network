@@ -4832,3 +4832,143 @@ status=802
 2019年09月28日 21:21:36  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
 2019年09月28日 21:21:36  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
 2019年09月28日 21:21:36  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2020年02月20日 02:01:58  信息: cj.studio.network.node.NetworkNodeConfig - 配置的主网络名是：master-network
+2020年02月20日 02:01:58  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2020年02月20日 02:01:58  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2020年02月20日 02:01:58  信息: cj.studio.network.nodeapp.PluginConfig - Auth插件配置为：不可用
+2020年02月20日 02:01:58  信息: cj.studio.network.nodeapp.PluginConfig - 插件：example 已配置为失活
+2020年02月20日 02:01:58  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：none
+2020年02月20日 02:01:58  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2020年02月20日 02:01:58  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2020年02月20日 02:01:58  错误: cj.studio.network.nodeapp.NodeApplication -  异常：java.lang.NumberFormatException: null
+		at java.lang.Integer.parseInt(Integer.java:542)
+		at java.lang.Integer.valueOf(Integer.java:766)
+		at cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin.onstart(NodeAppPlugin.java:33)
+		at cj.studio.network.nodeapp.NodeApplication.scanAuthPluginAndLoad(NodeApplication.java:149)
+		at cj.studio.network.nodeapp.NodeApplication.scanPluginsAndLoad(NodeApplication.java:65)
+		at cj.studio.network.nodeapp.NodeApplication.onstart(NodeApplication.java:59)
+		at cj.studio.network.node.NetworkNodeAppManager.scanAssemblyAndLoad(NetworkNodeAppManager.java:54)
+		at cj.studio.network.node.NetworkNodeAppManager.load(NetworkNodeAppManager.java:23)
+		at cj.studio.network.node.NetworkNode.entrypoint(NetworkNode.java:36)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at cj.studio.ecm.adapter.AdapterInterrupter.invoke(AdapterInterrupter.java:141)
+		at cj.studio.ecm.adapter.IActuator$$EnhancerByCGLIB$$27f4c53f.exeCommand(<generated>:-1)
+		at cj.studio.network.nodestart.Entrypoint.main(Entrypoint.java:74)
+2020年02月20日 02:01:58  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2020年02月20日 02:01:58  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载第三方插件:example，是否已配置为失活:true
+2020年02月20日 02:01:58  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2020年02月20日 02:01:58  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2020年02月20日 02:02:22  信息: cj.studio.network.node.NetworkNodeConfig - 配置的主网络名是：master-network
+2020年02月20日 02:02:22  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2020年02月20日 02:02:23  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2020年02月20日 02:02:23  信息: cj.studio.network.nodeapp.PluginConfig - Auth插件配置为：不可用
+2020年02月20日 02:02:23  信息: cj.studio.network.nodeapp.PluginConfig - 插件：example 已配置为失活
+2020年02月20日 02:02:23  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：none
+2020年02月20日 02:02:23  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2020年02月20日 02:02:23  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2020年02月20日 02:02:42  错误: cj.studio.network.nodeapp.NodeApplication -  异常：java.lang.NumberFormatException: null
+		at java.lang.Integer.parseInt(Integer.java:542)
+		at java.lang.Integer.valueOf(Integer.java:766)
+		at cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin.onstart(NodeAppPlugin.java:33)
+		at cj.studio.network.nodeapp.NodeApplication.scanAuthPluginAndLoad(NodeApplication.java:149)
+		at cj.studio.network.nodeapp.NodeApplication.scanPluginsAndLoad(NodeApplication.java:65)
+		at cj.studio.network.nodeapp.NodeApplication.onstart(NodeApplication.java:59)
+		at cj.studio.network.node.NetworkNodeAppManager.scanAssemblyAndLoad(NetworkNodeAppManager.java:54)
+		at cj.studio.network.node.NetworkNodeAppManager.load(NetworkNodeAppManager.java:23)
+		at cj.studio.network.node.NetworkNode.entrypoint(NetworkNode.java:36)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at cj.studio.ecm.adapter.AdapterInterrupter.invoke(AdapterInterrupter.java:141)
+		at cj.studio.ecm.adapter.IActuator$$EnhancerByCGLIB$$27f4c53f.exeCommand(<generated>:-1)
+		at cj.studio.network.nodestart.Entrypoint.main(Entrypoint.java:74)
+2020年02月20日 02:02:42  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2020年02月20日 02:02:42  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载第三方插件:example，是否已配置为失活:true
+2020年02月20日 02:02:42  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2020年02月20日 02:02:42  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2020年02月20日 02:04:05  信息: cj.studio.network.node.NetworkNodeConfig - 配置的主网络名是：master-network
+2020年02月20日 02:04:05  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2020年02月20日 02:04:06  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2020年02月20日 02:04:06  信息: cj.studio.network.nodeapp.PluginConfig - Auth插件配置为：不可用
+2020年02月20日 02:04:06  信息: cj.studio.network.nodeapp.PluginConfig - 插件：example 已配置为失活
+2020年02月20日 02:04:06  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：none
+2020年02月20日 02:04:06  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2020年02月20日 02:04:06  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2020年02月20日 02:04:06  错误: cj.studio.network.nodeapp.NodeApplication -  异常：java.lang.NumberFormatException: null
+		at java.lang.Integer.parseInt(Integer.java:542)
+		at java.lang.Integer.valueOf(Integer.java:766)
+		at cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin.onstart(NodeAppPlugin.java:33)
+		at cj.studio.network.nodeapp.NodeApplication.scanAuthPluginAndLoad(NodeApplication.java:149)
+		at cj.studio.network.nodeapp.NodeApplication.scanPluginsAndLoad(NodeApplication.java:65)
+		at cj.studio.network.nodeapp.NodeApplication.onstart(NodeApplication.java:59)
+		at cj.studio.network.node.NetworkNodeAppManager.scanAssemblyAndLoad(NetworkNodeAppManager.java:54)
+		at cj.studio.network.node.NetworkNodeAppManager.load(NetworkNodeAppManager.java:23)
+		at cj.studio.network.node.NetworkNode.entrypoint(NetworkNode.java:36)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(NativeMethodAccessorImpl.java:-2)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at cj.studio.ecm.adapter.AdapterInterrupter.invoke(AdapterInterrupter.java:141)
+		at cj.studio.ecm.adapter.IActuator$$EnhancerByCGLIB$$3f3414b4.exeCommand(<generated>:-1)
+		at cj.studio.network.nodestart.Entrypoint.main(Entrypoint.java:74)
+2020年02月20日 02:04:06  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2020年02月20日 02:04:06  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载第三方插件:example，是否已配置为失活:true
+2020年02月20日 02:04:06  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2020年02月20日 02:04:06  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2020年02月20日 02:05:52  信息: cj.studio.network.node.NetworkNodeConfig - 配置的主网络名是：master-network
+2020年02月20日 02:05:52  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2020年02月20日 02:05:52  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.PluginConfig - Auth插件配置为：不可用
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.PluginConfig - 插件：example 已配置为失活
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：none
+2020年02月20日 02:05:52  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2020年02月20日 02:05:52  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载Auth插件。是否已配置为失活：true
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2020年02月20日 02:05:52  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载第三方插件:example，是否已配置为失活:true
+2020年02月20日 02:05:52  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=true
+2020年02月20日 02:05:52  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2020年02月20日 02:11:53  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了1个心跳包.
+2020年02月20日 02:12:03  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了2个心跳包.
+2020年02月20日 02:12:13  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了3个心跳包.
+2020年02月20日 02:12:23  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了4个心跳包.
+2020年02月20日 02:12:33  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了5个心跳包.
+2020年02月20日 02:12:43  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了6个心跳包.
+2020年02月20日 02:12:55  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了1个心跳包.
+2020年02月20日 02:13:05  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了2个心跳包.
+2020年02月20日 02:13:15  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了3个心跳包.
+2020年02月20日 02:13:25  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了4个心跳包.
+2020年02月20日 02:13:40  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了1个心跳包.
+2020年02月20日 02:13:50  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了2个心跳包.
+2020年02月20日 02:14:00  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了3个心跳包.
+2020年02月20日 02:14:10  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了4个心跳包.
+2020年02月20日 02:14:20  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了5个心跳包.
+2020年02月20日 02:14:30  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了6个心跳包.
+2020年02月20日 02:14:40  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了7个心跳包.
+2020年02月20日 02:15:06  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了1个心跳包.
+2020年02月20日 02:15:16  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了2个心跳包.
+2020年02月20日 02:15:26  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了3个心跳包.
+2020年02月20日 02:15:52  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了1个心跳包.
+2020年02月20日 02:16:02  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了2个心跳包.
+2020年02月20日 02:16:43  信息: cj.studio.network.node.NetworkNodeConfig - 配置的主网络名是：master-network
+2020年02月20日 02:16:43  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 开启了心跳，策略：heartbeat=10,overtimes=0
+2020年02月20日 02:16:43  信息: cj.studio.network.node.server.TcpNetworkNodeServer - 服务已启动，地址:tcp://localhost:6600
+2020年02月20日 02:16:43  信息: cj.studio.network.nodeapp.PluginConfig - Auth插件配置为：不可用
+2020年02月20日 02:16:43  信息: cj.studio.network.nodeapp.PluginConfig - 插件：example 已配置为失活
+2020年02月20日 02:16:43  信息: cj.studio.network.nodeapp.subscriber.DefaultCluster - Cluster均衡策略为：none
+2020年02月20日 02:16:44  信息: cj.studio.network.peer.connection.TcpConnection - 连接属性：workThreadCount=0,heartbeat=2,reconnect_times=0,reconnect_interval=5000
+2020年02月20日 02:16:44  错误: cj.studio.network.nodeapp.subscriber.SubscriberContainer - java.net.ConnectException: Connection refused: localhost/127.0.0.1:6601
+2020年02月20日 02:16:44  信息: cj.studio.network.nodeapp.plugin.auth.NodeAppPlugin - 应用插件示例程序:auth 已启动
+2020年02月20日 02:16:44  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载Auth插件。是否已配置为失活：true
+2020年02月20日 02:16:44  信息: cj.studio.network.nodeapp.plugin.example.NodeAppPlugin - 应用插件示例程序:example 已启动
+2020年02月20日 02:16:44  信息: cj.studio.network.nodeapp.NodeApplication - 成功装载第三方插件:example，是否已配置为失活:true
+2020年02月20日 02:16:44  信息: cj.studio.network.node.NetworkNodeAppManager - isEnableRBAC=false
+2020年02月20日 02:16:44  信息: cj.studio.network.node.NetworkNodeAppManager - 节点应用已启动。
+2020年02月20日 02:17:20  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了1个心跳包.
+2020年02月20日 02:17:30  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了2个心跳包.
+2020年02月20日 02:17:40  警告: cj.studio.network.node.server.handler.TcpChannelHandler - 客户端：mypeer，已丢失了3个心跳包.

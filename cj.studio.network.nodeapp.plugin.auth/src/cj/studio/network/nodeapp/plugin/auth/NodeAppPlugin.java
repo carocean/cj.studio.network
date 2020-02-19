@@ -6,7 +6,6 @@ import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceSite;
 import cj.studio.network.*;
-import cj.studio.util.reactor.IPipeline;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 
@@ -20,7 +19,8 @@ public class NodeAppPlugin implements INodeApplicationAuthPlugin {
     private String appid;
     String ucAuthUrl;
     @Override
-    public  void onstart(String masterNetworkName, IServiceProvider site) {
+    public  void onstart(String authHomeDir, String masterNetworkName, IServiceProvider site) {
+
         IChip chip = (IChip) this.site.getService(IChip.class.getName());
         this.appid = chip.site().getProperty("uc.appid");
         this. ucAuthUrl=chip.site().getProperty("uc.auth.url");

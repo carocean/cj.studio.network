@@ -92,10 +92,10 @@ public class Network implements INetwork {
             AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
             UserPrincipal userPrincipal = ch.attr(upKey).get();
             if (userPrincipal != null) {
-                List<String>peers=userIndex.get(userPrincipal.getName());
+                List<String>peers=userIndex.get(userPrincipal.principal());
                 if(peers==null){
                     peers=new ArrayList<>();
-                    userIndex.put(userPrincipal.getName(),peers);
+                    userIndex.put(userPrincipal.principal(),peers);
                 }
                 peers.add(peerName);
             }
@@ -127,12 +127,12 @@ public class Network implements INetwork {
             AttributeKey<UserPrincipal> upKey = AttributeKey.valueOf("Peer-UserPrincipal");
             UserPrincipal userPrincipal = ch.attr(upKey).get();
             if (userPrincipal != null) {
-                List<String> peers=userIndex.get(userPrincipal.getName());
+                List<String> peers=userIndex.get(userPrincipal.principal());
                 if(peers!=null){
                     peers.remove(pnkey.name());
                 }
                 if(peers.isEmpty()) {
-                    userIndex.remove(userPrincipal.getName());
+                    userIndex.remove(userPrincipal.principal());
                 }
             }
             if (peerEvent != null) {

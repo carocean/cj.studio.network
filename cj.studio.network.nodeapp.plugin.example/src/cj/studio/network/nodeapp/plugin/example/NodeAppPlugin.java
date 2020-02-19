@@ -6,9 +6,6 @@ import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceSite;
 import cj.studio.network.*;
-import cj.studio.network.peer.INetworkPeer;
-import cj.studio.network.peer.INetworkPeerContainer;
-import cj.studio.network.peer.IPeer;
 import cj.studio.util.reactor.IPipeline;
 import io.netty.channel.Channel;
 
@@ -35,7 +32,7 @@ public class NodeAppPlugin implements INodeApplicationPlugin {
             return;
         }
         NetworkFrame frame = new NetworkFrame("onactivedNetwork /event gbera/1.0");
-        frame.head("Principal", userPrincipal.getName());
+        frame.head("Principal", userPrincipal.principal());
         frame.head("Network", network.getInfo().getName());
         frame.head("Roles", userPrincipal.toRoles());
         node.send(networkGberaEvent, frame);
@@ -68,7 +65,7 @@ public class NodeAppPlugin implements INodeApplicationPlugin {
         }
         NetworkFrame frame = new NetworkFrame("onlinePeer /event gbera/1.0");
         frame.head("Peer", peerName);
-        frame.head("Principal", userPrincipal.getName());
+        frame.head("Principal", userPrincipal.principal());
         frame.head("Network", network.getInfo().getName());
         frame.head("Roles", userPrincipal.toRoles());
         node.send(networkGberaEvent, frame);
@@ -85,7 +82,7 @@ public class NodeAppPlugin implements INodeApplicationPlugin {
         }
         NetworkFrame frame = new NetworkFrame("offlinePeer /event gbera/1.0");
         frame.head("Peer", peerName);
-        frame.head("Principal", userPrincipal.getName());
+        frame.head("Principal", userPrincipal.principal());
         frame.head("Network", network.getInfo().getName());
         frame.head("Roles", userPrincipal.toRoles());
         node.send(networkGberaEvent, frame);

@@ -1,0 +1,16 @@
+# 连接用户中心配置
+appid: system.netos
+appKey: 995C2A861BE8064A1F8A022B5C0D2E36
+appSecret: 6EA4774EE78DCDF0768CA18ECF3AD1DB
+#以下是okhttp配置
+address:
+  - http://172.31.210.93:9090/uc/auth
+  - http://172.31.210.93:9090/uc/auth
+  - http://172.31.210.93:9090/uc/auth
+properties:
+  readTimeout: 60
+  connectTimeout: 10
+  writeTimeout: 60
+  callTimeout: 60
+  pool.maxIdleConnections: 8
+  pool.keepAliveDuration: 120
